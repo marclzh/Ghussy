@@ -17,11 +17,13 @@ public class PlayerController : MonoBehaviour
     Vector2 movementInput;
     Rigidbody2D rigidBody;
     SpriteRenderer spriteRenderer;
+    Animator animator;
 
     // Start is called before the first frame update
     void Start()
     {
         rigidBody = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
@@ -50,14 +52,21 @@ public class PlayerController : MonoBehaviour
                 {
                     success = TryMove(new Vector2(0, movementInput.y));
                 }
+
+                animator.SetBool("isMoving", success);
+            } else {
+                animator.SetBool("isMoving", false);
             }
 
+            
+
+
             // setting the direction of the sprite to the movement direction\
-            if (movementInput.x > 0)
+            if (movementInput.x < 0)
             {
                 spriteRenderer.flipX = true;
             }
-            else if (movementInput.x < 0)
+            else if (movementInput.x > 0)
             {
                 spriteRenderer.flipX = false;
             }
