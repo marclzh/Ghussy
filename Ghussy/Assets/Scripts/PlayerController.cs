@@ -6,7 +6,7 @@ using UnityEngine.InputSystem;
 public class PlayerController : MonoBehaviour
 {
     // public access modifiers allows us to edit these variables directly in Unity
-    
+
     public float moveSpeed = 1f; // Movement speed of character
     public float collisionOffset = 0.025f; // Distance of collision detection
     public ContactFilter2D movementFilter; // determines where a collision can occur (layers)
@@ -16,17 +16,21 @@ public class PlayerController : MonoBehaviour
     // Player Component References
     Vector2 movementInput;
     Rigidbody2D rigidBody;
+    SpriteRenderer spriteRenderer;
+    Animator animator;
 
     // Start is called before the first frame update
     void Start()
     {
         rigidBody = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     private void FixedUpdate()
@@ -48,11 +52,26 @@ public class PlayerController : MonoBehaviour
                 {
                     success = TryMove(new Vector2(0, movementInput.y));
                 }
+
+                animator.SetBool("isMoving", success);
+            } else {
+                animator.SetBool("isMoving", false);
+            }
+         
+
+            // setting the direction of the sprite to the movement direction\
+            if (movementInput.x < 0)
+            {
+                spriteRenderer.flipX = true;
+            }
+            else if (movementInput.x > 0)
+            {
+                spriteRenderer.flipX = false;
             }
         }
     }
 
-    
+
     private bool TryMove(Vector2 direction)
     {
         if (direction != Vector2.zero) // null check
@@ -65,7 +84,7 @@ public class PlayerController : MonoBehaviour
                 moveSpeed * Time.fixedDeltaTime + collisionOffset); // The amount to cast equal to the movement plus an offset
 
             // If no collision, move in direction and return true, else return false
-            if (count == 0) 
+            if (count == 0)
             {
                 rigidBody.MovePosition(rigidBody.position + direction * moveSpeed * Time.fixedDeltaTime);
                 return true;
@@ -85,6 +104,11 @@ public class PlayerController : MonoBehaviour
     void OnMove(InputValue movementValue)
     {
         movementInput = movementValue.Get<Vector2>();
+    }
+
+    public void OnFire()
+    {
+
     }
 
     public void LockMovement()
