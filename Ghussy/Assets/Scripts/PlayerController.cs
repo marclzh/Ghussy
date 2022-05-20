@@ -10,19 +10,15 @@ public class PlayerController : MonoBehaviour
     public float moveSpeed = 1f; // Movement speed of character
     public float collisionOffset = 0.025f; // Distance of collision detection
     public ContactFilter2D movementFilter; // determines where a collision can occur (layers)
-    public Camera camera;
     List<RaycastHit2D> castCollisions = new List<RaycastHit2D>(); // List of collisions found during raycast 
     bool canMove = true; // Allows us to ensure that the player cannot move while attacking
 
 
     // Player Component References
     Vector2 movementInput;
-    Vector2 mousePos;
     Rigidbody2D rigidBody;
     SpriteRenderer spriteRenderer;
     Animator animator;
-
-
 
     // Start is called before the first frame update
     void Start()
@@ -35,7 +31,7 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        mousePos = camera.ScreenToWorldPoint(Mouse.current.position.ReadValue()); // retrieve current mouse position
+        
     }
 
     private void FixedUpdate()
@@ -75,9 +71,7 @@ public class PlayerController : MonoBehaviour
                 spriteRenderer.flipX = false;
             }
 
-            Vector2 directionPlayerIsLooking = mousePos - rigidBody.position;
-            float angle = Mathf.Atan2(directionPlayerIsLooking.y, directionPlayerIsLooking.x) * Mathf.Rad2Deg - 90f;
-            rigidBody.rotation = angle;
+            
         }
     }
 
