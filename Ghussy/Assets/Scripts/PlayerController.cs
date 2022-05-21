@@ -16,9 +16,41 @@ public class PlayerController : MonoBehaviour
 
     // Player Component References
     Vector2 movementInput;
+    bool isFiring;
     Rigidbody2D rigidBody;
     SpriteRenderer spriteRenderer;
     Animator animator;
+
+    // Player Input Actions
+    private PlayerInputActions playerControls;
+    private InputAction move;
+    private InputAction fire;
+
+    private void OnEnable()
+    {
+        // Enable Move Action Map
+        move = playerControls.Player.Move;
+        move.Enable();
+
+        // Enable Fire Action Map
+        fire = playerControls.Player.Fire;
+        fire.started += StartFiring; // Executes when fire button is pressed
+        fire.canceled += StopFiring; // Executes when fire button is released
+        fire.Enable();
+        
+    }
+
+    private void OnDisable()
+    {
+        move.Disable();
+        fire.Disable();
+    }
+
+
+    private void Awake()
+    {
+        playerControls = new PlayerInputActions();  
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -35,6 +67,20 @@ public class PlayerController : MonoBehaviour
     }
 
     private void FixedUpdate()
+    {
+        Movement();
+        
+        if (isFiring)
+        {
+            animator.SetBool("isFiring", true);
+        }
+        else
+        {
+            animator.SetBool("isFiring", false);
+        }
+    }
+
+    private void Movement()
     {
         // Movement Check
         if (canMove)
@@ -56,10 +102,12 @@ public class PlayerController : MonoBehaviour
                 }
 
                 animator.SetBool("isMoving", success);
-            } else {
+            }
+            else
+            {
                 animator.SetBool("isMoving", false);
             }
-         
+
 
             // setting the direction of the sprite to the movement direction
             if (movementInput.x < 0)
@@ -71,7 +119,7 @@ public class PlayerController : MonoBehaviour
                 spriteRenderer.flipX = false;
             }
 
-            
+
         }
     }
 
@@ -110,9 +158,16 @@ public class PlayerController : MonoBehaviour
         movementInput = movementValue.Get<Vector2>();
     }
 
-    public void OnFire()
+    private void StartFiring(InputAction.CallbackContext context)
     {
+        isFiring = true;
+        Debug.Log("Weapon Firing");
+    }
 
+    private void StopFiring(InputAction.CallbackContext context)
+    {
+        isFiring = false;
+        Debug.Log("Weapon Stopped Firing");
     }
 
     public void LockMovement()

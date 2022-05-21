@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 2f186d627fc85214e930444abff8e0b2
+guid: 59f3cd9ce4569514a958f3a8dd7cbc6e
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -104,7 +104,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: ghussy_sprite_sheet_0
+      name: EctoGear1_Firing_0
       rect:
         serializedVersion: 2
         x: 0
@@ -118,14 +118,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8b9860d1db3b4264db19fa8cbf08582a
-      internalID: 1319632407
+      spriteID: b407b9e0f5ec9d84b95c35e1c25b6991
+      internalID: -2136108445
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ghussy_sprite_sheet_1
+      name: EctoGear1_Firing_1
       rect:
         serializedVersion: 2
         x: 32
@@ -139,14 +139,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e78248839e97094429c94d447dd2a2a0
-      internalID: 1643843914
+      spriteID: be58c692466f3b940b4a934ba8c01f82
+      internalID: 1638113465
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ghussy_sprite_sheet_2
+      name: EctoGear1_Firing_2
       rect:
         serializedVersion: 2
         x: 64
@@ -160,35 +160,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 75e6cb3f675ae48458227a82c720b1e9
-      internalID: -1005110608
+      spriteID: ad8a880856878f945a35bf47129c5dec
+      internalID: 1515273591
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ghussy_sprite_sheet_3
-      rect:
-        serializedVersion: 2
-        x: 96
-        y: 64
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 5628aa649b65edb40aaa7f2ee41e5266
-      internalID: -478302218
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ghussy_sprite_sheet_4
+      name: EctoGear1_Firing_3
       rect:
         serializedVersion: 2
         x: 0
@@ -202,14 +181,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 59588b795dd7be749ab741d923329c59
-      internalID: 175729675
+      spriteID: 99376bbfbdba6dc4eb491d867c077e55
+      internalID: -1709061729
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ghussy_sprite_sheet_5
+      name: EctoGear1_Firing_4
       rect:
         serializedVersion: 2
         x: 32
@@ -223,14 +202,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2c33f70328094914c86f9028ccf704f6
-      internalID: 2100416680
+      spriteID: 4e261492b006e33428ae7bafc49d028c
+      internalID: 224228369
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ghussy_sprite_sheet_6
+      name: EctoGear1_Firing_5
       rect:
         serializedVersion: 2
         x: 64
@@ -244,35 +223,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: af3ace300fe8628479dd08788e3f1ff5
-      internalID: -502306047
+      spriteID: 98a499047b4357a408efbb937d244a67
+      internalID: 605421893
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ghussy_sprite_sheet_7
-      rect:
-        serializedVersion: 2
-        x: 96
-        y: 32
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 243355c0c4dba214f904d1ee4ded17de
-      internalID: -11805479
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ghussy_sprite_sheet_8
+      name: EctoGear1_Firing_6
       rect:
         serializedVersion: 2
         x: 0
@@ -286,71 +244,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 69affa8da6c4e1c4888c8774f7fabd59
-      internalID: -1783033213
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ghussy_sprite_sheet_9
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 8562c440d7e1ec1498cc971d5bb11cd9
-      internalID: 1826589981
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ghussy_sprite_sheet_10
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ca19cafe5e4068f45898e3eda5037d90
-      internalID: 107335386
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ghussy_sprite_sheet_11
-      rect:
-        serializedVersion: 2
-        x: 96
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 42e52617739bf64408a51544d41d0267
-      internalID: 878761494
+      spriteID: 2bb9a7591bcbbda43a9d935cf857661b
+      internalID: -1914072541
       vertices: []
       indices: 
       edges: []
@@ -366,18 +261,13 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      ghussy_sprite_sheet_8: -1783033213
-      ghussy_sprite_sheet_2: -1005110608
-      ghussy_sprite_sheet_3: -478302218
-      ghussy_sprite_sheet_4: 175729675
-      ghussy_sprite_sheet_11: 878761494
-      ghussy_sprite_sheet_1: 1643843914
-      ghussy_sprite_sheet_5: 2100416680
-      ghussy_sprite_sheet_6: -502306047
-      ghussy_sprite_sheet_10: 107335386
-      ghussy_sprite_sheet_0: 1319632407
-      ghussy_sprite_sheet_7: -11805479
-      ghussy_sprite_sheet_9: 1826589981
+      EctoGear1_Firing_2: 1515273591
+      EctoGear1_Firing_4: 224228369
+      EctoGear1_Firing_0: -2136108445
+      EctoGear1_Firing_6: -1914072541
+      EctoGear1_Firing_5: 605421893
+      EctoGear1_Firing_1: 1638113465
+      EctoGear1_Firing_3: -1709061729
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
