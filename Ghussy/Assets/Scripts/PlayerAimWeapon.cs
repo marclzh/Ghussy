@@ -7,13 +7,17 @@ using UnityEngine.InputSystem;
 public class PlayerAimWeapon : MonoBehaviour
 {
     public Transform player;
+    public Transform firePoint;
     public float offSetDistance;
     public float mouseOffSet;
+    public float bulletForce;
+    public GameObject bulletPrefab;
     SpriteRenderer spriteRenderer;
     Rigidbody2D rigidBody;
-    Vector2 mousePos;
     Animator animator;
+    Vector2 mousePos;
     bool isFiring;
+
 
     // Player Input Actions
     private EctoGearInputActions Controls;
@@ -63,15 +67,8 @@ public class PlayerAimWeapon : MonoBehaviour
     void FixedUpdate()
     {
         HandleAiming();
-
-        if (isFiring)
-        {
-            animator.SetBool("isFiring", true);
-        }
-        else
-        {
-            animator.SetBool("isFiring", false);
-        }
+        HandleShooting();
+       
     }
 
     void HandleAiming()
@@ -104,8 +101,15 @@ public class PlayerAimWeapon : MonoBehaviour
 
     void HandleShooting()
     {
-        Debug.Log("Current" + isFiring);
+        // Bullet Instantiation
+        if (isFiring)
+        {
+            GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+            Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
+            rb.AddForce(firePoint.up * bulletForce, ForceMode2D.Impulse);
+        }
 
+        // Animation Queue
         if (isFiring)
         {
             animator.SetBool("isFiring", true);
@@ -121,12 +125,10 @@ public class PlayerAimWeapon : MonoBehaviour
     private void StartFiring(InputAction.CallbackContext obj)
     {
         isFiring = true;
-        Debug.Log("EG fire");
     }
 
     private void StopFiring(InputAction.CallbackContext obj)
     {
         isFiring = false;  
-        Debug.Log("EG stop fire");
     }
 }
