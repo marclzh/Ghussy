@@ -3737,6 +3737,10 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 1966398147432362615}
+    - target: {fileID: 6553963645024529815, guid: aa54c1dc9bf475c4681e84c0d7648c88, type: 3}
+      propertyPath: fireRate
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 7277383862160774354, guid: aa54c1dc9bf475c4681e84c0d7648c88, type: 3}
       propertyPath: m_Name
       value: EctoGear1
