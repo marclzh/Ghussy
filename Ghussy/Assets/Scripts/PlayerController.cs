@@ -5,19 +5,52 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
-    // public access modifiers allows us to edit these variables directly in Unity
+    // Player Component References
+    Vector2 movementInput;
+    Rigidbody2D rigidBody;
+    SpriteRenderer spriteRenderer;
+    Animator animator;
 
+    // Player Input Actions
+    private PlayerInputActions playerControls;
+    private InputAction move;
+    private InputAction fire;
+
+    // Movement Fields
     public float moveSpeed = 1f; // Movement speed of character
     public float collisionOffset = 0.025f; // Distance of collision detection
     public ContactFilter2D movementFilter; // determines where a collision can occur (layers)
     List<RaycastHit2D> castCollisions = new List<RaycastHit2D>(); // List of collisions found during raycast 
     bool canMove = true; // Allows us to ensure that the player cannot move while attacking
 
-    // Player Component References
-    Vector2 movementInput;
-    Rigidbody2D rigidBody;
-    SpriteRenderer spriteRenderer;
-    Animator animator;
+    // Weapon Firing Fields
+    bool isFiring; 
+    public PlayerAimWeapon weapon; // Reference to current weapon 
+
+    private void OnEnable()
+    {
+        // Enable Move Action Map
+        move = playerControls.Player.Move;
+        move.Enable();
+
+        // Enable Fire Action Map
+        fire = playerControls.Player.Fire;
+        fire.started += StartFiring; // Executes when fire button is pressed
+        fire.canceled += StopFiring; // Executes when fire button is released
+        fire.Enable();
+        
+    }
+
+    private void OnDisable()
+    {
+        move.Disable();
+        fire.Disable();
+    }
+
+    private void Awake()
+    {
+        playerControls = new PlayerInputActions();  
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -27,20 +60,40 @@ public class PlayerController : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void FixedUpdate()
     {
+        Movement();
+        Fire();
+    }
+
+    // Checks if player is currently firing, if true, call weapon's shoot method.
+    // This method also handles animator logic for the player
+    private void Fire()
+    {
+        if (isFiring)
+        {
+            weapon.HandleShooting(true);
+            animator.SetBool("isFiring", true);
+        }
+        else
+        {
+            weapon.HandleShooting(false);
+            animator.SetBool("isFiring", false);
+        }
 
     }
 
-    private void FixedUpdate()
+    // Function that handles player movement
+    // If player is able to move, perform collision check, and move player accordingly.
+    // This function also handles player animation.
+    private void Movement()
     {
+        // Check if player can move (ie. movement locked)
         if (canMove)
         {
             // If movement input is not 0, try to move
             if (movementInput != Vector2.zero)
             {
-
                 bool success = TryMove(movementInput);
 
                 if (!success)
@@ -54,12 +107,14 @@ public class PlayerController : MonoBehaviour
                 }
 
                 animator.SetBool("isMoving", success);
-            } else {
+            }
+            else
+            {
                 animator.SetBool("isMoving", false);
             }
-         
 
-            // setting the direction of the sprite to the movement direction\
+
+            // setting the direction of the sprite to the movement direction
             if (movementInput.x < 0)
             {
                 spriteRenderer.flipX = true;
@@ -68,9 +123,9 @@ public class PlayerController : MonoBehaviour
             {
                 spriteRenderer.flipX = false;
             }
+
         }
     }
-
 
     private bool TryMove(Vector2 direction)
     {
@@ -106,16 +161,25 @@ public class PlayerController : MonoBehaviour
         movementInput = movementValue.Get<Vector2>();
     }
 
-    public void OnFire()
+    private void StartFiring(InputAction.CallbackContext context)
     {
-
+        isFiring = true;
+        Debug.Log("Weapon Firing");
     }
 
+    private void StopFiring(InputAction.CallbackContext context)
+    {
+        isFiring = false;
+        Debug.Log("Weapon Stopped Firing");
+    }
+
+    // Locks player movement
     public void LockMovement()
     {
         canMove = false;
     }
 
+    // Unlocks player movement.
     public void UnlockMovement()
     {
         canMove = true;

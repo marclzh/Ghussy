@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 5bfaeb3dae2a8654b8e60a1efdca138e
+guid: 2f186d627fc85214e930444abff8e0b2
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -108,7 +108,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 64
+        y: 96
         width: 32
         height: 32
       alignment: 0
@@ -118,8 +118,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ad886399e7e3a2e4c98ef7337c79fb7c
-      internalID: -171776601
+      spriteID: 8b9860d1db3b4264db19fa8cbf08582a
+      internalID: 1319632407
       vertices: []
       indices: 
       edges: []
@@ -129,7 +129,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 32
-        y: 64
+        y: 96
         width: 32
         height: 32
       alignment: 0
@@ -139,8 +139,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cd8bfa878f2e6b5449b3d53583c7561d
-      internalID: -877211608
+      spriteID: e78248839e97094429c94d447dd2a2a0
+      internalID: 1643843914
       vertices: []
       indices: 
       edges: []
@@ -150,7 +150,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 64
-        y: 64
+        y: 96
         width: 32
         height: 32
       alignment: 0
@@ -160,8 +160,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 17d8a67c68f444c4d879eb2f696201e1
-      internalID: -2079790756
+      spriteID: 75e6cb3f675ae48458227a82c720b1e9
+      internalID: -1005110608
       vertices: []
       indices: 
       edges: []
@@ -171,6 +171,27 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 96
+        y: 96
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5628aa649b65edb40aaa7f2ee41e5266
+      internalID: -478302218
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ghussy_sprite_sheet_4
+      rect:
+        serializedVersion: 2
+        x: 0
         y: 64
         width: 32
         height: 32
@@ -181,29 +202,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 696778e6d605a7e4babb321e2168525f
-      internalID: 1433497438
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ghussy_sprite_sheet_4
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 32
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 7ea8fb3ae95d4234e8ca4fa9947724d0
-      internalID: -641882262
+      spriteID: 59588b795dd7be749ab741d923329c59
+      internalID: 175729675
       vertices: []
       indices: 
       edges: []
@@ -213,6 +213,69 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 32
+        y: 64
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2c33f70328094914c86f9028ccf704f6
+      internalID: 2100416680
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ghussy_sprite_sheet_6
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 64
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: af3ace300fe8628479dd08788e3f1ff5
+      internalID: -502306047
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ghussy_sprite_sheet_7
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 64
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 243355c0c4dba214f904d1ee4ded17de
+      internalID: -11805479
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ghussy_sprite_sheet_8
+      rect:
+        serializedVersion: 2
+        x: 0
         y: 32
         width: 32
         height: 32
@@ -223,14 +286,35 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a5d0143ad30f26643a94af25c32e6357
-      internalID: 2066940
+      spriteID: 69affa8da6c4e1c4888c8774f7fabd59
+      internalID: -1783033213
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ghussy_sprite_sheet_6
+      name: ghussy_sprite_sheet_9
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8562c440d7e1ec1498cc971d5bb11cd9
+      internalID: 1826589981
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ghussy_sprite_sheet_10
       rect:
         serializedVersion: 2
         x: 64
@@ -244,14 +328,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 00164d792b0ba6f4b90114647db0602e
-      internalID: 253989386
+      spriteID: ca19cafe5e4068f45898e3eda5037d90
+      internalID: 107335386
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ghussy_sprite_sheet_7
+      name: ghussy_sprite_sheet_11
       rect:
         serializedVersion: 2
         x: 96
@@ -265,14 +349,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d1f592cc35b178f4f92ae116b78adc79
-      internalID: 1321331682
+      spriteID: 42e52617739bf64408a51544d41d0267
+      internalID: 878761494
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ghussy_sprite_sheet_8
+      name: ghussy_sprite_sheet_12
       rect:
         serializedVersion: 2
         x: 0
@@ -286,14 +370,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0c2ec7ea9a536a24ab6196c9293322c6
-      internalID: 493304241
+      spriteID: ee5835545e227714b8a134df6c8f68f1
+      internalID: -435502998
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ghussy_sprite_sheet_9
+      name: ghussy_sprite_sheet_13
       rect:
         serializedVersion: 2
         x: 32
@@ -307,14 +391,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 935ae803659067947902a1bc760940bf
-      internalID: 2000931303
+      spriteID: 8ebd2ec1934ab054a8866bb3acee33ee
+      internalID: 1223761537
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ghussy_sprite_sheet_10
+      name: ghussy_sprite_sheet_14
       rect:
         serializedVersion: 2
         x: 64
@@ -328,29 +412,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8354f622aa1d0104d926c837d9da3a07
-      internalID: -1424072842
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ghussy_sprite_sheet_11
-      rect:
-        serializedVersion: 2
-        x: 96
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a6256142f6fb8594c9daf3d0c7ffea6f
-      internalID: -1771824179
+      spriteID: 95480c8ab15cd60498babe8fac2a130e
+      internalID: 1020823433
       vertices: []
       indices: 
       edges: []
@@ -366,18 +429,21 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      ghussy_sprite_sheet_8: 493304241
-      ghussy_sprite_sheet_2: -2079790756
-      ghussy_sprite_sheet_3: 1433497438
-      ghussy_sprite_sheet_4: -641882262
-      ghussy_sprite_sheet_11: -1771824179
-      ghussy_sprite_sheet_1: -877211608
-      ghussy_sprite_sheet_5: 2066940
-      ghussy_sprite_sheet_6: 253989386
-      ghussy_sprite_sheet_10: -1424072842
-      ghussy_sprite_sheet_0: -171776601
-      ghussy_sprite_sheet_7: 1321331682
-      ghussy_sprite_sheet_9: 2000931303
+      ghussy_sprite_sheet_8: -1783033213
+      ghussy_sprite_sheet_2: -1005110608
+      ghussy_sprite_sheet_3: -478302218
+      ghussy_sprite_sheet_4: 175729675
+      ghussy_sprite_sheet_13: 1223761537
+      ghussy_sprite_sheet_11: 878761494
+      ghussy_sprite_sheet_1: 1643843914
+      ghussy_sprite_sheet_5: 2100416680
+      ghussy_sprite_sheet_6: -502306047
+      ghussy_sprite_sheet_10: 107335386
+      ghussy_sprite_sheet_14: 1020823433
+      ghussy_sprite_sheet_12: -435502998
+      ghussy_sprite_sheet_0: 1319632407
+      ghussy_sprite_sheet_7: -11805479
+      ghussy_sprite_sheet_9: 1826589981
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
