@@ -5,18 +5,8 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
-    // public access modifiers allows us to edit these variables directly in Unity
-
-    public float moveSpeed = 1f; // Movement speed of character
-    public float collisionOffset = 0.025f; // Distance of collision detection
-    public ContactFilter2D movementFilter; // determines where a collision can occur (layers)
-    List<RaycastHit2D> castCollisions = new List<RaycastHit2D>(); // List of collisions found during raycast 
-    bool canMove = true; // Allows us to ensure that the player cannot move while attacking
-
-
     // Player Component References
     Vector2 movementInput;
-    bool isFiring;
     Rigidbody2D rigidBody;
     SpriteRenderer spriteRenderer;
     Animator animator;
@@ -25,6 +15,17 @@ public class PlayerController : MonoBehaviour
     private PlayerInputActions playerControls;
     private InputAction move;
     private InputAction fire;
+
+    // Movement Fields
+    public float moveSpeed = 1f; // Movement speed of character
+    public float collisionOffset = 0.025f; // Distance of collision detection
+    public ContactFilter2D movementFilter; // determines where a collision can occur (layers)
+    List<RaycastHit2D> castCollisions = new List<RaycastHit2D>(); // List of collisions found during raycast 
+    bool canMove = true; // Allows us to ensure that the player cannot move while attacking
+
+    // Weapon Firing Fields
+    bool isFiring; 
+    public PlayerAimWeapon weapon; // Reference to current weapon 
 
     private void OnEnable()
     {
@@ -46,7 +47,6 @@ public class PlayerController : MonoBehaviour
         fire.Disable();
     }
 
-
     private void Awake()
     {
         playerControls = new PlayerInputActions();  
@@ -60,35 +60,40 @@ public class PlayerController : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     private void FixedUpdate()
     {
         Movement();
-        
+        Fire();
+    }
+
+    // Checks if player is currently firing, if true, call weapon's shoot method.
+    // This method also handles animator logic for the player
+    private void Fire()
+    {
         if (isFiring)
         {
+            weapon.HandleShooting(true);
             animator.SetBool("isFiring", true);
         }
         else
         {
+            weapon.HandleShooting(false);
             animator.SetBool("isFiring", false);
         }
+
     }
 
+    // Function that handles player movement
+    // If player is able to move, perform collision check, and move player accordingly.
+    // This function also handles player animation.
     private void Movement()
     {
-        // Movement Check
+        // Check if player can move (ie. movement locked)
         if (canMove)
         {
             // If movement input is not 0, try to move
             if (movementInput != Vector2.zero)
             {
-
                 bool success = TryMove(movementInput);
 
                 if (!success)
@@ -119,10 +124,8 @@ public class PlayerController : MonoBehaviour
                 spriteRenderer.flipX = false;
             }
 
-
         }
     }
-
 
     private bool TryMove(Vector2 direction)
     {
@@ -170,11 +173,13 @@ public class PlayerController : MonoBehaviour
         Debug.Log("Weapon Stopped Firing");
     }
 
+    // Locks player movement
     public void LockMovement()
     {
         canMove = false;
     }
 
+    // Unlocks player movement.
     public void UnlockMovement()
     {
         canMove = true;
