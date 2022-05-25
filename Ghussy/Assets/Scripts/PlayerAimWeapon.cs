@@ -11,7 +11,7 @@ public class PlayerAimWeapon : MonoBehaviour
     public Transform firePoint; // Gameobject representing firepoint of weapon
     SpriteRenderer spriteRenderer;
     Rigidbody2D rigidBody;
-    Animator animator;
+    Animator animator;  
 
     // Player Input Actions (CONSIDER REMOVING THIS OR REPURPOSING FOR OTHER MEANS)
     private EctoGearInputActions Controls;
@@ -78,11 +78,10 @@ public class PlayerAimWeapon : MonoBehaviour
     // Function allows the weapon to rotate according to current mouse position
     void HandleAiming()
     {
-         // TO BE IMPLEMENTED : THRESHOLD CODE
-         // if (Mathf.Abs(mousePos.x - player.position.x) >= mouseOffSet && Mathf.Abs(mousePos.y - player.position.y) >= mouseOffSet)
+        Vector2 playerpos2d = new Vector2(player.position.x, player.position.y);
         
             // Rotates weapon
-            Vector3 directionPlayerIsLooking = mousePos - rigidBody.position;
+            Vector3 directionPlayerIsLooking = mousePos - playerpos2d;
             float angle = Mathf.Atan2(directionPlayerIsLooking.y, directionPlayerIsLooking.x) * Mathf.Rad2Deg;
             rigidBody.rotation = angle;
             rigidBody.position = player.position + (offSetDistance * directionPlayerIsLooking.normalized);
@@ -96,18 +95,21 @@ public class PlayerAimWeapon : MonoBehaviour
             {
                 spriteRenderer.flipY = false;
             }
+        
 
     }
     
     public void HandleShooting(bool weaponFired)
     {
+        Vector2 playerpos2d = new Vector2(player.position.x, player.position.y);
+
         // Bullet Instantiation
         if (weaponFired && withinFireRate())
         {
             GameObject projectile = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
             Rigidbody2D rb = projectile.GetComponent<Rigidbody2D>();
-            Vector2 shootingDirection = new Vector2(mousePos.x, mousePos.y) - rb.position;
-            rb.velocity += bulletSpeed * Time.deltaTime * shootingDirection;
+            Vector2 shootingDirection = new Vector2(mousePos.x, mousePos.y) - playerpos2d;
+            rb.velocity += bulletSpeed * Time.deltaTime * shootingDirection.normalized;
            
             // Handle weapon shooting animation
             animator.SetBool("isFiring", true);

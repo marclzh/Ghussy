@@ -9,9 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 615712847}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: FirePoint
-  m_TagString: Untagged
+  m_TagString: Weapon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -45,9 +45,9 @@ GameObject:
   - component: {fileID: 7277383862160774376}
   - component: {fileID: 1367942334005813075}
   - component: {fileID: 6553963645024529815}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: EctoGear1
-  m_TagString: Untagged
+  m_TagString: Weapon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
