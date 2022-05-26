@@ -14,26 +14,13 @@ public class BulletController : MonoBehaviour
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.tag == "CollisionObjects")
+    { 
+        if (collision.gameObject.TryGetComponent<EnemyAI>(out EnemyAI enemyComponent) )
         {
-            Debug.Log("Collided w/ CollisionObj");
-            animator.SetBool("isCollided", true);
+            enemyComponent.TakeDamage(10);
+            
         }
 
-        if (collision.gameObject.tag == "Enemy")
-        {
-            Debug.Log("Collided w/ Enemy");
-            animator.SetBool("isCollided", true);
-        }
-
-        if (collision.gameObject.tag == "Player")
-        {
-            Debug.Log("Collided w/ Player");
-            animator.SetBool("isCollided", true);
-        }
-
-       
-
+        animator.SetBool("isCollided", true);
     }
 }

@@ -17,6 +17,10 @@ public class EnemyAI: MonoBehaviour
     public float attackRadius;
     public bool shouldRotate;
     public Vector3 dir;
+    public int maxHealth = 100;
+    public int currentHealth;
+
+    public HealthBar healthBar;
 
     // Attacking Variables
     private bool isInChaseRange;
@@ -34,11 +38,13 @@ public class EnemyAI: MonoBehaviour
         animator = gameObject.GetComponent<Animator>();
         // Initializing target for enemy as the player
         target = GameObject.FindWithTag("Player").transform;
+        currentHealth = maxHealth;
+        healthBar.SetMaxHealth(maxHealth);
     }
 
     void Update()
     {
-        animator.SetBool("isMoving", isInChaseRange);
+        
 
         isInChaseRange = Physics2D.OverlapCircle(transform.position, checkRadius, whatIsPlayer);
         isInAttackRange = Physics2D.OverlapCircle(transform.position, attackRadius, whatIsPlayer);
@@ -54,6 +60,7 @@ public class EnemyAI: MonoBehaviour
     {
         if (isInChaseRange && !isInAttackRange)
         {
+            animator.SetBool("isMoving", isInChaseRange);
             MoveCharacter(movement);
         }
 
@@ -74,5 +81,17 @@ public class EnemyAI: MonoBehaviour
             spriteRenderer.flipX = false;
         }
         rigidBody.MovePosition((Vector2)transform.position + (dir * speed * Time.deltaTime));
+    }
+
+    public void TakeDamage(int damage)
+    {
+        currentHealth -= damage;
+
+        healthBar.SetHealth(currentHealth);
+
+        if (currentHealth <= 0)
+        {
+            animator.SetBool("isDead", true);
+        }     
     }
 }
