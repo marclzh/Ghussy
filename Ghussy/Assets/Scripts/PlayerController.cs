@@ -115,13 +115,31 @@ public class PlayerController : MonoBehaviour
 
 
             // setting the direction of the sprite to the movement direction
-            if (movementInput.x < 0)
+            if (movementInput.x < 0 )
             {
                 spriteRenderer.flipX = true;
+
+                // when player is firing, if facing left, and weapon is right of player, flip player.
+                if (isFiring)
+                {
+                    if (weapon.transform.position.x > transform.position.x)
+                    {
+                        spriteRenderer.flipX = false;
+                    }
+                }
             }
             else if (movementInput.x > 0)
             {
                 spriteRenderer.flipX = false;
+
+                // same as above, just opposite
+                if (isFiring)
+                {
+                    if (weapon.transform.position.x < transform.position.x)
+                    {
+                        spriteRenderer.flipX = true;
+                    }
+                }
             }
 
         }
