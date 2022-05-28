@@ -1,0 +1,40 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class BulletController : MonoBehaviour
+{
+    public Rigidbody2D rb;
+    Animator animator;
+
+
+    private void Awake()
+    {
+        rb = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
+    }
+
+    void Start()
+    {
+      
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        Debug.Log(collision);
+        Debug.Log(collision.gameObject);
+        Debug.Log(collision.gameObject.GetComponent<EnemyAI>());
+       
+        if (collision.gameObject.TryGetComponent<EnemyAI>(out EnemyAI enemyComponent) )
+        {
+            enemyComponent.OnHit(20);
+            
+        }
+
+        Debug.Log(animator);
+
+        animator.SetBool("isCollided", true);
+    }
+
+
+}
