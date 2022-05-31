@@ -25,7 +25,8 @@ public class PlayerController : MonoBehaviour
 
     // Weapon Firing Fields
     bool isFiring; 
-    public PlayerWeapon weapon; // Reference to current weapon 
+    public PlayerWeapon weapon;
+    public Transform ectoGear; // Reference to current weapon 
 
     // Animation Fields
     [SerializeField] private PlayerAnimator playerAnimator;
@@ -60,6 +61,7 @@ public class PlayerController : MonoBehaviour
         rigidBody = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
+        weapon = GetComponent<PlayerWeapon>();
     }
 
     private void FixedUpdate()
@@ -111,14 +113,13 @@ public class PlayerController : MonoBehaviour
                 }
 
                 playerAnimator.IsPlayerMoving(true);
-                //animator.SetBool("isMoving", success);
+                
             }
             else
             {
                 playerAnimator.IsPlayerMoving(false);
                 //animator.SetBool("isMoving", false);
             }
-
 
             // setting the direction of the sprite to the movement direction
             if (movementInput.x < 0)
@@ -128,7 +129,7 @@ public class PlayerController : MonoBehaviour
                 // when player is firing, if facing left, and weapon is right of player, flip player.
                 if (isFiring)
                 {
-                    if (weapon.transform.position.x > transform.position.x)
+                    if (ectoGear.position.x > transform.position.x)
                     {
                         spriteRenderer.flipX = false;
                     }
@@ -141,13 +142,12 @@ public class PlayerController : MonoBehaviour
                 // same as above, just opposite
                 if (isFiring)
                 {
-                    if (weapon.transform.position.x < transform.position.x)
+                    if (ectoGear.position.x < transform.position.x)
                     {
                         spriteRenderer.flipX = true;
                     }
                 }
             }
-
         }
     }
 
@@ -188,13 +188,11 @@ public class PlayerController : MonoBehaviour
     private void StartFiring(InputAction.CallbackContext context)
     {
         isFiring = true;
-        Debug.Log("Weapon Firing");
     }
 
     private void StopFiring(InputAction.CallbackContext context)
     {
         isFiring = false;
-        Debug.Log("Weapon Stopped Firing");
     }
 
     // Locks player movement
