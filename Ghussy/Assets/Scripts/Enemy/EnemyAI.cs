@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyAI: MonoBehaviour
+public class EnemyAI : MonoBehaviour
 
 {
     // Enemy References
@@ -18,6 +18,10 @@ public class EnemyAI: MonoBehaviour
     public float attackRadius;
     public bool shouldRotate;
     public Vector3 dir;
+    private Vector3 startingPosition;
+    private Vector3 roamPosition;
+    public float reachedPos;
+
 
     // Attacking Variables
     private bool isInChaseRange;
@@ -26,7 +30,7 @@ public class EnemyAI: MonoBehaviour
     // Player References
     public LayerMask whatIsPlayer;
     private Transform target;
-    
+
 
     void Start()
     {
@@ -35,6 +39,9 @@ public class EnemyAI: MonoBehaviour
         animator = gameObject.GetComponent<Animator>();
         // Initializing target for enemy as the player
         target = GameObject.FindWithTag("Player").transform;
+        // Patrol var
+        startingPosition = transform.position;
+        roamPosition = GetRoamingPosition();
     }
 
     void Update()
@@ -50,7 +57,21 @@ public class EnemyAI: MonoBehaviour
     }
 
     private void FixedUpdate()
-    {
+    { 
+        /*
+        if (!isInChaseRange && !isInAttackRange)
+        {
+            animator.SetBool("isMoving", true);
+            MoveCharacter(roamPosition);
+            if (Vector3.Distance(transform.position, roamPosition) < reachedPos)
+            {
+                // reached pos
+                roamPosition = GetRoamingPosition();
+            }
+        }
+        */
+        
+
         if (isInChaseRange && !isInAttackRange)
         {
             animator.SetBool("isMoving", isInChaseRange);
@@ -73,11 +94,17 @@ public class EnemyAI: MonoBehaviour
         {
             spriteRenderer.flipX = true;
         }
-        else 
+        else
         {
             spriteRenderer.flipX = false;
         }
         rigidBody.MovePosition((Vector2)transform.position + (dir * speed * Time.deltaTime));
+    }
+
+    private Vector3 GetRoamingPosition()
+    {
+        Vector3 randDir =  new Vector3(UnityEngine.Random.Range(-1f, 1f), UnityEngine.Random.Range(-1f, 1f)).normalized;
+        return startingPosition + randDir * Random.Range(0.5f, 0.5f);
     }
 
     public void OnHit(float damage)

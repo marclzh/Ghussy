@@ -6,9 +6,10 @@ public class PlayerAnimator : MonoBehaviour
 {
     [SerializeField] private Animator animator;
 
+    
     //private bool isDead;
-    private bool isAttacking;
-    private bool isMoving;
+    //private bool isAttacking;
+    //private bool isMoving;
 
     // Start is called before the first frame update
     void Start()
@@ -16,13 +17,15 @@ public class PlayerAnimator : MonoBehaviour
         animator = GetComponent<Animator>();
     }
 
+    /*
     // Update is called once per frame
     void Update()
     {
         
-        //animator.SetBool("isFiring", isAttacking);
-        //animator.SetBool("isMoving", isMoving);
+        animator.SetBool("isFiring", isAttacking);
+        animator.SetBool("isMoving", isMoving);
     }
+    */
 
     public void IsPlayerMoving(bool b)
     {

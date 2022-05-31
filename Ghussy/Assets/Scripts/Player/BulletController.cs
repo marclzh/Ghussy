@@ -23,7 +23,6 @@ public class BulletController : MonoBehaviour
     {
         Debug.Log(collision);
         Debug.Log(collision.gameObject);
-        Debug.Log(collision.gameObject.GetComponent<EnemyAI>());
        
         if (collision.gameObject.TryGetComponent<EnemyAI>(out EnemyAI enemyComponent) )
         {
