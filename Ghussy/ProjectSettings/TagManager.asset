@@ -45,3 +45,18 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Shadow
+    uniqueID: 2727534367
+    locked: 0
+  - name: Floor
+    uniqueID: 3687012635
+    locked: 0
+  - name: Background
+    uniqueID: 4017793151
+    locked: 0
+  - name: Foreground Elements
+    uniqueID: 312678935
+    locked: 0
+  - name: Characters
+    uniqueID: 3897595953
+    locked: 0
