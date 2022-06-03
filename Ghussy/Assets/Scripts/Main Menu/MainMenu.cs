@@ -8,6 +8,9 @@ public class MainMenu : MonoBehaviour
 {
     
     public string firstLevel;
+    public Animator transition;
+    public float transitionTime = 2f;
+
     //[SerializeField] private GameObject mainMenuSprite;
 
     // Start is called before the first frame update
@@ -30,7 +33,8 @@ public class MainMenu : MonoBehaviour
 
     public IEnumerator LoadGame()
     {
-        yield return new WaitForSeconds(2);
+        transition.SetTrigger("Start");
+        yield return new WaitForSeconds(transitionTime);
         SceneManager.LoadScene(firstLevel);
     }
 
