@@ -24,16 +24,13 @@ public class BulletController : MonoBehaviour
         Debug.Log(collision);
         Debug.Log(collision.gameObject);
        
-        if (collision.gameObject.TryGetComponent<EnemyAIOld>(out EnemyAIOld enemyComponent) )
+        if (collision.gameObject.TryGetComponent<EnemyHealth>(out EnemyHealth enemyComponent) )
         {
-            enemyComponent.OnHit(20);
-            
+            enemyComponent.TakeDamage(20);         
         }
 
         Debug.Log(animator);
 
         animator.SetBool("isCollided", true);
     }
-
-
 }

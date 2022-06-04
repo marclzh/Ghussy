@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 4512727748108594222}
   - component: {fileID: 4512727748108594192}
   - component: {fileID: 4512727748108594223}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: ElectricGhostGFX
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -74,7 +74,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -1312096478, guid: 6a59a973fda35ef4396fefcb9661d495, type: 3}
+  m_Sprite: {fileID: -657091241, guid: 6a59a973fda35ef4396fefcb9661d495, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -95,7 +95,7 @@ Animator:
   m_GameObject: {fileID: 4512727748108594221}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: a5e60d329edb5e84ca8f5fc0e33f622a, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

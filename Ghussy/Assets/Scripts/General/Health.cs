@@ -34,7 +34,4 @@ public abstract class Health : MonoBehaviour
         slider.value = health;
         fill.color = gradient.Evaluate(1f);
     }
-
-
-
 }
