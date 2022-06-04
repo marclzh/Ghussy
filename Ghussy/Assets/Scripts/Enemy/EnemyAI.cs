@@ -1,114 +1,106 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Pathfinding;
 
 public class EnemyAI : MonoBehaviour
-
 {
-    // Enemy References
-    Rigidbody2D rigidBody;
-    SpriteRenderer spriteRenderer;
-    Animator animator;
-    Vector2 movement;
-    public EnemyHealth enemyHealth;
+    // Enemy graphics reference
+    public Transform enemyGFX;
 
-    // Enemy Variables
-    public float speed;
-    public float checkRadius;
-    public float attackRadius;
-    public bool shouldRotate;
-    public Vector3 dir;
-    private Vector3 startingPosition;
-    private Vector3 roamPosition;
-    public float reachedPos;
+    // Target for pathfinding 
+    public Transform target;
 
+    // Enemy Pathfinding variables
+    [SerializeField] public float speed;
+    public float nextWaypointDistance = 0.1f;
+    public bool isChasing;
+    
+    Path path;
+    int currentWaypoint = 0;
+    private bool reachedEndOfPath = false;
 
-    // Attacking Variables
-    private bool isInChaseRange;
-    private bool isInAttackRange;
-
-    // Player References
-    public LayerMask whatIsPlayer;
-    private Transform target;
-
-
+    Seeker seeker;
+    Rigidbody2D rb;
+    
     void Start()
     {
-        rigidBody = gameObject.GetComponent<Rigidbody2D>();
-        spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
-        animator = gameObject.GetComponent<Animator>();
-        // Initializing target for enemy as the player
-        target = GameObject.FindWithTag("Player").transform;
-        // Patrol var
-        startingPosition = transform.position;
-        roamPosition = GetRoamingPosition();
+        // set true for testing
+        isChasing = true;
+        seeker = GetComponent<Seeker>();
+        rb = GetComponent<Rigidbody2D>();
+
+        InvokeRepeating("UpdatePath", 0f, 0.5f);
     }
 
-    void Update()
+    void UpdatePath()
     {
-        isInChaseRange = Physics2D.OverlapCircle(transform.position, checkRadius, whatIsPlayer);
-        isInAttackRange = Physics2D.OverlapCircle(transform.position, attackRadius, whatIsPlayer);
-
-        dir = target.position - transform.position;
-        float angle = Mathf.Atan2(dir.x, dir.y) * Mathf.Rad2Deg;
-
-        dir.Normalize();
-        movement = dir;
+        if (seeker.IsDone())
+        {
+            seeker.StartPath(rb.position, target.position, OnPathComplete);
+        }
     }
 
-    private void FixedUpdate()
-    { 
-        /*
-        if (!isInChaseRange && !isInAttackRange)
+    void OnPathComplete(Path p)
+    {
+        // set the path to p only if no errors while calculating the path.
+        if (!p.error)
         {
-            animator.SetBool("isMoving", true);
-            MoveCharacter(roamPosition);
-            if (Vector3.Distance(transform.position, roamPosition) < reachedPos)
-            {
-                // reached pos
-                roamPosition = GetRoamingPosition();
-            }
+            path = p;
+            // reset the position of the current waypoint
+            currentWaypoint = 0;
         }
-        */
+    }
+
+    void FixedUpdate()
+    {
+        // if enemy is not chasing anything
+        if (!isChasing)
+        {
+            return;
+        }
+
+        // if there is no path
+        if (path == null)
+        {
+            return;
+        }
         
-
-        if (isInChaseRange && !isInAttackRange)
+        // check if there are still waypoints, to stop moving
+        if (currentWaypoint >= path.vectorPath.Count)
         {
-            animator.SetBool("isMoving", isInChaseRange);
-            MoveCharacter(movement);
-        }
-
-        if (isInAttackRange)
-        {
-            rigidBody.velocity = Vector2.zero;
-            animator.SetBool("isAttacking", true);
+            reachedEndOfPath = true;
+            return;
         } else
         {
-            animator.SetBool("isAttacking", false);
+            reachedEndOfPath = false;
         }
-    }
 
-    private void MoveCharacter(Vector2 dir)
-    {
-        if (dir.x < 0)
+        // to move the enemy
+        // 1st find the direction to the target.
+        Vector2 dir = ((Vector2)path.vectorPath[currentWaypoint] - rb.position).normalized;
+
+        // add a force in the direction of where we want the enemy to go.
+        Vector2 force = dir * speed * Time.deltaTime;
+
+
+        rb.AddForce(force);
+
+        // finds the distance between the enemy and the target
+        float distance = Vector2.Distance(rb.position, path.vectorPath[currentWaypoint]);
+
+        if (distance < nextWaypointDistance)
         {
-            spriteRenderer.flipX = true;
+            currentWaypoint++;
         }
-        else
+
+        if (rb.velocity.x >= 0.001f && force.x < 0f)
         {
-            spriteRenderer.flipX = false;
+            enemyGFX.localScale = new Vector3(-1f, 1f, 1f);
         }
-        rigidBody.MovePosition((Vector2)transform.position + (dir * speed * Time.deltaTime));
-    }
-
-    private Vector3 GetRoamingPosition()
-    {
-        Vector3 randDir =  new Vector3(UnityEngine.Random.Range(-1f, 1f), UnityEngine.Random.Range(-1f, 1f)).normalized;
-        return startingPosition + randDir * Random.Range(0.5f, 0.5f);
-    }
-
-    public void OnHit(float damage)
-    {
-        enemyHealth.TakeDamage(damage);
+        else if (rb.velocity.x <= -0.001 && force.x > 0f)
+        {
+            enemyGFX.localScale = new Vector3(1f, 1f, 1f);
+        }
     }
 }
