@@ -24,7 +24,7 @@ public class BulletController : MonoBehaviour
         Debug.Log(collision);
         Debug.Log(collision.gameObject);
        
-        if (collision.gameObject.TryGetComponent<EnemyAI>(out EnemyAI enemyComponent) )
+        if (collision.gameObject.TryGetComponent<EnemyAIOld>(out EnemyAIOld enemyComponent) )
         {
             enemyComponent.OnHit(20);
             
