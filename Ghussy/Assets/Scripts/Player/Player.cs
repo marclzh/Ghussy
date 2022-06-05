@@ -5,7 +5,7 @@ using UnityEngine;
 public class Player : Character
 {
     // TODO Interactable Script
-    // TODO Inventory
+    public InventoryObject inventory;
     [SerializeField] private PlayerHealth playerHealth;
     [SerializeField] private PlayerAnimator playerAnimator;
     //[SerializeField] private PlayerController controller;
@@ -35,6 +35,23 @@ public class Player : Character
          {
               OnHit(10);
          }
-            
+    }
+
+    //Pick up Item
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+         var item = collision.gameObject.GetComponent<Item>();
+        if (item)
+        {
+            inventory.AddItem(item.item, 1);
+            Destroy(collision.gameObject);  
+         }    
+        
+    }
+
+    // Resets values
+    private void OnApplicationQuit()
+    {
+        inventory.Container.Clear();
     }
 }
