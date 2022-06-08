@@ -20,16 +20,11 @@ public class BulletController : MonoBehaviour
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
-    {
-        Debug.Log(collision);
-        Debug.Log(collision.gameObject);
-       
+    {       
         if (collision.gameObject.TryGetComponent<EnemyHealth>(out EnemyHealth enemyComponent) )
         {
             enemyComponent.TakeDamage(20);         
         }
-
-        Debug.Log(animator);
 
         animator.SetBool("isCollided", true);
     }

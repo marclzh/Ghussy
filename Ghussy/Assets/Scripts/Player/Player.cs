@@ -22,19 +22,7 @@ public class Player : Character
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            OnHit(20);
-        }
 
-    }
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {  
-         if (collision.gameObject.tag == "Enemy")
-         {
-              OnHit(10);
-         }
     }
 
     //Pick up Item
@@ -53,5 +41,13 @@ public class Player : Character
     private void OnApplicationQuit()
     {
         inventory.Container.Clear();
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Enemy")
+        {
+            OnHit(10);
+        }
     }
 }

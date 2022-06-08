@@ -3884,6 +3884,11 @@ MonoBehaviour:
   tagPenalties: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
   graphMask:
     value: -1
+--- !u!4 &1272893769 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1128251757, guid: c3a7890637a841c4ca4360b8338d6688, type: 3}
+  m_PrefabInstance: {fileID: 6713726579145526804}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1287643941
 GameObject:
   m_ObjectHideFlags: 0
@@ -6239,7 +6244,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7801048, y: 1}
+    m_SensorSize: {x: 1.7780429, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -6285,7 +6290,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1669644961}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Player Manager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6721,8 +6726,9 @@ GameObject:
   - component: {fileID: 6267523725492371883}
   - component: {fileID: 7534808680453061709}
   - component: {fileID: 7534808680453061710}
-  - component: {fileID: 7534808680453061711}
+  - component: {fileID: 7534808680453061713}
   - component: {fileID: 7534808680453061712}
+  - component: {fileID: 7534808680453061714}
   m_Layer: 7
   m_Name: ElectricGhost
   m_TagString: Enemy
@@ -7253,17 +7259,13 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2823139846660954268}
     m_Modifications:
+    - target: {fileID: 1128251758, guid: c3a7890637a841c4ca4360b8338d6688, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4512727748108594221, guid: c3a7890637a841c4ca4360b8338d6688, type: 3}
       propertyPath: m_Name
       value: ElectricGhostGFX
-      objectReference: {fileID: 0}
-    - target: {fileID: 4512727748108594221, guid: c3a7890637a841c4ca4360b8338d6688, type: 3}
-      propertyPath: m_Layer
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 4512727748108594221, guid: c3a7890637a841c4ca4360b8338d6688, type: 3}
-      propertyPath: m_TagString
-      value: Enemy
       objectReference: {fileID: 0}
     - target: {fileID: 4512727748108594222, guid: c3a7890637a841c4ca4360b8338d6688, type: 3}
       propertyPath: m_RootOrder
@@ -7309,14 +7311,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4512727748108594223, guid: c3a7890637a841c4ca4360b8338d6688, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4512727748108594223, guid: c3a7890637a841c4ca4360b8338d6688, type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: a5e60d329edb5e84ca8f5fc0e33f622a, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c3a7890637a841c4ca4360b8338d6688, type: 3}
 --- !u!4 &7173001905241514554 stripped
@@ -7336,9 +7330,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1669644961}
     m_Modifications:
+    - target: {fileID: 615712846, guid: aa54c1dc9bf475c4681e84c0d7648c88, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 7277383862160774354, guid: aa54c1dc9bf475c4681e84c0d7648c88, type: 3}
       propertyPath: m_Name
       value: EctoGear1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7277383862160774354, guid: aa54c1dc9bf475c4681e84c0d7648c88, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 7277383862160774359, guid: aa54c1dc9bf475c4681e84c0d7648c88, type: 3}
       propertyPath: m_RootOrder
@@ -7432,7 +7434,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyGFX: {fileID: 7173001905241514554}
   target: {fileID: 1966398147432362615}
-  speed: 65
   nextWaypointDistance: 0.1
   isChasing: 0
 --- !u!114 &7534808680453061710
@@ -7447,19 +7448,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3cf723ba36b8ba94cb922c0a4deb3e6d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &7534808680453061711
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 27113013571470905}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe3c674bda027cf4d86282382ef13c3f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  animator: {fileID: 7173001905241514555}
+  speed: 80
+  checkRadius: 0.8
+  attackRadius: 0.2
+  isInChaseRange: 0
+  isInAttackRange: 0
+  playerLayer:
+    serializedVersion: 2
+    m_Bits: 64
 --- !u!114 &7534808680453061712
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7505,3 +7501,30 @@ MonoBehaviour:
   fill: {fileID: 833892226}
   flinchDelay: 0.3
   deathDelay: 0.3
+--- !u!114 &7534808680453061713
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 27113013571470905}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe3c674bda027cf4d86282382ef13c3f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 7173001905241514555}
+--- !u!114 &7534808680453061714
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 27113013571470905}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83390f7149bfcd34a875ca61ef101d0c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 10
+  attackPoint: {fileID: 1272893769}

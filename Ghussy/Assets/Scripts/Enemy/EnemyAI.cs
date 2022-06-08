@@ -12,7 +12,6 @@ public class EnemyAI : MonoBehaviour
     public Transform target;
 
     // Enemy Pathfinding variables
-    [SerializeField] public float speed;
     public float nextWaypointDistance = 0.1f;
     public bool isChasing;
     
@@ -81,10 +80,12 @@ public class EnemyAI : MonoBehaviour
         Vector2 dir = ((Vector2)path.vectorPath[currentWaypoint] - rb.position).normalized;
 
         // add a force in the direction of where we want the enemy to go.
-        Vector2 force = dir * speed * Time.deltaTime;
+        Vector2 force = dir * GetComponent<EnemyMovement>().speed * Time.deltaTime;
 
-
-        rb.AddForce(force);
+        if (!GetComponent<EnemyMovement>().isInAttackRange)
+        {
+            rb.AddForce(force);
+        }
 
         // finds the distance between the enemy and the target
         float distance = Vector2.Distance(rb.position, path.vectorPath[currentWaypoint]);
