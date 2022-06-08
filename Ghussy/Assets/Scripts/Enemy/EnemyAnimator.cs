@@ -13,7 +13,7 @@ public class EnemyAnimator : MonoBehaviour
 
     void Awake()
     {
-        animator = GetComponent<Animator>();
+
     }
 
     public void IsEnemyMoving(bool b)
@@ -21,9 +21,13 @@ public class EnemyAnimator : MonoBehaviour
         animator.SetBool("isMoving", b);
     }
 
-    public void IsEnemyAttacking(bool b)
+    public void EnemyAttack()
     {
-        animator.SetBool("isFiring", b);
+        animator.SetTrigger("Attack");
+    }
+    public void EnemyStopAttack()
+    {
+        animator.ResetTrigger("Attack");
     }
     public void EnemyHit()
     {

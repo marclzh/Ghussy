@@ -3884,6 +3884,11 @@ MonoBehaviour:
   tagPenalties: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
   graphMask:
     value: -1
+--- !u!4 &1272893769 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1128251757, guid: c3a7890637a841c4ca4360b8338d6688, type: 3}
+  m_PrefabInstance: {fileID: 6713726579145526804}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1287643941
 GameObject:
   m_ObjectHideFlags: 0
@@ -6285,7 +6290,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1669644961}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Player Manager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6723,6 +6728,7 @@ GameObject:
   - component: {fileID: 7534808680453061710}
   - component: {fileID: 7534808680453061713}
   - component: {fileID: 7534808680453061712}
+  - component: {fileID: 7534808680453061714}
   m_Layer: 7
   m_Name: ElectricGhost
   m_TagString: Enemy
@@ -7253,6 +7259,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2823139846660954268}
     m_Modifications:
+    - target: {fileID: 1128251758, guid: c3a7890637a841c4ca4360b8338d6688, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4512727748108594221, guid: c3a7890637a841c4ca4360b8338d6688, type: 3}
       propertyPath: m_Name
       value: ElectricGhostGFX
@@ -7320,9 +7330,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1669644961}
     m_Modifications:
+    - target: {fileID: 615712846, guid: aa54c1dc9bf475c4681e84c0d7648c88, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 7277383862160774354, guid: aa54c1dc9bf475c4681e84c0d7648c88, type: 3}
       propertyPath: m_Name
       value: EctoGear1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7277383862160774354, guid: aa54c1dc9bf475c4681e84c0d7648c88, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 7277383862160774359, guid: aa54c1dc9bf475c4681e84c0d7648c88, type: 3}
       propertyPath: m_RootOrder
@@ -7430,9 +7448,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3cf723ba36b8ba94cb922c0a4deb3e6d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 70
+  speed: 80
   checkRadius: 0.8
-  attackRadius: 0.5
+  attackRadius: 0.2
   isInChaseRange: 0
   isInAttackRange: 0
   playerLayer:
@@ -7496,3 +7514,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 7173001905241514555}
+--- !u!114 &7534808680453061714
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 27113013571470905}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83390f7149bfcd34a875ca61ef101d0c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 10
+  attackPoint: {fileID: 1272893769}

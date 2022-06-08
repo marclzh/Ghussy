@@ -2,10 +2,6 @@ using UnityEngine;
 
 public class EnemyAttack : MonoBehaviour
 {
-    protected const string ENEMY_ATTACK = "Attack";
-
-    // Delay between enemy attacks
-    public float attackDelay;
     // Damage of the enemy attack
     public float damage;
     // Animator Reference
@@ -14,16 +10,12 @@ public class EnemyAttack : MonoBehaviour
     private bool inAttackRange;
     // Layer of the player
     private LayerMask playerLayer;
-    // Boolean for attack cooldown
-    private bool coolDown;
-    // timer for attack cooldown
-    [SerializeField] private float timer;
-    [SerializeField] private float attackLength;
     private bool isAttacking;
+
+    public Transform attackPoint;
 
     void Start()
     {
-        timer = attackDelay;
         enemyAnimation = GetComponent<EnemyAnimator>();
     }
 
@@ -34,7 +26,7 @@ public class EnemyAttack : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (inAttackRange && !coolDown)
+        if (inAttackRange)
         {
             Attack();
         }
@@ -42,21 +34,19 @@ public class EnemyAttack : MonoBehaviour
 
     private void Attack()
     {
-        // Reset timer everytime method is called.
-        timer = attackDelay;
-
         isAttacking = true;
 
         // Trigger attack animation
-        enemyAnimation.IsEnemyAttacking(true);
+        enemyAnimation.EnemyAttack();
 
-        Invoke("triggerCoolDown", attackLength);
-    }
+        // idkkkk why this doesnt work fml
+        /*
+        Collider2D hit = Physics2D.OverlapCircle(attackPoint.position, 0.5f, playerLayer);
 
-    private void attackComplete()
-    {
-        isAttacking = false;
-
-        enemyAnimation.IsEnemyAttacking(false);
+        if (hit != null)
+        {
+            hit.GetComponent<PlayerHealth>().TakeDamage(damage);
+        }
+        */
     }
 }
