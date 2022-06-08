@@ -24,4 +24,9 @@ public class OptionsMenu : MonoBehaviour
     public void SetFullscreen(bool isFullscreen) { 
         Screen.fullScreen = isFullscreen;
     } 
+
+    public void CloseOptions()
+    {
+        gameObject.SetActive(false);
+    }
 }

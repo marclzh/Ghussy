@@ -9,6 +9,7 @@ TagManager:
   - Weapon
   - Boss
   - GhussyTarget
+  - Ectoplasm
   layers:
   - Default
   - TransparentFX

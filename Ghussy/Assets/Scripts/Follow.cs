@@ -5,7 +5,7 @@ using UnityEngine;
 public class Follow : MonoBehaviour
 {
     private Transform target;
-    public GameObject targetTracker;
+    //public GameObject targetTracker;
     Vector3 velocity = Vector3.zero;
     public float minModifier;
     public float maxModifier;
@@ -13,7 +13,7 @@ public class Follow : MonoBehaviour
 
     void Start()
     {
-        targetTracker = GameObject.FindGameObjectWithTag("GhussyTarget");
+        GameObject targetTracker = GameObject.FindGameObjectWithTag("GhussyTarget");
         target = targetTracker.transform;
     }
 
@@ -28,8 +28,17 @@ public class Follow : MonoBehaviour
         if (isFollowing)
         {
             //transform.position = Vector3.SmoothDamp(transform.position, target.position, ref velocity, Time.deltaTime * Random.Range(minModifier, maxModifier));
-            transform.position = Vector3.Lerp(this.transform.position, target.position, Time.deltaTime * Random.Range(minModifier, maxModifier));
+           transform.position = Vector3.Lerp(this.transform.position, target.position, Time.deltaTime * Random.Range(minModifier, maxModifier));
         }
 
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Player")
+        {
+            
+            Destroy(gameObject);
+        }
     }
 }
