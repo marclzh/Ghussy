@@ -7,7 +7,7 @@ public class PlayerAbility : MonoBehaviour
 {
     [SerializeField] private PlayerAnimator playerAnimator;
     public Image abilityImage;
-    public float coolDownTime;
+    public float coolDownTime; 
     bool OnCoolDown = false;
     public KeyCode Ability1;
 

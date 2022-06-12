@@ -25,18 +25,6 @@ public class Player : Character
 
     }
 
-    //Pick up Item
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-         var item = collision.gameObject.GetComponent<Item>();
-        if (item)
-        {
-            inventory.AddItem(item.item, 1);
-            Destroy(collision.gameObject);  
-         }    
-        
-    }
-
     // Resets values
     private void OnApplicationQuit()
     {
