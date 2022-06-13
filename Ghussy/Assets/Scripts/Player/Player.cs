@@ -8,6 +8,7 @@ public class Player : Character
     public InventoryObject inventory;
     [SerializeField] private PlayerHealth playerHealth;
     [SerializeField] private PlayerAnimator playerAnimator;
+    public static bool IsPlayerTransformed = false;
     //[SerializeField] private PlayerController controller;
     // public PlayerAttack attack;
     // public GameObject currentWeapon = null;

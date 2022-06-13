@@ -13,6 +13,7 @@ public class Interactor : MonoBehaviour
     private readonly Collider2D[] colliders = new Collider2D[3];
     [SerializeField] private int numFound;
     private IInteractable interactable;
+    private bool interacted = false;
 
     private void Update()
     {
@@ -26,11 +27,24 @@ public class Interactor : MonoBehaviour
 
             if (interactable != null)
             {
-                if (!interactionPromptUI.isDisplayed) interactionPromptUI.SetUp(interactable.InteractionPrompt);
-               
-                if (Keyboard.current.eKey.wasPressedThisFrame) interactable.Interact(this); 
-             
-            }
+                if (!interacted)
+                {
+                    if (!interactionPromptUI.isDisplayed) interactionPromptUI.SetUp(interactable.InteractionPrompt);
+
+                    if (Keyboard.current.eKey.wasPressedThisFrame)
+                    {
+                       interacted = true;
+                       interactable.Interact(this);
+                       if (interactionPromptUI.isDisplayed) interactionPromptUI.Close();
+                     } 
+                }
+                else
+                {
+                    if (interactionPromptUI.isDisplayed) interactionPromptUI.Close();
+                }
+
+
+             }
         } 
         else
         {
@@ -38,12 +52,14 @@ public class Interactor : MonoBehaviour
             if (interactionPromptUI.isDisplayed) interactionPromptUI.Close();
         }
     }
-
+    
+    // Show interaction radius
+    /*
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.blue;
         Gizmos.DrawWireSphere(interactionPoint.position, interactionPointRadius);
     }
-
+    */
 
 }
