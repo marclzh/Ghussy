@@ -8,6 +8,7 @@ public class Player : Character
     public InventoryObject inventory;
     [SerializeField] private PlayerHealth playerHealth;
     [SerializeField] private PlayerAnimator playerAnimator;
+    public static bool IsPlayerTransformed = false;
     //[SerializeField] private PlayerController controller;
     // public PlayerAttack attack;
     // public GameObject currentWeapon = null;
@@ -23,18 +24,6 @@ public class Player : Character
     private void Update()
     {
 
-    }
-
-    //Pick up Item
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-         var item = collision.gameObject.GetComponent<Item>();
-        if (item)
-        {
-            inventory.AddItem(item.item, 1);
-            Destroy(collision.gameObject);  
-         }    
-        
     }
 
     // Resets values

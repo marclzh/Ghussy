@@ -20,7 +20,7 @@ TagManager:
   - Player
   - Enemy
   - Weapon
-  - 
+  - Interactable
   - 
   - 
   - 
@@ -61,4 +61,7 @@ TagManager:
     locked: 0
   - name: Characters
     uniqueID: 3897595953
+    locked: 0
+  - name: Interactables
+    uniqueID: 2461072885
     locked: 0

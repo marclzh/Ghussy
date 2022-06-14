@@ -27,7 +27,7 @@ public class Follow : MonoBehaviour
     {
         if (isFollowing)
         {
-            //transform.position = Vector3.SmoothDamp(transform.position, target.position, ref velocity, Time.deltaTime * Random.Range(minModifier, maxModifier));
+           //transform.position = Vector3.SmoothDamp(transform.position, target.position, ref velocity, Time.deltaTime * Random.Range(minModifier, maxModifier));
            transform.position = Vector3.Lerp(this.transform.position, target.position, Time.deltaTime * Random.Range(minModifier, maxModifier));
         }
 
