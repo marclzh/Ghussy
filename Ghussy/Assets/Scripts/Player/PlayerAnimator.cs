@@ -40,10 +40,14 @@ public class PlayerAnimator : MonoBehaviour
     {
         animator.Play("ghussy_hit");
     }
-
-    public void PlayerTransform()
+    public void BaseTransform()
     {
-        animator.SetTrigger("Transform");
+        animator.SetBool("isTransforming", true);
+    }
+    public void PlayerTransform(BasePossessionState basePossesssssessionState)
+    {
+        string nextState = basePossesssssessionState.toString();
+        animator.SetBool(nextState, true);
     }
     public void IsPlayerDead(bool b)
     {

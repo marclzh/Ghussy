@@ -9,4 +9,13 @@ public abstract class BasePossessionState : ScriptableObject
     public string possessionStateName;
     [TextArea(15, 20)]
     public string description;
+
+    public string toString()
+    {
+        return possessionStateName;
+    }
 }
+
+
+
+

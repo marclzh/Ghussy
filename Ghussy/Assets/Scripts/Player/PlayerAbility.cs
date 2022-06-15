@@ -19,9 +19,10 @@ public class PlayerAbility : MonoBehaviour
 
     private void Update()
     {
-        UseAbility(); 
+        // UseAbility(); 
     }
 
+    /*
     void UseAbility()
     {
         if (Input.GetKey(Ability1) && OnCoolDown == false)
@@ -43,4 +44,5 @@ public class PlayerAbility : MonoBehaviour
             }
         }
     }
+    */
 }
