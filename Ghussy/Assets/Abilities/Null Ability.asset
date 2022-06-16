@@ -9,12 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c0cb415ca8c85bf41aaff8800d50cba0, type: 3}
-  m_Name: Skeleton
+  m_Script: {fileID: 11500000, guid: 5b2aecf351ce07b4494cbb12d9e7a478, type: 3}
+  m_Name: Null Ability
   m_EditorClassIdentifier: 
-  weapon: {fileID: 0}
-  ability: {fileID: 11400000, guid: 959751e85353ca944bf60bf1b79d2646, type: 2}
-  possessionStateName: SkeletonTransformation
-  description: 'Skeleton Model Possession
-
-'
+  abilityName: NullAbility
+  abilityImage: {fileID: -1084100249, guid: 3f2ba50686936c84b8f12856f93b2ebe, type: 3}
+  cooldownTime: 3

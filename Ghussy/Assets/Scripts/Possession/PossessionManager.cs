@@ -13,7 +13,7 @@ public class PossessionManager : MonoBehaviour
        // if (nextState != currentState)
         //{
             //playerAnimator.PlayerTransform(nextState);
-            possessionEvent.Raise(nextState);
+            //possessionEvent.Raise(nextState);
             
         //}
 

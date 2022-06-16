@@ -15,7 +15,7 @@ public class SkeletonPossessionInteractable : MonoBehaviour, IInteractable
         {
             // Raise Event that object has been interacted with 
             possessionEvent.Raise(possessionState);
-
+            Debug.Log("Event Raised!!");
             Destroy(gameObject);
 
         }

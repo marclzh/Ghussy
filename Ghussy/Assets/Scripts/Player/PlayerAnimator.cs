@@ -44,11 +44,13 @@ public class PlayerAnimator : MonoBehaviour
     {
         animator.SetBool("isTransforming", true);
     }
+
     public void PlayerTransform(BasePossessionState basePossesssssessionState)
     {
-        string nextState = basePossesssssessionState.toString();
+        string nextState = basePossesssssessionState.ToString();
         animator.SetBool(nextState, true);
     }
+
     public void IsPlayerDead(bool b)
     {
         animator.SetBool("isDead", b);

@@ -11,8 +11,9 @@ public class Player : Character
     public static bool IsPlayerTransformed = false;
     //[SerializeField] private PlayerController controller;
     // public PlayerAttack attack;
-    // public GameObject currentWeapon = null;
-    // public PlayerAbility ability = null;
+    [SerializeField] private BasePossessionState currentState;
+    [SerializeField] PlayerWeapon currentWeapon;
+    [SerializeField] Ability currentAbility;
 
     
     void OnHit(float damage) 
@@ -23,8 +24,20 @@ public class Player : Character
 
     private void Update()
     {
-
+        Debug.Log(currentState);
     }
+
+    public void SetState(BasePossessionState nextState)
+    {
+        if (nextState != null && !currentState.Same(nextState))
+        {
+            currentState = nextState;
+            //currentWeapon = nextState.GetWeapon();
+            currentAbility = nextState.GetAbility();
+            Debug.Log(currentState);
+        }
+    }
+
 
     // Resets values
     private void OnApplicationQuit()
