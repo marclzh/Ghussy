@@ -126,6 +126,7 @@ GameObject:
   - component: {fileID: 1966398147432362630}
   - component: {fileID: 1966398147432362626}
   - component: {fileID: 1596553109}
+  - component: {fileID: 1596553121}
   m_Layer: 6
   m_Name: Ghussy
   m_TagString: Player
@@ -330,6 +331,9 @@ MonoBehaviour:
   inventory: {fileID: 11400000, guid: b22942662ad953542bd34f1dc7fab4cc, type: 2}
   playerHealth: {fileID: 1966398147432362623}
   playerAnimator: {fileID: 1966398147432362624}
+  currentState: {fileID: 11400000, guid: 8d212c62150aa6640ba0595f5d887ad5, type: 2}
+  currentWeapon: {fileID: 0}
+  currentAbility: {fileID: 11400000, guid: e9c11e96a7080e04aa3f68504e3e3f9e, type: 2}
 --- !u!50 &8554756548771333350
 Rigidbody2D:
   serializedVersion: 4
@@ -485,7 +489,7 @@ MonoBehaviour:
   playerAnimator: {fileID: 1966398147432362624}
   abilityImage: {fileID: 0}
   coolDownTime: 3
-  Ability1: 101
+  Ability: 325
 --- !u!114 &1596553109
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -505,3 +509,43 @@ MonoBehaviour:
     m_Bits: 512
   interactionPromptUI: {fileID: 0}
   numFound: 0
+--- !u!114 &1596553121
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1265600502163984428}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ebb78fba6e7f3db468071f0eb416ae50, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameEvent: {fileID: 11400000, guid: bcb4eacdb83894c49a2df9faffdfb2d0, type: 2}
+  unityEventResponse:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1966398147432362624}
+        m_TargetAssemblyTypeName: PlayerAnimator, Assembly-CSharp
+        m_MethodName: PlayerTransform
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 8947616355155497837}
+        m_TargetAssemblyTypeName: Player, Assembly-CSharp
+        m_MethodName: SetState
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
