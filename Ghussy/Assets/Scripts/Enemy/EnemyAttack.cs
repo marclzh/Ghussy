@@ -10,7 +10,7 @@ public class EnemyAttack : MonoBehaviour
     private bool inAttackRange;
     // Layer of the player
     private LayerMask playerLayer;
-    private bool isAttacking;
+    //private bool isAttacking;
 
     public Transform attackPoint;
 
@@ -34,7 +34,7 @@ public class EnemyAttack : MonoBehaviour
 
     private void Attack()
     {
-        isAttacking = true;
+        //isAttacking = true;
 
         // Trigger attack animation
         enemyAnimation.EnemyAttack();

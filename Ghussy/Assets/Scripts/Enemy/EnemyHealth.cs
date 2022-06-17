@@ -4,7 +4,6 @@ using UnityEngine.UI;
 public class EnemyHealth : Health
 {
     // 1 frame delay for flinch animation to play
-    [SerializeField] private float flinchDelay = 0.3f;
     [SerializeField] private float deathDelay = 0.3f;
 
     //private bool isHurt = false;

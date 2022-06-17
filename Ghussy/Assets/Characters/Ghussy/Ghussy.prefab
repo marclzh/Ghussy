@@ -116,11 +116,11 @@ GameObject:
   - component: {fileID: 3162393059664462365}
   - component: {fileID: 176430970150085722}
   - component: {fileID: 3443708950249140147}
-  - component: {fileID: -2872514574957065661}
-  - component: {fileID: 8947616355155497837}
   - component: {fileID: 8554756548771333350}
   - component: {fileID: 3092113867449280276}
   - component: {fileID: 7761229420345860350}
+  - component: {fileID: -2872514574957065661}
+  - component: {fileID: 8947616355155497837}
   - component: {fileID: 1966398147432362623}
   - component: {fileID: 1966398147432362624}
   - component: {fileID: 1966398147432362630}
@@ -285,55 +285,6 @@ MonoBehaviour:
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
---- !u!114 &-2872514574957065661
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1265600502163984428}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bbc1f6ce5d20c2c48979e0ba24f83053, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveSpeed: 1
-  collisionOffset: 0.025
-  movementFilter:
-    useTriggers: 0
-    useLayerMask: 0
-    useDepth: 0
-    useOutsideDepth: 0
-    useNormalAngle: 0
-    useOutsideNormalAngle: 0
-    layerMask:
-      serializedVersion: 2
-      m_Bits: 0
-    minDepth: 0
-    maxDepth: 0
-    minNormalAngle: 0
-    maxNormalAngle: 0
-  weapon: {fileID: 1966398147432362630}
-  ectoGear: {fileID: 0}
-  playerAnimator: {fileID: 1966398147432362624}
---- !u!114 &8947616355155497837
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1265600502163984428}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8d860c950d9893347bd3385dbd891296, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  inventory: {fileID: 11400000, guid: b22942662ad953542bd34f1dc7fab4cc, type: 2}
-  playerHealth: {fileID: 1966398147432362623}
-  playerAnimator: {fileID: 1966398147432362624}
-  currentState: {fileID: 11400000, guid: 8d212c62150aa6640ba0595f5d887ad5, type: 2}
-  currentWeapon: {fileID: 0}
-  currentAbility: {fileID: 11400000, guid: e9c11e96a7080e04aa3f68504e3e3f9e, type: 2}
 --- !u!50 &8554756548771333350
 Rigidbody2D:
   serializedVersion: 4
@@ -401,6 +352,55 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &-2872514574957065661
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1265600502163984428}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbc1f6ce5d20c2c48979e0ba24f83053, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 1
+  collisionOffset: 0.025
+  movementFilter:
+    useTriggers: 0
+    useLayerMask: 0
+    useDepth: 0
+    useOutsideDepth: 0
+    useNormalAngle: 0
+    useOutsideNormalAngle: 0
+    layerMask:
+      serializedVersion: 2
+      m_Bits: 0
+    minDepth: 0
+    maxDepth: 0
+    minNormalAngle: 0
+    maxNormalAngle: 0
+  weapon: {fileID: 1966398147432362630}
+  ectoGear: {fileID: 0}
+  playerAnimator: {fileID: 1966398147432362624}
+--- !u!114 &8947616355155497837
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1265600502163984428}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d860c950d9893347bd3385dbd891296, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inventory: {fileID: 11400000, guid: b22942662ad953542bd34f1dc7fab4cc, type: 2}
+  playerHealth: {fileID: 1966398147432362623}
+  playerAnimator: {fileID: 1966398147432362624}
+  currentState: {fileID: 11400000, guid: 8d212c62150aa6640ba0595f5d887ad5, type: 2}
+  currentWeapon: {fileID: 0}
+  currentAbility: {fileID: 11400000, guid: e9c11e96a7080e04aa3f68504e3e3f9e, type: 2}
 --- !u!114 &1966398147432362623
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -486,10 +486,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c5e9f6f11c442640a2b98ef49a4c1ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerAnimator: {fileID: 1966398147432362624}
-  abilityImage: {fileID: 0}
-  coolDownTime: 3
-  Ability: 325
+  defaultState: {fileID: 0}
+  abilityKey: 0
 --- !u!114 &1596553109
 MonoBehaviour:
   m_ObjectHideFlags: 0
