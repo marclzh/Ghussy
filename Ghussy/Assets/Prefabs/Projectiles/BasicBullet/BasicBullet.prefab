@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 1962034305578119927}
   - component: {fileID: -639056308780892224}
   - component: {fileID: -8602168130592087459}
-  - component: {fileID: 582754870022754125}
   - component: {fileID: 931862169711475669}
+  - component: {fileID: 582754870022754125}
   m_Layer: 7
   m_Name: BasicBullet
   m_TagString: CollisionObjects
@@ -125,19 +125,6 @@ CircleCollider2D:
   m_Offset: {x: 0, y: -0.000000007450581}
   serializedVersion: 2
   m_Radius: 0.047776714
---- !u!114 &582754870022754125
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 149363730228609909}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b7c4a53dca49de74b8bae187c41596c9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rb: {fileID: -639056308780892224}
 --- !u!95 &931862169711475669
 Animator:
   serializedVersion: 4
@@ -158,3 +145,16 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &582754870022754125
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 149363730228609909}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7c4a53dca49de74b8bae187c41596c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: -639056308780892224}

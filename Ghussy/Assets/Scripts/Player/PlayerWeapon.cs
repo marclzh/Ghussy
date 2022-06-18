@@ -119,7 +119,7 @@ public class PlayerWeapon : MonoBehaviour
             weaponAnimator.SetBool("isFiring", false);
         }
     }
-
+  
     private bool withinFireRate()
     {
         return (Time.time > (lastFireTime + fireRate));
