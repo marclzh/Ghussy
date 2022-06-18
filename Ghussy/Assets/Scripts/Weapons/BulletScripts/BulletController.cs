@@ -1,11 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class BulletController : MonoBehaviour
+public abstract class BulletController : MonoBehaviour
 {
     public Rigidbody2D rb;
-    Animator animator;
+    protected int damage;
+    private Animator animator;
 
 
     private void Awake()
@@ -14,18 +13,17 @@ public class BulletController : MonoBehaviour
         animator = GetComponent<Animator>();
     }
 
-    void Start()
-    {
-      
-    }
-
     private void OnCollisionEnter2D(Collision2D collision)
     {       
         if (collision.gameObject.TryGetComponent<EnemyHealth>(out EnemyHealth enemyComponent) )
         {
-            enemyComponent.TakeDamage(20);         
+            enemyComponent.TakeDamage(damage);         
         }
-
         animator.SetBool("isCollided", true);
+    }
+
+    public void setDamage(int dmg)
+    {
+        this.damage = dmg;
     }
 }
