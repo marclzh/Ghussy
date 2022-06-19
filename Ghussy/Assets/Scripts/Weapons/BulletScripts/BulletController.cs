@@ -3,9 +3,9 @@ using UnityEngine;
 public abstract class BulletController : MonoBehaviour
 {
     public Rigidbody2D rb;
-    protected int damage;
     private Animator animator;
-
+    public float damage;
+    public float speed;
 
     private void Awake()
     {
@@ -20,10 +20,5 @@ public abstract class BulletController : MonoBehaviour
             enemyComponent.TakeDamage(damage);         
         }
         animator.SetBool("isCollided", true);
-    }
-
-    public void setDamage(int dmg)
-    {
-        this.damage = dmg;
     }
 }

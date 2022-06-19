@@ -1,13 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class PlayerWeapon : MonoBehaviour
 {
     // Player Component References
-    [SerializeField] private Transform weapon; // EctoGear
-    [SerializeField] private Transform firePoint; // Gameobject representing firepoint of weapon
+    public GameObject weapon; 
     [SerializeField] private Transform playerReference;
     SpriteRenderer weaponSR;
     Rigidbody2D weaponRB;
@@ -18,9 +15,6 @@ public class PlayerWeapon : MonoBehaviour
     private InputAction fire;
 
     // Weapon Aiming/Firing Fields
-    public GameObject bulletPrefab;
-    public float bulletSpeed;
-    public float fireRate;
     private float lastFireTime = 0.4f;
     private float offSetDistance; // Distance from player to weapon
     Vector2 mousePos;
@@ -53,7 +47,7 @@ public class PlayerWeapon : MonoBehaviour
         weaponRB = weapon.GetComponent<Rigidbody2D>();
         weaponSR = weapon.GetComponent<SpriteRenderer>();
         weaponAnimator = weapon.GetComponent<Animator>();
-        offSetDistance = weapon.position.x - playerReference.position.x;
+        offSetDistance = weapon.transform.position.x - playerReference.position.x;
     }
 
     private void Update()
@@ -102,10 +96,11 @@ public class PlayerWeapon : MonoBehaviour
         // Bullet Instantiation
         if (weaponFired && withinFireRate())
         {
-            GameObject projectile = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+            GameObject projectile = Instantiate(weapon.GetComponent<Weapon>().bulletPrefab, 
+                weapon.GetComponent<Weapon>().firePoint.position, weapon.GetComponent<Weapon>().firePoint.rotation);
             Rigidbody2D rb = projectile.GetComponent<Rigidbody2D>();
             Vector2 shootingDirection = mousePos - playerPos2D;
-            rb.velocity += bulletSpeed * Time.deltaTime * shootingDirection.normalized;
+            rb.velocity += weapon.GetComponent<Weapon>().bulletPrefab.GetComponent<BulletController>().speed * Time.deltaTime * shootingDirection.normalized;
 
             // Handle weapon shooting animation
             weaponAnimator.SetBool("isFiring", true);
@@ -122,7 +117,7 @@ public class PlayerWeapon : MonoBehaviour
   
     private bool withinFireRate()
     {
-        return (Time.time > (lastFireTime + fireRate));
+        return (Time.time > (lastFireTime + weapon.GetComponent<Weapon>().fireRate));
     }
 
     private void StartFiring(InputAction.CallbackContext obj)

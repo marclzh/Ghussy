@@ -11,7 +11,7 @@ public class Player : Character
     public static bool IsPlayerTransformed = false;
     //[SerializeField] private PlayerController controller;
     // public PlayerAttack attack;
-    [SerializeField] private BasePossessionState currentState;
+    public BasePossessionState currentState;
     [SerializeField] PlayerWeapon currentWeapon;
     [SerializeField] Ability currentAbility;
 
@@ -24,7 +24,7 @@ public class Player : Character
 
     private void Update()
     {
-        Debug.Log(currentState);
+
     }
 
     public void SetState(BasePossessionState nextState)
