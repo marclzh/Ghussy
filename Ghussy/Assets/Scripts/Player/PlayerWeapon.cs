@@ -114,6 +114,15 @@ public class PlayerWeapon : MonoBehaviour
             weaponAnimator.SetBool("isFiring", false);
         }
     }
+
+    public void updateWeapon(GameObject weapon)
+    {
+        this.weapon = weapon;
+        weaponRB = weapon.GetComponent<Rigidbody2D>();
+        weaponSR = weapon.GetComponent<SpriteRenderer>();
+        weaponAnimator = weapon.GetComponent<Animator>();
+        offSetDistance = weapon.transform.position.x - playerReference.position.x;
+    }
   
     private bool withinFireRate()
     {

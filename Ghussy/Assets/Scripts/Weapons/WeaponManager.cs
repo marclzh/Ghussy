@@ -15,7 +15,7 @@ public class WeaponManager : MonoBehaviour
     private int totalWeapons;
     private int currWeaponIndex;
 
-    private void Start()
+    private void Awake()
     {
         // initialising the reference to the weaponManager
         weaponManager = GetComponent<Transform>();
@@ -33,9 +33,6 @@ public class WeaponManager : MonoBehaviour
 
         weaponArr[0].SetActive(true);
         currWeapon = weaponArr[0];
-
-        // initialise the state
-        currentState = GetComponent<Player>().currentState;
     }
 
     // Updating the state to update the weapon
@@ -50,7 +47,7 @@ public class WeaponManager : MonoBehaviour
                 currWeaponIndex = 1; // sets the weapon to the state's weapon
                 weaponArr[currWeaponIndex].SetActive(true); // activates the current weapon
                 currWeapon = weaponArr[currWeaponIndex]; // changes the weapon to the current weapon
-                GetComponent<PlayerWeapon>().weapon = currWeapon;
+                GetComponent<PlayerWeapon>().updateWeapon(currWeapon);
             } else
             {
                 Debug.Log("no, no, i clean now");

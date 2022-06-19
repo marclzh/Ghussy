@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 615712847}
   m_Layer: 6
-  m_Name: FirePoint
+  m_Name: BasicFirePoint
   m_TagString: Weapon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -106,8 +106,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -397371343
+  m_SortingLayer: 5
   m_SortingOrder: 1
   m_Sprite: {fileID: -2136108445, guid: 59f3cd9ce4569514a958f3a8dd7cbc6e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
