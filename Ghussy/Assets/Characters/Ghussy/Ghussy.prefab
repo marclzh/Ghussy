@@ -123,7 +123,6 @@ GameObject:
   - component: {fileID: 8947616355155497837}
   - component: {fileID: 1966398147432362623}
   - component: {fileID: 1966398147432362624}
-  - component: {fileID: 1966398147432362630}
   - component: {fileID: 1966398147432362626}
   - component: {fileID: 1596553109}
   - component: {fileID: 1596553121}
@@ -380,8 +379,7 @@ MonoBehaviour:
     maxDepth: 0
     minNormalAngle: 0
     maxNormalAngle: 0
-  weapon: {fileID: 1966398147432362630}
-  ectoGear: {fileID: 0}
+  weapon: {fileID: 0}
   playerAnimator: {fileID: 1966398147432362624}
 --- !u!114 &8947616355155497837
 MonoBehaviour:
@@ -457,23 +455,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 7761229420345860350}
---- !u!114 &1966398147432362630
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1265600502163984428}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b22749a901a14784cba2b8dfc75ad772, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  weapon: {fileID: 0}
-  firePoint: {fileID: 0}
-  bulletPrefab: {fileID: 149363730228609909, guid: 6a68e99b29b0440449321c49ad355b55, type: 3}
-  bulletSpeed: 250
-  fireRate: 0.2
 --- !u!114 &1966398147432362626
 MonoBehaviour:
   m_ObjectHideFlags: 0

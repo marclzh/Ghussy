@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 615712847}
   m_Layer: 6
-  m_Name: FirePoint
+  m_Name: BasicFirePoint
   m_TagString: Weapon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -43,9 +43,10 @@ GameObject:
   - component: {fileID: 7277383862160774358}
   - component: {fileID: 7277383862160774356}
   - component: {fileID: 7277383862160774376}
+  - component: {fileID: 3419361015115815325}
   - component: {fileID: 1367942334005813075}
   m_Layer: 6
-  m_Name: EctoGear1
+  m_Name: BasicWeapon
   m_TagString: Weapon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -105,8 +106,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -397371343
+  m_SortingLayer: 5
   m_SortingOrder: 1
   m_Sprite: {fileID: -2136108445, guid: 59f3cd9ce4569514a958f3a8dd7cbc6e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -170,6 +171,21 @@ MonoBehaviour:
   m_DefaultActionMap: EctoGear
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!114 &3419361015115815325
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7277383862160774354}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 457683fc5729fa740aedca281ef6084c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletPrefab: {fileID: 149363730228609909, guid: 6a68e99b29b0440449321c49ad355b55, type: 3}
+  firePoint: {fileID: 615712847}
+  fireRate: 0.2
 --- !u!95 &1367942334005813075
 Animator:
   serializedVersion: 4

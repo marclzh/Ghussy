@@ -9,7 +9,6 @@ public class PlayerController : MonoBehaviour
     Vector2 movementInput;
     Rigidbody2D rigidBody;
     SpriteRenderer spriteRenderer;
-    Animator animator;
 
     // Player Input Actions
     private PlayerInputActions playerControls;
@@ -25,8 +24,7 @@ public class PlayerController : MonoBehaviour
 
     // Weapon Firing Fields
     bool isFiring; 
-    public PlayerWeapon weapon;
-    public Transform ectoGear; // Reference to current weapon 
+    [SerializeField] private PlayerWeapon weapon;
 
     // Animation Fields
     [SerializeField] private PlayerAnimator playerAnimator;
@@ -53,15 +51,14 @@ public class PlayerController : MonoBehaviour
     private void Awake()
     {
         playerControls = new PlayerInputActions();  
+       
     }
 
     // Start is called before the first frame update
     void Start()
     {
         rigidBody = GetComponent<Rigidbody2D>();
-        animator = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
-        weapon = GetComponent<PlayerWeapon>();
     }
 
     private void FixedUpdate()
@@ -78,13 +75,11 @@ public class PlayerController : MonoBehaviour
         {
             weapon.HandleShooting(true);
             playerAnimator.IsPlayerAttacking(true);
-            //animator.SetBool("isFiring", true);
         }
         else
         {
             weapon.HandleShooting(false);
             playerAnimator.IsPlayerAttacking(false);
-            //animator.SetBool("isFiring", false);
         }
 
     }
@@ -129,7 +124,7 @@ public class PlayerController : MonoBehaviour
                 // when player is firing, if facing left, and weapon is right of player, flip player.
                 if (isFiring)
                 {
-                    if (ectoGear.position.x > transform.position.x)
+                    if (weapon.GetComponent<PlayerWeapon>().weapon.transform.position.x > transform.position.x)
                     {
                         spriteRenderer.flipX = false;
                     }
@@ -142,7 +137,7 @@ public class PlayerController : MonoBehaviour
                 // same as above, just opposite
                 if (isFiring)
                 {
-                    if (ectoGear.position.x < transform.position.x)
+                    if (weapon.GetComponent<PlayerWeapon>().weapon.transform.position.x < transform.position.x)
                     {
                         spriteRenderer.flipX = true;
                     }
@@ -179,6 +174,7 @@ public class PlayerController : MonoBehaviour
             return false;
         }
     }
+
 
     void OnMove(InputValue movementValue)
     {
