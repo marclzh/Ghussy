@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b1effec8aa4b29f4c99e94fc5c4c18d7, type: 3}
-  m_Name: BasicWeapon
+  m_Name: BoneWeapon
   m_EditorClassIdentifier: 
-  weaponName: BasicWeapon
-  weaponPrefab: {fileID: 7277383862160774354, guid: aa54c1dc9bf475c4681e84c0d7648c88, type: 3}
-  bulletPrefab: {fileID: 149363730228609909, guid: 6a68e99b29b0440449321c49ad355b55, type: 3}
+  weaponName: BoneWeapon
+  weaponPrefab: {fileID: 7277383862160774354, guid: d36d0b07cb7abe34292ee318650c5b03, type: 3}
+  bulletPrefab: {fileID: 149363730228609909, guid: 7dbc32900b315554996c531656cec1c9, type: 3}
