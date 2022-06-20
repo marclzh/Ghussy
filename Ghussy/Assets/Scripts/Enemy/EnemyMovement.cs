@@ -33,7 +33,11 @@ public class EnemyMovement : MonoBehaviour
     {
         if (rb.velocity.x != 0 || rb.velocity.y != 0 || !isInAttackRange)
         {
-            enemyAnimator.IsEnemyMoving(true);
+            if (enemyAnimator != null) 
+            {
+                enemyAnimator.IsEnemyMoving(true);
+            } 
+
         }
 
         isInChaseRange = Physics2D.OverlapCircle(transform.position, checkRadius, playerLayer);
