@@ -13,7 +13,7 @@ public class EnemyAI : MonoBehaviour
 
     // Enemy Pathfinding variables
     public float nextWaypointDistance = 0.1f;
-    public bool isChasing;
+    public bool isChasing = false;
     
     Path path;
     int currentWaypoint = 0;
@@ -24,8 +24,8 @@ public class EnemyAI : MonoBehaviour
     
     void Start()
     {
-        // set true for testing
-        isChasing = true;
+        
+       
         seeker = GetComponent<Seeker>();
         rb = GetComponent<Rigidbody2D>();
 

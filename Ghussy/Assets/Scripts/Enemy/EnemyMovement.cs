@@ -8,7 +8,7 @@ public class EnemyMovement : MonoBehaviour
 
     // Enemy Movement Variables
     public float speed;
-    public float checkRadius;
+    public float chaseRadius;
     public float attackRadius;
     private Vector3 dir;
 
@@ -31,21 +31,31 @@ public class EnemyMovement : MonoBehaviour
 
     void Update()
     {
+        isInChaseRange = Physics2D.OverlapCircle(transform.position, chaseRadius, playerLayer);
+        isInAttackRange = Physics2D.OverlapCircle(transform.position, attackRadius, playerLayer);
+
         if (enemyAnimator != null)
-        {
-            if (rb.velocity.x != 0 || rb.velocity.y != 0 || !isInAttackRange)
+        { 
+            if (rb.velocity.x != 0 || rb.velocity.y != 0)
             {
-                enemyAnimator.IsEnemyMoving(true);
+                if (!isInAttackRange || isInChaseRange)
+                {
+                    enemyAnimator.IsEnemyMoving(true);
+                }          
             }
         }
 
-        isInChaseRange = Physics2D.OverlapCircle(transform.position, checkRadius, playerLayer);
-        isInAttackRange = Physics2D.OverlapCircle(transform.position, attackRadius, playerLayer);
-
+        
         if (target != null) 
         {
+            if (isInChaseRange)
+            {
+                GetComponent<EnemyAI>().isChasing = true;
+            }
+
             dir = target.position - transform.position;
         }
+
         float angle = Mathf.Atan2(dir.x, dir.y) * Mathf.Rad2Deg;
 
         dir.Normalize();
