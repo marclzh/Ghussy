@@ -1,31 +1,18 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerAnimator : MonoBehaviour
 {
     [SerializeField] private Animator animator;
-
-    
-    //private bool isDead;
-    //private bool isAttacking;
-    //private bool isMoving;
+    //private bool isTransformed;
+    private string currState;
 
     // Start is called before the first frame update
     void Start()
     {
         animator = GetComponent<Animator>();
+        //isTransformed = false;
+        currState = "Default";
     }
-
-    /*
-    // Update is called once per frame
-    void Update()
-    {
-        
-        animator.SetBool("isFiring", isAttacking);
-        animator.SetBool("isMoving", isMoving);
-    }
-    */
 
     public void IsPlayerMoving(bool b)
     {
@@ -38,17 +25,28 @@ public class PlayerAnimator : MonoBehaviour
     }
     public void PlayerHit()
     {
-        animator.Play("ghussy_hit");
+        if (currState == "Default")
+        {
+            animator.Play("ghussy_hit");
+        } 
+        else if (currState == "SkeletonTransformation")
+        {
+            animator.Play("skelly_hit");
+        } 
+        else
+        {
+            Debug.Log("yikes");
+        }
+        
     }
     public void BaseTransform()
     {
         animator.SetBool("isTransforming", true);
     }
 
-    public void PlayerTransform(BasePossessionState basePossesssssessionState)
+    public void PlayerTransform()
     {
-        string nextState = basePossesssssessionState.ToString();
-        animator.SetBool(nextState, true);
+        animator.SetBool(currState, true);
     }
 
     public void IsPlayerDead(bool b)
@@ -56,4 +54,17 @@ public class PlayerAnimator : MonoBehaviour
         animator.SetBool("isDead", b);
     }
 
+    public void IsTransformationDead()
+    {
+        animator.SetTrigger("isTransformDead");
+        currState = "Default";  
+        //isTransformed = false;
+    }
+
+    public void UpdatePossessionState(BasePossessionState nextState)
+    {
+        currState = nextState.ToString();
+        //isTransformed = true;
+        PlayerTransform();
+    }
 }

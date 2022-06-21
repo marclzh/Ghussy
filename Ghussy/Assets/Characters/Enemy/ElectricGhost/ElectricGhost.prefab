@@ -31,7 +31,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1124729801913180346}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -1.155, y: 0.192, z: -0.008622315}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -167,7 +167,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 710cfd59ffa73824289029fc9b7b552b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  slider: {fileID: 5203162716000005659}
+  baseHealthSlider: {fileID: 5203162716000005659}
   gradient:
     serializedVersion: 2
     key0: {r: 0.83578664, g: 0.07331027, b: 0.099672705, a: 1}
@@ -197,7 +197,7 @@ MonoBehaviour:
     m_Mode: 1
     m_NumColorKeys: 3
     m_NumAlphaKeys: 2
-  fill: {fileID: 5203162716104609811}
+  baseHealthBar: {fileID: 5203162716104609811}
   deathDelay: 0.3
 --- !u!114 &7451909808620067537
 MonoBehaviour:
@@ -328,6 +328,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8354435815205090531, guid: 0e57e7e7d77a0e44fb4d3eeb43d9c082, type: 3}
+      propertyPath: m_SortingLayerID
+      value: -397371343
+      objectReference: {fileID: 0}
     - target: {fileID: 8354435815205090532, guid: 0e57e7e7d77a0e44fb4d3eeb43d9c082, type: 3}
       propertyPath: m_Name
       value: Health Bar Canvas
@@ -383,6 +387,14 @@ PrefabInstance:
     - target: {fileID: 1128251758, guid: c3a7890637a841c4ca4360b8338d6688, type: 3}
       propertyPath: m_IsTrigger
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4512727748108594192, guid: c3a7890637a841c4ca4360b8338d6688, type: 3}
+      propertyPath: m_SortingLayer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4512727748108594192, guid: c3a7890637a841c4ca4360b8338d6688, type: 3}
+      propertyPath: m_SortingLayerID
+      value: -397371343
       objectReference: {fileID: 0}
     - target: {fileID: 4512727748108594221, guid: c3a7890637a841c4ca4360b8338d6688, type: 3}
       propertyPath: m_Name

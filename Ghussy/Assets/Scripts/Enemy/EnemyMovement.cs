@@ -31,19 +31,21 @@ public class EnemyMovement : MonoBehaviour
 
     void Update()
     {
-        if (rb.velocity.x != 0 || rb.velocity.y != 0 || !isInAttackRange)
+        if (enemyAnimator != null)
         {
-            if (enemyAnimator != null) 
+            if (rb.velocity.x != 0 || rb.velocity.y != 0 || !isInAttackRange)
             {
                 enemyAnimator.IsEnemyMoving(true);
-            } 
-
+            }
         }
 
         isInChaseRange = Physics2D.OverlapCircle(transform.position, checkRadius, playerLayer);
         isInAttackRange = Physics2D.OverlapCircle(transform.position, attackRadius, playerLayer);
 
-        dir = target.position - transform.position;
+        if (target != null) 
+        {
+            dir = target.position - transform.position;
+        }
         float angle = Mathf.Atan2(dir.x, dir.y) * Mathf.Rad2Deg;
 
         dir.Normalize();

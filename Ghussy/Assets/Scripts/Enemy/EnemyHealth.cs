@@ -18,9 +18,9 @@ public class EnemyHealth : Health
         currentHealth = maxHealth;
 
         // UI Unitialisation
-        slider.maxValue = maxHealth;
+        baseHealthSlider.maxValue = maxHealth;
         UpdateHealthUI(currentHealth);
-        fill.color = gradient.Evaluate(1f);
+        baseHealthBar.color = gradient.Evaluate(1f);
 
         // Initialise Animator
         enemyAnimator = GetComponent<EnemyAnimator>();
