@@ -135,7 +135,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 80
-  checkRadius: 0.8
+  chaseRadius: 1.5
   attackRadius: 0.2
   isInChaseRange: 0
   isInAttackRange: 0
@@ -199,6 +199,8 @@ MonoBehaviour:
     m_NumAlphaKeys: 2
   baseHealthBar: {fileID: 5203162716104609811}
   deathDelay: 0.3
+  ectoplasmPrefab: {fileID: 3702410368621476491, guid: aa0e7ad0a3082f04291c07bdf662bf22, type: 3}
+  enemyAnimator: {fileID: 7451909808620067538}
 --- !u!114 &7451909808620067537
 MonoBehaviour:
   m_ObjectHideFlags: 0

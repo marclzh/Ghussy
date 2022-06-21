@@ -13,7 +13,7 @@ public class EnemyAI : MonoBehaviour
 
     // Enemy Pathfinding variables
     public float nextWaypointDistance = 0.1f;
-    public bool isChasing;
+    public bool isChasing = false;
     
     Path path;
     int currentWaypoint = 0;
@@ -21,11 +21,14 @@ public class EnemyAI : MonoBehaviour
 
     Seeker seeker;
     Rigidbody2D rb;
-    
-    void Start()
+
+    private void OnEnable()
     {
-        // set true for testing
-        isChasing = true;
+        target = GameObject.FindGameObjectWithTag("Player").transform;
+    }
+
+    void Start()
+    {      
         seeker = GetComponent<Seeker>();
         rb = GetComponent<Rigidbody2D>();
 
