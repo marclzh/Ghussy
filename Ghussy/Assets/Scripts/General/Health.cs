@@ -8,9 +8,9 @@ public abstract class Health : MonoBehaviour
     // Health Stats
     protected float maxHealth;
     protected float currentHealth;
-    public Slider slider;
+    public Slider baseHealthSlider;
     public Gradient gradient;
-    public Image fill;
+    public Image baseHealthBar;
 
     public virtual void TakeDamage(float damage)
     {
@@ -31,7 +31,8 @@ public abstract class Health : MonoBehaviour
 
     protected virtual void UpdateHealthUI(float health)
     {
-        slider.value = health;
-        fill.color = gradient.Evaluate(1f);
+        baseHealthSlider.value = health;
+        baseHealthBar.color = gradient.Evaluate(1f);
     }
+
 }

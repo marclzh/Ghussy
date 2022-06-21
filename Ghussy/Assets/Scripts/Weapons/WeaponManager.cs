@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class WeaponManager : MonoBehaviour
@@ -41,16 +39,25 @@ public class WeaponManager : MonoBehaviour
         if (nextState != null && !currentState.Same(nextState))
         {
             currentState = nextState;
-            if (currentState.ToString() == "SkeletonTransformation")
+            if (currentState.ToString() == "Default")
+            {
+                weaponArr[currWeaponIndex].SetActive(false); // deactivates current weapon
+                currWeaponIndex = 0; // sets the weapon to the state's weapon
+                weaponArr[currWeaponIndex].SetActive(true); // activates the current weapon
+                currWeapon = weaponArr[currWeaponIndex]; // changes the weapon to the current weapon
+                GetComponent<PlayerWeapon>().updateWeapon(currWeapon);
+            }
+             else if (currentState.ToString() == "SkeletonTransformation")
             {
                 weaponArr[currWeaponIndex].SetActive(false); // deactivates current weapon
                 currWeaponIndex = 1; // sets the weapon to the state's weapon
                 weaponArr[currWeaponIndex].SetActive(true); // activates the current weapon
                 currWeapon = weaponArr[currWeaponIndex]; // changes the weapon to the current weapon
                 GetComponent<PlayerWeapon>().updateWeapon(currWeapon);
-            } else
-            {
-                Debug.Log("no, no, i clean now");
+            } 
+            else
+            { 
+                Debug.Log("InvalidTransformation (weaponManager)");
             }
         }
     }
