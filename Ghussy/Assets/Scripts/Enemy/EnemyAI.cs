@@ -21,11 +21,14 @@ public class EnemyAI : MonoBehaviour
 
     Seeker seeker;
     Rigidbody2D rb;
-    
-    void Start()
+
+    private void OnEnable()
     {
-        
-       
+        target = GameObject.FindGameObjectWithTag("Player").transform;
+    }
+
+    void Start()
+    {      
         seeker = GetComponent<Seeker>();
         rb = GetComponent<Rigidbody2D>();
 

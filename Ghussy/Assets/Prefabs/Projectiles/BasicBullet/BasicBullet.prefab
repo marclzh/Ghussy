@@ -160,4 +160,3 @@ MonoBehaviour:
   rb: {fileID: -639056308780892224}
   damage: 15
   speed: 250
-  fireRate: 0.2
