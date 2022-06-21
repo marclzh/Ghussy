@@ -2264,7 +2264,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: abfe0d36440f2cb4a848bdbbb64d2867, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  firstLevel: Level1
+  firstLevel: Opening Scene
   transition: {fileID: 1171092930}
   transitionTime: 2
 --- !u!1 &841991396
