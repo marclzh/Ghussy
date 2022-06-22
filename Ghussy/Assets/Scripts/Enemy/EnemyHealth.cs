@@ -32,8 +32,7 @@ public class EnemyHealth : Health
     {
         if (enemyAnimator != null)
         {
-           
-
+          
            Debug.Assert(damage >= 0, "Damage cannot be negative!");
            currentHealth -= damage;
            UpdateHealthUI(currentHealth);
@@ -46,10 +45,10 @@ public class EnemyHealth : Health
            // DestroyOnExit script only handles the destruction of
             // enemyGFX, so need to independently call Destroy on the 
             // whole enemy. Returns after to break out of method.
-            Destroy(gameObject);
-            enemyAnimator.EnemyDeath();
-            Instantiate(ectoplasmPrefab, transform.position + new Vector3(0, Random.Range(0,.16f)), Quaternion.identity);
-            return;
+                Destroy(gameObject);
+                enemyAnimator.EnemyDeath();
+                Instantiate(ectoplasmPrefab, transform.position + new Vector3(0, Random.Range(0,.16f)), Quaternion.identity);
+                return;
             }
         }
         

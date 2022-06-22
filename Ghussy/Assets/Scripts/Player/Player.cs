@@ -2,12 +2,8 @@ using UnityEngine;
 
 public class Player : Character
 {
-    /*
-     * When adding
-     */
-
     // TODO Interactable Script
-    public InventoryObject inventory;
+    public InventoryObject ectoplasmInventory;
     [SerializeField] private PlayerHealth playerHealth;
     [SerializeField] private PlayerAnimator playerAnimator;
     public static bool IsPlayerTransformed = false;
@@ -18,6 +14,12 @@ public class Player : Character
     [SerializeField] PlayerWeapon currentWeapon;
     [SerializeField] Ability currentAbility;
     [SerializeField] WeaponManager weaponManager;
+    public VectorValue startingPosition;
+
+    public void Start()
+    {
+        transform.position = startingPosition.initialValue;
+    }
 
     void OnHit(float damage) 
     {
@@ -51,7 +53,9 @@ public class Player : Character
     // Resets values
     private void OnApplicationQuit()
     {
-        inventory.Container.Clear();
+        ectoplasmInventory.Container.Clear();
+        // Fixed the value for testing 
+        startingPosition.initialValue = new Vector2(-0.1f, 0.373f);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -61,4 +65,6 @@ public class Player : Character
             OnHit(10);
         }
     }
+
+  
 }

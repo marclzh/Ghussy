@@ -12,8 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9afe8392d16f0334ca19b0e6696f3885, type: 3}
   m_Name: New Ectoplasm Object
   m_EditorClassIdentifier: 
-  prefab: {fileID: 0}
+  prefab: {fileID: 3702410368621476491, guid: aa0e7ad0a3082f04291c07bdf662bf22, type: 3}
   type: 3
   description: 
-  minAmount: 10
-  maxAmount: 20
