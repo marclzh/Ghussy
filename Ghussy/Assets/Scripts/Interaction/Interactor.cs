@@ -11,7 +11,7 @@ public class Interactor : MonoBehaviour
     private readonly Collider2D[] colliders = new Collider2D[3];
     [SerializeField] private int numFound;
     private IInteractable interactable;
-    private bool interacted = false;
+    //private bool interacted = false;
 
     private void Update()
     {
@@ -25,13 +25,13 @@ public class Interactor : MonoBehaviour
 
             if (interactable != null)
             {
-                if (!interacted)
+                if (true)
                 {
                     if (!interactionPromptUI.isDisplayed) interactionPromptUI.SetUp(interactable.InteractionPrompt);
 
                     if (Keyboard.current.eKey.wasPressedThisFrame)
                     {
-                       interacted = true;
+                       //interacted = true;
                        interactable.Interact(this);
                        if (interactionPromptUI.isDisplayed) interactionPromptUI.Close();
                      } 
