@@ -530,7 +530,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2428416465870309168, guid: e5b2f4826c761ff4fad4d7960b540868, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -1.9140625
+      value: -1.9142761
       objectReference: {fileID: 0}
     - target: {fileID: 2428416466157888543, guid: e5b2f4826c761ff4fad4d7960b540868, type: 3}
       propertyPath: inventory
@@ -918,7 +918,7 @@ MonoBehaviour:
   minAmount: 1
   maxAmount: 10
   onEctoplasmAmountUpdate: {fileID: 11400000, guid: 445bddf2efa68004e95ec3e872d84e6f, type: 2}
-  ectoplasmInventory: {fileID: 0}
+  ectoplasmInventory: {fileID: 11400000, guid: b25ff695757aadc4b8192b41d82a8392, type: 2}
 --- !u!1001 &4370677501037861442
 PrefabInstance:
   m_ObjectHideFlags: 0

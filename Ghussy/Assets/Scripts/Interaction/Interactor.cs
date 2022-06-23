@@ -25,8 +25,7 @@ public class Interactor : MonoBehaviour
 
             if (interactable != null)
             {
-                if (true)
-                {
+                
                     if (!interactionPromptUI.isDisplayed) interactionPromptUI.SetUp(interactable.InteractionPrompt);
 
                     if (Keyboard.current.eKey.wasPressedThisFrame)
@@ -35,12 +34,7 @@ public class Interactor : MonoBehaviour
                        interactable.Interact(this);
                        if (interactionPromptUI.isDisplayed) interactionPromptUI.Close();
                      } 
-                }
-                else
-                {
-                    if (interactionPromptUI.isDisplayed) interactionPromptUI.Close();
-                }
-
+                
 
              }
         } 
@@ -53,11 +47,11 @@ public class Interactor : MonoBehaviour
     
     // Show interaction radius
     
-    private void OnDrawGizmos()
+    /*private void OnDrawGizmos()
     {
         Gizmos.color = Color.blue;
         Gizmos.DrawWireSphere(interactionPoint.position, interactionPointRadius);
     }
-    
+    */
 
 }
