@@ -7,9 +7,24 @@ using TMPro;
 public class EctoplasmUI : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI EctoplasmText;
+    [SerializeField] private InventoryObject ectoplasmInventory;
+    private int currentEctoplasmAmount = 0;
    
-    public void DisplayCurrentEctoplasmAmount(int ectoplasmAmount)
+    // can remove this
+    public void DisplayCurrentEctoplasmAmount(int amount)
     {
-        EctoplasmText.text = ectoplasmAmount.ToString();
+        currentEctoplasmAmount = amount;
+    }
+
+
+    public void FixedUpdate()
+    {
+        // Uses ectoplasm inventory which is meant to only hold ectoplasm
+        if (ectoplasmInventory.Container.Count > 0)
+        {
+            EctoplasmText.text = ectoplasmInventory.Container[0].amount.ToString();
+        }
+  
+        
     }
 }

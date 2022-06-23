@@ -9,11 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9afe8392d16f0334ca19b0e6696f3885, type: 3}
-  m_Name: New Ectoplasm Object 1
+  m_Script: {fileID: 11500000, guid: cc83922771fdcdb4298c5176368ae050, type: 3}
+  m_Name: Player Ectoplasm Inventory
   m_EditorClassIdentifier: 
-  prefab: {fileID: 0}
-  type: 3
-  description: 
-  minAmount: 12
-  maxAmount: 43
+  Container:
+  - item: {fileID: 11400000, guid: 7be5849b055a0bf41b4a3ae5266a3987, type: 2}
+    amount: 22

@@ -397,8 +397,11 @@ MonoBehaviour:
   playerHealth: {fileID: 1966398147432362623}
   playerAnimator: {fileID: 1966398147432362624}
   currentState: {fileID: 11400000, guid: 8d212c62150aa6640ba0595f5d887ad5, type: 2}
+  defaultState: {fileID: 0}
   currentWeapon: {fileID: 0}
   currentAbility: {fileID: 11400000, guid: e9c11e96a7080e04aa3f68504e3e3f9e, type: 2}
+  weaponManager: {fileID: 0}
+  startingPosition: {fileID: 11400000, guid: 6b910f07a53d30b47834e6dc2bc2bf7a, type: 2}
 --- !u!114 &1966398147432362623
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -411,7 +414,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d89ba80da8db7ec4c9ac4c59f3e47981, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  slider: {fileID: 0}
+  baseHealthSlider: {fileID: 0}
   gradient:
     serializedVersion: 2
     key0: {r: 0.83578664, g: 0.07331027, b: 0.099672705, a: 1}
@@ -441,7 +444,11 @@ MonoBehaviour:
     m_Mode: 1
     m_NumColorKeys: 3
     m_NumAlphaKeys: 2
-  fill: {fileID: 0}
+  baseHealthBar: {fileID: 0}
+  player: {fileID: 0}
+  transformationHealthBar: {fileID: 0}
+  transformationHealthObject: {fileID: 0}
+  transformationHealthSlider: {fileID: 0}
 --- !u!114 &1966398147432362624
 MonoBehaviour:
   m_ObjectHideFlags: 0
