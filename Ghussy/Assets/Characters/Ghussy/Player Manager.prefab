@@ -530,7 +530,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2428416465870309168, guid: e5b2f4826c761ff4fad4d7960b540868, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -1.9142761
+      value: -1.9146729
+      objectReference: {fileID: 0}
+    - target: {fileID: 2428416466063057562, guid: e5b2f4826c761ff4fad4d7960b540868, type: 3}
+      propertyPath: m_Name
+      value: Main HUD
       objectReference: {fileID: 0}
     - target: {fileID: 2428416466157888543, guid: e5b2f4826c761ff4fad4d7960b540868, type: 3}
       propertyPath: inventory
