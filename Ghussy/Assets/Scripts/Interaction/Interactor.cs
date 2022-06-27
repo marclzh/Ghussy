@@ -47,7 +47,7 @@ public class Interactor : MonoBehaviour
     
     // Show interaction radius
     
-    /*private void OnDrawGizmos()
+   /* private void OnDrawGizmos()
     {
         Gizmos.color = Color.blue;
         Gizmos.DrawWireSphere(interactionPoint.position, interactionPointRadius);

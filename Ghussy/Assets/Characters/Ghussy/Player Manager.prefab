@@ -63,7 +63,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7780429, y: 1}
+    m_SensorSize: {x: 1.7780488, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -412,6 +412,10 @@ PrefabInstance:
       propertyPath: m_fontSize
       value: 72
       objectReference: {fileID: 0}
+    - target: {fileID: 2428416465114668851, guid: e5b2f4826c761ff4fad4d7960b540868, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -107.614136
+      objectReference: {fileID: 0}
     - target: {fileID: 2428416465145216483, guid: e5b2f4826c761ff4fad4d7960b540868, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -530,7 +534,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2428416465870309168, guid: e5b2f4826c761ff4fad4d7960b540868, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -1.9142761
+      value: -1.9147949
+      objectReference: {fileID: 0}
+    - target: {fileID: 2428416466063057562, guid: e5b2f4826c761ff4fad4d7960b540868, type: 3}
+      propertyPath: m_Name
+      value: Main HUD
       objectReference: {fileID: 0}
     - target: {fileID: 2428416466157888543, guid: e5b2f4826c761ff4fad4d7960b540868, type: 3}
       propertyPath: inventory
@@ -948,7 +956,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7277383862160774354, guid: d36d0b07cb7abe34292ee318650c5b03, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7277383862160774356, guid: d36d0b07cb7abe34292ee318650c5b03, type: 3}
       propertyPath: m_BodyType

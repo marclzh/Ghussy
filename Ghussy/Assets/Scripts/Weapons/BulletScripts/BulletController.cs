@@ -15,7 +15,7 @@ public abstract class BulletController : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {       
-        if (collision.gameObject.TryGetComponent<EnemyHealth>(out EnemyHealth enemyComponent) )
+        if (collision.gameObject.TryGetComponent<EnemyHealth>(out EnemyHealth enemyComponent))
         {
             FindObjectOfType<AudioManager>().Play("Hit");
             enemyComponent.TakeDamage(damage);         

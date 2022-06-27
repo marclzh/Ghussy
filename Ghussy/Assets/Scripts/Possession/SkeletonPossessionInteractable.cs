@@ -16,12 +16,10 @@ public class SkeletonPossessionInteractable : MonoBehaviour, IInteractable
             FindObjectOfType<AudioManager>().Play("Possess");
             // Raise Event that object has been interacted with 
             possessionEvent.Raise(possessionState);
-            Debug.Log("Event Raised!!");
             Destroy(gameObject);
 
         }
         return true;
     }
 
-  
 }
