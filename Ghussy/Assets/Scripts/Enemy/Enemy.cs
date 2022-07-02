@@ -4,6 +4,12 @@ using UnityEngine;
 
 public class Enemy : Character
 {
-    public Animator animator;
+    [SerializeField] VoidEvent OnEnemyDeath;
+
+    public void OnDeath()
+    {
+        OnEnemyDeath.Raise();
+       
+    }
    
 }

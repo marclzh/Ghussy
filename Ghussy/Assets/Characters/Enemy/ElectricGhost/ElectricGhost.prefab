@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 7451909808620067538}
   - component: {fileID: 7451909808620067539}
   - component: {fileID: 7451909808620067537}
+  - component: {fileID: 4529716521547276909}
   m_Layer: 7
   m_Name: ElectricGhost
   m_TagString: Enemy
@@ -198,7 +199,7 @@ MonoBehaviour:
     m_NumColorKeys: 3
     m_NumAlphaKeys: 2
   baseHealthBar: {fileID: 5203162716104609811}
-  deathDelay: 0.3
+  maxEctoplasmDrop: 3
   ectoplasmPrefab: {fileID: 3702410368621476491, guid: aa0e7ad0a3082f04291c07bdf662bf22, type: 3}
   enemyAnimator: {fileID: 7451909808620067538}
 --- !u!114 &7451909808620067537
@@ -215,6 +216,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 10
   attackPoint: {fileID: 5967399451303471610}
+--- !u!114 &4529716521547276909
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1124729801913180346}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6832cea29572e8498a22ca75b0dc2a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnEnemyDeath: {fileID: 11400000, guid: 7728a522ed50a9443856ee2ddad49339, type: 2}
 --- !u!1001 &4307046462404761406
 PrefabInstance:
   m_ObjectHideFlags: 0

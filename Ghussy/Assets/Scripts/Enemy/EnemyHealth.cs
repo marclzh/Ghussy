@@ -4,10 +4,10 @@ using UnityEngine.UI;
 public class EnemyHealth : Health
 {
     // 1 frame delay for flinch animation to play
-    [SerializeField] private float deathDelay = 0.5f;
+    [SerializeField] private int maxEctoplasmDrop;
     [SerializeField] private GameObject ectoplasmPrefab;
 
-    //private bool isHurt = false;
+    private bool hasDied = false;
 
     [SerializeField] EnemyAnimator enemyAnimator;
 
@@ -40,14 +40,26 @@ public class EnemyHealth : Health
            enemyAnimator.EnemyHit();
 
 
-           if (currentHealth <= 0)
+           if (currentHealth <= 0 && hasDied == false)
            {
-           // DestroyOnExit script only handles the destruction of
-            // enemyGFX, so need to independently call Destroy on the 
-            // whole enemy. Returns after to break out of method.
+                // Mark Enemy as dead and destroy Enemy
+                hasDied = true;
                 Destroy(gameObject);
+
+                // Enemy Death Animation
                 enemyAnimator.EnemyDeath();
-                Instantiate(ectoplasmPrefab, transform.position + new Vector3(0, Random.Range(0,.16f)), Quaternion.identity);
+
+                // Raises onEnemyDeath Event
+                gameObject.GetComponent<Enemy>().OnDeath();
+
+                // Spawn Ectoplasm
+                int num = Random.Range(1, maxEctoplasmDrop);
+                while (num > 0)
+                {
+                    Instantiate(ectoplasmPrefab, transform.position + new Vector3(0, Random.Range(0,.32f)), Quaternion.identity);
+                    num--;
+                }
+                
                 return;
             }
         }
