@@ -9,6 +9,11 @@ public class PlayerWeapon : MonoBehaviour
     SpriteRenderer weaponSR;
     Rigidbody2D weaponRB;
     Animator weaponAnimator;
+    bool isTransformed = false;
+
+    // Ability References
+    [SerializeField] private int numProjectiles;
+    [SerializeField] private float projectileSpread;
 
     // Player Input Actions 
     private PlayerInputActions controls;
@@ -96,11 +101,37 @@ public class PlayerWeapon : MonoBehaviour
         // Bullet Instantiation
         if (weaponFired && withinFireRate())
         {
-            GameObject projectile = Instantiate(weapon.GetComponent<Weapon>().bulletPrefab, 
-                weapon.GetComponent<Weapon>().firePoint.position, weapon.GetComponent<Weapon>().firePoint.rotation);
-            Rigidbody2D rb = projectile.GetComponent<Rigidbody2D>();
-            Vector2 shootingDirection = mousePos - playerPos2D;
-            rb.velocity += weapon.GetComponent<Weapon>().bulletPrefab.GetComponent<BulletController>().speed * Time.deltaTime * shootingDirection.normalized;
+            if (!isTransformed)
+            {
+                GameObject projectile = Instantiate(weapon.GetComponent<Weapon>().bulletPrefab,
+                    weapon.GetComponent<Weapon>().firePoint.position, weapon.GetComponent<Weapon>().firePoint.rotation);
+                Rigidbody2D rb = projectile.GetComponent<Rigidbody2D>();
+                Vector2 shootingDirection = mousePos - playerPos2D;
+                rb.velocity += weapon.GetComponent<Weapon>().bulletPrefab.GetComponent<BulletController>().speed * Time.deltaTime * shootingDirection.normalized;
+            } 
+            else
+            {
+                projectileSpread = 25;
+                numProjectiles = 3;
+
+                Debug.Log("multiple projectiles");
+
+                float facingRotation = Mathf.Atan2(weapon.GetComponent<Weapon>().firePoint.transform.position.x,
+                    weapon.GetComponent<Weapon>().firePoint.transform.position.y) * Mathf.Rad2Deg;
+                //weapon.GetComponent<Weapon>().firePoint.rotation;
+                float startRotation = facingRotation + projectileSpread / 2f;
+                float angleIncrease = projectileSpread / ((float)numProjectiles - 1f);
+
+                for (int i = 0; i < numProjectiles; i++)
+                {
+                    float tempRot = startRotation + angleIncrease * i;
+                    GameObject projectile = Instantiate(weapon.GetComponent<Weapon>().bulletPrefab,
+                   weapon.GetComponent<Weapon>().firePoint.position, Quaternion.Euler(0f, 0f, tempRot));
+                    Rigidbody2D rb = projectile.GetComponent<Rigidbody2D>();
+                    Vector2 shootingDirection = mousePos - playerPos2D;
+                    rb.velocity += weapon.GetComponent<Weapon>().bulletPrefab.GetComponent<BulletController>().speed * Time.deltaTime * shootingDirection.normalized;
+                }
+            }
 
             // Handle weapon shooting animation
             weaponAnimator.SetBool("isFiring", true);
@@ -137,5 +168,10 @@ public class PlayerWeapon : MonoBehaviour
     private void StopFiring(InputAction.CallbackContext obj)
     {
        // isFiring = false;
+    }
+
+    public void AbilityChange()
+    {
+        isTransformed = true;
     }
 }
