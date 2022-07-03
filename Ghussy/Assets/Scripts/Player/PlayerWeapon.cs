@@ -114,7 +114,11 @@ public class PlayerWeapon : MonoBehaviour
                 projectileSpread = 25;
                 numProjectiles = 3;
 
-                float facingRotation = weapon.GetComponent<Weapon>().firePoint.rotation;
+                Debug.Log("multiple projectiles");
+
+                float facingRotation = Mathf.Atan2(weapon.GetComponent<Weapon>().firePoint.transform.position.x,
+                    weapon.GetComponent<Weapon>().firePoint.transform.position.y) * Mathf.Rad2Deg;
+                //weapon.GetComponent<Weapon>().firePoint.rotation;
                 float startRotation = facingRotation + projectileSpread / 2f;
                 float angleIncrease = projectileSpread / ((float)numProjectiles - 1f);
 
@@ -166,7 +170,7 @@ public class PlayerWeapon : MonoBehaviour
        // isFiring = false;
     }
 
-    private void AbilityChange()
+    public void AbilityChange()
     {
         isTransformed = true;
     }
