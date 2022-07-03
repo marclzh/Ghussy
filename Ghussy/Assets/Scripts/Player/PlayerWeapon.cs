@@ -96,6 +96,7 @@ public class PlayerWeapon : MonoBehaviour
         // Bullet Instantiation
         if (weaponFired && withinFireRate())
         {
+            FindObjectOfType<AudioManager>().Play("WeaponFire1");
             GameObject projectile = Instantiate(weapon.GetComponent<Weapon>().bulletPrefab, 
                 weapon.GetComponent<Weapon>().firePoint.position, weapon.GetComponent<Weapon>().firePoint.rotation);
             Rigidbody2D rb = projectile.GetComponent<Rigidbody2D>();
