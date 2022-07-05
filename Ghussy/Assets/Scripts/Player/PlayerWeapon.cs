@@ -101,6 +101,7 @@ public class PlayerWeapon : MonoBehaviour
         // Bullet Instantiation
         if (weaponFired && withinFireRate())
         {
+
             if (!isTransformed)
             {
                 GameObject projectile = Instantiate(weapon.GetComponent<Weapon>().bulletPrefab,
@@ -138,7 +139,6 @@ public class PlayerWeapon : MonoBehaviour
 
             // reset fire rate check
             lastFireTime = Time.time;
-
         }
         else
         {
