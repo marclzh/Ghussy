@@ -1,21 +1,35 @@
 using UnityEngine;
+using Kryz.CharacterStats;
 
 public class Player : Character
 {
-    // TODO Interactable Script
-    public InventoryObject ectoplasmInventory;
+    
+    [SerializeField] private InventoryObject ectoplasmInventory;
     [SerializeField] private PlayerHealth playerHealth;
     [SerializeField] private PlayerAnimator playerAnimator;
     public static bool IsPlayerTransformed = false;
-    //[SerializeField] private PlayerController controller;
-    // public PlayerAttack attack;
-    public BasePossessionState currentState;
+    
+    public BasePossessionState currentState; 
     public BasePossessionState defaultState;
     [SerializeField] PlayerWeapon currentWeapon;
     [SerializeField] Ability currentAbility;
     [SerializeField] WeaponManager weaponManager;
     public VectorValue startingPosition;
 
+    [SerializeField] public CharacterStat movementSpeed;
+    [SerializeField] public CharacterStat fireRate;
+
+    public void Awake()
+    {
+        if (movementSpeed == null)
+        {
+            movementSpeed = new CharacterStat(GameData.movementSpeedValue);
+        } else
+        {
+            movementSpeed.BaseValue = GameData.movementSpeedValue;
+        }
+
+    }
     public void Start()
     {
         transform.position = startingPosition.initialValue;
@@ -29,7 +43,7 @@ public class Player : Character
 
     private void Update()
     {
-
+       // Debug.Log(movementSpeed.Value);
     }
 
     public void SetState(BasePossessionState nextState)
