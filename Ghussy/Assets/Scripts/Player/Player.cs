@@ -17,18 +17,16 @@ public class Player : Character
     public VectorValue startingPosition;
 
     [SerializeField] public CharacterStat movementSpeed;
-    [SerializeField] public CharacterStat fireRate;
+    [SerializeField] public CharacterStat maxHealth;
+    [SerializeField] public CharacterStat maxTransformationHealth;
 
-    public void Awake()
+    public void OnValidate()
     {
-        if (movementSpeed == null)
-        {
-            movementSpeed = new CharacterStat(GameData.movementSpeedValue);
-        } else
-        {
-            movementSpeed.BaseValue = GameData.movementSpeedValue;
-        }
-
+        movementSpeed.BaseValue = GameData.movementSpeedValue;
+        maxHealth.BaseValue = GameData.maxHealthValue;
+        
+        maxTransformationHealth.BaseValue = GameData.maxTransformationValue;
+        
     }
     public void Start()
     {

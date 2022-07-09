@@ -11,6 +11,9 @@ public class EnemyHealth : Health
 
     [SerializeField] EnemyAnimator enemyAnimator;
 
+    public Slider baseHealthSlider;
+    public Gradient gradient;
+    public Image baseHealthBar;
 
     private void Start()
     {
@@ -20,7 +23,7 @@ public class EnemyHealth : Health
 
         // UI Unitialisation
         baseHealthSlider.maxValue = maxHealth;
-        UpdateHealthUI(currentHealth);
+        //UpdateHealthUI(currentHealth);
         baseHealthBar.color = gradient.Evaluate(1f);
 
         // Initialise Animator
@@ -64,5 +67,14 @@ public class EnemyHealth : Health
             }
         }
         
+    }
+
+    public void UpdateHealthUI(float health)
+    {
+            baseHealthSlider.value = health;
+            baseHealthBar.color = gradient.Evaluate(1f);
+          
+        
+       
     }
 }

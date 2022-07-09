@@ -63,7 +63,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7791665, y: 1}
+    m_SensorSize: {x: 1.7785888, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -428,7 +428,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2428416465114668851, guid: e5b2f4826c761ff4fad4d7960b540868, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -107.614136
+      value: -107.61401
       objectReference: {fileID: 0}
     - target: {fileID: 2428416465145216483, guid: e5b2f4826c761ff4fad4d7960b540868, type: 3}
       propertyPath: m_AnchorMax.x
@@ -541,6 +541,10 @@ PrefabInstance:
     - target: {fileID: 2428416465575016783, guid: e5b2f4826c761ff4fad4d7960b540868, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2428416465865722793, guid: e5b2f4826c761ff4fad4d7960b540868, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 5.807251
       objectReference: {fileID: 0}
     - target: {fileID: 2428416465865722806, guid: e5b2f4826c761ff4fad4d7960b540868, type: 3}
       propertyPath: m_IsActive
@@ -762,11 +766,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1596553121, guid: be18fbaf8b558d04cbbafb0814cfb511, type: 3}
       propertyPath: unityEventResponse.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1596553121, guid: be18fbaf8b558d04cbbafb0814cfb511, type: 3}
       propertyPath: unityEventResponse.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1596553121, guid: be18fbaf8b558d04cbbafb0814cfb511, type: 3}
       propertyPath: unityEventResponse.m_PersistentCalls.m_Calls.Array.data[3].m_Mode
@@ -775,7 +779,7 @@ PrefabInstance:
     - target: {fileID: 1596553121, guid: be18fbaf8b558d04cbbafb0814cfb511, type: 3}
       propertyPath: unityEventResponse.m_PersistentCalls.m_Calls.Array.data[2].m_Target
       value: 
-      objectReference: {fileID: 2877176420708713746}
+      objectReference: {fileID: 1596553124}
     - target: {fileID: 1596553121, guid: be18fbaf8b558d04cbbafb0814cfb511, type: 3}
       propertyPath: unityEventResponse.m_PersistentCalls.m_Calls.Array.data[3].m_Target
       value: 
@@ -798,7 +802,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1596553121, guid: be18fbaf8b558d04cbbafb0814cfb511, type: 3}
       propertyPath: unityEventResponse.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
-      value: PlayerHealth, Assembly-CSharp
+      value: PlayerHealthUI, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 1596553121, guid: be18fbaf8b558d04cbbafb0814cfb511, type: 3}
       propertyPath: unityEventResponse.m_PersistentCalls.m_Calls.Array.data[3].m_TargetAssemblyTypeName
@@ -807,18 +811,18 @@ PrefabInstance:
     - target: {fileID: 1596553121, guid: be18fbaf8b558d04cbbafb0814cfb511, type: 3}
       propertyPath: unityEventResponse.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
       value: 
-      objectReference: {fileID: 11400000, guid: aebb8d635a6d1fc468b179fc1afb66ff, type: 2}
+      objectReference: {fileID: 0}
     - target: {fileID: 1596553121, guid: be18fbaf8b558d04cbbafb0814cfb511, type: 3}
       propertyPath: unityEventResponse.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgument
       value: 
-      objectReference: {fileID: 11400000, guid: aebb8d635a6d1fc468b179fc1afb66ff, type: 2}
+      objectReference: {fileID: 0}
     - target: {fileID: 1596553121, guid: be18fbaf8b558d04cbbafb0814cfb511, type: 3}
       propertyPath: unityEventResponse.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: BasePossessionState, Assembly-CSharp
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 1596553121, guid: be18fbaf8b558d04cbbafb0814cfb511, type: 3}
       propertyPath: unityEventResponse.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: BasePossessionState, Assembly-CSharp
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 2084233673, guid: be18fbaf8b558d04cbbafb0814cfb511, type: 3}
       propertyPath: m_LocalPosition.x
@@ -841,9 +845,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 4370677501975926035}
     - target: {fileID: 1966398147432362623, guid: be18fbaf8b558d04cbbafb0814cfb511, type: 3}
+      propertyPath: onhealthChange
+      value: 
+      objectReference: {fileID: 11400000, guid: 946c446310552b84584f1a01c4adb5c4, type: 2}
+    - target: {fileID: 1966398147432362623, guid: be18fbaf8b558d04cbbafb0814cfb511, type: 3}
       propertyPath: baseHealthSlider
       value: 
       objectReference: {fileID: 4370677501744658483}
+    - target: {fileID: 1966398147432362623, guid: be18fbaf8b558d04cbbafb0814cfb511, type: 3}
+      propertyPath: onTransformationDeath
+      value: 
+      objectReference: {fileID: 11400000, guid: ebb84a07ee89a6a4a85d61e043c59f32, type: 2}
     - target: {fileID: 1966398147432362623, guid: be18fbaf8b558d04cbbafb0814cfb511, type: 3}
       propertyPath: transformationHealthBar
       value: 
@@ -929,17 +941,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3162393059664462365, guid: be18fbaf8b558d04cbbafb0814cfb511, type: 3}
   m_PrefabInstance: {fileID: 4370677500561864557}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &2877176420708713746 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1966398147432362623, guid: be18fbaf8b558d04cbbafb0814cfb511, type: 3}
-  m_PrefabInstance: {fileID: 4370677500561864557}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3258236631920043841}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d89ba80da8db7ec4c9ac4c59f3e47981, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &3258236631920043841 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1265600502163984428, guid: be18fbaf8b558d04cbbafb0814cfb511, type: 3}
@@ -973,6 +974,171 @@ MonoBehaviour:
   maxAmount: 10
   onEctoplasmAmountUpdate: {fileID: 11400000, guid: 445bddf2efa68004e95ec3e872d84e6f, type: 2}
   ectoplasmInventory: {fileID: 11400000, guid: b25ff695757aadc4b8192b41d82a8392, type: 2}
+--- !u!114 &1596553123
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3258236631920043841}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41756e54ab5b3054ca308f2a11ffc86a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameEvent: {fileID: 11400000, guid: e8bbec3700515bb4f8935b55fcef1760, type: 2}
+  unityEventResponse:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7243199085543783726}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: UpdateMovementSpeed
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1596553124
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3258236631920043841}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc3da9956a1ab984f968e0007d51ed35, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  baseHealthSlider: {fileID: 4370677501744658483}
+  gradient:
+    serializedVersion: 2
+    key0: {r: 0.83578664, g: 0.07331027, b: 0.099672705, a: 1}
+    key1: {r: 0.99410534, g: 1, b: 0, a: 1}
+    key2: {r: 0.042498223, g: 1, b: 0.0047169924, a: 0}
+    key3: {r: 0, g: 0, b: 0, a: 0}
+    key4: {r: 0, g: 0, b: 0, a: 0}
+    key5: {r: 0, g: 0, b: 0, a: 0}
+    key6: {r: 0, g: 0, b: 0, a: 0}
+    key7: {r: 0, g: 0, b: 0, a: 0}
+    ctime0: 16384
+    ctime1: 32768
+    ctime2: 65535
+    ctime3: 0
+    ctime4: 0
+    ctime5: 0
+    ctime6: 0
+    ctime7: 0
+    atime0: 0
+    atime1: 65535
+    atime2: 0
+    atime3: 0
+    atime4: 0
+    atime5: 0
+    atime6: 0
+    atime7: 0
+    m_Mode: 1
+    m_NumColorKeys: 3
+    m_NumAlphaKeys: 2
+  baseHealthBar: {fileID: 4370677501975926035}
+  player: {fileID: 3258236631920043841}
+  transformationHealthBar: {fileID: 2216178205163577302}
+  transformationHealthObject: {fileID: 7502215495585751541}
+  transformationHealthSlider: {fileID: 1229863320895215952}
+--- !u!114 &1596553125
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3258236631920043841}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 139af5d85cc6dc345b56db1cc72f8b37, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameEvent: {fileID: 11400000, guid: ebb84a07ee89a6a4a85d61e043c59f32, type: 2}
+  unityEventResponse:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4650975608494154752}
+        m_TargetAssemblyTypeName: Player, Assembly-CSharp
+        m_MethodName: TransformationDeathUpdateState
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1596553124}
+        m_TargetAssemblyTypeName: PlayerHealthUI, Assembly-CSharp
+        m_MethodName: TransformationDeath
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1596553126
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3258236631920043841}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41f93f262aced134fa38cb63c1622154, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameEvent: {fileID: 11400000, guid: 946c446310552b84584f1a01c4adb5c4, type: 2}
+  unityEventResponse:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1596553124}
+        m_TargetAssemblyTypeName: PlayerHealthUI, Assembly-CSharp
+        m_MethodName: UpdateHealthUI
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &4650975608494154752 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8947616355155497837, guid: be18fbaf8b558d04cbbafb0814cfb511, type: 3}
+  m_PrefabInstance: {fileID: 4370677500561864557}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3258236631920043841}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d860c950d9893347bd3385dbd891296, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &7243199085543783726 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: -2872514574957065661, guid: be18fbaf8b558d04cbbafb0814cfb511, type: 3}
+  m_PrefabInstance: {fileID: 4370677500561864557}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3258236631920043841}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbc1f6ce5d20c2c48979e0ba24f83053, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &4370677501037861442
 PrefabInstance:
   m_ObjectHideFlags: 0
