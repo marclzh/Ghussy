@@ -181,7 +181,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Increase Damage by 10%
+  m_text: Increase Max Health by 10%
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -14394,18 +14394,18 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1676702164711257456, guid: b75c3a1b41293d3479bb77ea575db8dc, type: 3}
   m_PrefabInstance: {fileID: 4370677500325081880}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1596553118 stripped
+--- !u!114 &1596553124 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7243199085543783726, guid: b75c3a1b41293d3479bb77ea575db8dc, type: 3}
+  m_CorrespondingSourceObject: {fileID: 1596553124, guid: b75c3a1b41293d3479bb77ea575db8dc, type: 3}
   m_PrefabInstance: {fileID: 4370677500325081880}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 514926050}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bbc1f6ce5d20c2c48979e0ba24f83053, type: 3}
+  m_Script: {fileID: 11500000, guid: bc3da9956a1ab984f968e0007d51ed35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1596553123
+--- !u!114 &1596553127
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -14414,17 +14414,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 514926050}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 41756e54ab5b3054ca308f2a11ffc86a, type: 3}
+  m_Script: {fileID: 11500000, guid: 139af5d85cc6dc345b56db1cc72f8b37, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameEvent: {fileID: 11400000, guid: e8bbec3700515bb4f8935b55fcef1760, type: 2}
+  gameEvent: {fileID: 11400000, guid: 65b01bf0aacbe3e48b0c000e0ffdfbb4, type: 2}
   unityEventResponse:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1596553118}
-        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
-        m_MethodName: UpdateMovementSpeed
-        m_Mode: 0
+      - m_Target: {fileID: 1596553124}
+        m_TargetAssemblyTypeName: PlayerHealthUI, Assembly-CSharp
+        m_MethodName: Die
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -39892,9 +39892,57 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 472487224, guid: b75c3a1b41293d3479bb77ea575db8dc, type: 3}
-      propertyPath: m_Lens.m_SensorSize.x
-      value: 1.7785888
+    - target: {fileID: 1596553125, guid: b75c3a1b41293d3479bb77ea575db8dc, type: 3}
+      propertyPath: unityEventResponse.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1596553125, guid: b75c3a1b41293d3479bb77ea575db8dc, type: 3}
+      propertyPath: unityEventResponse.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1596553125, guid: b75c3a1b41293d3479bb77ea575db8dc, type: 3}
+      propertyPath: unityEventResponse.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1596553124}
+    - target: {fileID: 1596553125, guid: b75c3a1b41293d3479bb77ea575db8dc, type: 3}
+      propertyPath: unityEventResponse.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1596553125, guid: b75c3a1b41293d3479bb77ea575db8dc, type: 3}
+      propertyPath: unityEventResponse.m_PersistentCalls.m_Calls.Array.data[2].m_Target
+      value: 
+      objectReference: {fileID: 1596553124}
+    - target: {fileID: 1596553125, guid: b75c3a1b41293d3479bb77ea575db8dc, type: 3}
+      propertyPath: unityEventResponse.m_PersistentCalls.m_Calls.Array.data[2].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1596553125, guid: b75c3a1b41293d3479bb77ea575db8dc, type: 3}
+      propertyPath: unityEventResponse.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: TransformationDeath
+      objectReference: {fileID: 0}
+    - target: {fileID: 1596553125, guid: b75c3a1b41293d3479bb77ea575db8dc, type: 3}
+      propertyPath: unityEventResponse.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1596553125, guid: b75c3a1b41293d3479bb77ea575db8dc, type: 3}
+      propertyPath: unityEventResponse.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
+      value: Die
+      objectReference: {fileID: 0}
+    - target: {fileID: 1596553125, guid: b75c3a1b41293d3479bb77ea575db8dc, type: 3}
+      propertyPath: unityEventResponse.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: PlayerHealthUI, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1596553125, guid: b75c3a1b41293d3479bb77ea575db8dc, type: 3}
+      propertyPath: unityEventResponse.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
+      value: PlayerHealthUI, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1596553125, guid: b75c3a1b41293d3479bb77ea575db8dc, type: 3}
+      propertyPath: unityEventResponse.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1596553125, guid: b75c3a1b41293d3479bb77ea575db8dc, type: 3}
+      propertyPath: unityEventResponse.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 1986712840679330280, guid: b75c3a1b41293d3479bb77ea575db8dc, type: 3}
       propertyPath: m_AnchorMax.x
@@ -39904,6 +39952,14 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2877176420708713746, guid: b75c3a1b41293d3479bb77ea575db8dc, type: 3}
+      propertyPath: onPlayerDeath
+      value: 
+      objectReference: {fileID: 11400000, guid: 65b01bf0aacbe3e48b0c000e0ffdfbb4, type: 2}
+    - target: {fileID: 2877176420708713746, guid: b75c3a1b41293d3479bb77ea575db8dc, type: 3}
+      propertyPath: onHealthChange
+      value: 
+      objectReference: {fileID: 11400000, guid: 946c446310552b84584f1a01c4adb5c4, type: 2}
     - target: {fileID: 4370677499885162136, guid: b75c3a1b41293d3479bb77ea575db8dc, type: 3}
       propertyPath: m_Name
       value: Player Manager

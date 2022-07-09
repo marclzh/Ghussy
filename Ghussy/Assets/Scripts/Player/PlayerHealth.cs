@@ -4,44 +4,29 @@ using TMPro;
 
 public class PlayerHealth : Health
 {
+    [SerializeField] private VoidEvent onTransformationDeath;
+    [SerializeField] private FloatEvent onHealthChange;
+    [SerializeField] private VoidEvent onPlayerDeath;
+
     // Reference to the Player Object
     [SerializeField] private GameObject player;
-    // Health Value display
-    TextMeshProUGUI healthValue;
-    // Shield Value display
-    TextMeshProUGUI transformationValue; 
+   
     // Actual Shield Value
     private float transformationHealthValue;
-    // Color of shield bar
-    Color transformationColor;
-    // References to the HealthBar image and overall gameobject
-    [SerializeField] private Image transformationHealthBar;
-    [SerializeField] private GameObject transformationHealthObject;
-    // Slider for shield health
-    [SerializeField] Slider transformationHealthSlider;
+ 
     // Boolean to keep track of transformation state
     private bool isTransformed;
-    // Reference to the player animator
-    PlayerAnimator animator;
+   
 
 
-
-    private void Start()
+    private void Awake()
     {
         // Initialising the values of the variables
-        maxHealth = 100;
-        transformationHealthValue = 100;
+        maxHealth = GetComponent<Player>().maxHealth.Value;
+        transformationHealthValue = GetComponent<Player>().maxTransformationHealth.Value;
         currentHealth = maxHealth;
-        transformationColor = new Color(0.1f, 0.95f, 0.95f);
-        transformationHealthBar.color = transformationColor;
-        animator = GetComponent<PlayerAnimator>();
-
-        // UI Initialisation
-        baseHealthSlider.maxValue = maxHealth;
-        healthValue = GameObject.Find("PlayerHealthBar/Health Value").GetComponent<TextMeshProUGUI>();
-        transformationValue = GameObject.Find("TransformHealthBar/TransformationHealthValue").GetComponent<TextMeshProUGUI>();
-        UpdateHealthUI(currentHealth);
-        transformationHealthObject.SetActive(false);
+       
+        onHealthChange.Raise(currentHealth);
     }
 
     private void Update()
@@ -57,60 +42,36 @@ public class PlayerHealth : Health
         if (!isTransformed)
         {
             base.TakeDamage(damage);
+            onHealthChange.Raise(currentHealth);
         } 
         else
         {
             transformationHealthValue -= damage;
-            UpdateHealthUI(damage);
+            onHealthChange.Raise(transformationHealthValue);
+
             if (transformationHealthValue <= 0)
             {
-                TransformationDeath();
+                Debug.Log("transformation dead");
+                isTransformed = false;
+                onTransformationDeath.Raise();
             }
+            
         }
 
     }
 
-    protected override void UpdateHealthUI(float health)
-    {
-        if (!isTransformed)
-        {
-            baseHealthSlider.value = health;
-            baseHealthBar.color = gradient.Evaluate(1f);
-            healthValue.text = $"{baseHealthSlider.value.ToString()}/{baseHealthSlider.maxValue.ToString()}";
-        } 
-        else if (isTransformed)
-        {
-            transformationHealthSlider.value = transformationHealthValue;
-            transformationValue.text = $"{transformationHealthSlider.value.ToString()}/{transformationHealthSlider.maxValue.ToString()}";
-        }
-        else
-        {
-            Debug.Log("problem in update heatlh UI");
-        }
-    }
 
     public override void Die()
     {
-        animator.IsPlayerDead(true);
+        onPlayerDeath.Raise();
     }
 
-    public void TransformationDeath()
-    {
-        animator.IsTransformationDead();
-        // Disables the shield bar
-        transformationHealthObject.SetActive(false);
-        // This method changes the state of the player and the weapon 
-        player.GetComponent<Player>().TransformationDeathUpdateState();
-        isTransformed = false;
-    }
 
     public void TransformationUpdateHealth(BasePossessionState nextState) 
     {
         if (nextState != null)
         {
             isTransformed = true;
-            Debug.Log("transformhealthtest");
-            transformationHealthObject.SetActive(true);
         }
     }
 

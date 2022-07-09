@@ -8,15 +8,14 @@ public abstract class Health : MonoBehaviour
     // Health Stats
     protected float maxHealth;
     protected float currentHealth;
-    public Slider baseHealthSlider;
-    public Gradient gradient;
-    public Image baseHealthBar;
+
+    
+
 
     public virtual void TakeDamage(float damage)
     {
         Debug.Assert(damage >= 0, "Damage cannot be negative!");
         currentHealth -= damage;
-        UpdateHealthUI(currentHealth);
 
         if (currentHealth <= 0)
         {
@@ -29,10 +28,5 @@ public abstract class Health : MonoBehaviour
         Destroy(gameObject);
     }
 
-    protected virtual void UpdateHealthUI(float health)
-    {
-        baseHealthSlider.value = health;
-        baseHealthBar.color = gradient.Evaluate(1f);
-    }
 
 }
