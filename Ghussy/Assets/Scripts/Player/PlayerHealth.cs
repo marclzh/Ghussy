@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using Kryz.CharacterStats;
 
 public class PlayerHealth : Health
 {
@@ -73,6 +74,11 @@ public class PlayerHealth : Health
         {
             isTransformed = true;
         }
+    }
+
+    public void MaxHealthPowerUp(CharacterStat maxHealthBonus)
+    {
+        maxHealth = maxHealthBonus.Value;
     }
 
 }

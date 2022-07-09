@@ -73,8 +73,6 @@ public class EnemyHealth : Health
     {
             baseHealthSlider.value = health;
             baseHealthBar.color = gradient.Evaluate(1f);
-          
-        
-       
+   
     }
 }
