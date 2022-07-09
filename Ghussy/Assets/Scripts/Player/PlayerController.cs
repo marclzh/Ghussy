@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using Kryz.CharacterStats;
 
 public class PlayerController : MonoBehaviour
 {
@@ -201,5 +202,10 @@ public class PlayerController : MonoBehaviour
     public void UnlockMovement()
     {
         canMove = true;
+    }
+
+    public void UpdateMovementSpeed(CharacterStat movementStat)
+    {
+        moveSpeed = movementStat.Value;
     }
 }
