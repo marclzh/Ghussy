@@ -10,6 +10,7 @@ public class PlayerWeapon : MonoBehaviour
     Rigidbody2D weaponRB;
     Animator weaponAnimator;
     bool isTransformed = false;
+    bool isAbilityActive = false;
 
     // Ability References
     [SerializeField] private int numProjectiles;
@@ -101,8 +102,9 @@ public class PlayerWeapon : MonoBehaviour
         // Bullet Instantiation
         if (weaponFired && withinFireRate())
         {
+            Debug.Log(isAbilityActive);
 
-            if (!isTransformed)
+            if (!isTransformed && !isAbilityActive)
             {
                 GameObject projectile = Instantiate(weapon.GetComponent<Weapon>().bulletPrefab,
                     weapon.GetComponent<Weapon>().firePoint.position, weapon.GetComponent<Weapon>().firePoint.rotation);
@@ -110,12 +112,11 @@ public class PlayerWeapon : MonoBehaviour
                 Vector2 shootingDirection = mousePos - playerPos2D;
                 rb.velocity += weapon.GetComponent<Weapon>().bulletPrefab.GetComponent<BulletController>().speed * Time.deltaTime * shootingDirection.normalized;
             } 
-            else
+            else if (GetComponent<WeaponManager>().currentState.ToString() == "SkeletonTransformation")
             {
-                projectileSpread = 25;
+                Debug.Log("been transforming");
+                projectileSpread = 35;
                 numProjectiles = 3;
-
-                Debug.Log("multiple projectiles");
 
                 float facingRotation = Mathf.Atan2(weapon.GetComponent<Weapon>().firePoint.transform.position.x,
                     weapon.GetComponent<Weapon>().firePoint.transform.position.y) * Mathf.Rad2Deg;
@@ -170,8 +171,20 @@ public class PlayerWeapon : MonoBehaviour
        // isFiring = false;
     }
 
-    public void AbilityChange()
+    public void IsTransformed()
     {
         isTransformed = true;
+    }
+
+    public void AbilityActivate()
+    {
+        Debug.Log("abilityActivated");
+        isAbilityActive = true;
+    }
+
+    public void AbilityDeactivate()
+    {
+        Debug.Log("abilityDeactivated");
+        isAbilityActive = false;
     }
 }

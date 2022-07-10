@@ -8,9 +8,15 @@ public class PlayerAbilityUI : MonoBehaviour
     [SerializeField] private BasePossessionState defaultState;
     private Image abilityImage;
     private Sprite nextImage;
-    private float coolDownTime; 
+    // Activate ability -> can use ability for "abilityTimer" seconds
+    // -> Once abilityTimer is up, then coolDownTime activates, then 
+    // only once coolDown is false then can reuse ability.
+    private float abilityTimer;
+    private float coolDownTime;
+    private bool abilityActive = false;
     private bool OnCoolDown = false;
     [SerializeField] private KeyCode abilityKey;
+    [SerializeField] private PlayerWeapon playerWeapon;
 
     
     void Start()
@@ -27,6 +33,8 @@ public class PlayerAbilityUI : MonoBehaviour
             Ability currentAbility = currentState.GetAbility();
             nextImage = currentAbility.GetImage();
             coolDownTime = currentAbility.GetCooldownTime();
+            abilityTimer = currentAbility.GetAbilityTime();
+            Debug.Log(abilityTimer);
             UpdateUI();
         }
     }
@@ -44,14 +52,28 @@ public class PlayerAbilityUI : MonoBehaviour
     
     void UseAbility()
     {
-        if (Input.GetKeyDown(abilityKey) && OnCoolDown == false)
+        if (Input.GetKeyDown(abilityKey) && OnCoolDown == false && abilityActive == false)
         {
-            Debug.Log("key pressed");
-            OnCoolDown = true;
-            abilityImage.fillAmount = 0;
-         
+            Debug.Log("ability key pressed");
+            abilityActive = true;
+            playerWeapon.AbilityActivate();       
         }
 
+        if (abilityActive)
+        {
+            // ability being active drains the gauge, which once finished, 
+            // activates the cooldown timer.
+            abilityImage.fillAmount -= 1 / abilityTimer * Time.deltaTime;
+
+            if (abilityImage.fillAmount <= 0)
+            {
+                abilityImage.fillAmount = 0;
+                abilityActive = false;
+                OnCoolDown = true;
+                playerWeapon.AbilityDeactivate();
+            }
+        }
+       
         if (OnCoolDown)
         {
             abilityImage.fillAmount += 1 / coolDownTime * Time.deltaTime;
@@ -63,5 +85,4 @@ public class PlayerAbilityUI : MonoBehaviour
             }
         }
     }
-    
 }

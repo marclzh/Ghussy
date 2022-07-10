@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 582754870022754125}
   m_Layer: 7
   m_Name: BasicBullet
-  m_TagString: CollisionObjects
+  m_TagString: Projectile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
