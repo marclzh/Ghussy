@@ -958,22 +958,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: accafd0c887fdc847a6491635c1bc461, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &3324856644792946669
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3258236631920043841}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9e50299e7d64d294fa966c0dc1bb1e4b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  minAmount: 1
-  maxAmount: 10
-  onEctoplasmAmountUpdate: {fileID: 11400000, guid: 445bddf2efa68004e95ec3e872d84e6f, type: 2}
-  ectoplasmInventory: {fileID: 11400000, guid: b25ff695757aadc4b8192b41d82a8392, type: 2}
 --- !u!114 &1596553123
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1014,6 +998,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc3da9956a1ab984f968e0007d51ed35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 3258236631920043841}
+  transformationHealthBar: {fileID: 2216178205163577302}
+  transformationHealthObject: {fileID: 7502215495585751541}
+  transformationHealthSlider: {fileID: 1229863320895215952}
   baseHealthSlider: {fileID: 4370677501744658483}
   gradient:
     serializedVersion: 2
@@ -1045,10 +1033,6 @@ MonoBehaviour:
     m_NumColorKeys: 3
     m_NumAlphaKeys: 2
   baseHealthBar: {fileID: 4370677501975926035}
-  player: {fileID: 3258236631920043841}
-  transformationHealthBar: {fileID: 2216178205163577302}
-  transformationHealthObject: {fileID: 7502215495585751541}
-  transformationHealthSlider: {fileID: 1229863320895215952}
 --- !u!114 &1596553125
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1117,6 +1101,22 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &3324856644792946669
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3258236631920043841}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e50299e7d64d294fa966c0dc1bb1e4b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minAmount: 1
+  maxAmount: 10
+  onEctoplasmAmountUpdate: {fileID: 11400000, guid: 445bddf2efa68004e95ec3e872d84e6f, type: 2}
+  ectoplasmInventory: {fileID: 11400000, guid: b25ff695757aadc4b8192b41d82a8392, type: 2}
 --- !u!114 &4650975608494154752 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8947616355155497837, guid: be18fbaf8b558d04cbbafb0814cfb511, type: 3}
