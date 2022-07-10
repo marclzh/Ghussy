@@ -63,7 +63,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7785888, y: 1}
+    m_SensorSize: {x: 1.7766991, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -233,7 +233,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4370677500132027990}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.7955229, y: 0.47972387, z: 0.06607698}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -274,7 +274,7 @@ MonoBehaviour:
   weapon: {fileID: 6366315361687933227}
   playerReference: {fileID: 1676702164711257456}
   numProjectiles: 3
-  projectileSpread: 25
+  projectileSpread: 60
 --- !u!114 &4370677500325081884
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -428,7 +428,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2428416465114668851, guid: e5b2f4826c761ff4fad4d7960b540868, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -107.61401
+      value: -107.61389
+      objectReference: {fileID: 0}
+    - target: {fileID: 2428416465114668851, guid: e5b2f4826c761ff4fad4d7960b540868, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -8.34198
       objectReference: {fileID: 0}
     - target: {fileID: 2428416465145216483, guid: e5b2f4826c761ff4fad4d7960b540868, type: 3}
       propertyPath: m_AnchorMax.x
@@ -762,7 +766,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1596553121, guid: be18fbaf8b558d04cbbafb0814cfb511, type: 3}
       propertyPath: unityEventResponse.m_PersistentCalls.m_Calls.Array.size
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 1596553121, guid: be18fbaf8b558d04cbbafb0814cfb511, type: 3}
       propertyPath: unityEventResponse.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
@@ -774,7 +778,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1596553121, guid: be18fbaf8b558d04cbbafb0814cfb511, type: 3}
       propertyPath: unityEventResponse.m_PersistentCalls.m_Calls.Array.data[3].m_Mode
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1596553121, guid: be18fbaf8b558d04cbbafb0814cfb511, type: 3}
       propertyPath: unityEventResponse.m_PersistentCalls.m_Calls.Array.data[2].m_Target
@@ -783,7 +787,7 @@ PrefabInstance:
     - target: {fileID: 1596553121, guid: be18fbaf8b558d04cbbafb0814cfb511, type: 3}
       propertyPath: unityEventResponse.m_PersistentCalls.m_Calls.Array.data[3].m_Target
       value: 
-      objectReference: {fileID: 4370677500132027990}
+      objectReference: {fileID: 2877176420708713967}
     - target: {fileID: 1596553121, guid: be18fbaf8b558d04cbbafb0814cfb511, type: 3}
       propertyPath: unityEventResponse.m_PersistentCalls.m_Calls.Array.data[2].m_CallState
       value: 2
@@ -801,12 +805,16 @@ PrefabInstance:
       value: TransformationUpdateHealth
       objectReference: {fileID: 0}
     - target: {fileID: 1596553121, guid: be18fbaf8b558d04cbbafb0814cfb511, type: 3}
+      propertyPath: unityEventResponse.m_PersistentCalls.m_Calls.Array.data[3].m_MethodName
+      value: GetAbilityInfo
+      objectReference: {fileID: 0}
+    - target: {fileID: 1596553121, guid: be18fbaf8b558d04cbbafb0814cfb511, type: 3}
       propertyPath: unityEventResponse.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
       value: PlayerHealthUI, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 1596553121, guid: be18fbaf8b558d04cbbafb0814cfb511, type: 3}
       propertyPath: unityEventResponse.m_PersistentCalls.m_Calls.Array.data[3].m_TargetAssemblyTypeName
-      value: PlayerHealth, Assembly-CSharp
+      value: PlayerAbilityUI, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 1596553121, guid: be18fbaf8b558d04cbbafb0814cfb511, type: 3}
       propertyPath: unityEventResponse.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
@@ -817,12 +825,20 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 1596553121, guid: be18fbaf8b558d04cbbafb0814cfb511, type: 3}
+      propertyPath: unityEventResponse.m_PersistentCalls.m_Calls.Array.data[3].m_Arguments.m_ObjectArgument
+      value: 
+      objectReference: {fileID: 11400000, guid: aebb8d635a6d1fc468b179fc1afb66ff, type: 2}
+    - target: {fileID: 1596553121, guid: be18fbaf8b558d04cbbafb0814cfb511, type: 3}
       propertyPath: unityEventResponse.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 1596553121, guid: be18fbaf8b558d04cbbafb0814cfb511, type: 3}
       propertyPath: unityEventResponse.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 1596553121, guid: be18fbaf8b558d04cbbafb0814cfb511, type: 3}
+      propertyPath: unityEventResponse.m_PersistentCalls.m_Calls.Array.data[3].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: BasePossessionState, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 2084233673, guid: be18fbaf8b558d04cbbafb0814cfb511, type: 3}
       propertyPath: m_LocalPosition.x
@@ -872,6 +888,14 @@ PrefabInstance:
       propertyPath: abilityKey
       value: 32
       objectReference: {fileID: 0}
+    - target: {fileID: 1966398147432362626, guid: be18fbaf8b558d04cbbafb0814cfb511, type: 3}
+      propertyPath: defaultState
+      value: 
+      objectReference: {fileID: 11400000, guid: 8d212c62150aa6640ba0595f5d887ad5, type: 2}
+    - target: {fileID: 1966398147432362626, guid: be18fbaf8b558d04cbbafb0814cfb511, type: 3}
+      propertyPath: playerWeapon
+      value: 
+      objectReference: {fileID: 4370677500325081883}
     - target: {fileID: 3162393059664462365, guid: be18fbaf8b558d04cbbafb0814cfb511, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -941,6 +965,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3162393059664462365, guid: be18fbaf8b558d04cbbafb0814cfb511, type: 3}
   m_PrefabInstance: {fileID: 4370677500561864557}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2877176420708713967 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1966398147432362626, guid: be18fbaf8b558d04cbbafb0814cfb511, type: 3}
+  m_PrefabInstance: {fileID: 4370677500561864557}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3258236631920043841}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c5e9f6f11c442640a2b98ef49a4c1ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3258236631920043841 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1265600502163984428, guid: be18fbaf8b558d04cbbafb0814cfb511, type: 3}
@@ -1192,11 +1227,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7277383862160774359, guid: d36d0b07cb7abe34292ee318650c5b03, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.628
+      value: 0.154
       objectReference: {fileID: 0}
     - target: {fileID: 7277383862160774359, guid: d36d0b07cb7abe34292ee318650c5b03, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.507
+      value: -0.03
       objectReference: {fileID: 0}
     - target: {fileID: 7277383862160774359, guid: d36d0b07cb7abe34292ee318650c5b03, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1267,11 +1302,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7277383862160774359, guid: aa54c1dc9bf475c4681e84c0d7648c88, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.525
+      value: 0.275
       objectReference: {fileID: 0}
     - target: {fileID: 7277383862160774359, guid: aa54c1dc9bf475c4681e84c0d7648c88, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.476
+      value: -0.004
       objectReference: {fileID: 0}
     - target: {fileID: 7277383862160774359, guid: aa54c1dc9bf475c4681e84c0d7648c88, type: 3}
       propertyPath: m_LocalPosition.z
