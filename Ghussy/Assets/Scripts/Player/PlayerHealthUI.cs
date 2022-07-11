@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using Kryz.CharacterStats;
 
 public class PlayerHealthUI : MonoBehaviour
 { 
@@ -63,6 +64,12 @@ public class PlayerHealthUI : MonoBehaviour
         {
             Debug.Log("problem in update heatlh UI");
         }
+    }
+
+    public void UpdateMaxHealthUI(CharacterStat bonus)
+    {
+        baseHealthSlider.maxValue = bonus.Value;
+        healthValue.text = $"{baseHealthSlider.value.ToString()}/{baseHealthSlider.maxValue.ToString()}";
     }
 
     public void Die()

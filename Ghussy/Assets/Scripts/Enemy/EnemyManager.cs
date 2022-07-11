@@ -16,7 +16,20 @@ public class EnemyManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        if (Input.GetKeyDown(KeyCode.Slash))
+        {
+            int i = 0;
+            int total = numOfEnemiesLeft;
+            while (i < total)
+            {
+               
+                EnemyHealth tmp = transform.GetChild(i).GetComponent<EnemyHealth>();
+                tmp.TakeDamage(9999999999);
+                i++;
+            }
+            return;
+            
+        }
     }
 
     // To be called by OnEnemyDeath Event
