@@ -386,6 +386,10 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 866355530601037393, guid: e5b2f4826c761ff4fad4d7960b540868, type: 3}
+      propertyPath: m_Interactable
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 898489132066232358, guid: e5b2f4826c761ff4fad4d7960b540868, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -426,9 +430,13 @@ PrefabInstance:
       propertyPath: m_fontSize
       value: 72
       objectReference: {fileID: 0}
+    - target: {fileID: 2428416465114668850, guid: e5b2f4826c761ff4fad4d7960b540868, type: 3}
+      propertyPath: m_Interactable
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2428416465114668851, guid: e5b2f4826c761ff4fad4d7960b540868, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -107.61401
+      value: -107.61389
       objectReference: {fileID: 0}
     - target: {fileID: 2428416465145216483, guid: e5b2f4826c761ff4fad4d7960b540868, type: 3}
       propertyPath: m_AnchorMax.x
@@ -762,7 +770,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1596553121, guid: be18fbaf8b558d04cbbafb0814cfb511, type: 3}
       propertyPath: unityEventResponse.m_PersistentCalls.m_Calls.Array.size
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 1596553121, guid: be18fbaf8b558d04cbbafb0814cfb511, type: 3}
       propertyPath: unityEventResponse.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
@@ -774,7 +782,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1596553121, guid: be18fbaf8b558d04cbbafb0814cfb511, type: 3}
       propertyPath: unityEventResponse.m_PersistentCalls.m_Calls.Array.data[3].m_Mode
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1596553121, guid: be18fbaf8b558d04cbbafb0814cfb511, type: 3}
       propertyPath: unityEventResponse.m_PersistentCalls.m_Calls.Array.data[2].m_Target
@@ -783,7 +791,7 @@ PrefabInstance:
     - target: {fileID: 1596553121, guid: be18fbaf8b558d04cbbafb0814cfb511, type: 3}
       propertyPath: unityEventResponse.m_PersistentCalls.m_Calls.Array.data[3].m_Target
       value: 
-      objectReference: {fileID: 4370677500132027990}
+      objectReference: {fileID: 2877176420708713746}
     - target: {fileID: 1596553121, guid: be18fbaf8b558d04cbbafb0814cfb511, type: 3}
       propertyPath: unityEventResponse.m_PersistentCalls.m_Calls.Array.data[2].m_CallState
       value: 2
@@ -798,6 +806,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1596553121, guid: be18fbaf8b558d04cbbafb0814cfb511, type: 3}
       propertyPath: unityEventResponse.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
+      value: TransformationUpdateHealth
+      objectReference: {fileID: 0}
+    - target: {fileID: 1596553121, guid: be18fbaf8b558d04cbbafb0814cfb511, type: 3}
+      propertyPath: unityEventResponse.m_PersistentCalls.m_Calls.Array.data[3].m_MethodName
       value: TransformationUpdateHealth
       objectReference: {fileID: 0}
     - target: {fileID: 1596553121, guid: be18fbaf8b558d04cbbafb0814cfb511, type: 3}
@@ -824,6 +836,10 @@ PrefabInstance:
       propertyPath: unityEventResponse.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 1596553121, guid: be18fbaf8b558d04cbbafb0814cfb511, type: 3}
+      propertyPath: unityEventResponse.m_PersistentCalls.m_Calls.Array.data[3].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 2084233673, guid: be18fbaf8b558d04cbbafb0814cfb511, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -844,6 +860,14 @@ PrefabInstance:
       propertyPath: baseHealthBar
       value: 
       objectReference: {fileID: 4370677501975926035}
+    - target: {fileID: 1966398147432362623, guid: be18fbaf8b558d04cbbafb0814cfb511, type: 3}
+      propertyPath: onPlayerDeath
+      value: 
+      objectReference: {fileID: 11400000, guid: 65b01bf0aacbe3e48b0c000e0ffdfbb4, type: 2}
+    - target: {fileID: 1966398147432362623, guid: be18fbaf8b558d04cbbafb0814cfb511, type: 3}
+      propertyPath: onHealthChange
+      value: 
+      objectReference: {fileID: 11400000, guid: 946c446310552b84584f1a01c4adb5c4, type: 2}
     - target: {fileID: 1966398147432362623, guid: be18fbaf8b558d04cbbafb0814cfb511, type: 3}
       propertyPath: onhealthChange
       value: 
@@ -941,6 +965,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3162393059664462365, guid: be18fbaf8b558d04cbbafb0814cfb511, type: 3}
   m_PrefabInstance: {fileID: 4370677500561864557}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2877176420708713746 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1966398147432362623, guid: be18fbaf8b558d04cbbafb0814cfb511, type: 3}
+  m_PrefabInstance: {fileID: 4370677500561864557}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3258236631920043841}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d89ba80da8db7ec4c9ac4c59f3e47981, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3258236631920043841 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1265600502163984428, guid: be18fbaf8b558d04cbbafb0814cfb511, type: 3}
@@ -958,22 +993,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: accafd0c887fdc847a6491635c1bc461, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &3324856644792946669
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3258236631920043841}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9e50299e7d64d294fa966c0dc1bb1e4b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  minAmount: 1
-  maxAmount: 10
-  onEctoplasmAmountUpdate: {fileID: 11400000, guid: 445bddf2efa68004e95ec3e872d84e6f, type: 2}
-  ectoplasmInventory: {fileID: 11400000, guid: b25ff695757aadc4b8192b41d82a8392, type: 2}
 --- !u!114 &1596553123
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1014,6 +1033,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc3da9956a1ab984f968e0007d51ed35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 3258236631920043841}
+  transformationHealthBar: {fileID: 2216178205163577302}
+  transformationHealthObject: {fileID: 7502215495585751541}
+  transformationHealthSlider: {fileID: 1229863320895215952}
   baseHealthSlider: {fileID: 4370677501744658483}
   gradient:
     serializedVersion: 2
@@ -1045,10 +1068,6 @@ MonoBehaviour:
     m_NumColorKeys: 3
     m_NumAlphaKeys: 2
   baseHealthBar: {fileID: 4370677501975926035}
-  player: {fileID: 3258236631920043841}
-  transformationHealthBar: {fileID: 2216178205163577302}
-  transformationHealthObject: {fileID: 7502215495585751541}
-  transformationHealthSlider: {fileID: 1229863320895215952}
 --- !u!114 &1596553125
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1065,18 +1084,6 @@ MonoBehaviour:
   unityEventResponse:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 4650975608494154752}
-        m_TargetAssemblyTypeName: Player, Assembly-CSharp
-        m_MethodName: TransformationDeathUpdateState
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 1596553124}
         m_TargetAssemblyTypeName: PlayerHealthUI, Assembly-CSharp
         m_MethodName: TransformationDeath
@@ -1117,17 +1124,90 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &4650975608494154752 stripped
+--- !u!114 &3324856644792946669
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8947616355155497837, guid: be18fbaf8b558d04cbbafb0814cfb511, type: 3}
-  m_PrefabInstance: {fileID: 4370677500561864557}
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3258236631920043841}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8d860c950d9893347bd3385dbd891296, type: 3}
+  m_Script: {fileID: 11500000, guid: 9e50299e7d64d294fa966c0dc1bb1e4b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  minAmount: 1
+  maxAmount: 10
+  onEctoplasmAmountUpdate: {fileID: 11400000, guid: 445bddf2efa68004e95ec3e872d84e6f, type: 2}
+  ectoplasmInventory: {fileID: 11400000, guid: b25ff695757aadc4b8192b41d82a8392, type: 2}
+--- !u!114 &1596553127
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3258236631920043841}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 139af5d85cc6dc345b56db1cc72f8b37, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameEvent: {fileID: 11400000, guid: 65b01bf0aacbe3e48b0c000e0ffdfbb4, type: 2}
+  unityEventResponse:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1596553124}
+        m_TargetAssemblyTypeName: PlayerHealthUI, Assembly-CSharp
+        m_MethodName: Die
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1596553128
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3258236631920043841}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41756e54ab5b3054ca308f2a11ffc86a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameEvent: {fileID: 11400000, guid: 2f2a33a05a3896b42a48404976275d26, type: 2}
+  unityEventResponse:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1596553124}
+        m_TargetAssemblyTypeName: PlayerHealthUI, Assembly-CSharp
+        m_MethodName: UpdateMaxHealthUI
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 2877176420708713746}
+        m_TargetAssemblyTypeName: PlayerHealth, Assembly-CSharp
+        m_MethodName: MaxHealthPowerUp
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &7243199085543783726 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: -2872514574957065661, guid: be18fbaf8b558d04cbbafb0814cfb511, type: 3}
