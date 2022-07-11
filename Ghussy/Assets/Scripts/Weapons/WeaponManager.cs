@@ -5,7 +5,7 @@ public class WeaponManager : MonoBehaviour
     // this script handles the swapping of weapons
     // order of the weapons under the weapon manager matters
 
-    [SerializeField] private BasePossessionState currentState; // current state of the player
+    public BasePossessionState currentState; // current state of the player
     public GameObject[] weaponArr; // Array of available weapons
     public GameObject currWeapon; // Reference to current weapon
     private Transform weaponManager;

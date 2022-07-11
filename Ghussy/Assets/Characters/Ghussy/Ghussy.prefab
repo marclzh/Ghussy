@@ -74,6 +74,7 @@ MonoBehaviour:
   minAmount: 1
   maxAmount: 10
   onEctoplasmAmountUpdate: {fileID: 11400000, guid: 445bddf2efa68004e95ec3e872d84e6f, type: 2}
+  ectoplasmInventory: {fileID: 0}
 --- !u!1 &2084233672
 GameObject:
   m_ObjectHideFlags: 0
@@ -393,7 +394,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d860c950d9893347bd3385dbd891296, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inventory: {fileID: 11400000, guid: b22942662ad953542bd34f1dc7fab4cc, type: 2}
+  ectoplasmInventory: {fileID: 0}
   playerHealth: {fileID: 1966398147432362623}
   playerAnimator: {fileID: 1966398147432362624}
   currentState: {fileID: 11400000, guid: 8d212c62150aa6640ba0595f5d887ad5, type: 2}
@@ -402,6 +403,12 @@ MonoBehaviour:
   currentAbility: {fileID: 11400000, guid: e9c11e96a7080e04aa3f68504e3e3f9e, type: 2}
   weaponManager: {fileID: 0}
   startingPosition: {fileID: 11400000, guid: 6b910f07a53d30b47834e6dc2bc2bf7a, type: 2}
+  movementSpeed:
+    BaseValue: 1
+  maxHealth:
+    BaseValue: 100
+  maxTransformationHealth:
+    BaseValue: 100
 --- !u!114 &1966398147432362623
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -414,41 +421,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d89ba80da8db7ec4c9ac4c59f3e47981, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseHealthSlider: {fileID: 0}
-  gradient:
-    serializedVersion: 2
-    key0: {r: 0.83578664, g: 0.07331027, b: 0.099672705, a: 1}
-    key1: {r: 0.99410534, g: 1, b: 0, a: 1}
-    key2: {r: 0.042498223, g: 1, b: 0.0047169924, a: 0}
-    key3: {r: 0, g: 0, b: 0, a: 0}
-    key4: {r: 0, g: 0, b: 0, a: 0}
-    key5: {r: 0, g: 0, b: 0, a: 0}
-    key6: {r: 0, g: 0, b: 0, a: 0}
-    key7: {r: 0, g: 0, b: 0, a: 0}
-    ctime0: 16384
-    ctime1: 32768
-    ctime2: 65535
-    ctime3: 0
-    ctime4: 0
-    ctime5: 0
-    ctime6: 0
-    ctime7: 0
-    atime0: 0
-    atime1: 65535
-    atime2: 0
-    atime3: 0
-    atime4: 0
-    atime5: 0
-    atime6: 0
-    atime7: 0
-    m_Mode: 1
-    m_NumColorKeys: 3
-    m_NumAlphaKeys: 2
-  baseHealthBar: {fileID: 0}
+  onTransformationDeath: {fileID: 0}
+  onHealthChange: {fileID: 0}
+  onPlayerDeath: {fileID: 0}
   player: {fileID: 0}
-  transformationHealthBar: {fileID: 0}
-  transformationHealthObject: {fileID: 0}
-  transformationHealthSlider: {fileID: 0}
 --- !u!114 &1966398147432362624
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -476,6 +452,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   defaultState: {fileID: 0}
   abilityKey: 0
+  playerWeapon: {fileID: 0}
 --- !u!114 &1596553109
 MonoBehaviour:
   m_ObjectHideFlags: 0

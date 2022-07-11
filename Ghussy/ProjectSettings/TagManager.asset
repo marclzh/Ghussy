@@ -10,6 +10,8 @@ TagManager:
   - Boss
   - GhussyTarget
   - Ectoplasm
+  - AbilityImage
+  - Projectile
   layers:
   - Default
   - TransparentFX
