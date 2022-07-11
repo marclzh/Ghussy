@@ -19,6 +19,7 @@ public class Player : Character
     [SerializeField] public CharacterStat movementSpeed;
     [SerializeField] public CharacterStat maxHealth;
     [SerializeField] public CharacterStat maxTransformationHealth;
+    [SerializeField] public CharacterStat currentTransformationHealth;
     [SerializeField] public CharacterStat currentHealth;
 
     [SerializeField] public CharacterStatEvent maxHealthInitialization;
@@ -26,6 +27,7 @@ public class Player : Character
 
     public void Start()
     {
+        // TODO Move Save Data intialisation logic to Game Manager 
         SaveData currentSaveData = SaveManager.instance.activeSave;
 
         if (SaveManager.instance.hasLoaded)
@@ -33,18 +35,30 @@ public class Player : Character
             movementSpeed.BaseValue = currentSaveData.movementSpeedValue;
             maxHealth.BaseValue = currentSaveData.maxHealthValue;
             maxTransformationHealth.BaseValue = currentSaveData.maxTransformationValue;
+            currentTransformationHealth.BaseValue = currentSaveData.currentTransformationValue;
             currentHealth.BaseValue = currentSaveData.currentHealthValue;
-
-            maxHealthInitialization.Raise(maxHealth);
-            currentHealthInitilization.Raise(currentHealth);
         }
         else
         {
+            // Default Values
+            movementSpeed = new CharacterStat(1f);
+            maxHealth = new CharacterStat(100f);
+            maxTransformationHealth = new CharacterStat(100f);
+            currentTransformationHealth = new CharacterStat(100f);
+            currentHealth = new CharacterStat(100f);
+
+            // Saves Default Values;
             currentSaveData.movementSpeedValue = movementSpeed.Value;
             currentSaveData.maxHealthValue = maxHealth.Value;
             currentSaveData.maxTransformationValue = maxTransformationHealth.Value;
+            currentSaveData.currentHealthValue = currentHealth.Value; 
+            currentSaveData.currentTransformationValue = currentTransformationHealth.Value; 
+            
 
         }
+
+        maxHealthInitialization.Raise(maxHealth);
+        currentHealthInitilization.Raise(currentHealth);
 
         // Set Starting position
         transform.position = startingPosition.initialValue;

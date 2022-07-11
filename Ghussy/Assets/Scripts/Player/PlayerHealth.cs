@@ -13,20 +13,22 @@ public class PlayerHealth : Health
     [SerializeField] private GameObject player;
 
     // Actual Shield Value
-    private float transformationHealthValue;
+    private float currentTransformationHealth;
+    private float maxTransformationHealth;
 
     // Boolean to keep track of transformation state
     private bool isTransformed;
 
-
-
-    private void Awake()
+    private void Start()
     {
         // Initialising the values of the variables
         maxHealth = GetComponent<Player>().maxHealth.Value;
-        transformationHealthValue = GetComponent<Player>().maxTransformationHealth.Value;
-        currentHealth = maxHealth;
-
+        maxTransformationHealth = GetComponent<Player>().maxTransformationHealth.Value;
+        currentTransformationHealth = GetComponent<Player>().currentTransformationHealth.Value;
+        currentTransformationHealth = 100f;
+        currentHealth = GetComponent<Player>().currentHealth.Value;
+        
+        // Raises Event to update UI
         onHealthChange.Raise(currentHealth);
     }
 
@@ -44,14 +46,24 @@ public class PlayerHealth : Health
         if (!isTransformed)
         {
             base.TakeDamage(damage);
+            
+            // Raise Event to Update UI
             onHealthChange.Raise(currentHealth);
+
+            // Saves Changes to Current Health
+            SaveManager.instance.activeSave.currentHealthValue = currentHealth;
         }
         else
         {
-            transformationHealthValue -= damage;
-            onHealthChange.Raise(transformationHealthValue);
+            currentTransformationHealth -= damage;
 
-            if (transformationHealthValue <= 0)
+            // Raise Event to Update UI
+            onHealthChange.Raise(currentTransformationHealth);
+
+            // Saves Changes to Current Transformation Health
+            SaveManager.instance.activeSave.currentTransformationValue = currentTransformationHealth;
+
+            if (currentTransformationHealth <= 0)
             {
                 Debug.Log("transformation dead");
                 isTransformed = false;
@@ -62,6 +74,33 @@ public class PlayerHealth : Health
 
     }
 
+    public void Heal(float healAmount)
+    {
+        if (!isTransformed)
+        {
+            // Clamps value to not exceed max health
+            currentHealth = Mathf.Clamp(currentHealth + healAmount, 0, maxHealth);
+
+            // Raise Event to Update UI
+            onHealthChange.Raise(currentHealth);
+
+            // Saves Changes to Current Health
+            SaveManager.instance.activeSave.currentHealthValue = currentHealth;
+        }
+        else
+        {
+            currentTransformationHealth = Mathf.Clamp(currentTransformationHealth + healAmount, 0, maxTransformationHealth);
+
+            // Raise Event to Update UI
+            onHealthChange.Raise(currentTransformationHealth);
+
+            // Saves Changes to Current Transformation Health
+            SaveManager.instance.activeSave.currentTransformationValue = currentTransformationHealth;
+
+
+        }
+
+    }
 
     public override void Die()
     {
@@ -85,6 +124,15 @@ public class PlayerHealth : Health
         SaveData currentSaveData = SaveManager.instance.activeSave;
         currentSaveData.maxHealthValue = newMaxHealth.Value;
 
+    }
+
+    public void CurrentHealthChange(CharacterStat health)
+    {
+        currentHealth = health.Value;
+
+        // Saves Data
+        SaveData currentSaveData = SaveManager.instance.activeSave;
+        currentSaveData.currentHealthValue = health.Value;
     }
 
 }

@@ -10837,6 +10837,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 779247079}
   m_CullTransparentMesh: 1
+--- !u!1 &819231516 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3258236631920043841, guid: b75c3a1b41293d3479bb77ea575db8dc, type: 3}
+  m_PrefabInstance: {fileID: 4370677500325081880}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &942896854
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11730,7 +11735,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1570615553}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 6.15, y: 4.59, z: 0}
+  m_LocalPosition: {x: -0.13, y: -0.16, z: 0}
   m_LocalScale: {x: 0.7116743, y: 0.6377616, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -14389,6 +14394,68 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1676702164711257456, guid: b75c3a1b41293d3479bb77ea575db8dc, type: 3}
   m_PrefabInstance: {fileID: 4370677500325081880}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1596553114 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1596553124, guid: b75c3a1b41293d3479bb77ea575db8dc, type: 3}
+  m_PrefabInstance: {fileID: 4370677500325081880}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 819231516}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc3da9956a1ab984f968e0007d51ed35, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1596553120 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2877176420708713746, guid: b75c3a1b41293d3479bb77ea575db8dc, type: 3}
+  m_PrefabInstance: {fileID: 4370677500325081880}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 819231516}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d89ba80da8db7ec4c9ac4c59f3e47981, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1596553128
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 819231516}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41756e54ab5b3054ca308f2a11ffc86a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameEvent: {fileID: 11400000, guid: addb57a2c333a62428d2a5ef2a8016d5, type: 2}
+  unityEventResponse:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1596553120}
+        m_TargetAssemblyTypeName: PlayerHealth, Assembly-CSharp
+        m_MethodName: CurrentHealthChange
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1596553114}
+        m_TargetAssemblyTypeName: PlayerHealthUI, Assembly-CSharp
+        m_MethodName: UpdateCurrentHealthUI
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1638029192
 GameObject:
   m_ObjectHideFlags: 0
@@ -17941,7 +18008,7 @@ GameObject:
   - component: {fileID: 1853321367}
   - component: {fileID: 1853321366}
   m_Layer: 0
-  m_Name: SaveManager
+  m_Name: Save Manager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -17965,8 +18032,9 @@ MonoBehaviour:
     fireRateValue: 0
     damageModifierValue: 0
     maxHealthValue: 0
-    maxTransformationValue: 0
     currentHealthValue: 0
+    maxTransformationValue: 0
+    currentTransformationValue: 0
   hasLoaded: 0
 --- !u!4 &1853321367
 Transform:
@@ -39927,6 +39995,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 472487224, guid: b75c3a1b41293d3479bb77ea575db8dc, type: 3}
+      propertyPath: m_Lens.m_SensorSize.x
+      value: 1.7766991
+      objectReference: {fileID: 0}
     - target: {fileID: 1986712840679330280, guid: b75c3a1b41293d3479bb77ea575db8dc, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -39991,6 +40063,10 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4650975608494154752, guid: b75c3a1b41293d3479bb77ea575db8dc, type: 3}
+      propertyPath: currentHealthInitilization
+      value: 
+      objectReference: {fileID: 11400000, guid: addb57a2c333a62428d2a5ef2a8016d5, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b75c3a1b41293d3479bb77ea575db8dc, type: 3}
 --- !u!1001 &5562113358577306157
