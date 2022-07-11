@@ -26,7 +26,7 @@ public class PlayerHealth : Health
         maxHealth = GetComponent<Player>().maxHealth.Value;
         transformationHealthValue = GetComponent<Player>().maxTransformationHealth.Value;
         currentHealth = maxHealth;
-
+       
         onHealthChange.Raise(currentHealth);
     }
 
@@ -76,14 +76,9 @@ public class PlayerHealth : Health
         }
     }
 
-    public void MaxHealthPowerUp(CharacterStat newMaxHealth)
+    public void MaxHealthPowerUp(CharacterStat maxHealthBonus)
     {
-        maxHealth = newMaxHealth.Value;
-
-        // Saves Data
-        SaveData currentSaveData = SaveManager.instance.activeSave;
-        currentSaveData.maxHealthValue = newMaxHealth.Value;
-
+        maxHealth = maxHealthBonus.Value;
     }
 
 }

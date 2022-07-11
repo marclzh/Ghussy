@@ -66,9 +66,9 @@ public class PlayerHealthUI : MonoBehaviour
         }
     }
 
-    public void UpdateMaxHealthUI(CharacterStat newMaxHealth)
-    { 
-        baseHealthSlider.maxValue = newMaxHealth.Value;
+    public void UpdateMaxHealthUI(CharacterStat bonus)
+    {
+        baseHealthSlider.maxValue = bonus.Value;
         healthValue.text = $"{baseHealthSlider.value.ToString()}/{baseHealthSlider.maxValue.ToString()}";
     }
 

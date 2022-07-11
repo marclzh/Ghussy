@@ -19,38 +19,19 @@ public class Player : Character
     [SerializeField] public CharacterStat movementSpeed;
     [SerializeField] public CharacterStat maxHealth;
     [SerializeField] public CharacterStat maxTransformationHealth;
-    [SerializeField] public CharacterStat currentHealth;
 
-    [SerializeField] public CharacterStatEvent maxHealthInitialization;
-    [SerializeField] public CharacterStatEvent currentHealthInitilization;
-
-    public void Start()
+    public void OnValidate()
     {
-        SaveData currentSaveData = SaveManager.instance.activeSave;
-
-        if (SaveManager.instance.hasLoaded)
-        {
-            movementSpeed.BaseValue = currentSaveData.movementSpeedValue;
-            maxHealth.BaseValue = currentSaveData.maxHealthValue;
-            maxTransformationHealth.BaseValue = currentSaveData.maxTransformationValue;
-            currentHealth.BaseValue = currentSaveData.currentHealthValue;
-
-            maxHealthInitialization.Raise(maxHealth);
-            currentHealthInitilization.Raise(currentHealth);
-        }
-        else
-        {
-            currentSaveData.movementSpeedValue = movementSpeed.Value;
-            currentSaveData.maxHealthValue = maxHealth.Value;
-            currentSaveData.maxTransformationValue = maxTransformationHealth.Value;
-
-        }
-
-        // Set Starting position
-       transform.position = startingPosition.initialValue;
+        movementSpeed.BaseValue = GameData.movementSpeedValue;
+        maxHealth.BaseValue = GameData.maxHealthValue;
+        
+        maxTransformationHealth.BaseValue = GameData.maxTransformationValue;
         
     }
-   
+    public void Start()
+    {
+        transform.position = startingPosition.initialValue;
+    }
 
     void OnHit(float damage) 
     {
