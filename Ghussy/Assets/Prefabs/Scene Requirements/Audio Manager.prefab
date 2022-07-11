@@ -47,19 +47,43 @@ MonoBehaviour:
   sounds:
   - name: Theme
     clip: {fileID: 8300000, guid: f2e19e4942753dc4181e52ec851a58c4, type: 3}
-    volume: 1
+    volume: 0.471
     pitch: 1
     loop: 1
     source: {fileID: 0}
   - name: Hit
     clip: {fileID: 8300000, guid: c5283eaae5e9ebf499bb4cf0479d8a22, type: 3}
-    volume: 1
+    volume: 0.397
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: Possess
     clip: {fileID: 8300000, guid: cf83e0228b4834241b2d5ea346f861ad, type: 3}
     volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: RoomRewardInteracted
+    clip: {fileID: 8300000, guid: a82a5d6a50cbc5048b1dd71ef1f4b4f6, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: RoomRewardSpawn
+    clip: {fileID: 8300000, guid: 96f480ab906e234458559b01b586c833, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: DoorOpen
+    clip: {fileID: 8300000, guid: b8f8fc9f3bffce44a8b48f7017bee1d5, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: WeaponFire1
+    clip: {fileID: 8300000, guid: c96437a3e52159047b347777bcf982ff, type: 3}
+    volume: 0.285
     pitch: 1
     loop: 0
     source: {fileID: 0}
