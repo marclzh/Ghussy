@@ -11,13 +11,13 @@ public class PlayerHealth : Health
 
     // Reference to the Player Object
     [SerializeField] private GameObject player;
-   
+
     // Actual Shield Value
     private float transformationHealthValue;
- 
+
     // Boolean to keep track of transformation state
     private bool isTransformed;
-   
+
 
 
     private void Awake()
@@ -26,7 +26,7 @@ public class PlayerHealth : Health
         maxHealth = GetComponent<Player>().maxHealth.Value;
         transformationHealthValue = GetComponent<Player>().maxTransformationHealth.Value;
         currentHealth = maxHealth;
-       
+
         onHealthChange.Raise(currentHealth);
     }
 
@@ -34,6 +34,7 @@ public class PlayerHealth : Health
     {
         if (Input.GetKeyDown(KeyCode.P))
         {
+            Debug.Log("p");
             TakeDamage(99);
         }
     }
@@ -44,7 +45,7 @@ public class PlayerHealth : Health
         {
             base.TakeDamage(damage);
             onHealthChange.Raise(currentHealth);
-        } 
+        }
         else
         {
             transformationHealthValue -= damage;
@@ -56,7 +57,7 @@ public class PlayerHealth : Health
                 isTransformed = false;
                 onTransformationDeath.Raise();
             }
-            
+
         }
 
     }
@@ -68,7 +69,7 @@ public class PlayerHealth : Health
     }
 
 
-    public void TransformationUpdateHealth(BasePossessionState nextState) 
+    public void TransformationUpdateHealth(BasePossessionState nextState)
     {
         if (nextState != null)
         {
@@ -76,9 +77,14 @@ public class PlayerHealth : Health
         }
     }
 
-    public void MaxHealthPowerUp(CharacterStat maxHealthBonus)
+    public void MaxHealthPowerUp(CharacterStat newMaxHealth)
     {
-        maxHealth = maxHealthBonus.Value;
+        maxHealth = newMaxHealth.Value;
+
+        // Saves Data
+        SaveData currentSaveData = SaveManager.instance.activeSave;
+        currentSaveData.maxHealthValue = newMaxHealth.Value;
+
     }
 
 }

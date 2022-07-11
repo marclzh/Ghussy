@@ -4,14 +4,14 @@ using TMPro;
 using Kryz.CharacterStats;
 
 public class PlayerHealthUI : MonoBehaviour
-{ 
+{
 
     // Reference to the Player Object
     [SerializeField] private GameObject player;
     // Health Value display
     TextMeshProUGUI healthValue;
     // Shield Value display
-    TextMeshProUGUI transformationValue; 
+    TextMeshProUGUI transformationValue;
     // Actual Shield Value
     private float transformationHealthValue;
     // Color of shield bar
@@ -32,7 +32,7 @@ public class PlayerHealthUI : MonoBehaviour
 
     private void Awake()
     {
-        
+
         transformationColor = new Color(0.1f, 0.95f, 0.95f);
         transformationHealthBar.color = transformationColor;
         animator = GetComponent<PlayerAnimator>();
@@ -42,7 +42,7 @@ public class PlayerHealthUI : MonoBehaviour
         transformationHealthValue = GetComponent<Player>().maxTransformationHealth.Value;
         healthValue = GameObject.Find("PlayerHealthBar/Health Value").GetComponent<TextMeshProUGUI>();
         transformationValue = GameObject.Find("TransformHealthBar/TransformationHealthValue").GetComponent<TextMeshProUGUI>();
-        
+
         transformationHealthObject.SetActive(false);
     }
 
@@ -51,10 +51,10 @@ public class PlayerHealthUI : MonoBehaviour
     {
         if (!isTransformed)
         {
-            baseHealthSlider.value = health;          
+            baseHealthSlider.value = health;
             baseHealthBar.color = gradient.Evaluate(1f);
             healthValue.text = $"{baseHealthSlider.value.ToString()}/{baseHealthSlider.maxValue.ToString()}";
-        } 
+        }
         else if (isTransformed)
         {
             transformationHealthSlider.value = health;
@@ -66,9 +66,9 @@ public class PlayerHealthUI : MonoBehaviour
         }
     }
 
-    public void UpdateMaxHealthUI(CharacterStat bonus)
+    public void UpdateMaxHealthUI(CharacterStat newMaxHealth)
     {
-        baseHealthSlider.maxValue = bonus.Value;
+        baseHealthSlider.maxValue = newMaxHealth.Value;
         healthValue.text = $"{baseHealthSlider.value.ToString()}/{baseHealthSlider.maxValue.ToString()}";
     }
 
@@ -88,7 +88,7 @@ public class PlayerHealthUI : MonoBehaviour
         isTransformed = false;
     }
 
-    public void TransformationUpdateHealth(BasePossessionState nextState) 
+    public void TransformationUpdateHealth(BasePossessionState nextState)
     {
         if (nextState != null)
         {

@@ -3,13 +3,13 @@ using Kryz.CharacterStats;
 
 public class Player : Character
 {
-    
+
     [SerializeField] private InventoryObject ectoplasmInventory;
     [SerializeField] private PlayerHealth playerHealth;
     [SerializeField] private PlayerAnimator playerAnimator;
     public static bool IsPlayerTransformed = false;
-    
-    public BasePossessionState currentState; 
+
+    public BasePossessionState currentState;
     public BasePossessionState defaultState;
     [SerializeField] PlayerWeapon currentWeapon;
     [SerializeField] Ability currentAbility;
@@ -19,21 +19,40 @@ public class Player : Character
     [SerializeField] public CharacterStat movementSpeed;
     [SerializeField] public CharacterStat maxHealth;
     [SerializeField] public CharacterStat maxTransformationHealth;
+    [SerializeField] public CharacterStat currentHealth;
 
-    public void OnValidate()
-    {
-        movementSpeed.BaseValue = GameData.movementSpeedValue;
-        maxHealth.BaseValue = GameData.maxHealthValue;
-        
-        maxTransformationHealth.BaseValue = GameData.maxTransformationValue;
-        
-    }
+    [SerializeField] public CharacterStatEvent maxHealthInitialization;
+    [SerializeField] public CharacterStatEvent currentHealthInitilization;
+
     public void Start()
     {
+        SaveData currentSaveData = SaveManager.instance.activeSave;
+
+        if (SaveManager.instance.hasLoaded)
+        {
+            movementSpeed.BaseValue = currentSaveData.movementSpeedValue;
+            maxHealth.BaseValue = currentSaveData.maxHealthValue;
+            maxTransformationHealth.BaseValue = currentSaveData.maxTransformationValue;
+            currentHealth.BaseValue = currentSaveData.currentHealthValue;
+
+            maxHealthInitialization.Raise(maxHealth);
+            currentHealthInitilization.Raise(currentHealth);
+        }
+        else
+        {
+            currentSaveData.movementSpeedValue = movementSpeed.Value;
+            currentSaveData.maxHealthValue = maxHealth.Value;
+            currentSaveData.maxTransformationValue = maxTransformationHealth.Value;
+
+        }
+
+        // Set Starting position
         transform.position = startingPosition.initialValue;
+
     }
 
-    void OnHit(float damage) 
+
+    void OnHit(float damage)
     {
         playerAnimator.PlayerHit();
         playerHealth.TakeDamage(damage);
@@ -41,7 +60,7 @@ public class Player : Character
 
     private void Update()
     {
-       // Debug.Log(movementSpeed.Value);
+        // Debug.Log(movementSpeed.Value);
     }
 
     public void SetState(BasePossessionState nextState)
@@ -78,5 +97,5 @@ public class Player : Character
         }
     }
 
-  
+
 }
