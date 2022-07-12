@@ -72,6 +72,12 @@ public class PlayerHealthUI : MonoBehaviour
         healthValue.text = $"{baseHealthSlider.value.ToString()}/{baseHealthSlider.maxValue.ToString()}";
     }
 
+    public void UpdateCurrentHealthUI(CharacterStat newCurrentHealth)
+    {
+        baseHealthSlider.value = newCurrentHealth.Value;
+        healthValue.text = $"{baseHealthSlider.value.ToString()}/{baseHealthSlider.maxValue.ToString()}";
+    }
+
     public void Die()
     {
         Debug.Log("passway");

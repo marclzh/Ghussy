@@ -87,13 +87,15 @@ public class SaveData
 {
     public string saveName;
 
-    // Default Values
-    public float movementSpeedValue;
+    // Default Player Stat Values
+    public float movementSpeedValue = 1f;
     public float fireRateValue;
     public float damageModifierValue;
-    public float maxHealthValue;
-    public float maxTransformationValue;
-    public float currentHealthValue;
+    public float maxHealthValue = 100f;
+    public float currentHealthValue = 100f;
+    public float maxTransformationValue = 100f;
+    public float currentTransformationValue = 100f;
+    
 
 
 }

@@ -5,12 +5,12 @@ using Kryz.CharacterStats;
 
 public class GameData
 {
-    public static float movementSpeedValue = 1f;
+    public static float movementSpeedValue;
     public static float fireRateValue;
     public static float damageModifierValue;
-    public static float maxHealthValue = 100f;
-    public static float maxTransformationValue = 100f;
-    public static float currentHealthValue = 100f;
+    public static float maxHealthValue;
+    public static float maxTransformationValue;
+    public static float currentHealthValue;
    
     public void SaveData()
     {
