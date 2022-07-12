@@ -120,6 +120,9 @@ public class PlayerHealth : Health
     {
         maxHealth = newMaxHealth.Value;
 
+        // health check
+        Debug.Log(maxHealth);
+
         // Saves Data
         SaveData currentSaveData = SaveManager.instance.activeSave;
         currentSaveData.maxHealthValue = newMaxHealth.Value;
@@ -129,6 +132,9 @@ public class PlayerHealth : Health
     public void CurrentHealthChange(CharacterStat health)
     {
         currentHealth = health.Value;
+
+        // health check
+        Debug.Log(currentHealth);
 
         // Saves Data
         SaveData currentSaveData = SaveManager.instance.activeSave;
