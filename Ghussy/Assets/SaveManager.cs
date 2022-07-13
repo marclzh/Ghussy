@@ -95,6 +95,10 @@ public class SaveData
     public float currentHealthValue = 100f;
     public float maxTransformationValue = 100f;
     public float currentTransformationValue = 100f;
+
+    // Player Settings
+    public float musicVolume = 1;
+    public float soundEffectsVolume = 1;
     
 
 

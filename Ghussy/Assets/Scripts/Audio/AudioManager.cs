@@ -3,16 +3,23 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
+
 public class AudioManager : MonoBehaviour
 {
-    public Sound[] sounds;
-    public static AudioManager instance;
+
+    [SerializeField] private AudioMixerGroup musicMixerGroup;
+    [SerializeField] private AudioMixerGroup soundEffectsMixerGroup;
+
+    [SerializeField] private Sound[] sounds;
+
+    public static AudioManager Instance;
 
     private void Awake()
     {
-        if (instance == null)
+        // Singleton Check
+        if (Instance == null)
         {
-            instance = this;
+            Instance = this;
         } 
         else
         {
@@ -22,20 +29,37 @@ public class AudioManager : MonoBehaviour
 
         DontDestroyOnLoad(gameObject);
 
-        foreach(Sound s in sounds)
+        // Initialise Sounds
+        foreach (Sound s in sounds)
         {
             s.source = gameObject.AddComponent<AudioSource>();
             s.source.clip = s.clip;
-
-            s.source.volume = s.volume;
-            s.source.pitch = s.pitch;   
             s.source.loop = s.loop;
+            s.source.volume = s.volume;
+            s.source.pitch = s.pitch;
+
+            switch (s.audioType)
+            {
+                case Sound.AudioTypes.soundEffect:
+                    s.source.outputAudioMixerGroup = soundEffectsMixerGroup;
+                    break;
+
+                case Sound.AudioTypes.music:
+                    s.source.outputAudioMixerGroup = musicMixerGroup;
+                    break;
+            }
+
+            if (s.playOnAwake)
+                s.source.Play();
         }
+
+        
+
     }
 
     private void Start()
     {
-        Play("Theme");
+        UpdateMixerVolume();
     }
 
     public void Play(string name)
@@ -47,5 +71,27 @@ public class AudioManager : MonoBehaviour
             return;
         }
         s.source.Play();
+    }
+
+    public void Stop(string clipname)
+    {
+        Sound s = Array.Find(sounds, dummySound => dummySound.name == clipname);
+        if (s == null)
+        {
+            Debug.LogError("Sound: " + clipname + " does NOT exist!");
+            return;
+        }
+        s.source.Stop();
+    }
+
+    public void UpdateMixerVolume()
+    {
+        // Load saved volume values
+        SaveData currentSaveData = SaveManager.instance.activeSave;
+        float musicVolume = currentSaveData.musicVolume;
+        float soundEffectsVolume = currentSaveData.soundEffectsVolume;
+
+        musicMixerGroup.audioMixer.SetFloat("Music Volume", Mathf.Log10(musicVolume) * 20);
+        soundEffectsMixerGroup.audioMixer.SetFloat("Sound Effects Volume", Mathf.Log10(soundEffectsVolume) * 20);
     }
 }
