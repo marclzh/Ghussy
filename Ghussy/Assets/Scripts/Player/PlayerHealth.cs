@@ -36,7 +36,6 @@ public class PlayerHealth : Health
     {
         if (Input.GetKeyDown(KeyCode.P))
         {
-            Debug.Log("p");
             TakeDamage(99);
         }
     }
@@ -65,7 +64,6 @@ public class PlayerHealth : Health
 
             if (currentTransformationHealth <= 0)
             {
-                Debug.Log("transformation dead");
                 isTransformed = false;
                 onTransformationDeath.Raise();
             }
@@ -120,9 +118,6 @@ public class PlayerHealth : Health
     {
         maxHealth = newMaxHealth.Value;
 
-        // health check
-        Debug.Log(maxHealth);
-
         // Saves Data
         SaveData currentSaveData = SaveManager.instance.activeSave;
         currentSaveData.maxHealthValue = newMaxHealth.Value;
@@ -132,9 +127,6 @@ public class PlayerHealth : Health
     public void CurrentHealthChange(CharacterStat health)
     {
         currentHealth = health.Value;
-
-        // health check
-        Debug.Log(currentHealth);
 
         // Saves Data
         SaveData currentSaveData = SaveManager.instance.activeSave;

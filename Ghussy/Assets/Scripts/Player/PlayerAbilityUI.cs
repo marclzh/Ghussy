@@ -34,7 +34,6 @@ public class PlayerAbilityUI : MonoBehaviour
             nextImage = currentAbility.GetImage();
             coolDownTime = currentAbility.GetCooldownTime();
             abilityTimer = currentAbility.GetAbilityTime();
-            Debug.Log(abilityTimer);
             UpdateUI();
         }
     }
@@ -53,8 +52,7 @@ public class PlayerAbilityUI : MonoBehaviour
     void UseAbility()
     {
         if (Input.GetKeyDown(abilityKey) && OnCoolDown == false && abilityActive == false)
-        {
-            Debug.Log("ability key pressed");
+        {      
             abilityActive = true;
             playerWeapon.AbilityActivate();       
         }

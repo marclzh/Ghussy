@@ -72,11 +72,6 @@ public class Player : Character
         playerHealth.TakeDamage(damage);
     }
 
-    private void Update()
-    {
-        // Debug.Log(movementSpeed.Value);
-    }
-
     public void SetState(BasePossessionState nextState)
     {
         if (nextState != null && !currentState.Same(nextState))

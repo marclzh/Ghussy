@@ -35,7 +35,7 @@ public class PlayerAnimator : MonoBehaviour
         } 
         else
         {
-            Debug.Log("yikes");
+
         }
         
     }

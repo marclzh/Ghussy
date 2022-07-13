@@ -102,7 +102,6 @@ public class PlayerWeapon : MonoBehaviour
         // Bullet Instantiation
         if (weaponFired && withinFireRate())
         {
-            Debug.Log(isAbilityActive);
 
             if (!isTransformed && !isAbilityActive)
             {
@@ -114,7 +113,6 @@ public class PlayerWeapon : MonoBehaviour
             } 
             else if (GetComponent<WeaponManager>().currentState.ToString() == "SkeletonTransformation")
             {
-                Debug.Log("been transforming");
                 projectileSpread = 35;
                 numProjectiles = 3;
 
@@ -178,13 +176,11 @@ public class PlayerWeapon : MonoBehaviour
 
     public void AbilityActivate()
     {
-        Debug.Log("abilityActivated");
         isAbilityActive = true;
     }
 
     public void AbilityDeactivate()
     {
-        Debug.Log("abilityDeactivated");
         isAbilityActive = false;
     }
 }
