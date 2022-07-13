@@ -4,5 +4,5 @@ using UnityEngine;
 
 public class BoneWeapon : Weapon
 {
-
+    public Ability ability;
 }

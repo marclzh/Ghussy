@@ -8,3 +8,4 @@ public class Weapon : MonoBehaviour
     public Transform firePoint;
     public float fireRate;
 }
+

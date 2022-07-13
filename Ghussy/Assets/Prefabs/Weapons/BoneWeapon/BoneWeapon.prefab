@@ -186,6 +186,7 @@ MonoBehaviour:
   bulletPrefab: {fileID: 149363730228609909, guid: 7dbc32900b315554996c531656cec1c9, type: 3}
   firePoint: {fileID: 615712847}
   fireRate: 0.35
+  ability: {fileID: 11400000, guid: 959751e85353ca944bf60bf1b79d2646, type: 2}
 --- !u!95 &1367942334005813075
 Animator:
   serializedVersion: 4
