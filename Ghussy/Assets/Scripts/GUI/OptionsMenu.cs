@@ -4,19 +4,9 @@ using UnityEngine;
 
 public class OptionsMenu : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField] PlayerController playerController; 
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    public void SetQuality(int qualityIndex)
+public void SetQuality(int qualityIndex)
     {
         QualitySettings.SetQualityLevel(qualityIndex);
     }
@@ -28,5 +18,7 @@ public class OptionsMenu : MonoBehaviour
     public void CloseOptions()
     {
         gameObject.SetActive(false);
+        // Switch back player input map
+        playerController.playerInput.SwitchCurrentActionMap("Player");
     }
 }

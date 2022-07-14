@@ -21,13 +21,13 @@ public class EnemyManager : MonoBehaviour
             int total = numOfEnemiesLeft;
             while (i < total)
             {
-               
+
                 EnemyHealth tmp = transform.GetChild(i).GetComponent<EnemyHealth>();
                 tmp.TakeDamage(9999999999);
                 i++;
             }
             return;
-            
+
         }
     }
 
@@ -46,5 +46,5 @@ public class EnemyManager : MonoBehaviour
         }
     }
 
-    
+
 }

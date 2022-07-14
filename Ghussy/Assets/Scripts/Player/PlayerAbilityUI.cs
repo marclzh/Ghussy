@@ -18,7 +18,7 @@ public class PlayerAbilityUI : MonoBehaviour
     [SerializeField] private KeyCode abilityKey;
     [SerializeField] private PlayerWeapon playerWeapon;
 
-    
+
     void Start()
     {
         abilityImage = GameObject.FindGameObjectWithTag("AbilityImage").GetComponent<Image>();
@@ -39,22 +39,22 @@ public class PlayerAbilityUI : MonoBehaviour
     }
 
     private void UpdateUI()
-    {      
+    {
         abilityImage.sprite = nextImage;
     }
 
     private void Update()
     {
-        UseAbility(); 
+        UseAbility();
     }
 
-    
+
     void UseAbility()
     {
         if (Input.GetKeyDown(abilityKey) && OnCoolDown == false && abilityActive == false)
         {      
             abilityActive = true;
-            playerWeapon.AbilityActivate();       
+            playerWeapon.AbilityActivate();
         }
 
         if (abilityActive)
@@ -71,7 +71,7 @@ public class PlayerAbilityUI : MonoBehaviour
                 playerWeapon.AbilityDeactivate();
             }
         }
-       
+
         if (OnCoolDown)
         {
             abilityImage.fillAmount += 1 / coolDownTime * Time.deltaTime;
@@ -84,3 +84,4 @@ public class PlayerAbilityUI : MonoBehaviour
         }
     }
 }
+

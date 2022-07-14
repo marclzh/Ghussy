@@ -139,7 +139,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: -639056308780892224}
   damage: 25
-  speed: 200
+  speed: 250
+  initVelocity: {x: 0, y: 0}
 --- !u!95 &931862169711475669
 Animator:
   serializedVersion: 4

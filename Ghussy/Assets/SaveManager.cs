@@ -93,5 +93,4 @@ public class SaveData
     // Player Settings
     public float musicVolume = 1;
     public float soundEffectsVolume = 1;
-   
 }

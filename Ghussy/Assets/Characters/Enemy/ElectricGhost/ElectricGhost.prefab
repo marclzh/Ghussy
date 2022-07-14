@@ -9,15 +9,15 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2942621132489588255}
-  - component: {fileID: 7451909808620067535}
   - component: {fileID: 5986814036583153099}
   - component: {fileID: 6413463903949104936}
-  - component: {fileID: 7451909808620067534}
-  - component: {fileID: 7451909808620067533}
+  - component: {fileID: 4529716521547276909}
   - component: {fileID: 7451909808620067538}
+  - component: {fileID: 7451909808620067533}
   - component: {fileID: 7451909808620067539}
   - component: {fileID: 7451909808620067537}
-  - component: {fileID: 4529716521547276909}
+  - component: {fileID: 7451909808620067534}
+  - component: {fileID: 7451909808620067535}
   m_Layer: 7
   m_Name: ElectricGhost
   m_TagString: Enemy
@@ -42,34 +42,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7451909808620067535
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1124729801913180346}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 373b52eb9bf8c40f785bb6947a1aee66, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  version: 1
-  drawGizmos: 1
-  detailedGizmos: 1
-  startEndModifier:
-    addPoints: 0
-    exactStartPoint: 3
-    exactEndPoint: 3
-    useRaycasting: 0
-    mask:
-      serializedVersion: 2
-      m_Bits: 4294967295
-    useGraphRaycasting: 0
-  traversableTags: -1
-  tagPenalties: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
-  graphMask:
-    value: -1
 --- !u!50 &5986814036583153099
 Rigidbody2D:
   serializedVersion: 4
@@ -107,7 +79,7 @@ CircleCollider2D:
   m_Offset: {x: -0.006584227, y: 0.017557766}
   serializedVersion: 2
   m_Radius: 0.12909186
---- !u!114 &7451909808620067534
+--- !u!114 &4529716521547276909
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -116,13 +88,23 @@ MonoBehaviour:
   m_GameObject: {fileID: 1124729801913180346}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c1e01d0d58a727f40a86fa31d45e37d8, type: 3}
+  m_Script: {fileID: 11500000, guid: d6832cea29572e8498a22ca75b0dc2a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyGFX: {fileID: 7813775956589249721}
-  target: {fileID: 0}
-  nextWaypointDistance: 0.1
-  isChasing: 0
+  OnEnemyDeath: {fileID: 11400000, guid: 7728a522ed50a9443856ee2ddad49339, type: 2}
+--- !u!114 &7451909808620067538
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1124729801913180346}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe3c674bda027cf4d86282382ef13c3f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 7813775956589249720}
 --- !u!114 &7451909808620067533
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -143,19 +125,6 @@ MonoBehaviour:
   playerLayer:
     serializedVersion: 2
     m_Bits: 64
---- !u!114 &7451909808620067538
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1124729801913180346}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe3c674bda027cf4d86282382ef13c3f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  animator: {fileID: 7813775956589249720}
 --- !u!114 &7451909808620067539
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -168,6 +137,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 710cfd59ffa73824289029fc9b7b552b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxEctoplasmDrop: 3
+  ectoplasmPrefab: {fileID: 3702410368621476491, guid: aa0e7ad0a3082f04291c07bdf662bf22, type: 3}
+  enemyAnimator: {fileID: 7451909808620067538}
   baseHealthSlider: {fileID: 5203162716000005659}
   gradient:
     serializedVersion: 2
@@ -199,9 +171,6 @@ MonoBehaviour:
     m_NumColorKeys: 3
     m_NumAlphaKeys: 2
   baseHealthBar: {fileID: 5203162716104609811}
-  maxEctoplasmDrop: 3
-  ectoplasmPrefab: {fileID: 3702410368621476491, guid: aa0e7ad0a3082f04291c07bdf662bf22, type: 3}
-  enemyAnimator: {fileID: 7451909808620067538}
 --- !u!114 &7451909808620067537
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -216,7 +185,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 10
   attackPoint: {fileID: 5967399451303471610}
---- !u!114 &4529716521547276909
+--- !u!114 &7451909808620067534
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -225,10 +194,41 @@ MonoBehaviour:
   m_GameObject: {fileID: 1124729801913180346}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d6832cea29572e8498a22ca75b0dc2a9, type: 3}
+  m_Script: {fileID: 11500000, guid: c1e01d0d58a727f40a86fa31d45e37d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OnEnemyDeath: {fileID: 11400000, guid: 7728a522ed50a9443856ee2ddad49339, type: 2}
+  enemyGFX: {fileID: 7813775956589249721}
+  target: {fileID: 0}
+  nextWaypointDistance: 0.1
+  isChasing: 0
+--- !u!114 &7451909808620067535
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1124729801913180346}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 373b52eb9bf8c40f785bb6947a1aee66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 1
+  drawGizmos: 1
+  detailedGizmos: 1
+  startEndModifier:
+    addPoints: 0
+    exactStartPoint: 3
+    exactEndPoint: 3
+    useRaycasting: 0
+    mask:
+      serializedVersion: 2
+      m_Bits: 4294967295
+    useGraphRaycasting: 0
+  traversableTags: -1
+  tagPenalties: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+  graphMask:
+    value: -1
 --- !u!1001 &4307046462404761406
 PrefabInstance:
   m_ObjectHideFlags: 0
