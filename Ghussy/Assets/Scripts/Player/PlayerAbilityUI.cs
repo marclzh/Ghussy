@@ -52,7 +52,7 @@ public class PlayerAbilityUI : MonoBehaviour
     void UseAbility()
     {
         if (Input.GetKeyDown(abilityKey) && OnCoolDown == false && abilityActive == false)
-        {
+        {      
             abilityActive = true;
             playerWeapon.AbilityActivate();
         }

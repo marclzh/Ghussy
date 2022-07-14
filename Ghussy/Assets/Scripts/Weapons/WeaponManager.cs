@@ -56,8 +56,8 @@ public class WeaponManager : MonoBehaviour
                 GetComponent<PlayerWeapon>().updateWeapon(currWeapon);
             } 
             else
-            { 
-                Debug.Log("InvalidTransformation (weaponManager)");
+            {
+                return;
             }
         }
     }

@@ -62,7 +62,7 @@ public class PlayerHealthUI : MonoBehaviour
         }
         else
         {
-            Debug.Log("problem in update heatlh UI");
+            return;
         }
     }
 
@@ -80,7 +80,6 @@ public class PlayerHealthUI : MonoBehaviour
 
     public void Die()
     {
-        Debug.Log("passway");
         animator.IsPlayerDead(true);
     }
 
@@ -99,7 +98,6 @@ public class PlayerHealthUI : MonoBehaviour
         if (nextState != null)
         {
             isTransformed = true;
-            //Debug.Log("transformhealthtest");
             transformationHealthObject.SetActive(true);
         }
     }
