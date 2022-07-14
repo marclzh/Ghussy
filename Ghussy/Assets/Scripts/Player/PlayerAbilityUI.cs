@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.InputSystem;
 
 public class PlayerAbilityUI : MonoBehaviour
 {
@@ -15,8 +16,8 @@ public class PlayerAbilityUI : MonoBehaviour
     private float coolDownTime;
     private bool abilityActive = false;
     private bool OnCoolDown = false;
-    [SerializeField] private KeyCode abilityKey;
     [SerializeField] private PlayerWeapon playerWeapon;
+    private bool abilityKeyPressed;
 
 
     void Start()
@@ -48,13 +49,19 @@ public class PlayerAbilityUI : MonoBehaviour
         UseAbility();
     }
 
+    // Specific Namespace for New Input System - Do not change metrhod name
+    private void OnAbility(InputValue value)
+    {
+        abilityKeyPressed = value.isPressed;
+    }
 
     void UseAbility()
     {
-        if (Input.GetKeyDown(abilityKey) && OnCoolDown == false && abilityActive == false)
+        if (abilityKeyPressed && OnCoolDown == false && abilityActive == false)
         {      
             abilityActive = true;
             playerWeapon.AbilityActivate();
+            abilityKeyPressed = false;
         }
 
         if (abilityActive)

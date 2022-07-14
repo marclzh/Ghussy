@@ -476,6 +476,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!20 &178953537 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 7372602462782921350, guid: af8cb527fcbdc554e86fde1e088c14ca, type: 3}
+  m_PrefabInstance: {fileID: 7372602462266709622}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &207839010
 GameObject:
   m_ObjectHideFlags: 0
@@ -11632,6 +11637,17 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.32218313, y: 0.12198639}
   m_EdgeRadius: 0
+--- !u!114 &1356653159 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2142801933, guid: f4bbdfbf16f029c4294df10a6c41dd4b, type: 3}
+  m_PrefabInstance: {fileID: 351264523053041950}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01614664b831546d2ae94a42149d80ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1381656949
 GameObject:
   m_ObjectHideFlags: 0
@@ -40039,6 +40055,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1399853179698862302, guid: b75c3a1b41293d3479bb77ea575db8dc, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 178953537}
+    - target: {fileID: 1399853179698862302, guid: b75c3a1b41293d3479bb77ea575db8dc, type: 3}
+      propertyPath: m_UIInputModule
+      value: 
+      objectReference: {fileID: 1356653159}
     - target: {fileID: 1986712840679330280, guid: b75c3a1b41293d3479bb77ea575db8dc, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0

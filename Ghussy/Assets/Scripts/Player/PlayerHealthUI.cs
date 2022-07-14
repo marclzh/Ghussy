@@ -52,7 +52,7 @@ public class PlayerHealthUI : MonoBehaviour
         if (!isTransformed)
         {
             baseHealthSlider.value = health;
-            baseHealthBar.color = gradient.Evaluate(1f);
+            baseHealthBar.color = gradient.Evaluate(baseHealthSlider.normalizedValue);
             healthValue.text = $"{baseHealthSlider.value.ToString()}/{baseHealthSlider.maxValue.ToString()}";
         }
         else if (isTransformed)
@@ -69,6 +69,7 @@ public class PlayerHealthUI : MonoBehaviour
     public void UpdateMaxHealthUI(CharacterStat newMaxHealth)
     {
         baseHealthSlider.maxValue = newMaxHealth.Value;
+        baseHealthBar.color = gradient.Evaluate(1f);
         healthValue.text = $"{baseHealthSlider.value.ToString()}/{baseHealthSlider.maxValue.ToString()}";
     }
 

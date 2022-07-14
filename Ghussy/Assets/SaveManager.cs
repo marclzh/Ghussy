@@ -61,16 +61,19 @@ public class SaveManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.K))
         {
+            Debug.Log("Game Saved");
             SaveGame();
         }
 
         if (Input.GetKeyDown(KeyCode.L))
         {
+            Debug.Log("Save Loaded");
             LoadGame();
         }
 
         if (Input.GetKeyDown(KeyCode.J))
         {
+            Debug.Log("Save Deleted");
             DeleteSaveData();
         }
     }
