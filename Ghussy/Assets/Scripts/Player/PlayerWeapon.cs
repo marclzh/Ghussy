@@ -4,7 +4,7 @@ using UnityEngine.InputSystem;
 public class PlayerWeapon : MonoBehaviour
 {
     // Player Component References
-    public GameObject weapon; 
+    public GameObject weapon;
     [SerializeField] private Transform playerReference;
     SpriteRenderer weaponSR;
     Rigidbody2D weaponRB;
@@ -66,7 +66,7 @@ public class PlayerWeapon : MonoBehaviour
         mousePos = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
     }
 
-    
+
     void FixedUpdate()
     {
         HandleAiming();
@@ -102,7 +102,6 @@ public class PlayerWeapon : MonoBehaviour
         // Bullet Instantiation
         if (weaponFired && withinFireRate())
         {
-            Debug.Log(isAbilityActive);
 
             if (!isTransformed && !isAbilityActive)
             {
@@ -114,10 +113,9 @@ public class PlayerWeapon : MonoBehaviour
                 Rigidbody2D rb = projectile.GetComponent<Rigidbody2D>();
                 Vector2 shootingDirection = mousePos - playerPos2D;
                 rb.velocity += weapon.GetComponent<Weapon>().bulletPrefab.GetComponent<BulletController>().speed * Time.deltaTime * shootingDirection.normalized;
-            } 
+            }
             else if (GetComponent<WeaponManager>().currentState.ToString() == "SkeletonTransformation")
             {
-                Debug.Log("been transforming");
                 projectileSpread = 35;
                 numProjectiles = 3;
 
@@ -158,7 +156,7 @@ public class PlayerWeapon : MonoBehaviour
         weaponAnimator = weapon.GetComponent<Animator>();
         offSetDistance = weapon.transform.position.x - playerReference.position.x;
     }
-  
+
     private bool withinFireRate()
     {
         return (Time.time > (lastFireTime + weapon.GetComponent<Weapon>().fireRate));
@@ -171,7 +169,7 @@ public class PlayerWeapon : MonoBehaviour
 
     private void StopFiring(InputAction.CallbackContext obj)
     {
-       // isFiring = false;
+        // isFiring = false;
     }
 
     public void IsTransformed()
@@ -181,13 +179,11 @@ public class PlayerWeapon : MonoBehaviour
 
     public void AbilityActivate()
     {
-        Debug.Log("abilityActivated");
         isAbilityActive = true;
     }
 
     public void AbilityDeactivate()
     {
-        Debug.Log("abilityDeactivated");
         isAbilityActive = false;
     }
 }

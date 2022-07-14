@@ -27,7 +27,7 @@ public class PlayerHealth : Health
         currentTransformationHealth = GetComponent<Player>().currentTransformationHealth.Value;
         currentTransformationHealth = 100f;
         currentHealth = GetComponent<Player>().currentHealth.Value;
-        
+
         // Raises Event to update UI
         onHealthChange.Raise(currentHealth);
     }
@@ -36,7 +36,6 @@ public class PlayerHealth : Health
     {
         if (Input.GetKeyDown(KeyCode.P))
         {
-            
             TakeDamage(99);
         }
     }
@@ -46,7 +45,7 @@ public class PlayerHealth : Health
         if (!isTransformed)
         {
             base.TakeDamage(damage);
-            
+
             // Raise Event to Update UI
             onHealthChange.Raise(currentHealth);
 
@@ -65,7 +64,6 @@ public class PlayerHealth : Health
 
             if (currentTransformationHealth <= 0)
             {
-                
                 isTransformed = false;
                 onTransformationDeath.Raise();
             }
@@ -120,7 +118,6 @@ public class PlayerHealth : Health
     {
         maxHealth = newMaxHealth.Value;
 
-        
         // Saves Data
         SaveData currentSaveData = SaveManager.instance.activeSave;
         currentSaveData.maxHealthValue = newMaxHealth.Value;

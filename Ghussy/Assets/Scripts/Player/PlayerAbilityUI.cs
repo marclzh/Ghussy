@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
 public class PlayerAbilityUI : MonoBehaviour
@@ -16,10 +15,10 @@ public class PlayerAbilityUI : MonoBehaviour
     private float coolDownTime;
     private bool abilityActive = false;
     private bool OnCoolDown = false;
+    [SerializeField] private KeyCode abilityKey;
     [SerializeField] private PlayerWeapon playerWeapon;
-    private bool abilityKeyPressed;
 
-    
+
     void Start()
     {
         abilityImage = GameObject.FindGameObjectWithTag("AbilityImage").GetComponent<Image>();
@@ -35,35 +34,27 @@ public class PlayerAbilityUI : MonoBehaviour
             nextImage = currentAbility.GetImage();
             coolDownTime = currentAbility.GetCooldownTime();
             abilityTimer = currentAbility.GetAbilityTime();
-            
             UpdateUI();
         }
     }
 
     private void UpdateUI()
-    {      
+    {
         abilityImage.sprite = nextImage;
     }
 
     private void Update()
     {
-        UseAbility(); 
+        UseAbility();
     }
 
-    // Specific Namespace for New Input System - Do not change method name
-    private void OnAbility(InputValue value)
-    {
-        abilityKeyPressed = value.isPressed;
-    }
 
     void UseAbility()
     {
-        if (abilityKeyPressed && OnCoolDown == false && abilityActive == false)
+        if (Input.GetKeyDown(abilityKey) && OnCoolDown == false && abilityActive == false)
         {
-            
             abilityActive = true;
-            playerWeapon.AbilityActivate();  
-            abilityKeyPressed = false;
+            playerWeapon.AbilityActivate();
         }
 
         if (abilityActive)
@@ -80,7 +71,7 @@ public class PlayerAbilityUI : MonoBehaviour
                 playerWeapon.AbilityDeactivate();
             }
         }
-       
+
         if (OnCoolDown)
         {
             abilityImage.fillAmount += 1 / coolDownTime * Time.deltaTime;
@@ -93,3 +84,4 @@ public class PlayerAbilityUI : MonoBehaviour
         }
     }
 }
+

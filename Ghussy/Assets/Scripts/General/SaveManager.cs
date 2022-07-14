@@ -30,8 +30,6 @@ public class SaveManager : MonoBehaviour
         var stream = new FileStream(dataPath + "/" + activeSave.saveName + ".save", FileMode.Create);
         serializer.Serialize(stream, activeSave);
         stream.Close();
-
-        Debug.Log("Game Saved");
     }
 
     public void LoadGame()
@@ -45,8 +43,6 @@ public class SaveManager : MonoBehaviour
             activeSave = serializer.Deserialize(stream) as SaveData;
             stream.Close();
 
-            Debug.Log("Game Loaded");
-
             hasLoaded = true;
         }
     }
@@ -58,8 +54,6 @@ public class SaveManager : MonoBehaviour
         if (System.IO.File.Exists(dataPath + "/" + activeSave.saveName + ".save"))
         {
             File.Delete(dataPath + "/" + activeSave.saveName + ".save");
-
-            Debug.Log("Game Save Deleted");
         }
     }
 
@@ -99,7 +93,5 @@ public class SaveData
     // Player Settings
     public float musicVolume = 1;
     public float soundEffectsVolume = 1;
-    
-
 
 }
