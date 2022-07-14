@@ -7,15 +7,17 @@ using Kryz.CharacterStats;
 public class PlayerController : MonoBehaviour
 {
     // Player Component References
-    Vector2 movementInput;
     Rigidbody2D rigidBody;
     SpriteRenderer spriteRenderer;
 
     // Player Input Actions
-    private PlayerInputActions playerControls;
-    private InputAction move;
-    private InputAction fire;
-
+    public PlayerInputActions playerControls;
+    public PlayerInput playerInput;
+    private InputAction movePlayerIA;
+    private InputAction fireWeaponIA;
+    private InputAction useAbilityIA;
+    private InputAction interactIA;
+    
     // Movement Fields
     public float moveSpeed = 1f; // Movement speed of character
     public float collisionOffset = 0.025f; // Distance of collision detection
@@ -30,29 +32,36 @@ public class PlayerController : MonoBehaviour
     // Animation Fields
     [SerializeField] private PlayerAnimator playerAnimator;
 
+    private void Awake()
+    {
+        playerControls = new PlayerInputActions();
+    }
     private void OnEnable()
     {
-        // Enable Move Action Map
-        move = playerControls.Player.Move;
-        move.Enable();
+        // Enable Move Input Action
+        movePlayerIA = playerControls.Player.Move;
+        movePlayerIA.Enable();
 
-        // Enable Fire Action Map
-        fire = playerControls.Player.Fire;
-        fire.started += StartFiring; // Executes when fire button is pressed
-        fire.canceled += StopFiring; // Executes when fire button is released
-        fire.Enable();  
+        // Enable Fire Input Action
+        fireWeaponIA = playerControls.Player.Fire;
+        fireWeaponIA.Enable();
+
+        // Enable Interact Input Action
+        interactIA = playerControls.Player.Interact;
+        interactIA.Enable();
+
+        // Enable Ability Input Action
+        useAbilityIA = playerControls.Player.Ability;
+        useAbilityIA.Enable();
+
     }
 
     private void OnDisable()
     {
-        move.Disable();
-        fire.Disable();
-    }
-
-    private void Awake()
-    {
-        playerControls = new PlayerInputActions();  
-       
+        movePlayerIA.Disable();
+        fireWeaponIA.Disable();
+        interactIA.Disable();
+        useAbilityIA.Disable();
     }
 
     // Start is called before the first frame update
@@ -64,32 +73,42 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        Movement();
-        Fire();
+       Movement();
+       Fire();
     }
 
     // Checks if player is currently firing, if true, call weapon's shoot method.
     // This method also handles animator logic for the player
     private void Fire()
     {
-        if (isFiring)
-        {
-            weapon.HandleShooting(true);
-            playerAnimator.IsPlayerAttacking(true);
-        }
+       if (isFiring)
+       {
+          weapon.HandleShooting(true);
+          playerAnimator.IsPlayerAttacking(true);
+        }       
         else
         {
-            weapon.HandleShooting(false);
-            playerAnimator.IsPlayerAttacking(false);
-        }
-
+          weapon.HandleShooting(false);
+          playerAnimator.IsPlayerAttacking(false);
+         }        
     }
+    
+    // Specific Namespace for New Input System - Do not change method name
+    // Uses Hold and Release Interaction for button value type
+    private void OnFire(InputValue value)
+    {
+        isFiring = value.isPressed; 
+    }
+
 
     // Function that handles player movement
     // If player is able to move, perform collision check, and move player accordingly.
     // This function also handles player animation.
     private void Movement()
     {
+        // Retrieve Movement input 
+        Vector2 movementInput = movePlayerIA.ReadValue<Vector2>();
+
         // Check if player can move (ie. movement locked)
         if (canMove)
         {
@@ -176,22 +195,6 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-
-    void OnMove(InputValue movementValue)
-    {
-        movementInput = movementValue.Get<Vector2>();
-    }
-
-    private void StartFiring(InputAction.CallbackContext context)
-    {
-        isFiring = true;
-    }
-
-    private void StopFiring(InputAction.CallbackContext context)
-    {
-        isFiring = false;
-    }
-
     // Locks player movement
     public void LockMovement()
     {
@@ -204,6 +207,7 @@ public class PlayerController : MonoBehaviour
         canMove = true;
     }
 
+    // Movement Speed Power Up
     public void UpdateMovementSpeed(CharacterStat movementStat)
     {
         moveSpeed = movementStat.Value;

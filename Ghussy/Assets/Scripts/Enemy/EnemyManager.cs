@@ -10,7 +10,7 @@ public class EnemyManager : MonoBehaviour
     void Start()
     {
         numOfEnemiesLeft = transform.childCount;
-        Debug.Log("Enemies Left: " + numOfEnemiesLeft);
+        
     }
 
     // Update is called once per frame
@@ -38,7 +38,7 @@ public class EnemyManager : MonoBehaviour
         if (numOfEnemiesLeft > 0)
         {
             numOfEnemiesLeft--;
-            Debug.Log("Enemies Left: " + numOfEnemiesLeft);
+            
         }
 
         if (numOfEnemiesLeft <= 0)
