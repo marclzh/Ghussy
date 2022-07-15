@@ -91,7 +91,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6832cea29572e8498a22ca75b0dc2a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OnEnemyDeath: {fileID: 11400000, guid: 7728a522ed50a9443856ee2ddad49339, type: 2}
+  enemyName: Electric Ghost
 --- !u!114 &7451909808620067538
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -139,6 +139,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxEctoplasmDrop: 3
   ectoplasmPrefab: {fileID: 3702410368621476491, guid: aa0e7ad0a3082f04291c07bdf662bf22, type: 3}
+  OnEnemyDeath: {fileID: 11400000, guid: 7728a522ed50a9443856ee2ddad49339, type: 2}
   enemyAnimator: {fileID: 7451909808620067538}
   baseHealthSlider: {fileID: 5203162716000005659}
   gradient:

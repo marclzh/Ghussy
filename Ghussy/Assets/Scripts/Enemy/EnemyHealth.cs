@@ -9,6 +9,8 @@ public class EnemyHealth : Health
 
     private bool hasDied = false;
 
+    [SerializeField] VoidEvent OnEnemyDeath;
+
     [SerializeField] EnemyAnimator enemyAnimator;
 
     public Slider baseHealthSlider;
@@ -53,7 +55,7 @@ public class EnemyHealth : Health
                 enemyAnimator.EnemyDeath();
 
                 // Raises onEnemyDeath Event
-                gameObject.GetComponent<Enemy>().OnDeath();
+                OnEnemyDeath.Raise();
 
                 // Spawn Ectoplasm
                 int num = Random.Range(1, maxEctoplasmDrop);
