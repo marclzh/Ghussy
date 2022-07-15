@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy : MonoBehaviour, ICharacter, IDameagable
+public class Enemy : MonoBehaviour, ICharacter, IDamageable
 {
     [SerializeField] private string enemyName;
 
