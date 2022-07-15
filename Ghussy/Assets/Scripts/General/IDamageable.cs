@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public interface IDameagable
+public interface IDamageable
 {
     Health health { get; }
 

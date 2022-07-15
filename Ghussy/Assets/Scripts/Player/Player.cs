@@ -1,7 +1,7 @@
 using UnityEngine;
 using Kryz.CharacterStats;
 
-public class Player : MonoBehaviour, ICharacter, IDameagable
+public class Player : MonoBehaviour, ICharacter, IDamageable
 {
 
     [SerializeField] private InventoryObject ectoplasmInventory;
