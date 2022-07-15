@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5562113359001453731}
   - component: {fileID: 5562113359001453730}
+  - component: {fileID: 755754731}
   m_Layer: 0
   m_Name: Audio Manager
   m_TagString: Untagged
@@ -44,46 +45,78 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a8d8a73fc96bf4cbc0e73adb1e6678, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  musicMixerGroup: {fileID: -410584186106063983, guid: bf5bed9aecc0b0b488807a3f59a3b4fc, type: 2}
+  soundEffectsMixerGroup: {fileID: 4587651007436125397, guid: bf5bed9aecc0b0b488807a3f59a3b4fc, type: 2}
   sounds:
-  - name: Theme
+  - audioType: 1
+    name: Theme
     clip: {fileID: 8300000, guid: f2e19e4942753dc4181e52ec851a58c4, type: 3}
     volume: 0.471
     pitch: 1
     loop: 1
+    playOnAwake: 1
     source: {fileID: 0}
-  - name: Hit
+  - audioType: 0
+    name: Hit
     clip: {fileID: 8300000, guid: c5283eaae5e9ebf499bb4cf0479d8a22, type: 3}
     volume: 0.397
     pitch: 1
     loop: 0
+    playOnAwake: 0
     source: {fileID: 0}
-  - name: Possess
+  - audioType: 0
+    name: Possess
     clip: {fileID: 8300000, guid: cf83e0228b4834241b2d5ea346f861ad, type: 3}
     volume: 1
     pitch: 1
     loop: 0
+    playOnAwake: 0
     source: {fileID: 0}
-  - name: RoomRewardInteracted
+  - audioType: 0
+    name: RoomRewardInteracted
     clip: {fileID: 8300000, guid: a82a5d6a50cbc5048b1dd71ef1f4b4f6, type: 3}
     volume: 1
     pitch: 1
     loop: 0
+    playOnAwake: 0
     source: {fileID: 0}
-  - name: RoomRewardSpawn
-    clip: {fileID: 8300000, guid: 96f480ab906e234458559b01b586c833, type: 3}
-    volume: 1
-    pitch: 1
-    loop: 0
-    source: {fileID: 0}
-  - name: DoorOpen
+  - audioType: 0
+    name: DoorOpen
     clip: {fileID: 8300000, guid: b8f8fc9f3bffce44a8b48f7017bee1d5, type: 3}
     volume: 1
     pitch: 1
     loop: 0
+    playOnAwake: 0
     source: {fileID: 0}
-  - name: WeaponFire1
+  - audioType: 0
+    name: RoomRewardSpawn
+    clip: {fileID: 8300000, guid: 96f480ab906e234458559b01b586c833, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    playOnAwake: 0
+    source: {fileID: 0}
+  - audioType: 0
+    name: WeaponFire1
     clip: {fileID: 8300000, guid: c96437a3e52159047b347777bcf982ff, type: 3}
     volume: 0.285
     pitch: 1
     loop: 0
+    playOnAwake: 0
     source: {fileID: 0}
+--- !u!114 &755754731
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5562113359001453729}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2aea1b9aa061eb14b864f4b4b2b6e95d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  musicSliderText: {fileID: 0}
+  soundEffectsSliderText: {fileID: 0}
+  musicSlider: {fileID: 0}
+  soundEffectSlider: {fileID: 0}
