@@ -72,7 +72,7 @@ public class EnemyHealth : Health
     public void UpdateHealthUI(float health)
     {
             baseHealthSlider.value = health;
-            baseHealthBar.color = gradient.Evaluate(1f);
+            baseHealthBar.color = gradient.Evaluate(baseHealthSlider.normalizedValue);
    
     }
 }

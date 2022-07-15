@@ -17,7 +17,7 @@ public class EnemyAI : MonoBehaviour
     
     Path path;
     int currentWaypoint = 0;
-    private bool reachedEndOfPath;
+    //private bool reachedEndOfPath;
 
     Seeker seeker;
     Rigidbody2D rb;
@@ -71,11 +71,11 @@ public class EnemyAI : MonoBehaviour
         // check if there are still waypoints, to stop moving
         if (currentWaypoint >= path.vectorPath.Count)
         {
-            reachedEndOfPath = true;
+            //reachedEndOfPath = true;
             return;
         } else
         {
-            reachedEndOfPath = false;
+            //reachedEndOfPath = false;
         }
 
         // to move the enemy
