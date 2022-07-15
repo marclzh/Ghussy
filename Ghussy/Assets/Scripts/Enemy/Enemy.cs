@@ -2,14 +2,23 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy : Character
+public class Enemy : MonoBehaviour, ICharacter, IDameagable
 {
-    [SerializeField] VoidEvent OnEnemyDeath;
+    [SerializeField] private string enemyName;
 
-    public void OnDeath()
+    private Health enemyHealth;
+
+    public void Start()
     {
-        OnEnemyDeath.Raise();
-       
+        enemyHealth = GetComponent<EnemyHealth>();
     }
-   
+
+    public Health health => enemyHealth;
+
+    string ICharacter.Name => enemyName;
+
+    public void TakeDamage(float damageAmount)
+    {
+        enemyHealth.TakeDamage(damageAmount);
+    }
 }

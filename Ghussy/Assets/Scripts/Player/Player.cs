@@ -1,7 +1,7 @@
 using UnityEngine;
 using Kryz.CharacterStats;
 
-public class Player : Character
+public class Player : MonoBehaviour, ICharacter, IDameagable
 {
 
     [SerializeField] private InventoryObject ectoplasmInventory;
@@ -24,6 +24,10 @@ public class Player : Character
 
     [SerializeField] public CharacterStatEvent maxHealthInitialization;
     [SerializeField] public CharacterStatEvent currentHealthInitilization;
+
+    public string Name => "Ghussy";
+
+    public Health health => playerHealth;
 
     public void Start()
     {
@@ -106,5 +110,8 @@ public class Player : Character
         }
     }
 
-
+    public void TakeDamage(float damageAmount)
+    {
+        playerHealth.TakeDamage(damageAmount);
+    }
 }
