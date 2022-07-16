@@ -98,8 +98,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75004efa7e5df8449b41d22da186cf76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minModifier: 3
-  maxModifier: 5
+  minModifier: 5
+  maxModifier: 6
 --- !u!96 &1777438269673172658
 TrailRenderer:
   serializedVersion: 2
