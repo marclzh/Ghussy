@@ -9,6 +9,7 @@ public class DialogueManager : MonoBehaviour
 	[SerializeField] VoidEvent onDialogueEnd;
 	public TextMeshProUGUI nameText;
 	public TextMeshProUGUI dialogueText;
+	public Image currTalkerImage;
 
 	public Animator animator;
 
@@ -62,8 +63,11 @@ public class DialogueManager : MonoBehaviour
 	void EndDialogue()
 	{
 		animator.SetBool("IsOpen", false);
-		onDialogueEnd.Raise();
-		
+		onDialogueEnd.Raise();		
 	}
 
+	public void ChangeCurrCharacterImage(Image image)
+    {
+		currTalkerImage = image;
+    }
 }
