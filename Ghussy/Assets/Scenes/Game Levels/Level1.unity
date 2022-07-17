@@ -40055,10 +40055,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 913271604164061017, guid: 0f79d9587d7612e4481bb06a9eec56ff, type: 3}
-      propertyPath: activeSave.saveName
-      value: SaveFile
-      objectReference: {fileID: 0}
     - target: {fileID: 913271604164061018, guid: 0f79d9587d7612e4481bb06a9eec56ff, type: 3}
       propertyPath: m_Name
       value: Save Manager
@@ -40072,10 +40068,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 472487224, guid: b75c3a1b41293d3479bb77ea575db8dc, type: 3}
-      propertyPath: m_Lens.m_SensorSize.x
-      value: 1.7783133
-      objectReference: {fileID: 0}
     - target: {fileID: 1399853179698862302, guid: b75c3a1b41293d3479bb77ea575db8dc, type: 3}
       propertyPath: m_Camera
       value: 
@@ -40139,10 +40131,6 @@ PrefabInstance:
     - target: {fileID: 4370677499885162137, guid: b75c3a1b41293d3479bb77ea575db8dc, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4370677501744658482, guid: b75c3a1b41293d3479bb77ea575db8dc, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -8.341919
       objectReference: {fileID: 0}
     - target: {fileID: 4370677501975926034, guid: b75c3a1b41293d3479bb77ea575db8dc, type: 3}
       propertyPath: m_AnchorMax.x
