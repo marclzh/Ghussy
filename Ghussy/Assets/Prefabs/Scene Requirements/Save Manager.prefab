@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   activeSave:
-    saveName: 
+    saveName: SaveFile
     movementSpeedValue: 0
     fireRateValue: 0
     damageModifierValue: 0

@@ -51,6 +51,8 @@ public class DialogueManager : MonoBehaviour
         }
 
 		DisplayNextSentence();
+
+		
 	}
 
 	public void DisplayNextSentence()
@@ -86,6 +88,7 @@ public class DialogueManager : MonoBehaviour
 
 	void EndDialogue()
 	{
+		
 		animator.SetBool("IsOpen", false);
 		onDialogueEnd.Raise();		
 	}

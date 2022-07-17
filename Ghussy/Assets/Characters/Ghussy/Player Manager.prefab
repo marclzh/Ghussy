@@ -161,7 +161,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 6634296041406643566}
         m_TargetAssemblyTypeName: RebindingDisplay, Assembly-CSharp
         m_MethodName: ResetBindings
         m_Mode: 1
@@ -565,7 +565,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 6634296041406643566}
         m_TargetAssemblyTypeName: RebindingDisplay, Assembly-CSharp
         m_MethodName: StartRebinding
         m_Mode: 5
@@ -699,7 +699,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 6634296041406643566}
         m_TargetAssemblyTypeName: RebindingDisplay, Assembly-CSharp
         m_MethodName: StartRebinding
         m_Mode: 5
@@ -909,7 +909,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7783375, y: 1}
+    m_SensorSize: {x: 1.7783133, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -1670,7 +1670,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 6634296041406643566}
         m_TargetAssemblyTypeName: RebindingDisplay, Assembly-CSharp
         m_MethodName: StartRebinding
         m_Mode: 5
@@ -3942,7 +3942,7 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 341393a4-0a6b-416c-a962-ecea2f32c3c2
     m_ActionName: UI/TrackedDeviceOrientation
-  m_NeverAutoSwitchControlSchemes: 0
+  m_NeverAutoSwitchControlSchemes: 1
   m_DefaultControlScheme: Keyboard&Mouse
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
@@ -9325,7 +9325,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0.45912507, y: 0.09863034}
-  m_AnchoredPosition: {x: -107.614136, y: -8.34198}
+  m_AnchoredPosition: {x: -107.61438, y: -8.341858}
   m_SizeDelta: {x: -620.458, y: -79.199}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &4370677501744658483
