@@ -14,25 +14,41 @@ public class DialogueManager : MonoBehaviour
 	public Animator animator;
 
 	private Queue<string> sentences;
+	private Queue<string> names;
+	private Queue<Sprite> sprites;
 
 	// Use this for initialization
 	void Start()
 	{
 		sentences = new Queue<string>();
+		names = new Queue<string>();
+		sprites = new Queue<Sprite>();
 	}
 
 	public void StartDialogue(Dialogue dialogue)
 	{
 		animator.SetBool("IsOpen", true);
-
-		nameText.text = dialogue.name;
-
+		
+		// Clearing the queues of old names etc.
+		names.Clear(); 
 		sentences.Clear();
+		sprites.Clear();
 
+		// Enqueuing the dialogues into the queues
 		foreach (string sentence in dialogue.sentences)
 		{
 			sentences.Enqueue(sentence);
 		}
+
+		foreach (string name in dialogue.names)
+		{
+			names.Enqueue(name);
+		}
+
+		foreach(Sprite sprite in dialogue.sprites)
+        {
+			sprites.Enqueue(sprite);
+        }
 
 		DisplayNextSentence();
 	}
@@ -46,8 +62,16 @@ public class DialogueManager : MonoBehaviour
 		}
 
 		string sentence = sentences.Dequeue();
+		string name = names.Dequeue();
+		Sprite sprite = sprites.Dequeue();
 		StopAllCoroutines();
+		// Display Sentences in dialogue
 		StartCoroutine(TypeSentence(sentence));
+		// Updates name for each sentence
+		nameText.text = name;
+		// Updates image for new name
+		currTalkerImage.sprite = sprite;
+
 	}
 
 	IEnumerator TypeSentence(string sentence)
@@ -65,9 +89,4 @@ public class DialogueManager : MonoBehaviour
 		animator.SetBool("IsOpen", false);
 		onDialogueEnd.Raise();		
 	}
-
-	public void ChangeCurrCharacterImage(Image image)
-    {
-		currTalkerImage = image;
-    }
 }

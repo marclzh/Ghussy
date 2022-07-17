@@ -458,6 +458,38 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &248391894
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 248391895}
+  m_Layer: 0
+  m_Name: SignDialogue
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &248391895
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 248391894}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.45778322, y: -0.5230117, z: -1.1990515}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 413597988}
+  m_Father: {fileID: 1772994919}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &279491474 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2142801933, guid: f4bbdfbf16f029c4294df10a6c41dd4b, type: 3}
@@ -696,10 +728,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogue:
-    name: Test Npc
+    names:
+    - TestNPC
+    - Ghussy
+    sprites:
+    - {fileID: -927902647, guid: c1c11af3963d03c499f72166863e22e6, type: 3}
+    - {fileID: 1319632407, guid: 2f186d627fc85214e930444abff8e0b2, type: 3}
     sentences:
-    - This is test Dialogue 2
-    - booba fett
+    - Test Dialogue 2
+    - Testing 1st Convo done
 --- !u!1 &375022603 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3205659144541745231, guid: 2da53619ef8e87445994ad0a7030b1e8, type: 3}
@@ -745,10 +782,65 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 907102559}
+  - {fileID: 1772994919}
   - {fileID: 1958645146}
   m_Father: {fileID: 0}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &413597987
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 413597988}
+  - component: {fileID: 413597989}
+  m_Layer: 0
+  m_Name: Sign Dialogue 1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &413597988
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 413597987}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 44.815144, y: -14.8223915, z: 68.22889}
+  m_LocalScale: {x: 16.64589, y: 13.69205, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 248391895}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &413597989
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 413597987}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ed78b091d66d2f41853cc93941cbc72, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue:
+    names:
+    - 'Sign '
+    - Ghussy
+    sprites:
+    - {fileID: 2007463266, guid: ba2dad6bad333714e840a9512636bc88, type: 3}
+    - {fileID: 1319632407, guid: 2f186d627fc85214e930444abff8e0b2, type: 3}
+    sentences:
+    - This way to the graveyard.
+    - Hmm, I might be able to find clues there...
 --- !u!1 &419021054
 GameObject:
   m_ObjectHideFlags: 0
@@ -784,7 +876,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -672, y: -221}
+  m_AnchoredPosition: {x: -631, y: -295}
   m_SizeDelta: {x: 369.69, y: 348.38}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &419021056
@@ -807,7 +899,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: ef8b97b351382d941b192ba76e88c6b7, type: 3}
+  m_Sprite: {fileID: 1319632407, guid: 2f186d627fc85214e930444abff8e0b2, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -870,7 +962,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogue:
-    name: Test Npc
+    names:
+    - TestNPC
+    sprites:
+    - {fileID: 1319632407, guid: 2f186d627fc85214e930444abff8e0b2, type: 3}
     sentences:
     - This is test Dialogue 4
 --- !u!1 &433847208
@@ -1411,10 +1506,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogue:
-    name: Test Npc
+    names:
+    - TestNPC
+    - Ghussy
+    sprites:
+    - {fileID: -927902647, guid: c1c11af3963d03c499f72166863e22e6, type: 3}
+    - {fileID: 1319632407, guid: 2f186d627fc85214e930444abff8e0b2, type: 3}
     sentences:
-    - This is from Dialogue 1 (first time talking)
-    - '@Anime Mature Women Free'
+    - Hey! Nice to meet you! (First Time Text)
+    - Hi...
 --- !u!1 &905544677
 GameObject:
   m_ObjectHideFlags: 0
@@ -5656,7 +5756,7 @@ Transform:
   m_GameObject: {fileID: 907102558}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0.24078321, y: -0.06998831, z: 1.1990515}
-  m_LocalScale: {x: 0.06007488, y: 0.07303511, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 590478378}
@@ -5704,7 +5804,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 33536a3088178d342b4e4c895ec82b67, type: 3}
+  m_Sprite: {fileID: -927902647, guid: c1c11af3963d03c499f72166863e22e6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -5728,7 +5828,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogueTrigger: {fileID: 715470070}
-  prompt: test123
+  prompt: Talk
   OnDialogueStart: {fileID: 11400000, guid: 4a23f241a029af54987a891795d0912c, type: 2}
 --- !u!61 &907102564
 BoxCollider2D:
@@ -5743,18 +5843,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.039898872, y: 0.01995039}
+  m_Offset: {x: -0.0060431957, y: 0.025030553}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.50229836, y: 0.49861455}
-    oldSize: {x: 17.36, y: 14.4}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.64, y: 0.64}
     newSize: {x: 17.36, y: 14.4}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 17.36, y: 14.4}
+  m_Size: {x: 0.25468493, y: 0.26918364}
   m_EdgeRadius: 0
 --- !u!114 &907102565
 MonoBehaviour:
@@ -7540,6 +7640,148 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: af8cb527fcbdc554e86fde1e088c14ca, type: 3}
+--- !u!1 &1772994918
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1772994919}
+  - component: {fileID: 1772994923}
+  - component: {fileID: 1772994922}
+  - component: {fileID: 1772994921}
+  - component: {fileID: 1772994920}
+  m_Layer: 9
+  m_Name: Sign
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1772994919
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1772994918}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.118, y: -0.61, z: 1.1990515}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 248391895}
+  m_Father: {fileID: 397123957}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &1772994920
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1772994918}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.0060431957, y: 0.025030553}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.32, y: 0.32}
+    newSize: {x: 17.36, y: 14.4}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.25468493, y: 0.26918364}
+  m_EdgeRadius: 0
+--- !u!114 &1772994921
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1772994918}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a0e4eb67a66c0444ae755792eda56d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogueTrigger: {fileID: 413597989}
+  prompt: Talk
+  OnDialogueStart: {fileID: 11400000, guid: 4a23f241a029af54987a891795d0912c, type: 2}
+--- !u!114 &1772994922
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1772994918}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44cbd796676097e49a5e833c12e69a33, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogues: {fileID: 248391895}
+--- !u!212 &1772994923
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1772994918}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 2007463266, guid: ba2dad6bad333714e840a9512636bc88, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 17.36, y: 14.4}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
 --- !u!1 &1857020612
 GameObject:
   m_ObjectHideFlags: 0
@@ -7793,7 +8035,7 @@ MonoBehaviour:
   onDialogueEnd: {fileID: 11400000, guid: 3832ef117dc68f84f8c88d837cdd08b3, type: 2}
   nameText: {fileID: 1857020614}
   dialogueText: {fileID: 678386396}
-  currTalkerImage: {fileID: 0}
+  currTalkerImage: {fileID: 419021056}
   animator: {fileID: 1530561271}
 --- !u!4 &1958645146
 Transform:
@@ -7809,7 +8051,7 @@ Transform:
   m_Children:
   - {fileID: 433847212}
   m_Father: {fileID: 397123957}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1958645147
 MonoBehaviour:
@@ -7884,7 +8126,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogue:
-    name: Test Npc
+    names:
+    - TestNPC
+    sprites:
+    - {fileID: -927902647, guid: c1c11af3963d03c499f72166863e22e6, type: 3}
     sentences:
     - This is test Dialogue 3
 --- !u!1001 &2011609781
