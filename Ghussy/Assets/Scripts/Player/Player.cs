@@ -99,7 +99,7 @@ public class Player : MonoBehaviour, ICharacter, IDamageable
     {
         ectoplasmInventory.Container.Clear();
         // Fixed the value for testing 
-        startingPosition.initialValue = new Vector2(-0.1f, 0.373f);
+       
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

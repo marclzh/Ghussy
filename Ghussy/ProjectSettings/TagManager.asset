@@ -61,6 +61,9 @@ TagManager:
   - name: Foreground Elements
     uniqueID: 312678935
     locked: 0
+  - name: Foreground 2
+    uniqueID: 2260188069
+    locked: 0
   - name: Characters
     uniqueID: 3897595953
     locked: 0
