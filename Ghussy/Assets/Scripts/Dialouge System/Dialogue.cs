@@ -1,9 +1,12 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu]
-public class VectorValue : ScriptableObject
+[System.Serializable]
+public class Dialogue
 {
-    public Vector2 initialValue;
+
+	public string name;
+
+	[TextArea(3, 10)]
+	public string[] sentences;
+
 }

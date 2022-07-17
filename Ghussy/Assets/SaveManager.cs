@@ -4,7 +4,7 @@ using UnityEngine;
 using System.IO;
 using System.Xml;
 using System.Xml.Serialization;
-using Kryz.CharacterStats;
+using System.Text;
 
 public class SaveManager : MonoBehaviour
 {
@@ -13,6 +13,8 @@ public class SaveManager : MonoBehaviour
     public static SaveManager instance;
 
     public bool hasLoaded;
+
+    private static readonly string EncryptionCodeWord = "Ghussy";
 
     public void Awake()
     {
@@ -24,11 +26,17 @@ public class SaveManager : MonoBehaviour
 
     public void SaveGame()
     {
-        string dataPath = Application.persistentDataPath;
+        // Serializes Sava Data in XML Format
+        string serializedData = EncryptionUtils.SerializeXML<SaveData>(activeSave);
+        
+        // Encrypts Data using XOR Encryption with Encryption Code Word
+        string encryptedData = EncryptionUtils.XOREncryptDecrypt(serializedData);
 
-        var serializer = new XmlSerializer(typeof(SaveData));
+        // Convert encrypted string to Bytes and saving to Save File
+        string dataPath = Application.persistentDataPath;
         var stream = new FileStream(dataPath + "/" + activeSave.saveName + ".save", FileMode.Create);
-        serializer.Serialize(stream, activeSave);
+        byte[] byteArr = Encoding.UTF8.GetBytes(encryptedData);
+        stream.Write(byteArr, 0, byteArr.Length);
         stream.Close();
     }
 
@@ -38,11 +46,19 @@ public class SaveManager : MonoBehaviour
 
         if (System.IO.File.Exists(dataPath + "/" + activeSave.saveName + ".save"))
         {
-            var serializer = new XmlSerializer(typeof(SaveData));
+            // Reads Bytes from Save File and convert to readable string
             var stream = new FileStream(dataPath + "/" + activeSave.saveName + ".save", FileMode.Open);
-            activeSave = serializer.Deserialize(stream) as SaveData;
+            string fileData = EncryptionUtils.ReadFileFromStream(stream);
+
+            // Decrypts data string to original XML formatted string
+            string decryptedData = EncryptionUtils.XOREncryptDecrypt(fileData);
+            
+            // Deserializes decrypted string and loads to active save
+            activeSave = EncryptionUtils.DeserializeXML<SaveData>(decryptedData);
+
             stream.Close();
 
+            // Bool flag that file has successfully loaded
             hasLoaded = true;
         }
     }
@@ -54,6 +70,63 @@ public class SaveManager : MonoBehaviour
         if (System.IO.File.Exists(dataPath + "/" + activeSave.saveName + ".save"))
         {
             File.Delete(dataPath + "/" + activeSave.saveName + ".save");
+        }
+    }
+
+    private class EncryptionUtils
+    {
+        public static string SerializeXML<T>(System.Object inputData)
+        {
+            XmlSerializer serializer = new XmlSerializer(typeof(T));
+            using (var sww = new StringWriter())
+            {
+                using (XmlWriter writer = XmlWriter.Create(sww))
+                {
+                    serializer.Serialize(writer, inputData);
+                    return sww.ToString();
+                }
+            }
+        }
+
+        public static T DeserializeXML<T>(string data)
+        {
+            XmlSerializer serializer = new XmlSerializer(typeof(T));
+            using (var sww = new StringReader(data))
+            {
+                using (XmlReader reader = XmlReader.Create(sww))
+                {
+                    return (T)serializer.Deserialize(reader);
+                }
+            }
+        }
+
+        public static string ReadFileFromStream(FileStream stream)
+        {
+            int totalBytes = (int)stream.Length;
+            byte[] bytes = new byte[totalBytes];
+            int bytesRead = 0;
+
+            while (bytesRead < totalBytes)
+            {
+                int len = stream.Read(bytes, bytesRead, totalBytes);
+                bytesRead += len;
+            }
+
+            string text = Encoding.UTF8.GetString(bytes);
+
+            return text;
+        }
+
+        public static string XOREncryptDecrypt(string data)
+        {
+            string resultString = "";
+
+            for (int i = 0; i < data.Length; i++)
+            {
+                resultString += (char)(data[i] ^ EncryptionCodeWord[i % EncryptionCodeWord.Length]);
+            }
+
+            return resultString;
         }
     }
 
