@@ -212,4 +212,15 @@ public class PlayerController : MonoBehaviour
     {
         moveSpeed = movementStat.Value;
     }
+    public void ActionMapMenuChange()
+    {
+        playerInput.SwitchCurrentActionMap("Menu");
+        Debug.Log("Swapped To Menu ActionMap");
+    }
+    public void ActionMapPlayerChange()
+    {
+        playerInput.SwitchCurrentActionMap("Player");
+        Debug.Log("Swapped To Player ActionMap");
+
+    }
 }
