@@ -73,7 +73,6 @@ public class DialogueManager : MonoBehaviour
 		nameText.text = name;
 		// Updates image for new name
 		currTalkerImage.sprite = sprite;
-
 	}
 
 	IEnumerator TypeSentence(string sentence)
@@ -82,7 +81,7 @@ public class DialogueManager : MonoBehaviour
 		foreach (char letter in sentence.ToCharArray())
 		{
 			dialogueText.text += letter;
-			yield return new WaitForSeconds(.05f);
+			yield return new WaitForSeconds(.005f);
 		}
 	}
 

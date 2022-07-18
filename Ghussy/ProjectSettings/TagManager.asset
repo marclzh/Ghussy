@@ -12,6 +12,8 @@ TagManager:
   - Ectoplasm
   - AbilityImage
   - Projectile
+  - ShootingTutorialTrigger
+  - InteractionTutorialTrigger
   layers:
   - Default
   - TransparentFX
