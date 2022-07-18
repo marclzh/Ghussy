@@ -14,20 +14,39 @@ public class RoomManager : MonoBehaviour
     SaveManager saveManager;
 
     // Verify against build settings
-    private int[,] roomPoolSceneIndex = { { 5, 6, 7 }, { 8, 9, 10 }, { 11, 12, 13 } }; // 3 x 3 array (M, E, P) 
-    private bool[,] roomCompleted = { { false, false, false }, { false, false, false }, { false, false, false } }; // 3 x 3 array (M, E, P)
-    private int[] bossRoomIndex = { 14, 15 };
+    private int[,] roomPoolSceneIndex = { { 6, 7, 8 }, { 9, 10, 11 }, { 12, 13, 14 } }; // 3 x 3 array (M, E, P) 
+    private bool[][] roomCompleted = new bool[3][]; // 3 x 3 array (M, E, P)
+    private int[] bossRoomIndex = { 15, 16 };
+
+
+    // Next Scene To Be Loaded
+    public static int nextRoomPositionIndex_First;
+    public static int nextRoomPositionIndex_Second;
+    public static int nextRoomSceneIndex_First;
+    public static int nextRoomSceneIndex_Second;
+    public static RoomType nextRoomType_First;
+    public static RoomType nextRoomType_Second;
 
     private void Awake()
     {
         instance = this;
         saveManager = FindObjectOfType<SaveManager>();
-        roomCompleted = saveManager.activeSave.roomCompleted;
+        SaveData save = saveManager.activeSave;
+ 
+        roomCompleted[0] = save.roomCompleted_M == null ? new bool[] { false, false, false } : save.roomCompleted_M;
+        roomCompleted[1] = save.roomCompleted_E == null ? new bool[] { false, false, false } : save.roomCompleted_E;
+        roomCompleted[2] = save.roomCompleted_P == null ? new bool[] { false, false, false } : save.roomCompleted_P;
+        numOfLevelsCompleted = save.numOfRoomsCompleted;
+    }
+
+    public void GenerateSceneIndexes()
+    {
+        GetNextRoomSceneIndexes();
     }
 
     private RoomType[] GetRandomRoomTypes()
     {
-        // Choose Random Room
+        // Choose Random Room Type
         System.Random rnd = new System.Random();
         var roomTypes = Enum.GetValues(typeof(RoomType));
 
@@ -44,10 +63,10 @@ public class RoomManager : MonoBehaviour
 
         unavailableRoomTypes[firstRoomTypeIndex] = true;
 
-        // Ensure same index is not used and room type is available
+        // Ensure duplicate index is not used and room type is available
         int secondRoomTypeIndex = rnd.Next(roomTypes.Length);
         RoomType secondRoom = (RoomType) roomTypes.GetValue(secondRoomTypeIndex);
-        while (unavailableRoomTypes[secondRoomTypeIndex] == true && IsRoomTypeAvailable(secondRoom) == false) 
+        while (unavailableRoomTypes[secondRoomTypeIndex] == true || IsRoomTypeAvailable(secondRoom) == false) 
         {
             secondRoomTypeIndex = rnd.Next(roomTypes.Length);
             secondRoom = (RoomType) roomTypes.GetValue(secondRoomTypeIndex);
@@ -73,7 +92,7 @@ public class RoomManager : MonoBehaviour
 
                 for (int i = 0; i < NumOfEachRoomType; i++)
                 {
-                    if (roomCompleted[0, i] == false)
+                    if (roomCompleted[0][i] == false)
                     {
                         rooms.Add(i);
                     }
@@ -85,7 +104,7 @@ public class RoomManager : MonoBehaviour
 
                 for (int i = 0; i < NumOfEachRoomType; i++)
                 {
-                    if (roomCompleted[1, i] == false)
+                    if (roomCompleted[1][i] == false)
                     {
                         rooms.Add(i);
                     }
@@ -97,7 +116,7 @@ public class RoomManager : MonoBehaviour
 
                 for (int i = 0; i < NumOfEachRoomType; i++)
                 {
-                    if (roomCompleted[2, i] == false)
+                    if (roomCompleted[2][i] == false)
                     {
                         rooms.Add(i);
                     }
@@ -160,6 +179,14 @@ public class RoomManager : MonoBehaviour
 
         // Debug.Log("First Room : " + roomSceneIndexes[0]);
         // Debug.Log("Second Room : " + roomSceneIndexes[1]);
+
+        // Update exposed values
+        nextRoomPositionIndex_First = firstRoomIndex;
+        nextRoomPositionIndex_Second = secondRoomIndex;
+        nextRoomSceneIndex_First = roomSceneIndexes[0];
+        nextRoomSceneIndex_Second = roomSceneIndexes[1];
+        nextRoomType_First = rooms[0];
+        nextRoomType_Second = rooms[1];
 
         return roomSceneIndexes;
     }
