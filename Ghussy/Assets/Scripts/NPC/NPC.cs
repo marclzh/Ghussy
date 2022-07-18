@@ -1,6 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class NPC : MonoBehaviour, INPC
 {
@@ -10,6 +9,9 @@ public class NPC : MonoBehaviour, INPC
     private int dialogueCount;
     private int dialogueCounter;
     private int initDialogueCounter;
+
+    // Reference to current scene
+    Scene currScene;
 
     public void Awake()
     {
@@ -24,6 +26,8 @@ public class NPC : MonoBehaviour, INPC
         {
             dialoguesArr[i] = dialogues.GetChild(i).gameObject;
         }
+
+        currScene = SceneManager.GetActiveScene();
     }
 
     public void SwitchTrigger()
