@@ -216,13 +216,11 @@ public class PlayerController : MonoBehaviour
     {
         playerControls.Player.Disable();
         playerInput.SwitchCurrentActionMap("Menu");
-        Debug.Log("Swapped To Menu ActionMap");
     }
     public void ActionMapPlayerChange()
     {
         playerControls.Player.Enable();
         playerInput.SwitchCurrentActionMap("Player");
-        Debug.Log("Swapped To Player ActionMap");
 
     }
 }
