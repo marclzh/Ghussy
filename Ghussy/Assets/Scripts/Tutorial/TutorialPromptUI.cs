@@ -11,10 +11,6 @@ public class TutorialPromptUI : MonoBehaviour
     private int currImageCounter;
     private int noOfTriggers;
 
-
-    // player reference
-    [SerializeField] private Transform player;
-
     public void Awake()
     {
         noOfTriggers = TriggerManager.childCount;
