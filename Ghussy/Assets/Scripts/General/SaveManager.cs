@@ -20,6 +20,7 @@ public class SaveManager : MonoBehaviour
     {
         instance = this;
 
+
         LoadGame();
 
     }
@@ -95,7 +96,7 @@ public class SaveManager : MonoBehaviour
             {
                 using (XmlReader reader = XmlReader.Create(sww))
                 {
-                    return (T)serializer.Deserialize(reader);
+                    return (T) serializer.Deserialize(reader);
                 }
             }
         }
@@ -171,5 +172,8 @@ public class SaveData
     public float soundEffectsVolume = 1;
 
     // Player Room Progress Data
-    public bool[,] roomCompleted;
+    public bool[] roomCompleted_M = { false, false, false };
+    public bool[] roomCompleted_E = { false, false, false };
+    public bool[] roomCompleted_P = { false, false, false };
+    public int numOfRoomsCompleted = 0;
 }
