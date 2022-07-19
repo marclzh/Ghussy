@@ -530,6 +530,7 @@ MonoBehaviour:
     - 'Yeah! Just go near that skeleton and press "E"! '
     - ' "E"?'
     - Don't worry about that, just go ahead and try it out!
+    - Go on, try it out!
 --- !u!1001 &295698052
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -718,10 +719,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 257a89aff792d344c8b1da9e062b4778, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nextSceneIndex: 0
-  nextRoomPositionIndex: 0
-  nextRoomType: 0
-  nextLevelType: 0
+  nextLevel: Player Base
   prompt: To The Graveyard
   playerPosition: {x: 0, y: 0}
   playerStorage: {fileID: 11400000, guid: 6b910f07a53d30b47834e6dc2bc2bf7a, type: 2}
@@ -7472,7 +7470,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a0e4eb67a66c0444ae755792eda56d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogueTrigger: {fileID: 186524767}
+  dialogueTrigger: {fileID: 0}
   prompt: Talk
   OnDialogueStart: {fileID: 11400000, guid: 4a23f241a029af54987a891795d0912c, type: 2}
 --- !u!114 &496686197
