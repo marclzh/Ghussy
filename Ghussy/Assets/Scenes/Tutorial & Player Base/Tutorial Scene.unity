@@ -30335,7 +30335,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 257a89aff792d344c8b1da9e062b4778, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nextLevel: Player Base
+  nextSceneIndex: 3
+  nextRoomPositionIndex: 0
+  nextRoomType: 0
+  nextLevelType: 2
   prompt: To The Graveyard
   playerPosition: {x: 0, y: 0}
   playerStorage: {fileID: 11400000, guid: 6b910f07a53d30b47834e6dc2bc2bf7a, type: 2}

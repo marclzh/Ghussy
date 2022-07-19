@@ -65,7 +65,7 @@ public class Player : MonoBehaviour, ICharacter, IDamageable
         currentHealthInitilization.Raise(currentHealth);
 
         // Set Starting position
-        transform.position = startingPosition.initialValue;
+        // transform.position = startingPosition.initialValue;
 
     }
 
