@@ -2,11 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy : MonoBehaviour, ICharacter, IDamageable
+public class Boss : Enemy
 {
-    [SerializeField] private string enemyName;
+    private string bossName;
 
-    private Health enemyHealth;
+    [SerializeField] private Health enemyHealth;
 
     public void Start()
     {
@@ -15,7 +15,7 @@ public class Enemy : MonoBehaviour, ICharacter, IDamageable
 
     public Health health => enemyHealth;
 
-    string ICharacter.Name => enemyName;
+    public string Name => bossName;
 
     public void TakeDamage(float damageAmount)
     {
