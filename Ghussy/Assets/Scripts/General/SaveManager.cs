@@ -176,4 +176,7 @@ public class SaveData
     public bool[] roomCompleted_E = { false, false, false };
     public bool[] roomCompleted_P = { false, false, false };
     public int numOfRoomsCompleted = 0;
+
+    // Player Position
+    public float[] playerPos = { 0f, 0f, 0f }; // { x. y, z } used to derive Vector3 Position
 }

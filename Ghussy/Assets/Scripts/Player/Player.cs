@@ -14,7 +14,8 @@ public class Player : MonoBehaviour, ICharacter, IDamageable
     [SerializeField] PlayerWeapon currentWeapon;
     [SerializeField] Ability currentAbility;
     [SerializeField] WeaponManager weaponManager;
-    public VectorValue startingPosition;
+    [SerializeField] SaveManager saveManager;
+  
 
     [SerializeField] public CharacterStat movementSpeed;
     [SerializeField] public CharacterStat maxHealth;
@@ -32,7 +33,8 @@ public class Player : MonoBehaviour, ICharacter, IDamageable
     public void Start()
     {
         // TODO Move Save Data intialisation logic to Game Manager 
-        SaveData currentSaveData = SaveManager.instance.activeSave;
+        saveManager = SaveManager.instance;
+        SaveData currentSaveData = saveManager.activeSave;
 
         if (SaveManager.instance.hasLoaded)
         {
@@ -65,8 +67,18 @@ public class Player : MonoBehaviour, ICharacter, IDamageable
         currentHealthInitilization.Raise(currentHealth);
 
         // Set Starting position
-        transform.position = startingPosition.initialValue;
+        float[] savedPosition = currentSaveData.playerPos;
+        transform.position = savedPosition == null ? new Vector3(0f, 0f, 0f) : new Vector3(savedPosition[0], savedPosition[1], savedPosition[2]) ;
+    }
 
+    // Exposed save method for player to save the game
+    public void ManualSave()
+    {
+        // Save Position
+        saveManager.activeSave.playerPos = new float[3] {transform.position.x, transform.position.y, transform.position.z};
+
+        // Saves Game  
+        saveManager.SaveGame();
     }
 
 

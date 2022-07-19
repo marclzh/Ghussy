@@ -15,8 +15,7 @@ public class NextLevelInteractable : MonoBehaviour, IInteractable
 
     // Interaction Fields
     [SerializeField] private string prompt;
-    [SerializeField] private Vector2 playerPosition;
-    [SerializeField] private VectorValue playerStorage;
+
     public string InteractionPrompt => prompt;
 
     private void Awake()
@@ -51,19 +50,21 @@ public class NextLevelInteractable : MonoBehaviour, IInteractable
 
     public bool Interact(Interactor interactor)
     {
+        SaveData save = saveManager.activeSave;
+
         if (nextLevelType == NextLevelType.FirstRoom || nextLevelType == NextLevelType.SecondRoom)
         {
-            SaveData save = saveManager.activeSave;
             // Flag Room as Selected
             int roomTypeIndex = (int)nextRoomType;
             if (roomTypeIndex == 0) { save.roomCompleted_M[nextRoomPositionIndex] = true; };
             if (roomTypeIndex == 1) { save.roomCompleted_E[nextRoomPositionIndex] = true; };
             if (roomTypeIndex == 2) { save.roomCompleted_P[nextRoomPositionIndex] = true; };
             saveManager.activeSave.numOfRoomsCompleted++;
-            saveManager.SaveGame();
         }
-        
-        playerStorage.initialValue = playerPosition;
+
+        // Reset Stored Player Position
+        save.playerPos = new float[] { 0f, 0f, 0f };
+        saveManager.SaveGame();
 
         // Loads next Scene
         SceneManager.LoadSceneAsync(nextSceneIndex);
