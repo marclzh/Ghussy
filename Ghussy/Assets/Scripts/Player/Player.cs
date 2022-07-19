@@ -68,7 +68,7 @@ public class Player : MonoBehaviour, ICharacter, IDamageable
 
         // Set Starting position
         float[] savedPosition = currentSaveData.playerPos;
-        transform.position = savedPosition == null ? new Vector3(0f, 0f, 0f) : new Vector3(savedPosition[0], savedPosition[1], savedPosition[2]) ;
+        transform.position = savedPosition.Length == 0 ? new Vector3(0f, 0f, 0f) : new Vector3(savedPosition[0], savedPosition[1], savedPosition[2]) ;
     }
 
     // Exposed save method for player to save the game

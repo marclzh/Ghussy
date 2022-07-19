@@ -37,7 +37,7 @@ public abstract class BulletController : MonoBehaviour
         {
             return;
         }
-
+        
         if (collision.gameObject.TryGetComponent<EnemyHealth>(out EnemyHealth enemyComponent))
         {
             FindObjectOfType<AudioManager>().Play("Hit");

@@ -9,8 +9,6 @@ public class EnemyAnimator : MonoBehaviour
     
     // Current animation state of the enemy.
     protected string currState;
-
-
     void Awake()
     {
 
@@ -37,5 +35,10 @@ public class EnemyAnimator : MonoBehaviour
     public void EnemyDeath()
     {
         animator.SetBool("isDead", true);
+    }
+
+    public void BossEnraged()
+    {
+        animator.SetBool("IsEnraged", true);
     }
 }
