@@ -36,12 +36,13 @@ public class NextLevelInteractable : MonoBehaviour, IInteractable
                 nextRoomType = RoomManager.nextRoomType_Second;
                 break;
 
-            case NextLevelType.Other:
+            case NextLevelType.Boss:
+                nextSceneIndex = RoomManager.bossIndex;
                 break;
             
             default:
                 nextRoomPositionIndex = -1;
-                nextLevelType = NextLevelType.Other;
+                nextLevelType = NextLevelType.Others;
                 break;
                 
         }
@@ -55,11 +56,12 @@ public class NextLevelInteractable : MonoBehaviour, IInteractable
         if (nextLevelType == NextLevelType.FirstRoom || nextLevelType == NextLevelType.SecondRoom)
         {
             // Flag Room as Selected
-            int roomTypeIndex = (int)nextRoomType;
+            int roomTypeIndex = (int) nextRoomType;
             if (roomTypeIndex == 0) { save.roomCompleted_M[nextRoomPositionIndex] = true; };
             if (roomTypeIndex == 1) { save.roomCompleted_E[nextRoomPositionIndex] = true; };
             if (roomTypeIndex == 2) { save.roomCompleted_P[nextRoomPositionIndex] = true; };
-            saveManager.activeSave.numOfRoomsCompleted++;
+            save.lastRoomInteractedTypeIndex = roomTypeIndex;
+            save.numOfRoomsCompleted++;
         }
 
         // Reset Stored Player Position
@@ -78,5 +80,6 @@ public enum NextLevelType
 {
     FirstRoom,
     SecondRoom,
-    Other
+    Boss,
+    Others
 }

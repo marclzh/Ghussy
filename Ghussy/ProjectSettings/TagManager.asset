@@ -14,6 +14,7 @@ TagManager:
   - Projectile
   - ShootingTutorialTrigger
   - InteractionTutorialTrigger
+  - MemoryShard
   layers:
   - Default
   - TransparentFX

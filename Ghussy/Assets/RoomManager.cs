@@ -7,6 +7,7 @@ public class RoomManager : MonoBehaviour
 {
     private static RoomManager instance;
     [SerializeField] int numOfLevelsCompleted;
+    [SerializeField] int maxLevels = 5; // Max Levels in a row that player can go through before boss stage
     private const int NumOfEachRoomType = 3;
     private const int NumOfRoomTypes = 3;
 
@@ -17,6 +18,7 @@ public class RoomManager : MonoBehaviour
     private int[,] roomPoolSceneIndex = { { 6, 7, 8 }, { 9, 10, 11 }, { 12, 13, 14 } }; // 3 x 3 array (M, E, P) 
     private bool[][] roomCompleted = new bool[3][]; // 3 x 3 array (M, E, P)
     private int[] bossRoomIndex = { 15, 16 };
+    public static int bossIndex = 16;
 
 
     // Next Scene To Be Loaded
@@ -158,37 +160,53 @@ public class RoomManager : MonoBehaviour
  
     private int[] GetNextRoomSceneIndexes()
     {
-        // Retrieve List of Available Rooms for each room type selected
-        RoomType[] rooms = GetRandomRoomTypes();
-        List<int> firstRoomIndexList = GetAvailableRooms(rooms[0]);
-        List<int> secondRoomIndexList = GetAvailableRooms(rooms[1]);
-        
-        // Choose random index of list
-        System.Random rnd = new System.Random();
-        int firstListIndex = rnd.Next(firstRoomIndexList.Count);
-        int secondListIndex = rnd.Next(secondRoomIndexList.Count);
+        if (numOfLevelsCompleted < maxLevels)
+        {
+            // Retrieve List of Available Rooms for each room type selected
+            RoomType[] rooms = GetRandomRoomTypes();
+            List<int> firstRoomIndexList = GetAvailableRooms(rooms[0]);
+            List<int> secondRoomIndexList = GetAvailableRooms(rooms[1]);
 
-        // Retrieve element from list
-        int firstRoomIndex = firstRoomIndexList[firstListIndex];
-        int secondRoomIndex = secondRoomIndexList[secondListIndex];
+            // Choose random index of list
+            System.Random rnd = new System.Random();
+            int firstListIndex = rnd.Next(firstRoomIndexList.Count);
+            int secondListIndex = rnd.Next(secondRoomIndexList.Count);
 
-        // Get Scene Index
-        int[] roomSceneIndexes = new int[rooms.Length];
-        roomSceneIndexes[0] = GetSceneIndex(rooms[0], firstRoomIndex);
-        roomSceneIndexes[1] = GetSceneIndex(rooms[1], secondRoomIndex);
+            // Retrieve element from list
+            int firstRoomIndex = firstRoomIndexList[firstListIndex];
+            int secondRoomIndex = secondRoomIndexList[secondListIndex];
 
-        // Debug.Log("First Room : " + roomSceneIndexes[0]);
-        // Debug.Log("Second Room : " + roomSceneIndexes[1]);
+            // Get Scene Index
+            int[] roomSceneIndexes = new int[rooms.Length];
+            roomSceneIndexes[0] = GetSceneIndex(rooms[0], firstRoomIndex);
+            roomSceneIndexes[1] = GetSceneIndex(rooms[1], secondRoomIndex);
 
-        // Update exposed values
-        nextRoomPositionIndex_First = firstRoomIndex;
-        nextRoomPositionIndex_Second = secondRoomIndex;
-        nextRoomSceneIndex_First = roomSceneIndexes[0];
-        nextRoomSceneIndex_Second = roomSceneIndexes[1];
-        nextRoomType_First = rooms[0];
-        nextRoomType_Second = rooms[1];
+            // Debug.Log("First Room : " + roomSceneIndexes[0]);
+            // Debug.Log("Second Room : " + roomSceneIndexes[1]);
 
-        return roomSceneIndexes;
+            // Update exposed values
+            nextRoomPositionIndex_First = firstRoomIndex;
+            nextRoomPositionIndex_Second = secondRoomIndex;
+            nextRoomSceneIndex_First = roomSceneIndexes[0];
+            nextRoomSceneIndex_Second = roomSceneIndexes[1];
+            nextRoomType_First = rooms[0];
+            nextRoomType_Second = rooms[1];
+
+            return roomSceneIndexes;
+        } 
+        else
+        {
+            // All doors lead to boss room after number of levels has completed has passed threshold value
+            RoomType[] rooms = GetRandomRoomTypes();
+
+            // Update exposed values
+            nextRoomSceneIndex_First = bossRoomIndex[0];
+            nextRoomSceneIndex_Second = bossRoomIndex[0];
+            nextRoomType_First = rooms[0];
+            nextRoomType_Second = rooms[1];
+
+            return new int[] { bossRoomIndex[0], bossRoomIndex[0] };
+        }
     }
 
 }

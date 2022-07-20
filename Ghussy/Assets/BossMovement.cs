@@ -127,11 +127,13 @@ public class BossMovement : StateMachineBehaviour
     {
         if (rb.velocity.x <= 0.001f && force.x < 0f)
         {
-            animator.GetComponent<Transform>().localScale = new Vector3(-2.2f, 2f, 1f);
+          
+            animator.GetComponent<Transform>().localScale = new Vector3(-2.5f, 2, 0); 
         }
         else if (rb.velocity.x >= -0.001 && force.x > 0f)
         {
-            animator.GetComponent<Transform>().localScale = new Vector3(2.2f, 2f, 1f);
+
+            animator.GetComponent<Transform>().localScale = new Vector3(2.5f, 2, 0);
         }
     }
 

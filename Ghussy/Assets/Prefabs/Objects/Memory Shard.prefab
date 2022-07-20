@@ -14,9 +14,10 @@ GameObject:
   - component: {fileID: 3702410368621476495}
   - component: {fileID: 3702410368621476494}
   - component: {fileID: 1777438269673172658}
+  - component: {fileID: -4524201553507839324}
   m_Layer: 0
-  m_Name: Ectoplasm
-  m_TagString: Ectoplasm
+  m_Name: Memory Shard
+  m_TagString: MemoryShard
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -49,7 +50,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5fd72049e433cd47962ad7410f6e4a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  item: {fileID: 11400000, guid: 7be5849b055a0bf41b4a3ae5266a3987, type: 2}
+  item: {fileID: 11400000, guid: 59fe48c3e6d41894e9f3f0438dd6e664, type: 2}
 --- !u!58 &3702410368621476490
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -140,7 +141,7 @@ TrailRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -397371343
-  m_SortingLayer: 5
+  m_SortingLayer: 6
   m_SortingOrder: 0
   m_Time: 0.5
   m_Parameters:
@@ -172,18 +173,18 @@ TrailRenderer:
       m_RotationOrder: 4
     colorGradient:
       serializedVersion: 2
-      key0: {r: 0.13679248, g: 0.86592484, b: 1, a: 0.78431374}
-      key1: {r: 1, g: 1, b: 1, a: 0.39215687}
-      key2: {r: 0, g: 0, b: 0, a: 0}
-      key3: {r: 0, g: 0, b: 0, a: 0}
+      key0: {r: 0.044054832, g: 0.18029849, b: 0.20754719, a: 0.78431374}
+      key1: {r: 0.065592736, g: 0.18536681, b: 0.20754719, a: 0.39215687}
+      key2: {r: 0.1986472, g: 0.41354728, b: 0.4528302, a: 0}
+      key3: {r: 1, g: 1, b: 1, a: 0}
       key4: {r: 0, g: 0, b: 0, a: 0}
       key5: {r: 0, g: 0, b: 0, a: 0}
       key6: {r: 0, g: 0, b: 0, a: 0}
       key7: {r: 0, g: 0, b: 0, a: 0}
-      ctime0: 0
-      ctime1: 65535
-      ctime2: 0
-      ctime3: 0
+      ctime0: 4433
+      ctime1: 27563
+      ctime2: 47995
+      ctime3: 65535
       ctime4: 0
       ctime5: 0
       ctime6: 0
@@ -197,7 +198,7 @@ TrailRenderer:
       atime6: 0
       atime7: 0
       m_Mode: 0
-      m_NumColorKeys: 2
+      m_NumColorKeys: 4
       m_NumAlphaKeys: 2
     numCornerVertices: 0
     numCapVertices: 0
@@ -208,6 +209,20 @@ TrailRenderer:
   m_MinVertexDistance: 0.1
   m_Autodestruct: 0
   m_Emitting: 1
+--- !u!114 &-4524201553507839324
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3702410368621476491}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11ff1388b915c144b97b496bd5d08f80, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  amount: 0
+  source: 0
 --- !u!1 &3702410369268686920
 GameObject:
   m_ObjectHideFlags: 0
@@ -217,9 +232,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3702410369268686923}
-  - component: {fileID: 3702410369268686922}
+  - component: {fileID: 186036171}
+  - component: {fileID: 186036170}
   m_Layer: 0
-  m_Name: Circle
+  m_Name: Memory Shard
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -234,13 +250,13 @@ Transform:
   m_GameObject: {fileID: 3702410369268686920}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.038762398, y: 0.0377808, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3702410368621476492}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &3702410369268686922
+--- !u!212 &186036171
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -260,7 +276,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 1a0a63281e736f74c8fdc75ebe569ff3, type: 2}
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -279,16 +295,36 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -397371343
-  m_SortingLayer: 5
+  m_SortingLayer: 6
   m_SortingOrder: 0
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
+  m_Sprite: {fileID: 2058991353, guid: c26f9f26834c8b54897cf43411bcc9fc, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.16, y: 0.16}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &186036170
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3702410369268686920}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 831a914015dfe4e4588975f6ff6bf8ba, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

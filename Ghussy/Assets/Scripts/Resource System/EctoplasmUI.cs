@@ -9,14 +9,20 @@ public class EctoplasmUI : MonoBehaviour
     [SerializeField] private TextMeshProUGUI EctoplasmText;
     [SerializeField] private InventoryObject ectoplasmInventory;
     private int currentEctoplasmAmount = 0;
-   
-    // can remove this
-    public void DisplayCurrentEctoplasmAmount(int amount)
+
+    public void Start()
     {
-        currentEctoplasmAmount = amount;
+        currentEctoplasmAmount = SaveManager.instance.hasLoaded ? ectoplasmInventory.Container[0].amount : 0;
+        EctoplasmText.text = SaveManager.instance.hasLoaded ? ectoplasmInventory.Container[0].amount.ToString() : "0";
     }
 
 
+    public void DisplayCurrentEctoplasmAmount()
+    { 
+        EctoplasmText.text = ectoplasmInventory.Container.Count > 0 ? ectoplasmInventory.Container[0].amount.ToString() : "0";
+    }
+
+    /*
     public void FixedUpdate()
     {
         // Uses ectoplasm inventory which is meant to only hold ectoplasm
@@ -25,6 +31,6 @@ public class EctoplasmUI : MonoBehaviour
             EctoplasmText.text = ectoplasmInventory.Container[0].amount.ToString();
         }
   
-        
     }
+    */
 }

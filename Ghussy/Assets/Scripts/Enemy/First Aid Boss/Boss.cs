@@ -21,4 +21,10 @@ public class Boss : Enemy
     {
         enemyHealth.TakeDamage(damageAmount);
     }
+
+
+    public void BossTrigger()
+    {
+        GetComponent<Animator>().SetBool("PlayerApproach", true);
+    }
 }

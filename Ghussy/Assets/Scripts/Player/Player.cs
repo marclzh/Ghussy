@@ -5,6 +5,7 @@ public class Player : MonoBehaviour, ICharacter, IDamageable
 {
 
     [SerializeField] private InventoryObject ectoplasmInventory;
+    [SerializeField] private InventoryObject memoryShardInventory;
     [SerializeField] private PlayerHealth playerHealth;
     [SerializeField] private PlayerAnimator playerAnimator;
     public static bool IsPlayerTransformed = false;
@@ -22,6 +23,7 @@ public class Player : MonoBehaviour, ICharacter, IDamageable
     [SerializeField] public CharacterStat maxTransformationHealth;
     [SerializeField] public CharacterStat currentTransformationHealth;
     [SerializeField] public CharacterStat currentHealth;
+    [SerializeField] public CharacterStat projectileSize;
 
     [SerializeField] public CharacterStatEvent maxHealthInitialization;
     [SerializeField] public CharacterStatEvent currentHealthInitilization;
@@ -43,6 +45,12 @@ public class Player : MonoBehaviour, ICharacter, IDamageable
             maxTransformationHealth.BaseValue = currentSaveData.maxTransformationValue;
             currentTransformationHealth.BaseValue = currentSaveData.currentTransformationValue;
             currentHealth.BaseValue = currentSaveData.currentHealthValue;
+            projectileSize.BaseValue = currentSaveData.projectileSize;
+
+            // Resources
+            if (ectoplasmInventory.Container.Count > 0) { ectoplasmInventory.Container[0].amount = currentSaveData.ectoplasmAmount; }
+            if (memoryShardInventory.Container.Count > 0) { memoryShardInventory.Container[0].amount = currentSaveData.memoryShardAmount; }
+
         }
         else
         {
@@ -52,15 +60,19 @@ public class Player : MonoBehaviour, ICharacter, IDamageable
             maxTransformationHealth = new CharacterStat(100f);
             currentTransformationHealth = new CharacterStat(100f);
             currentHealth = new CharacterStat(100f);
+            projectileSize = new CharacterStat(1f);
 
             // Saves Default Values;
             currentSaveData.movementSpeedValue = movementSpeed.Value;
             currentSaveData.maxHealthValue = maxHealth.Value;
             currentSaveData.maxTransformationValue = maxTransformationHealth.Value;
             currentSaveData.currentHealthValue = currentHealth.Value; 
-            currentSaveData.currentTransformationValue = currentTransformationHealth.Value; 
-            
+            currentSaveData.currentTransformationValue = currentTransformationHealth.Value;
+            currentSaveData.projectileSize = projectileSize.Value;
 
+            // Resources
+            ectoplasmInventory.Container.Clear();
+            memoryShardInventory.Container.Clear();
         }
 
         maxHealthInitialization.Raise(maxHealth);
@@ -99,6 +111,11 @@ public class Player : MonoBehaviour, ICharacter, IDamageable
         }
     }
 
+    public void PlayerDeath()
+    {
+        saveManager.activeSave.memoryShardAmount = 0;
+    }
+
     public void TransformationDeathUpdateState()
     {
         SetState(defaultState);
@@ -109,9 +126,8 @@ public class Player : MonoBehaviour, ICharacter, IDamageable
     // Resets values
     private void OnApplicationQuit()
     {
-        ectoplasmInventory.Container.Clear();
-        // Fixed the value for testing 
-       
+
+
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -125,5 +141,12 @@ public class Player : MonoBehaviour, ICharacter, IDamageable
     public void TakeDamage(float damageAmount)
     {
         playerHealth.TakeDamage(damageAmount);
+    }
+
+    // Helper Function TO BE REMOVED
+    public void ClearInventory()
+    {
+        memoryShardInventory.Container.Clear();
+        ectoplasmInventory.Container.Clear();
     }
 }
