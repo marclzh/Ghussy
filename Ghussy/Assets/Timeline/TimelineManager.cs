@@ -12,9 +12,6 @@ public class TimelineManager : MonoBehaviour
         director = GetComponent<PlayableDirector>();
     }
 
-    
-
-    
     public void ResumeTimeline()
     {
         director.time = director.time;
