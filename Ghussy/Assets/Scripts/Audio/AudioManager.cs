@@ -13,6 +13,7 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private Sound[] sounds;
 
     public static AudioManager Instance;
+    public static bool hasInitialised;
 
     private void Awake()
     {
@@ -53,7 +54,7 @@ public class AudioManager : MonoBehaviour
                 s.source.Play();
         }
 
-        
+        hasInitialised = true;
 
     }
 

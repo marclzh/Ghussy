@@ -69,6 +69,7 @@ public class PlayerController : MonoBehaviour
     {
         rigidBody = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
+        moveSpeed = SaveManager.instance.activeSave.movementSpeedValue;
     }
 
     private void FixedUpdate()
@@ -211,6 +212,7 @@ public class PlayerController : MonoBehaviour
     public void UpdateMovementSpeed(CharacterStat movementStat)
     {
         moveSpeed = movementStat.Value;
+        SaveManager.instance.activeSave.movementSpeedValue = moveSpeed;
     }
     public void ActionMapMenuChange()
     {

@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class RoomRewardInteractable : MonoBehaviour, IInteractable
 {
-    [SerializeField] VoidEvent onRoomRewardInteracted;
-    [SerializeField] private string prompt;
+    [SerializeField] protected VoidEvent onRoomRewardInteracted;
+    [SerializeField] protected string prompt;
 
     public string InteractionPrompt => prompt;
 
-    public bool Interact(Interactor interactor)
+    public virtual bool Interact(Interactor interactor)
     {
         AudioManager am = FindObjectOfType<AudioManager>();
         am.Play("RoomRewardInteracted");

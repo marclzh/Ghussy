@@ -8,7 +8,9 @@ public enum ItemType
     Healing, 
     Equipment,
     Default,
-    Ectoplasm
+    Ectoplasm,
+    MemoryShard
+
 }
 
 public abstract class ItemObject : ScriptableObject

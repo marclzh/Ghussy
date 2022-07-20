@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using Kryz.CharacterStats;
 
 public class PlayerWeapon : MonoBehaviour
 {
@@ -9,8 +10,10 @@ public class PlayerWeapon : MonoBehaviour
     SpriteRenderer weaponSR;
     Rigidbody2D weaponRB;
     Animator weaponAnimator;
+    [SerializeField] Player player;
     bool isTransformed = false;
     bool isAbilityActive = false;
+    float projectileSize;
 
     // Ability References
     [SerializeField] private int numProjectiles;
@@ -24,7 +27,7 @@ public class PlayerWeapon : MonoBehaviour
     private float lastFireTime = 0.4f;
     private float offSetDistance; // Distance from player to weapon
     Vector2 mousePos;
-    //bool isFiring;
+
 
     private void OnEnable()
     {
@@ -102,6 +105,9 @@ public class PlayerWeapon : MonoBehaviour
         // Bullet Instantiation
         if (weaponFired && withinFireRate())
         {
+            // Apply projectile size bonus
+            projectileSize = player.projectileSize.Value;
+            weapon.GetComponent<Weapon>().bulletPrefab.transform.localScale = new Vector3 (projectileSize, projectileSize, 1);
 
             if (!isTransformed && !isAbilityActive)
             {
@@ -185,5 +191,11 @@ public class PlayerWeapon : MonoBehaviour
     public void AbilityDeactivate()
     {
         isAbilityActive = false;
+    }
+
+    public void ProjectilSizeBonus(CharacterStat bonus)
+    {
+        projectileSize = bonus.Value;
+        SaveManager.instance.activeSave.projectileSize = projectileSize;
     }
 }

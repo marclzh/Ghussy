@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9afe8392d16f0334ca19b0e6696f3885, type: 3}
-  m_Name: New Ectoplasm Object
+  m_Name: Ectoplasm Base
   m_EditorClassIdentifier: 
   prefab: {fileID: 3702410368621476491, guid: aa0e7ad0a3082f04291c07bdf662bf22, type: 3}
   type: 3

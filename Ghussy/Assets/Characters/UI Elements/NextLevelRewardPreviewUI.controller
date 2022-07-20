@@ -66,13 +66,13 @@ AnimatorStateMachine:
     m_Position: {x: 110, y: 200, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -7956608083201805604}
-    m_Position: {x: 350, y: 60, z: 0}
+    m_Position: {x: 310, y: 70, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 2439977018226135287}
-    m_Position: {x: 400, y: 150, z: 0}
+    m_Position: {x: 430, y: 150, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -8234552990135912496}
-    m_Position: {x: 400, y: 220, z: 0}
+    m_Position: {x: 400, y: 280, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions: []
   m_EntryTransitions: []
@@ -201,19 +201,19 @@ AnimatorController:
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: Ectoplasm
     m_Type: 9
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: PowerUp
     m_Type: 9
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   m_AnimatorLayers:
   - serializedVersion: 5
     m_Name: Base Layer

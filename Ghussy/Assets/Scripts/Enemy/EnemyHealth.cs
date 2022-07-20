@@ -4,8 +4,8 @@ using UnityEngine.UI;
 public class EnemyHealth : Health
 {
     // 1 frame delay for flinch animation to play
-    [SerializeField] private int maxEctoplasmDrop;
     [SerializeField] private GameObject ectoplasmPrefab;
+    [SerializeField] private GameObject memoryShardPrefab;
 
     private bool hasDied = false;
 
@@ -57,14 +57,12 @@ public class EnemyHealth : Health
                 // Raises onEnemyDeath Event
                 OnEnemyDeath.Raise();
 
-                // Spawn Ectoplasm
-                int num = Random.Range(1, maxEctoplasmDrop);
-                while (num > 0)
-                {
-                    Instantiate(ectoplasmPrefab, transform.position + new Vector3(0, Random.Range(0,.32f)), Quaternion.identity);
-                    num--;
-                }
-                
+                // Spawn Ectoplasm and memory shards
+                ectoplasmPrefab.GetComponent<Ectoplasm>().source = EctoplasmSource.Enemy;
+                memoryShardPrefab.GetComponent<MemoryShard>().source = MemoryShardSource.Enemy;
+                Instantiate(ectoplasmPrefab, transform.position + new Vector3(0, Random.Range(0,.32f)), Quaternion.identity);
+                Instantiate(memoryShardPrefab, transform.position + new Vector3(0, Random.Range(0, .5f)), Quaternion.identity);
+
                 return;
             }
         }

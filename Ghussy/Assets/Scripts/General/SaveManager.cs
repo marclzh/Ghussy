@@ -166,6 +166,11 @@ public class SaveData
     public float currentHealthValue = 100f;
     public float maxTransformationValue = 100f;
     public float currentTransformationValue = 100f;
+    public float projectileSize = 1f;
+
+    // Player Resources
+    public int ectoplasmAmount;
+    public int memoryShardAmount;
 
     // Player Settings
     public float musicVolume = 1;
@@ -176,6 +181,7 @@ public class SaveData
     public bool[] roomCompleted_E = { false, false, false };
     public bool[] roomCompleted_P = { false, false, false };
     public int numOfRoomsCompleted = 0;
+    public int lastRoomInteractedTypeIndex;
 
     // Player Position
     public float[] playerPos = { 0f, 0f, 0f }; // { x. y, z } used to derive Vector3 Position

@@ -9,6 +9,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3fd1ea9be8c3e5846b17786b3f65082a, type: 3}
-  m_Name: OnEctoplasmCollected
+  m_Script: {fileID: 11500000, guid: 47e2a2bb8406ac54cbf03fd4eab8e9d7, type: 3}
+  m_Name: OnBossTrigger
   m_EditorClassIdentifier: 

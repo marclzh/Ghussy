@@ -4,25 +4,20 @@ using UnityEngine;
 
 public class RoomRewardUI : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    [SerializeField] PlayerController controller;
 
     public void SetUpDisplay()
     {
-        transform.GetChild(0).gameObject.SetActive(true);
+
+         controller.ActionMapMenuChange();
+         transform.GetChild(0).gameObject.SetActive(true);
+      
+       
     }
 
     public void CloseDisplay()
     {
+        controller.ActionMapPlayerChange();
         transform.GetChild(0).gameObject.SetActive(false);
     }
 }
