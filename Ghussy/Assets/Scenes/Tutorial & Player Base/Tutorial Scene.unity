@@ -7813,6 +7813,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   promptUI: {fileID: 1572246257}
+  tutorialCanvas: {fileID: 1102289111}
 --- !u!1001 &300745741
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9117,6 +9118,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   promptUI: {fileID: 1572246257}
+  tutorialCanvas: {fileID: 1102289111}
 --- !u!1 &1445516128
 GameObject:
   m_ObjectHideFlags: 0
@@ -30335,10 +30337,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 257a89aff792d344c8b1da9e062b4778, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nextLevel: Player Base
+  nextSceneIndex: 3
+  nextRoomPositionIndex: 0
+  nextRoomType: 0
+  nextLevelType: 0
   prompt: To The Graveyard
-  playerPosition: {x: 0, y: 0}
-  playerStorage: {fileID: 11400000, guid: 6b910f07a53d30b47834e6dc2bc2bf7a, type: 2}
 --- !u!4 &1414419698553546041
 Transform:
   m_ObjectHideFlags: 0

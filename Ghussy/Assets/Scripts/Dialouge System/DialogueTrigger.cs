@@ -10,5 +10,11 @@ public class DialogueTrigger : MonoBehaviour
 	{
 		FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
 	}
+	
+	// disable the trigger 
+	public void DisableTrigger()
+    {
+		gameObject.SetActive(false);
+    }
 
 }
