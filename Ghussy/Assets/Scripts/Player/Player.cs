@@ -94,11 +94,7 @@ public class Player : MonoBehaviour, ICharacter, IDamageable
     }
 
 
-    void OnHit(float damage)
-    {
-        playerAnimator.PlayerHit();
-        playerHealth.TakeDamage(damage);
-    }
+   
 
     public void SetState(BasePossessionState nextState)
     {
@@ -130,11 +126,29 @@ public class Player : MonoBehaviour, ICharacter, IDamageable
 
     }
 
+
+    void OnHit(float damage)
+    {
+        playerAnimator.PlayerHit();
+        playerHealth.TakeDamage(damage);
+    }
+
+    // Checks Player Contact Enemy
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Enemy")
+        if (collision.gameObject.CompareTag("Enemy"))
         {
             OnHit(10);
+        }
+
+        if (collision.gameObject.CompareTag("Boss"))
+        {
+            OnHit(25);
+        }
+
+        if (collision.gameObject.CompareTag("BossMelee"))
+        {
+            OnHit(150);
         }
     }
 
