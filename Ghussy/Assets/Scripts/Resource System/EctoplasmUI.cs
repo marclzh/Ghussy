@@ -12,8 +12,8 @@ public class EctoplasmUI : MonoBehaviour
 
     public void Start()
     {
-        currentEctoplasmAmount = SaveManager.instance.hasLoaded ? ectoplasmInventory.Container[0].amount : 0;
-        EctoplasmText.text = SaveManager.instance.hasLoaded ? ectoplasmInventory.Container[0].amount.ToString() : "0";
+        currentEctoplasmAmount = SaveManager.instance.hasLoaded ? ectoplasmInventory.Container.Count > 0 ? ectoplasmInventory.Container[0].amount : 0 : 0;
+        EctoplasmText.text = SaveManager.instance.hasLoaded ? ectoplasmInventory.Container.Count > 0 ? ectoplasmInventory.Container[0].amount.ToString() : "0" : "0";
     }
 
 

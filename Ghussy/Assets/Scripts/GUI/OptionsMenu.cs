@@ -19,6 +19,6 @@ public void SetQuality(int qualityIndex)
     {
         gameObject.SetActive(false);
         // Switch back player input map
-        playerController.playerInput.SwitchCurrentActionMap("Player");
+        if (playerController != null) { playerController.playerInput.SwitchCurrentActionMap("Player"); }
     }
 }

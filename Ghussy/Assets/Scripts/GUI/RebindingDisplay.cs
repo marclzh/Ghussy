@@ -30,29 +30,29 @@ public class RebindingDisplay : MonoBehaviour
     private void Start()
     {
         string rebinds = PlayerPrefs.GetString(RebindsKey, string.Empty);
-        //string rebinds = null;
 
         if (string.IsNullOrEmpty(rebinds)) { return; }
 
-        playerController.playerInput.actions.LoadBindingOverridesFromJson(rebinds);
-        
-        // Initialise Display for Fire Binding
-        int FW_bindingIndex = fireWeaponIA.action.GetBindingIndex();
-        FW_bindingDisplayNameText.text = InputControlPath.ToHumanReadableString(
-        fireWeaponIA.action.bindings[FW_bindingIndex].effectivePath,
-         InputControlPath.HumanReadableStringOptions.OmitDevice);
+            playerController.playerInput.actions.LoadBindingOverridesFromJson(rebinds);
 
-        // Initialise Display for Ability Binding
-        int UA_bindingIndex = useAbilityIA.action.GetBindingIndex();
-        UA_bindingDisplayNameText.text = InputControlPath.ToHumanReadableString(
-        useAbilityIA.action.bindings[UA_bindingIndex].effectivePath,
-         InputControlPath.HumanReadableStringOptions.OmitDevice);
+            // Initialise Display for Fire Binding
+            int FW_bindingIndex = fireWeaponIA.action.GetBindingIndex();
+            FW_bindingDisplayNameText.text = InputControlPath.ToHumanReadableString(
+            fireWeaponIA.action.bindings[FW_bindingIndex].effectivePath,
+             InputControlPath.HumanReadableStringOptions.OmitDevice);
 
-        // Initialise Display for Interact Binding
-        int I_bindingIndex = interactIA.action.GetBindingIndex();
-        I_bindingDisplayNameText.text = InputControlPath.ToHumanReadableString(
-        interactIA.action.bindings[I_bindingIndex].effectivePath,
-         InputControlPath.HumanReadableStringOptions.OmitDevice);
+            // Initialise Display for Ability Binding
+            int UA_bindingIndex = useAbilityIA.action.GetBindingIndex();
+            UA_bindingDisplayNameText.text = InputControlPath.ToHumanReadableString(
+            useAbilityIA.action.bindings[UA_bindingIndex].effectivePath,
+             InputControlPath.HumanReadableStringOptions.OmitDevice);
+
+            // Initialise Display for Interact Binding
+            int I_bindingIndex = interactIA.action.GetBindingIndex();
+            I_bindingDisplayNameText.text = InputControlPath.ToHumanReadableString(
+            interactIA.action.bindings[I_bindingIndex].effectivePath,
+             InputControlPath.HumanReadableStringOptions.OmitDevice);
+       
     }
 
     public void Save()
@@ -64,8 +64,8 @@ public class RebindingDisplay : MonoBehaviour
 
     public void StartRebinding(string name)
     {
+       if (playerController != null) { playerController.playerInput.SwitchCurrentActionMap("Menu");  }
        
-        playerController.playerInput.SwitchCurrentActionMap("Menu");
 
         if (name == "Fire")
         {
