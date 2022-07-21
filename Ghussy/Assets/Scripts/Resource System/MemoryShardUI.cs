@@ -12,8 +12,8 @@ public class MemoryShardUI : MonoBehaviour
 
     public void Start()
     {
-        currentMemoryShardAmount = SaveManager.instance.hasLoaded ? memoryShardInventory.Container[0].amount : 0;
-        memoryShardText.text = SaveManager.instance.hasLoaded ? memoryShardInventory.Container[0].amount.ToString() : "0";
+        currentMemoryShardAmount = SaveManager.instance.hasLoaded ? memoryShardInventory.Container.Count > 0 ? memoryShardInventory.Container[0].amount : 0 : 0;
+        memoryShardText.text = SaveManager.instance.hasLoaded ? memoryShardInventory.Container.Count > 0 ? memoryShardInventory.Container[0].amount.ToString() : "0" : "0";
     }
     public void DisplayCurrentAmount()
     {

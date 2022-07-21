@@ -17,18 +17,21 @@ public class AudioManager : MonoBehaviour
 
     private void Awake()
     {
-        // Singleton Check
+        //Singleton method
         if (Instance == null)
         {
+            //First run, set the instance
             Instance = this;
-        } 
-        else
-        {
-            Destroy(gameObject);
-            return;
-        }
+            DontDestroyOnLoad(gameObject);
 
-        DontDestroyOnLoad(gameObject);
+        }
+        else if (Instance != this)
+        {
+            //Instance is not the same as the one we have, destroy old one, and reset to newest one
+            Destroy(Instance.gameObject);
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
 
         // Initialise Sounds
         foreach (Sound s in sounds)

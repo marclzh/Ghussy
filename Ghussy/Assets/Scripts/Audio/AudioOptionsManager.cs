@@ -12,11 +12,19 @@ public class AudioOptionsManager : MonoBehaviour
     [SerializeField] private Slider musicSlider;
     [SerializeField] private Slider soundEffectSlider;
 
-    public void Start()
+    public void Awake()
     {
-        SaveData currentSaveData = SaveManager.instance.activeSave;
-        OnMusicSliderValueChange(currentSaveData.musicVolume);
-        OnSoundEffectsSliderValueChange(currentSaveData.soundEffectsVolume);
+        if (SaveManager.instance.hasLoaded)
+        {
+            SaveData currentSaveData = SaveManager.instance.activeSave;
+            OnMusicSliderValueChange(currentSaveData.musicVolume);
+            OnSoundEffectsSliderValueChange(currentSaveData.soundEffectsVolume);
+        } 
+        else
+        {
+            OnMusicSliderValueChange(.5f);
+            OnSoundEffectsSliderValueChange(.5f);    
+        }
     }
 
     public void OnMusicSliderValueChange(float value)
@@ -27,11 +35,11 @@ public class AudioOptionsManager : MonoBehaviour
         musicSliderText.text = ((int)(value * 100)).ToString();
         musicSlider.value = value;
 
-        AudioManager.Instance.UpdateMixerVolume();
-
         // Saves new value
         SaveData currentSaveData = SaveManager.instance.activeSave;
         currentSaveData.musicVolume = musicVolume;
+
+        AudioManager.Instance.UpdateMixerVolume();
     }
 
     public void OnSoundEffectsSliderValueChange(float value)
@@ -42,10 +50,11 @@ public class AudioOptionsManager : MonoBehaviour
         soundEffectsSliderText.text = ((int)(value * 100)).ToString();
         soundEffectSlider.value = value;
 
-        AudioManager.Instance.UpdateMixerVolume();
-
         // Saves new value
         SaveData currentSaveData = SaveManager.instance.activeSave;
         currentSaveData.soundEffectsVolume = soundEffectsVolume;
+
+
+        AudioManager.Instance.UpdateMixerVolume();
     }
 }
