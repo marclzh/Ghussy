@@ -30960,7 +30960,7 @@ MonoBehaviour:
   nextSceneIndex: 3
   nextRoomPositionIndex: 0
   nextRoomType: 0
-  nextLevelType: 0
+  nextLevelType: 3
   prompt: To The Graveyard
 --- !u!4 &1414419698553546041
 Transform:
