@@ -109,7 +109,11 @@ public class Player : MonoBehaviour, ICharacter, IDamageable
 
     public void PlayerDeath()
     {
+        AudioManager.Instance.Play("Death");
+
+        // Reset Values
         saveManager.activeSave.memoryShardAmount = 0;
+        GetComponent<PlayerController>().ActionMapMenuChange();
     }
 
     public void TransformationDeathUpdateState()

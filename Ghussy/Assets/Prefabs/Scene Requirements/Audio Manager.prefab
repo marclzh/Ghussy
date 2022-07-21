@@ -104,6 +104,30 @@ MonoBehaviour:
     loop: 0
     playOnAwake: 0
     source: {fileID: 0}
+  - audioType: 0
+    name: Metal
+    clip: {fileID: 8300000, guid: 5815f69b860edf747ae6f9f7fcff2980, type: 3}
+    volume: 0.29
+    pitch: 1
+    loop: 0
+    playOnAwake: 0
+    source: {fileID: 0}
+  - audioType: 1
+    name: Boss1
+    clip: {fileID: 8300000, guid: 9dfdbe53b7622db40b0b4a0ce2c66894, type: 3}
+    volume: 0.694
+    pitch: 1
+    loop: 1
+    playOnAwake: 0
+    source: {fileID: 0}
+  - audioType: 0
+    name: Click
+    clip: {fileID: 8300000, guid: f2b730a3cf9b64748a1d083166b679d0, type: 3}
+    volume: 0.552
+    pitch: 1
+    loop: 0
+    playOnAwake: 0
+    source: {fileID: 0}
 --- !u!114 &755754731
 MonoBehaviour:
   m_ObjectHideFlags: 0
