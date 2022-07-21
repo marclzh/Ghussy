@@ -15,6 +15,7 @@ TagManager:
   - ShootingTutorialTrigger
   - InteractionTutorialTrigger
   - MemoryShard
+  - BossMelee
   layers:
   - Default
   - TransparentFX

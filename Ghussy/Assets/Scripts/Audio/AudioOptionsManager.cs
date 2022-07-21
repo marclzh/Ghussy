@@ -12,7 +12,7 @@ public class AudioOptionsManager : MonoBehaviour
     [SerializeField] private Slider musicSlider;
     [SerializeField] private Slider soundEffectSlider;
 
-    public void Awake()
+    public void Start()
     {
         if (SaveManager.instance.hasLoaded)
         {
