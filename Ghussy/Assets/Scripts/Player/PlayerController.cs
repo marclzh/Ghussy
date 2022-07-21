@@ -225,4 +225,8 @@ public class PlayerController : MonoBehaviour
         playerInput.SwitchCurrentActionMap("Player");
 
     }
+    public void DisableFiring()
+    {
+        isFiring = false;
+    }
 }
