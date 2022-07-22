@@ -22,14 +22,6 @@ public class MainMenu : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-
-
     public void StartButton()
     {
         // Game Loading logic will be called by animator to allow animation to complete
@@ -40,6 +32,8 @@ public class MainMenu : MonoBehaviour
     {
         // Delete Saves Data
         SaveManager.instance.DeleteSaveData();
+        // Audio Manager reset
+        AudioManager.Instance.Stop("Main Menu Theme");
         // Loads Opening Scene
         SceneManager.LoadScene(openingSceneIndex);
     }
@@ -48,6 +42,8 @@ public class MainMenu : MonoBehaviour
     {
         // Loads Last Scene
         int savePointIndex = SaveManager.instance.activeSave.savePointSceneIndex;
+        // Audio Manager reset
+        AudioManager.Instance.Stop("Main Menu Theme");
         SceneManager.LoadScene(savePointIndex);     
     }
 

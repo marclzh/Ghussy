@@ -9,12 +9,21 @@ public class PauseMenu : MonoBehaviour
 {
     [SerializeField] private PlayerController playerController;
     public static bool GameIsPaused = false;
-    public bool canPause = true;
+    public bool canPause;
     public GameObject pauseMenuUI;
     public GameObject SettingsMenu;
 
+    public void Start()
+    {
+        canPause = false;
+        StartCoroutine(delayPause()); 
+    }
+    IEnumerator delayPause()
+    {
+        yield return new WaitForSeconds(1.5f);
+        canPause = true;
+    } 
 
-    // Update is called once per frame
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
@@ -55,7 +64,16 @@ public class PauseMenu : MonoBehaviour
 
     public void Quit()
     {
-        SceneManager.LoadSceneAsync(0);
+        SceneManager.LoadScene(0);
+    }
+
+    public void DisablePausing()
+    {
+        canPause = false;
+    }
+    public void EnablePausing()
+    {
+        canPause = true;
     }
 }
 
