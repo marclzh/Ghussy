@@ -15,7 +15,6 @@ public class MainMenu : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        transition.Play("Crossfade_End");
         bool saveDataExists = SaveManager.instance.hasLoaded;
         if (saveDataExists)
         {
