@@ -8177,6 +8177,8 @@ PlayableDirector:
     value: {fileID: 411252116}
   - key: {fileID: -7466653509195821637, guid: 23555881ad885a84fb952d6860357d6d, type: 2}
     value: {fileID: 69874529}
+  - key: {fileID: -7213871567922131324, guid: 23555881ad885a84fb952d6860357d6d, type: 2}
+    value: {fileID: 69874529}
   m_ExposedReferences:
     m_References: []
 --- !u!114 &411252116
@@ -9589,6 +9591,18 @@ MonoBehaviour:
   unityEventResponse:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 1289489057}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: EnableFiring
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 411252114}
         m_TargetAssemblyTypeName: TimelineManager, Assembly-CSharp
         m_MethodName: ResumeTimeline
@@ -30335,6 +30349,10 @@ PrefabInstance:
     - target: {fileID: 4370677500659516189, guid: b75c3a1b41293d3479bb77ea575db8dc, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4370677501744658482, guid: b75c3a1b41293d3479bb77ea575db8dc, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -93.6134
       objectReference: {fileID: 0}
     - target: {fileID: 4370677501975926034, guid: b75c3a1b41293d3479bb77ea575db8dc, type: 3}
       propertyPath: m_AnchorMax.x

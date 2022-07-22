@@ -14,11 +14,14 @@ public class CutsceneManager : MonoBehaviour
 
     public void Start()
     {
-        if (playableDirector.name == "AghostineBaseGuide")
+        if (playableDirector != null)
         {
-            if (SaveManager.instance.activeSave.playerBaseGuide == false)
+            if (playableDirector.name == "AghostineBaseGuide")
             {
-                playableDirector.Play();
+                if (SaveManager.instance.activeSave.playerBaseGuide == false)
+                {
+                    playableDirector.Play();
+                }
             }
         }
     }

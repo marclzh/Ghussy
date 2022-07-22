@@ -75,10 +75,8 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-
-       Movement();
-       Fire();
-
+        Movement();
+        Fire();
     }
 
     // Checks if player is currently firing, if true, call weapon's shoot method.
@@ -230,11 +228,13 @@ public class PlayerController : MonoBehaviour
     }
     public void DisableFiring()
     {
+        isFiring = false;
         canFire = false;
     }
 
     public void EnableFiring() 
     {
+        isFiring = false;
         canFire = true;
     }
 }
