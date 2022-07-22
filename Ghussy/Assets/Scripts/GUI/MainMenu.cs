@@ -7,16 +7,19 @@ using UnityEngine.UI;
 public class MainMenu : MonoBehaviour
 {
     
-    public string firstLevel;
-    public Animator transition;
-    public float transitionTime = 2f;
-
-    //[SerializeField] private GameObject mainMenuSprite;
+    [SerializeField] private int openingSceneIndex;
+    [SerializeField] private Animator transition;
+    [SerializeField] private Button newGameButton;
+    [SerializeField] private Button loadGameButton;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        bool saveDataExists = SaveManager.instance.hasLoaded;
+        if (saveDataExists)
+        {
+            loadGameButton.gameObject.SetActive(true);
+        }
     }
 
     // Update is called once per frame
@@ -25,27 +28,27 @@ public class MainMenu : MonoBehaviour
         
     }
 
-    public void StartGame()
-    {
-        //mainMenuSprite.GetComponent<Animator>().SetBool("PlayButtonClicked", true);
-        StartCoroutine(LoadGame());
-    }
 
-    public IEnumerator LoadGame()
+
+    public void StartButton()
     {
+        // Game Loading logic will be called by animator to allow animation to complete
         transition.SetTrigger("Start");
-        yield return new WaitForSeconds(transitionTime);
-        SceneManager.LoadScene(firstLevel);
     }
 
-    public void OpenOptions()
+    public void NewGame()
     {
-        // NOT USED
+        // Delete Saves Data
+        SaveManager.instance.DeleteSaveData();
+        // Loads Opening Scene
+        SceneManager.LoadScene(openingSceneIndex);
     }
 
-    public void CloseOptions()
+    public void LoadGame()
     {
-        // NOT USED
+        // Loads Last Scene
+        int savePointIndex = SaveManager.instance.activeSave.savePointSceneIndex;
+        SceneManager.LoadScene(savePointIndex);     
     }
 
     public void QuitGame()

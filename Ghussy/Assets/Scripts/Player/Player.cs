@@ -1,5 +1,6 @@
 using UnityEngine;
 using Kryz.CharacterStats;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour, ICharacter, IDamageable
 {
@@ -86,8 +87,9 @@ public class Player : MonoBehaviour, ICharacter, IDamageable
     // Exposed save method for player to save the game
     public void ManualSave()
     {
-        // Save Position
+        // Save Position and scene
         saveManager.activeSave.playerPos = new float[3] {transform.position.x, transform.position.y, transform.position.z};
+        saveManager.activeSave.savePointSceneIndex = SceneManager.GetActiveScene().buildIndex;
 
         // Saves Game  
         saveManager.SaveGame();
@@ -113,6 +115,7 @@ public class Player : MonoBehaviour, ICharacter, IDamageable
 
         // Reset Values
         saveManager.activeSave.memoryShardAmount = 0;
+        saveManager.activeSave.savePointSceneIndex = 3; // Player Base
         GetComponent<PlayerController>().ActionMapMenuChange();
     }
 
