@@ -11,6 +11,7 @@ public class CutsceneManager : MonoBehaviour
     [SerializeField] private PlayableDirector playableDirector;
     [SerializeField] private VoidEvent OnDialogueStart;
     [SerializeField] private List<PlayableDirector> cutscenes;
+    [SerializeField] private GameObject baseGuideDialogueParent;
 
     public void Start()
     {
@@ -21,6 +22,10 @@ public class CutsceneManager : MonoBehaviour
                 if (SaveManager.instance.activeSave.playerBaseGuide == false)
                 {
                     playableDirector.Play();
+                } 
+                else
+                {
+                    baseGuideDialogueParent.SetActive(false);
                 }
             }
         }
