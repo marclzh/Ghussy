@@ -10,6 +10,7 @@ public class Player : MonoBehaviour, ICharacter, IDamageable
     [SerializeField] private PlayerHealth playerHealth;
     [SerializeField] private PlayerAnimator playerAnimator;
     public static bool IsPlayerTransformed = false;
+    public bool hasDied;
 
     public BasePossessionState currentState;
     public BasePossessionState defaultState;
@@ -111,12 +112,19 @@ public class Player : MonoBehaviour, ICharacter, IDamageable
 
     public void PlayerDeath()
     {
-        AudioManager.Instance.Play("Death");
+        
+        if (!hasDied)
+        {
+            AudioManager.Instance.Play("Death");
 
-        // Reset Values
-        saveManager.activeSave.memoryShardAmount = 0;
-        saveManager.activeSave.savePointSceneIndex = 3; // Player Base
-        GetComponent<PlayerController>().ActionMapMenuChange();
+            // Reset Values
+            saveManager.activeSave.memoryShardAmount = 0;
+            saveManager.activeSave.savePointSceneIndex = 3; // Player Base
+            saveManager.activeSave.numOfRoomsCompleted = 0;
+            GetComponent<PlayerController>().ActionMapMenuChange();
+
+            hasDied = true;
+        }
     }
 
     public void TransformationDeathUpdateState()
@@ -129,7 +137,7 @@ public class Player : MonoBehaviour, ICharacter, IDamageable
     // Resets values
     private void OnApplicationQuit()
     {
-
+        saveManager.DeleteSaveData();
 
     }
 
