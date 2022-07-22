@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Playables;
 using UnityEngine.Timeline;
+using UnityEngine.SceneManagement;
 
 public class CutsceneManager : MonoBehaviour
 {
@@ -11,6 +12,19 @@ public class CutsceneManager : MonoBehaviour
     [SerializeField] private VoidEvent OnDialogueStart;
     [SerializeField] private List<PlayableDirector> cutscenes;
 
+    public void Start()
+    {
+        if (playableDirector != null)
+        {
+            if (playableDirector.name == "AghostineBaseGuide")
+            {
+                if (SaveManager.instance.activeSave.playerBaseGuide == false)
+                {
+                    playableDirector.Play();
+                }
+            }
+        }
+    }
     public void RaiseDialogueStart()
     {
         OnDialogueStart.Raise();
@@ -28,5 +42,16 @@ public class CutsceneManager : MonoBehaviour
     public void disableCutscene(int cutsceneNum)
     {
         cutscenes[cutsceneNum].gameObject.SetActive(false);
+    }
+
+    public void changeScene(int index)
+    {
+        SceneManager.LoadScene(index, LoadSceneMode.Single);
+    }
+
+    public void SetPlayerBaseSaveTrigger()
+    {
+        SaveManager.instance.activeSave.playerBaseGuide = true;
+        SaveManager.instance.SaveGame();
     }
 }

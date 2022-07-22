@@ -8045,7 +8045,7 @@ PrefabInstance:
     - target: {fileID: 755754731, guid: d81794f503bcbff4288af418538aa9fb, type: 3}
       propertyPath: musicSliderText
       value: 
-      objectReference: {fileID: 1726323178}
+      objectReference: {fileID: 1874269464}
     - target: {fileID: 755754731, guid: d81794f503bcbff4288af418538aa9fb, type: 3}
       propertyPath: soundEffectSlider
       value: 
@@ -8053,7 +8053,7 @@ PrefabInstance:
     - target: {fileID: 755754731, guid: d81794f503bcbff4288af418538aa9fb, type: 3}
       propertyPath: soundEffectsSliderText
       value: 
-      objectReference: {fileID: 1170218153}
+      objectReference: {fileID: 1874269463}
     - target: {fileID: 5562113359001453729, guid: d81794f503bcbff4288af418538aa9fb, type: 3}
       propertyPath: m_Name
       value: Audio Manager
@@ -8176,6 +8176,8 @@ PlayableDirector:
   - key: {fileID: 8742880199168783443, guid: 23555881ad885a84fb952d6860357d6d, type: 2}
     value: {fileID: 411252116}
   - key: {fileID: -7466653509195821637, guid: 23555881ad885a84fb952d6860357d6d, type: 2}
+    value: {fileID: 69874529}
+  - key: {fileID: -7213871567922131324, guid: 23555881ad885a84fb952d6860357d6d, type: 2}
     value: {fileID: 69874529}
   m_ExposedReferences:
     m_References: []
@@ -8470,7 +8472,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: -1
   m_SortingLayerID: 0
-  m_SortingOrder: 5
+  m_SortingOrder: 100
   m_TargetDisplay: 0
 --- !u!1 &573073956
 GameObject:
@@ -9202,17 +9204,6 @@ Transform:
   m_Father: {fileID: 749763001}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1170218153 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5963764564164172848, guid: b75c3a1b41293d3479bb77ea575db8dc, type: 3}
-  m_PrefabInstance: {fileID: 1874269462}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1239571188
 GameObject:
   m_ObjectHideFlags: 0
@@ -9418,6 +9409,17 @@ MonoBehaviour:
     - {fileID: 2007463266, guid: ba2dad6bad333714e840a9512636bc88, type: 3}
     sentences:
     - This way to the graveyard.
+--- !u!114 &1259311655 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 755754731, guid: d81794f503bcbff4288af418538aa9fb, type: 3}
+  m_PrefabInstance: {fileID: 341203202}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2aea1b9aa061eb14b864f4b4b2b6e95d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1279769404
 GameObject:
   m_ObjectHideFlags: 0
@@ -9589,6 +9591,18 @@ MonoBehaviour:
   unityEventResponse:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 1289489057}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: EnableFiring
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 411252114}
         m_TargetAssemblyTypeName: TimelineManager, Assembly-CSharp
         m_MethodName: ResumeTimeline
@@ -30049,17 +30063,6 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
---- !u!114 &1726323178 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6483240131119708730, guid: b75c3a1b41293d3479bb77ea575db8dc, type: 3}
-  m_PrefabInstance: {fileID: 1874269462}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1771913806
 GameObject:
   m_ObjectHideFlags: 0
@@ -30267,6 +30270,14 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2750551025798696352, guid: b75c3a1b41293d3479bb77ea575db8dc, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1259311655}
+    - target: {fileID: 3867907018495953716, guid: b75c3a1b41293d3479bb77ea575db8dc, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1259311655}
     - target: {fileID: 4370677499885162136, guid: b75c3a1b41293d3479bb77ea575db8dc, type: 3}
       propertyPath: m_Name
       value: Player Manager
@@ -30339,6 +30350,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4370677501744658482, guid: b75c3a1b41293d3479bb77ea575db8dc, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -93.6134
+      objectReference: {fileID: 0}
     - target: {fileID: 4370677501975926034, guid: b75c3a1b41293d3479bb77ea575db8dc, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -30349,6 +30364,28 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b75c3a1b41293d3479bb77ea575db8dc, type: 3}
+--- !u!114 &1874269463 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 572585901533807637, guid: b75c3a1b41293d3479bb77ea575db8dc, type: 3}
+  m_PrefabInstance: {fileID: 1874269462}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1874269464 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7944196028821002254, guid: b75c3a1b41293d3479bb77ea575db8dc, type: 3}
+  m_PrefabInstance: {fileID: 1874269462}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1955835680
 GameObject:
   m_ObjectHideFlags: 0
@@ -30477,7 +30514,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2061568008}
   - component: {fileID: 2061568009}
-  - component: {fileID: 2061568010}
   m_Layer: 0
   m_Name: Dialogue Manager
   m_TagString: Untagged
@@ -30518,34 +30554,6 @@ MonoBehaviour:
   dialogueText: {fileID: 2068754294}
   currTalkerImage: {fileID: 772342577}
   animator: {fileID: 1256572717}
---- !u!114 &2061568010
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2061568007}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 139af5d85cc6dc345b56db1cc72f8b37, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gameEvent: {fileID: 11400000, guid: 3832ef117dc68f84f8c88d837cdd08b3, type: 2}
-  unityEventResponse:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: TestNPC, Assembly-CSharp
-        m_MethodName: SwitchTrigger
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!1 &2068754293
 GameObject:
   m_ObjectHideFlags: 0
