@@ -128,6 +128,22 @@ MonoBehaviour:
     loop: 0
     playOnAwake: 0
     source: {fileID: 0}
+  - audioType: 1
+    name: GameOver
+    clip: {fileID: 8300000, guid: 055f613edfa2a5346a7de8eb98b397aa, type: 3}
+    volume: 0.552
+    pitch: 1
+    loop: 1
+    playOnAwake: 0
+    source: {fileID: 0}
+  - audioType: 0
+    name: Death
+    clip: {fileID: 8300000, guid: c47f0f0a4ec52e24c902f9e6534c6519, type: 3}
+    volume: 0.604
+    pitch: 1
+    loop: 0
+    playOnAwake: 0
+    source: {fileID: 0}
 --- !u!114 &755754731
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -66,6 +66,7 @@ public class NextLevelInteractable : MonoBehaviour, IInteractable
 
         // Reset Stored Player Position
         save.playerPos = new float[] { 0f, 0f, 0f };
+        save.savePointSceneIndex = nextSceneIndex;
         saveManager.SaveGame();
 
         // Loads next Scene

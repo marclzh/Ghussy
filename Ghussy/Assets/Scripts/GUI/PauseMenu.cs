@@ -9,6 +9,7 @@ public class PauseMenu : MonoBehaviour
 {
     [SerializeField] private PlayerController playerController;
     public static bool GameIsPaused = false;
+    public bool canPause = true;
     public GameObject pauseMenuUI;
     public GameObject SettingsMenu;
 
@@ -22,7 +23,7 @@ public class PauseMenu : MonoBehaviour
             {
                 Resume();
             }
-            else
+            else if (canPause && !GameIsPaused)
             {
                 Pause();
             }

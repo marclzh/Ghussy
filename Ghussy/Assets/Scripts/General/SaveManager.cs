@@ -186,6 +186,7 @@ public class SaveData
     // Player Position
     public float[] playerPos = { 0f, 0f, 0f }; // { x. y, z } used to derive Vector3 Position
 
-    // Cutscene Flags
+    // Player Progress Fields
     public bool playerBaseGuide;
+    public int savePointSceneIndex;
 }
