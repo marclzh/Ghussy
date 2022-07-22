@@ -57,7 +57,8 @@ public class PlayerAbilityUI : MonoBehaviour
 
     void UseAbility()
     {
-        if (abilityKeyPressed && OnCoolDown == false && abilityActive == false)
+        if (abilityKeyPressed && OnCoolDown == false && abilityActive == false &&
+            GetComponent<Player>().currentState != defaultState)
         {      
             abilityActive = true;
             playerWeapon.AbilityActivate();

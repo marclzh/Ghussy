@@ -2063,17 +2063,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &140001607 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5963764564164172848, guid: b75c3a1b41293d3479bb77ea575db8dc, type: 3}
-  m_PrefabInstance: {fileID: 1874269462}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &170627421
 GameObject:
   m_ObjectHideFlags: 0
@@ -2357,7 +2346,7 @@ PrefabInstance:
     - target: {fileID: 755754731, guid: d81794f503bcbff4288af418538aa9fb, type: 3}
       propertyPath: musicSliderText
       value: 
-      objectReference: {fileID: 1910858296}
+      objectReference: {fileID: 1249721911}
     - target: {fileID: 755754731, guid: d81794f503bcbff4288af418538aa9fb, type: 3}
       propertyPath: soundEffectSlider
       value: 
@@ -2365,7 +2354,7 @@ PrefabInstance:
     - target: {fileID: 755754731, guid: d81794f503bcbff4288af418538aa9fb, type: 3}
       propertyPath: soundEffectsSliderText
       value: 
-      objectReference: {fileID: 140001607}
+      objectReference: {fileID: 1735195028}
     - target: {fileID: 5562113359001453729, guid: d81794f503bcbff4288af418538aa9fb, type: 3}
       propertyPath: m_Name
       value: Audio Manager
@@ -2416,6 +2405,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d81794f503bcbff4288af418538aa9fb, type: 3}
+--- !u!114 &341203203 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 755754731, guid: d81794f503bcbff4288af418538aa9fb, type: 3}
+  m_PrefabInstance: {fileID: 341203202}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2aea1b9aa061eb14b864f4b4b2b6e95d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &375022603 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3205659144541745231, guid: 2da53619ef8e87445994ad0a7030b1e8, type: 3}
@@ -2878,7 +2878,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: -1
   m_SortingLayerID: 0
-  m_SortingOrder: 5
+  m_SortingOrder: 100
   m_TargetDisplay: 0
 --- !u!114 &772317466 stripped
 MonoBehaviour:
@@ -18967,6 +18967,17 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1249721911 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7944196028821002254, guid: b75c3a1b41293d3479bb77ea575db8dc, type: 3}
+  m_PrefabInstance: {fileID: 1874269462}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1315140313
 GameObject:
   m_ObjectHideFlags: 0
@@ -23570,7 +23581,7 @@ MonoBehaviour:
   nextSceneIndex: 5
   nextRoomPositionIndex: 0
   nextRoomType: 0
-  nextLevelType: 0
+  nextLevelType: 3
   prompt: To The Hospital!
 --- !u!1 &1726933607
 GameObject:
@@ -23623,6 +23634,17 @@ MonoBehaviour:
     - {fileID: 1319632407, guid: 2f186d627fc85214e930444abff8e0b2, type: 3}
     sentences:
     - Hmm, looks like this isn't available yet...
+--- !u!114 &1735195028 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 572585901533807637, guid: b75c3a1b41293d3479bb77ea575db8dc, type: 3}
+  m_PrefabInstance: {fileID: 1874269462}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1832084999
 GameObject:
   m_ObjectHideFlags: 0
@@ -23774,6 +23796,30 @@ PrefabInstance:
     - target: {fileID: 1986712840679330280, guid: b75c3a1b41293d3479bb77ea575db8dc, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2095497567482615331, guid: b75c3a1b41293d3479bb77ea575db8dc, type: 3}
+      propertyPath: m_SortingOrder
+      value: 98
+      objectReference: {fileID: 0}
+    - target: {fileID: 2095497567482615331, guid: b75c3a1b41293d3479bb77ea575db8dc, type: 3}
+      propertyPath: m_OverrideSorting
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2750551025798696352, guid: b75c3a1b41293d3479bb77ea575db8dc, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 341203203}
+    - target: {fileID: 2750551025798696352, guid: b75c3a1b41293d3479bb77ea575db8dc, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnMusicSliderValueChange
+      objectReference: {fileID: 0}
+    - target: {fileID: 3867907018495953716, guid: b75c3a1b41293d3479bb77ea575db8dc, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 341203203}
+    - target: {fileID: 3867907018495953716, guid: b75c3a1b41293d3479bb77ea575db8dc, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnSoundEffectsSliderValueChange
       objectReference: {fileID: 0}
     - target: {fileID: 4370677499885162136, guid: b75c3a1b41293d3479bb77ea575db8dc, type: 3}
       propertyPath: m_Name
@@ -23943,17 +23989,6 @@ MonoBehaviour:
   dialogueText: {fileID: 582931931}
   currTalkerImage: {fileID: 1540978867}
   animator: {fileID: 170627423}
---- !u!114 &1910858296 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6483240131119708730, guid: b75c3a1b41293d3479bb77ea575db8dc, type: 3}
-  m_PrefabInstance: {fileID: 1874269462}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &2085154712
 GameObject:
   m_ObjectHideFlags: 0
