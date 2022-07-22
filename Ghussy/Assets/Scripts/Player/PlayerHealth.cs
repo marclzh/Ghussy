@@ -11,6 +11,7 @@ public class PlayerHealth : Health
 
     // Reference to the Player Object
     [SerializeField] private GameObject player;
+    private bool hasDied;
 
     // Actual Shield Value
     private float currentTransformationHealth;
@@ -102,7 +103,12 @@ public class PlayerHealth : Health
 
     public override void Die()
     {
-        onPlayerDeath.Raise();
+        if (!hasDied)
+        {
+            onPlayerDeath.Raise();
+            hasDied = true;
+        }
+        
     }
 
 

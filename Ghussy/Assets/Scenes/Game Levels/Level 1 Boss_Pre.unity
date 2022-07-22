@@ -226,6 +226,10 @@ PrefabInstance:
       propertyPath: controller
       value: 
       objectReference: {fileID: 2125868188}
+    - target: {fileID: 7292308518446429003, guid: f9fe6f74d3e9d854f9e5f709ff51471c, type: 3}
+      propertyPath: gameEvent
+      value: 
+      objectReference: {fileID: 11400000, guid: 234c95da744387d459ea4471cd000945, type: 2}
     - target: {fileID: 7292308519660533234, guid: f9fe6f74d3e9d854f9e5f709ff51471c, type: 3}
       propertyPath: m_IsActive
       value: 0
