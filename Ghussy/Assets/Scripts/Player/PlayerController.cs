@@ -26,7 +26,8 @@ public class PlayerController : MonoBehaviour
     bool canMove = true; // Allows us to ensure that the player cannot move while attacking
 
     // Weapon Firing Fields
-    bool isFiring; 
+    bool isFiring;
+    bool canFire = true;
     [SerializeField] private PlayerWeapon weapon;
 
     // Animation Fields
@@ -74,15 +75,17 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
+
        Movement();
        Fire();
+
     }
 
     // Checks if player is currently firing, if true, call weapon's shoot method.
     // This method also handles animator logic for the player
     private void Fire()
     {
-       if (isFiring)
+       if (isFiring && canFire)
        {
           weapon.HandleShooting(true);
           playerAnimator.IsPlayerAttacking(true);
@@ -227,6 +230,11 @@ public class PlayerController : MonoBehaviour
     }
     public void DisableFiring()
     {
-        isFiring = false;
+        canFire = false;
+    }
+
+    public void EnableFiring() 
+    {
+        canFire = true;
     }
 }

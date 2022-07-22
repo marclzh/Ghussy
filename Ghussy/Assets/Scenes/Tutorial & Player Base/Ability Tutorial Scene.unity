@@ -38385,6 +38385,7 @@ GameObject:
   m_Component:
   - component: {fileID: 841265014}
   - component: {fileID: 841265015}
+  - component: {fileID: 841265016}
   m_Layer: 0
   m_Name: AllEnemiesClearedDIalogue
   m_TagString: Untagged
@@ -38440,6 +38441,34 @@ MonoBehaviour:
     - Once this reaches 0, you'll be kicked back into your normal ghost form, so
       be careful!
     - Now, let's go back to the graveyard. I'll meet you there!
+--- !u!114 &841265016
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 841265013}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 139af5d85cc6dc345b56db1cc72f8b37, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameEvent: {fileID: 11400000, guid: 3832ef117dc68f84f8c88d837cdd08b3, type: 2}
+  unityEventResponse:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 689543923}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: EnableFiring
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &846529854
 GameObject:
   m_ObjectHideFlags: 0
@@ -38570,6 +38599,7 @@ GameObject:
   m_Component:
   - component: {fileID: 940698771}
   - component: {fileID: 940698772}
+  - component: {fileID: 940698773}
   m_Layer: 0
   m_Name: AfterFirstEnemyDefeat
   m_TagString: Untagged
@@ -38622,6 +38652,34 @@ MonoBehaviour:
     - But be careful, once the timer on the bottom right runs out, you'll have to
       wait to reactivate it!
     - Now go and try it out on the enemies to the left!
+--- !u!114 &940698773
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 940698770}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 139af5d85cc6dc345b56db1cc72f8b37, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameEvent: {fileID: 11400000, guid: 3832ef117dc68f84f8c88d837cdd08b3, type: 2}
+  unityEventResponse:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 689543923}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: EnableFiring
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &958894780
 GameObject:
   m_ObjectHideFlags: 0
@@ -40562,6 +40620,7 @@ GameObject:
   - component: {fileID: 1393476875}
   - component: {fileID: 1393476876}
   - component: {fileID: 1393476877}
+  - component: {fileID: 1393476878}
   m_Layer: 0
   m_Name: PostTransformationDialogue
   m_TagString: Untagged
@@ -40688,6 +40747,34 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+--- !u!114 &1393476878
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1393476874}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 139af5d85cc6dc345b56db1cc72f8b37, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameEvent: {fileID: 11400000, guid: 3832ef117dc68f84f8c88d837cdd08b3, type: 2}
+  unityEventResponse:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 689543923}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: EnableFiring
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1408980529
 GameObject:
   m_ObjectHideFlags: 0

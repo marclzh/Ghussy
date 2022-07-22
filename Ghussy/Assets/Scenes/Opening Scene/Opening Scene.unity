@@ -827,7 +827,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogue:
-    name: Ghussy
+    names: []
+    sprites: []
     sentences:
     - Did I die? I can't remember a thing...
     - First things first, I better look for clues
@@ -1378,7 +1379,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogue:
-    name: Ghussy
+    names: []
+    sprites: []
     sentences:
     - Wh- Where am I ?!
     - ??!?!?!?!
@@ -2184,6 +2186,7 @@ MonoBehaviour:
   onDialogueEnd: {fileID: 11400000, guid: 3832ef117dc68f84f8c88d837cdd08b3, type: 2}
   nameText: {fileID: 129293357}
   dialogueText: {fileID: 1725305881}
+  currTalkerImage: {fileID: 0}
   animator: {fileID: 771309254}
 --- !u!4 &2096365581
 Transform:
@@ -2291,7 +2294,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogue:
-    name: Ghussy
+    names: []
+    sprites: []
     sentences:
     - Wait..
     - I'm floating...
