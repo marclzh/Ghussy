@@ -10,6 +10,7 @@ public class DialogueManager : MonoBehaviour
 	public TextMeshProUGUI nameText;
 	public TextMeshProUGUI dialogueText;
 	public Image currTalkerImage;
+	[SerializeField] private PauseMenu pauseMenu;
 
 	public Animator animator;
 
@@ -27,6 +28,10 @@ public class DialogueManager : MonoBehaviour
 
 	public void StartDialogue(Dialogue dialogue)
 	{
+		if (pauseMenu != null)
+		{
+			pauseMenu.DisablePausing();
+		}
 		animator.SetBool("IsOpen", true);
 		
 		// Clearing the queues of old names etc.
@@ -88,6 +93,10 @@ public class DialogueManager : MonoBehaviour
 	void EndDialogue()
 	{
 		animator.SetBool("IsOpen", false);
-		onDialogueEnd.Raise();		
+		onDialogueEnd.Raise();
+		if (pauseMenu != null)
+		{
+			pauseMenu.EnablePausing();
+		}
 	}
 }

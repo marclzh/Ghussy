@@ -57,6 +57,15 @@ public class PauseMenu : MonoBehaviour
     {
         SceneManager.LoadSceneAsync(0);
     }
+
+    public void DisablePausing()
+    {
+        canPause = false;
+    }
+    public void EnablePausing()
+    {
+        canPause = true;
+    }
 }
 
 

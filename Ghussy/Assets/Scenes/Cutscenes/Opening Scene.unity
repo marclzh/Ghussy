@@ -1132,7 +1132,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -474.04996, y: 1717.73}
+  m_AnchoredPosition: {x: -474.04993, y: 1717.73}
   m_SizeDelta: {x: 3277.25, y: 3435.45}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1129068649
@@ -2195,6 +2195,7 @@ MonoBehaviour:
   nameText: {fileID: 129293357}
   dialogueText: {fileID: 1725305881}
   currTalkerImage: {fileID: 1169929687}
+  pauseMenu: {fileID: 0}
   animator: {fileID: 771309254}
 --- !u!4 &2096365581
 Transform:
