@@ -15,20 +15,13 @@ public class MainMenu : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        transition.Play("Crossfade_End");
         bool saveDataExists = SaveManager.instance.hasLoaded;
         if (saveDataExists)
         {
             loadGameButton.gameObject.SetActive(true);
         }
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-
 
     public void StartButton()
     {
@@ -40,6 +33,8 @@ public class MainMenu : MonoBehaviour
     {
         // Delete Saves Data
         SaveManager.instance.DeleteSaveData();
+        // Audio Manager reset
+        AudioManager.Instance.Stop("Main Menu Theme");
         // Loads Opening Scene
         SceneManager.LoadScene(openingSceneIndex);
     }
@@ -48,6 +43,8 @@ public class MainMenu : MonoBehaviour
     {
         // Loads Last Scene
         int savePointIndex = SaveManager.instance.activeSave.savePointSceneIndex;
+        // Audio Manager reset
+        AudioManager.Instance.Stop("Main Menu Theme");
         SceneManager.LoadScene(savePointIndex);     
     }
 
