@@ -137,7 +137,7 @@ public class Player : MonoBehaviour, ICharacter, IDamageable
     // Resets values
     private void OnApplicationQuit()
     {
-        saveManager.DeleteSaveData();
+        if (saveManager.hasLoaded) { saveManager.DeleteSaveData(); }
 
     }
 

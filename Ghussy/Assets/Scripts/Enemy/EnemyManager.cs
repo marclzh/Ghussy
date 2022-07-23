@@ -15,6 +15,11 @@ public class EnemyManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // DevKey_KillAllEnemies();
+    }
+
+    private void DevKey_KillAllEnemies()
+    {
         if (Input.GetKeyDown(KeyCode.Slash))
         {
             int i = 0;

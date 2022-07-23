@@ -2331,6 +2331,7 @@ MonoBehaviour:
   memoryShardInventory: {fileID: 11400000, guid: 7bdc15b624fc8a94f84dd1395e396778, type: 2}
   playerHealth: {fileID: 597630946}
   playerAnimator: {fileID: 597630943}
+  hasDied: 0
   currentState: {fileID: 11400000, guid: 8d212c62150aa6640ba0595f5d887ad5, type: 2}
   defaultState: {fileID: 11400000, guid: 8d212c62150aa6640ba0595f5d887ad5, type: 2}
   currentWeapon: {fileID: 0}
@@ -7490,7 +7491,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.094167896}
   m_AnchorMax: {x: 1, y: 0.1431679}
-  m_AnchoredPosition: {x: -42, y: -3}
+  m_AnchoredPosition: {x: -42.00006, y: -3}
   m_SizeDelta: {x: -1831.367, y: -10.839996}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1654094135
@@ -9965,12 +9966,8 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 3205659144047392340, guid: 2da53619ef8e87445994ad0a7030b1e8, type: 3}
-      propertyPath: m_Color.a
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3205659144287732939, guid: 2da53619ef8e87445994ad0a7030b1e8, type: 3}
-      propertyPath: m_Color.a
+    - target: {fileID: 3205659143297114765, guid: 2da53619ef8e87445994ad0a7030b1e8, type: 3}
+      propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3205659144541745230, guid: 2da53619ef8e87445994ad0a7030b1e8, type: 3}
