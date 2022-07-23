@@ -6511,7 +6511,7 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 341393a4-0a6b-416c-a962-ecea2f32c3c2
     m_ActionName: UI/TrackedDeviceOrientation
-  m_NeverAutoSwitchControlSchemes: 1
+  m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: Keyboard&Mouse
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
@@ -8533,7 +8533,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -313816062, guid: f7715b86ba5cd914ea2c2085b018cf2e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d123c28830d02074ba91d20909294bd7, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
