@@ -53,12 +53,12 @@ public class PlayerHealthUI : MonoBehaviour
         {
             baseHealthSlider.value = health;
             baseHealthBar.color = gradient.Evaluate(baseHealthSlider.normalizedValue);
-            healthValue.text = $"{baseHealthSlider.value.ToString()}/{baseHealthSlider.maxValue.ToString()}";
+            healthValue.text = $"{ ((int)baseHealthSlider.value).ToString()}/{((int)baseHealthSlider.maxValue).ToString()}";
         }
         else if (isTransformed)
         {
             transformationHealthSlider.value = health;
-            transformationValue.text = $"{transformationHealthSlider.value.ToString()}/{transformationHealthSlider.maxValue.ToString()}";
+            transformationValue.text = $"{((int)transformationHealthSlider.value).ToString()}/{((int)transformationHealthSlider.maxValue).ToString()}";
         }
         else
         {
@@ -70,13 +70,13 @@ public class PlayerHealthUI : MonoBehaviour
     {
         baseHealthSlider.maxValue = newMaxHealth.Value;
         baseHealthBar.color = gradient.Evaluate(1f);
-        healthValue.text = $"{baseHealthSlider.value.ToString()}/{baseHealthSlider.maxValue.ToString()}";
+        healthValue.text = $"{ ((int)baseHealthSlider.value).ToString()}/{ ((int)baseHealthSlider.maxValue).ToString()}";
     }
 
     public void UpdateCurrentHealthUI(CharacterStat newCurrentHealth)
     {
         baseHealthSlider.value = newCurrentHealth.Value;
-        healthValue.text = $"{baseHealthSlider.value.ToString()}/{baseHealthSlider.maxValue.ToString()}";
+        healthValue.text = $"{ ((int)baseHealthSlider.value).ToString()}/{ ((int)baseHealthSlider.maxValue).ToString()}";
     }
 
     public void Die()
