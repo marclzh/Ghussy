@@ -112,7 +112,6 @@ public class Player : MonoBehaviour, ICharacter, IDamageable
 
     public void PlayerDeath()
     {
-        
         if (!hasDied)
         {
             AudioManager.Instance.Play("Death");
@@ -121,6 +120,13 @@ public class Player : MonoBehaviour, ICharacter, IDamageable
             saveManager.activeSave.memoryShardAmount = 0;
             saveManager.activeSave.savePointSceneIndex = 3; // Player Base
             saveManager.activeSave.numOfRoomsCompleted = 0;
+            memoryShardInventory.Container.Clear();
+            saveManager.activeSave.roomCompleted_M = new bool[] { false, false, false };
+            saveManager.activeSave.roomCompleted_E = new bool[] { false, false, false };
+            saveManager.activeSave.roomCompleted_P = new bool[] { false, false, false };
+            saveManager.activeSave.currentHealthValue = 100f;
+            saveManager.activeSave.maxHealthValue = 100f;
+            saveManager.activeSave.movementSpeedValue = 1f;
             GetComponent<PlayerController>().ActionMapMenuChange();
 
             hasDied = true;

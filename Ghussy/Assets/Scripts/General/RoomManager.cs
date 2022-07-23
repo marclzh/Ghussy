@@ -32,7 +32,7 @@ public class RoomManager : MonoBehaviour
     private void Awake()
     {
         instance = this;
-        saveManager = FindObjectOfType<SaveManager>();
+        saveManager = SaveManager.instance;
         SaveData save = saveManager.activeSave;
  
         roomCompleted[0] = save.roomCompleted_M == null ? new bool[] { false, false, false } : save.roomCompleted_M;
