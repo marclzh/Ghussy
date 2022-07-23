@@ -43,6 +43,13 @@ public abstract class BulletController : MonoBehaviour
             FindObjectOfType<AudioManager>().Play("Hit");
             enemyComponent.TakeDamage(damage);         
         }
+
+        if (collision.gameObject.TryGetComponent<BossHealth>(out BossHealth bossComponent))
+        {
+            FindObjectOfType<AudioManager>().Play("Hit");
+            bossComponent.TakeDamage(damage);
+        }
+
         animator.SetBool("isCollided", true);
     }
 }

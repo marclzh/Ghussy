@@ -8,9 +8,7 @@ public abstract class Health : MonoBehaviour
     // Health Stats
     protected float maxHealth;
     protected float currentHealth;
-
-    
-
+    protected bool isInvincible;
 
     public virtual void TakeDamage(float damage)
     {
@@ -28,5 +26,8 @@ public abstract class Health : MonoBehaviour
         Destroy(gameObject);
     }
 
-
+    public void InvincibilityToggle(bool invincible)
+    {
+        isInvincible = invincible;
+    }
 }

@@ -218,11 +218,13 @@ public class PlayerController : MonoBehaviour
     public void ActionMapMenuChange()
     {
         playerControls.Player.Disable();
+        DisableFiring();
         playerInput.SwitchCurrentActionMap("Menu");
     }
     public void ActionMapPlayerChange()
     {
         playerControls.Player.Enable();
+        EnableFiring();
         playerInput.SwitchCurrentActionMap("Player");
 
     }

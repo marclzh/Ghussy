@@ -22,6 +22,7 @@ public class EnemyHealth : Health
         // Initialise Health
         maxHealth = 100;
         currentHealth = maxHealth;
+        isInvincible = false;
 
         // UI Unitialisation
         baseHealthSlider.maxValue = maxHealth;
@@ -37,42 +38,43 @@ public class EnemyHealth : Health
     {
         if (enemyAnimator != null)
         {
-          
-           Debug.Assert(damage >= 0, "Damage cannot be negative!");
-           currentHealth -= damage;
-           UpdateHealthUI(currentHealth);
-           // Flinch Animation
-           enemyAnimator.EnemyHit();
+            if (!isInvincible)
+            {
+                Debug.Assert(damage >= 0, "Damage cannot be negative!");
+                currentHealth -= damage;
+                UpdateHealthUI(currentHealth);
+                // Flinch Animation
+                enemyAnimator.EnemyHit();
 
 
-           if (currentHealth <= 0 && hasDied == false)
-           {
-                // Mark Enemy as dead and destroy Enemy
-                hasDied = true;
-                Destroy(gameObject);
+                if (currentHealth <= 0 && hasDied == false)
+                {
+                    // setting enemy to invincible
+                    isInvincible = true;
+                    // Mark Enemy as dead and destroy Enemy
+                    hasDied = true;
+                    // Enemy Death Animation
+                    enemyAnimator.EnemyDeath();
+                    //Destroy(gameObject);
 
-                // Enemy Death Animation
-                enemyAnimator.EnemyDeath();
+                    // Raises onEnemyDeath Event
+                    OnEnemyDeath.Raise();
 
-                // Raises onEnemyDeath Event
-                OnEnemyDeath.Raise();
+                    // Spawn Ectoplasm and memory shards
+                    ectoplasmPrefab.GetComponent<Ectoplasm>().source = EctoplasmSource.Enemy;
+                    memoryShardPrefab.GetComponent<MemoryShard>().source = MemoryShardSource.Enemy;
+                    Instantiate(ectoplasmPrefab, transform.position + new Vector3(0, Random.Range(0, .32f)), Quaternion.identity);
+                    Instantiate(memoryShardPrefab, transform.position + new Vector3(0, Random.Range(0, .5f)), Quaternion.identity);
 
-                // Spawn Ectoplasm and memory shards
-                ectoplasmPrefab.GetComponent<Ectoplasm>().source = EctoplasmSource.Enemy;
-                memoryShardPrefab.GetComponent<MemoryShard>().source = MemoryShardSource.Enemy;
-                Instantiate(ectoplasmPrefab, transform.position + new Vector3(0, Random.Range(0,.32f)), Quaternion.identity);
-                Instantiate(memoryShardPrefab, transform.position + new Vector3(0, Random.Range(0, .5f)), Quaternion.identity);
-
-                return;
+                    return;
+                }
             }
-        }
-        
+        }  
     }
 
     public void UpdateHealthUI(float health)
     {
-            baseHealthSlider.value = health;
-            baseHealthBar.color = gradient.Evaluate(baseHealthSlider.normalizedValue);
-   
+        baseHealthSlider.value = health;
+        baseHealthBar.color = gradient.Evaluate(baseHealthSlider.normalizedValue);
     }
 }

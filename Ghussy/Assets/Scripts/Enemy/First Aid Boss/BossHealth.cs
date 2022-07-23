@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class BossHealth : Health
 {
@@ -8,14 +9,13 @@ public class BossHealth : Health
     [SerializeField] EnemyAnimator bossAnimator;
 
     // Boss Health Values
-    [SerializeField] float bossMaxHealth = 1000f;
-    [SerializeField] float bossCurrentHealth;
-
+    [SerializeField] float bossMaxHealth = 5000f;
 
     // Health UI Elements
     [SerializeField] private Slider baseHealthSlider;
     [SerializeField] private Gradient gradient;
     [SerializeField] private Image baseHealthBar;
+    [SerializeField] private TextMeshProUGUI healthValue;
 
     private void Start()
     {
@@ -28,47 +28,61 @@ public class BossHealth : Health
         baseHealthBar.color = gradient.Evaluate(1f);
 
         // Initialise Animator
-        bossAnimator = GetComponent<EnemyAnimator>();
+        bossAnimator = GetComponent<BossAnimator>();
+        isInvincible = true;
+    }
+    private void Update()
+    {
+        DevKey_DamageBoss();
     }
 
     public override void TakeDamage(float damage)
     {
         if (bossAnimator != null)
         {
-           Debug.Assert(damage >= 0, "Damage cannot be negative!");
-           currentHealth -= damage; // Reduce CurrentHealth Value
-           UpdateHealthUI(currentHealth); // Update Health Bar
-            
-           // Flinch Animation
-           bossAnimator.EnemyHit();
-            
-           if (currentHealth <= 500)
-           {
-                bossAnimator.BossEnraged();
-           }
+            if (!isInvincible)
+            {
+                Debug.Assert(damage >= 0, "Damage cannot be negative!");
+                currentHealth -= damage; // Reduce CurrentHealth Value
+                UpdateHealthUI(currentHealth); // Update Health Bar
+
+                // Flinch Animation
+                bossAnimator.EnemyHit();
+
+                if (currentHealth <= 2000)
+                {
+                    bossAnimator.BossEnraged();
+                }
 
 
-           if (currentHealth <= 0)
-           {
-                // Mark Enemy as dead and destroy Enemy
-               
-                Destroy(gameObject);
+                if (currentHealth <= 0)
+                {
+                    isInvincible = true;
+                    // Enemy Death Animation
+                    bossAnimator.EnemyDeath();
 
-                // Enemy Death Animation
-                bossAnimator.EnemyDeath();
+                    // Raises onEnemyDeath Event
+                    OnEnemyDeath.Raise();
 
-                // Raises onEnemyDeath Event
-                OnEnemyDeath.Raise();
-                
-                return;
+                    return;
+                }
             }
-        }
-        
+        }   
     }
 
     public void UpdateHealthUI(float health)
     {
-            baseHealthSlider.value = health;
-            baseHealthBar.color = gradient.Evaluate(baseHealthSlider.normalizedValue);
+        baseHealthSlider.value = health;
+        baseHealthBar.color = gradient.Evaluate(baseHealthSlider.normalizedValue);
+        healthValue.text = $"{baseHealthSlider.value.ToString()}/{baseHealthSlider.maxValue.ToString()}";
+    }
+
+    private void DevKey_DamageBoss()
+    {
+        if (Input.GetKeyDown(KeyCode.O))
+        {
+            Debug.Log("Boss Damaged");
+            this.TakeDamage(4999);
+        }
     }
 }

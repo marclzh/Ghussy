@@ -9,10 +9,6 @@ public class EnemyAnimator : MonoBehaviour
     
     // Current animation state of the enemy.
     protected string currState;
-    void Awake()
-    {
-
-    }
 
     public void IsEnemyMoving(bool b)
     {
@@ -27,7 +23,7 @@ public class EnemyAnimator : MonoBehaviour
     {
         animator.ResetTrigger("Attack");
     }
-    public void EnemyHit()
+    public virtual void EnemyHit()
     {
         animator.Play("Flinch");
     }

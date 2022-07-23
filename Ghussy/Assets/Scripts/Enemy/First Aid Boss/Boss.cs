@@ -4,27 +4,15 @@ using UnityEngine;
 
 public class Boss : Enemy
 {
-    private string bossName;
-
-    [SerializeField] private Health enemyHealth;
-
+    private BossHealth bossHealth;
     public void Start()
     {
-        enemyHealth = GetComponent<BossHealth>();
+        bossHealth = GetComponent<BossHealth>();
     }
-
-    public Health health => enemyHealth;
-
-    public string Name => bossName;
-
-    public void TakeDamage(float damageAmount)
-    {
-        enemyHealth.TakeDamage(damageAmount);
-    }
-
 
     public void BossTrigger()
     {
-        GetComponent<Animator>().SetBool("PlayerApproach", true);
+        GetComponent<BossAnimator>().PlayerApproach();
+        bossHealth.InvincibilityToggle(false);
     }
 }
