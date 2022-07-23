@@ -29,7 +29,7 @@ public class RoomManager : MonoBehaviour
     public static RoomType nextRoomType_First;
     public static RoomType nextRoomType_Second;
 
-    private void Awake()
+    private void Start()
     {
         instance = this;
         saveManager = SaveManager.instance;
