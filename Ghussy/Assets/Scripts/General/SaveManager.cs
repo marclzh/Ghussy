@@ -133,18 +133,22 @@ public class SaveManager : MonoBehaviour
 
     public void Update()
     {
+       //DevKey_Save();
+       //DevKeu_DeleteSave();
+       
+    }
+
+    private void DevKey_Save()
+    {
         if (Input.GetKeyDown(KeyCode.K))
         {
             Debug.Log("Game Saved");
             SaveGame();
         }
+    }
 
-        if (Input.GetKeyDown(KeyCode.L))
-        {
-            Debug.Log("Save Loaded");
-            LoadGame();
-        }
-
+    private void DevKey_DeleteSave()
+    {
         if (Input.GetKeyDown(KeyCode.J))
         {
             Debug.Log("Save Deleted");

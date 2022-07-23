@@ -20,30 +20,36 @@ public class MainMenu : MonoBehaviour
         {
             loadGameButton.gameObject.SetActive(true);
         }
+        
     }
 
     public void StartButton()
     {
         // Game Loading logic will be called by animator to allow animation to complete
-        transition.SetTrigger("Start");
+       
     }
 
     public void NewGame()
     {
         // Delete Saves Data
-        SaveManager.instance.DeleteSaveData();
+        if (SaveManager.instance.hasLoaded) { SaveManager.instance.DeleteSaveData(); }
         // Audio Manager reset
         AudioManager.Instance.Stop("Main Menu Theme");
+        // Scene Transiiton
+        //transition.SetTrigger("Start");
         // Loads Opening Scene
         SceneManager.LoadScene(openingSceneIndex);
     }
 
     public void LoadGame()
     {
-        // Loads Last Scene
-        int savePointIndex = SaveManager.instance.activeSave.savePointSceneIndex;
+      
         // Audio Manager reset
         AudioManager.Instance.Stop("Main Menu Theme");
+        // Scene Transiiton
+        //transition.SetTrigger("Start");
+        // Loads Last Scene
+        int savePointIndex = SaveManager.instance.activeSave.savePointSceneIndex;
         SceneManager.LoadScene(savePointIndex);     
     }
 
