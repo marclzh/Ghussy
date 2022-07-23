@@ -134,13 +134,37 @@ PrefabInstance:
       propertyPath: healthValue
       value: 
       objectReference: {fileID: 587727990}
+    - target: {fileID: 853743930, guid: 921f30fcbd25f804e9bef1b9e1c5d8aa, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 853743931, guid: 921f30fcbd25f804e9bef1b9e1c5d8aa, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 242.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 853743931, guid: 921f30fcbd25f804e9bef1b9e1c5d8aa, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 356.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1430841155, guid: 921f30fcbd25f804e9bef1b9e1c5d8aa, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1430841155, guid: 921f30fcbd25f804e9bef1b9e1c5d8aa, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 19
+      objectReference: {fileID: 0}
+    - target: {fileID: 1430841155, guid: 921f30fcbd25f804e9bef1b9e1c5d8aa, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 16.1
+      objectReference: {fileID: 0}
     - target: {fileID: 1692064847, guid: 921f30fcbd25f804e9bef1b9e1c5d8aa, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1692064847, guid: 921f30fcbd25f804e9bef1b9e1c5d8aa, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 983211341949333004, guid: 921f30fcbd25f804e9bef1b9e1c5d8aa, type: 3}
       propertyPath: m_RootOrder
@@ -485,17 +509,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
-        m_MethodName: 
-        m_Mode: 1
+      - m_Target: {fileID: 1484977269}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
-          m_BoolArgument: 0
+          m_BoolArgument: 1
         m_CallState: 2
 --- !u!114 &146453334
 MonoBehaviour:
@@ -11045,6 +11069,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1484977269 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 853743930, guid: 921f30fcbd25f804e9bef1b9e1c5d8aa, type: 3}
+  m_PrefabInstance: {fileID: 42182511}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1496070299
 GameObject:
   m_ObjectHideFlags: 0
