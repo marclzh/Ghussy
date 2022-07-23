@@ -26145,10 +26145,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Room Reward UI
       objectReference: {fileID: 0}
-    - target: {fileID: 7292308518446429000, guid: f9fe6f74d3e9d854f9e5f709ff51471c, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 7292308518446429001, guid: f9fe6f74d3e9d854f9e5f709ff51471c, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -26237,10 +26233,6 @@ PrefabInstance:
       propertyPath: controller
       value: 
       objectReference: {fileID: 1596553109}
-    - target: {fileID: 7292308519660533234, guid: f9fe6f74d3e9d854f9e5f709ff51471c, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f9fe6f74d3e9d854f9e5f709ff51471c, type: 3}
 --- !u!1001 &7372602462266709622

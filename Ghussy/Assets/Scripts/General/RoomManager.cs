@@ -29,10 +29,10 @@ public class RoomManager : MonoBehaviour
     public static RoomType nextRoomType_First;
     public static RoomType nextRoomType_Second;
 
-    private void Awake()
+    private void Start()
     {
         instance = this;
-        saveManager = FindObjectOfType<SaveManager>();
+        saveManager = SaveManager.instance;
         SaveData save = saveManager.activeSave;
  
         roomCompleted[0] = save.roomCompleted_M == null ? new bool[] { false, false, false } : save.roomCompleted_M;

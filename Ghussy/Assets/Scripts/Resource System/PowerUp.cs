@@ -29,4 +29,12 @@ public class PowerUp : MonoBehaviour
         ProjectileSize.AddModifier(new StatModifier(percentage, StatModType.PercentMult, this));
         onStatChange.Raise(ProjectileSize);
     }
+
+    public void CurrentHealthPercentagePowerUp(float percentage)
+    {
+        Player player = FindObjectOfType<Player>();
+        CharacterStat currentHealth = player.currentHealth;
+        currentHealth.AddModifier(new StatModifier(percentage, StatModType.PercentMult, this));
+        onStatChange.Raise(currentHealth);
+    }
 }
