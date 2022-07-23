@@ -6,12 +6,7 @@ public class Enemy : MonoBehaviour, ICharacter, IDamageable
 {
     [SerializeField] private string enemyName;
 
-    private Health enemyHealth;
-
-    public void Start()
-    {
-        enemyHealth = GetComponent<BossHealth>();
-    }
+    protected Health enemyHealth;
 
     public Health health => enemyHealth;
 
