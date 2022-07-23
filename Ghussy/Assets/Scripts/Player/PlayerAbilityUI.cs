@@ -59,7 +59,8 @@ public class PlayerAbilityUI : MonoBehaviour
     {
         if (abilityKeyPressed && OnCoolDown == false && abilityActive == false &&
             GetComponent<Player>().currentState != defaultState)
-        {      
+        {
+            AudioManager.Instance.Play("Ability");
             abilityActive = true;
             playerWeapon.AbilityActivate();
             abilityKeyPressed = false;

@@ -144,6 +144,14 @@ MonoBehaviour:
     loop: 0
     playOnAwake: 0
     source: {fileID: 0}
+  - audioType: 0
+    name: Ability
+    clip: {fileID: 8300000, guid: 6035b8c55d4c2eb4db3bc1348871f2c6, type: 3}
+    volume: 0.604
+    pitch: 1
+    loop: 0
+    playOnAwake: 0
+    source: {fileID: 0}
 --- !u!114 &755754731
 MonoBehaviour:
   m_ObjectHideFlags: 0
