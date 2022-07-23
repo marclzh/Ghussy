@@ -1146,7 +1146,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7797928, y: 1}
+    m_SensorSize: {x: 1.7780613, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -2375,7 +2375,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.12781787}
   m_AnchorMax: {x: 1, y: 0.17047955}
-  m_AnchoredPosition: {x: -15, y: -1.5}
+  m_AnchoredPosition: {x: -14.999939, y: -1.5}
   m_SizeDelta: {x: -1763, y: -16}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1005251755
@@ -3830,7 +3830,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.37970263}
   m_AnchorMax: {x: 1, y: 0.5621563}
-  m_AnchoredPosition: {x: -2, y: 132.5}
+  m_AnchoredPosition: {x: -1.999939, y: 132.5}
   m_SizeDelta: {x: -1820, y: -97.1615}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1972088715
@@ -6583,7 +6583,9 @@ MonoBehaviour:
   projectileSize:
     BaseValue: 0
   maxHealthInitialization: {fileID: 11400000, guid: 2f2a33a05a3896b42a48404976275d26, type: 2}
-  currentHealthInitilization: {fileID: 11400000, guid: addb57a2c333a62428d2a5ef2a8016d5, type: 2}
+  currentHealthInitialization: {fileID: 11400000, guid: addb57a2c333a62428d2a5ef2a8016d5, type: 2}
+  movementSpeedChange: {fileID: 11400000, guid: e8bbec3700515bb4f8935b55fcef1760, type: 2}
+  projectileSizeChange: {fileID: 11400000, guid: d6b72948f57ea4745bcf8a6bcfd25f3c, type: 2}
 --- !u!114 &2877176420708713965
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11941,7 +11943,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0.44456252, y: 0.08933208}
-  m_AnchoredPosition: {x: -93.61426, y: -3.3417969}
+  m_AnchoredPosition: {x: -93.6134, y: -3.3417969}
   m_SizeDelta: {x: -592.458, y: -69.199}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &4370677501744658483

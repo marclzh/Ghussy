@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 public class Player : MonoBehaviour, ICharacter, IDamageable
 {
 
-    [SerializeField] private InventoryObject ectoplasmInventory;
+    [SerializeField] public InventoryObject ectoplasmInventory;
     [SerializeField] private InventoryObject memoryShardInventory;
     [SerializeField] private PlayerHealth playerHealth;
     [SerializeField] private PlayerAnimator playerAnimator;
@@ -28,7 +28,11 @@ public class Player : MonoBehaviour, ICharacter, IDamageable
     [SerializeField] public CharacterStat projectileSize;
 
     [SerializeField] public CharacterStatEvent maxHealthInitialization;
-    [SerializeField] public CharacterStatEvent currentHealthInitilization;
+    [SerializeField] public CharacterStatEvent currentHealthInitialization;
+    [SerializeField] public CharacterStatEvent movementSpeedChange;
+    [SerializeField] public CharacterStatEvent projectileSizeChange;
+
+
 
     public string Name => "Ghussy";
 
@@ -42,12 +46,17 @@ public class Player : MonoBehaviour, ICharacter, IDamageable
 
         if (SaveManager.instance.hasLoaded)
         {
-            movementSpeed.BaseValue = currentSaveData.movementSpeedValue;
-            maxHealth.BaseValue = currentSaveData.maxHealthValue;
-            maxTransformationHealth.BaseValue = currentSaveData.maxTransformationValue;
-            currentTransformationHealth.BaseValue = currentSaveData.currentTransformationValue;
-            currentHealth.BaseValue = currentSaveData.currentHealthValue;
-            projectileSize.BaseValue = currentSaveData.projectileSize;
+            movementSpeed = new CharacterStat(currentSaveData.movementSpeedValue);
+            maxHealth = new CharacterStat(currentSaveData.maxHealthValue);
+            maxTransformationHealth = new CharacterStat(currentSaveData.maxTransformationValue);
+            currentTransformationHealth = new CharacterStat(currentSaveData.currentTransformationValue);
+            currentHealth = new CharacterStat(currentSaveData.currentHealthValue);
+            projectileSize = new CharacterStat(currentSaveData.projectileSize);
+
+            // Handle Perm Buffs 
+            if (!currentSaveData.permBoonApplied) { ApplyPermBoons(); currentSaveData.permBoonApplied = true; }
+
+           
 
             // Resources
             if (ectoplasmInventory.Container.Count > 0) { ectoplasmInventory.Container[0].amount = currentSaveData.ectoplasmAmount; }
@@ -75,14 +84,20 @@ public class Player : MonoBehaviour, ICharacter, IDamageable
             // Resources
             ectoplasmInventory.Container.Clear();
             memoryShardInventory.Container.Clear();
+
+
         }
 
+
+        currentSaveData.playerBaseGuide = true;// REMOVE THIS
+
         maxHealthInitialization.Raise(maxHealth);
-        currentHealthInitilization.Raise(currentHealth);
+        currentHealthInitialization.Raise(currentHealth);
 
         // Set Starting position
         float[] savedPosition = currentSaveData.playerPos;
-        transform.position = savedPosition.Length == 0 ? new Vector3(0f, 0f, 0f) : new Vector3(savedPosition[0], savedPosition[1], savedPosition[2]) ;
+        transform.position = savedPosition.Length == 0 ? new Vector3(0f, 0f, 0f) : new Vector3(savedPosition[0], savedPosition[1], savedPosition[2]);
+        hasDied = false;
     }
 
     // Exposed save method for player to save the game
@@ -95,9 +110,6 @@ public class Player : MonoBehaviour, ICharacter, IDamageable
         // Saves Game  
         saveManager.SaveGame();
     }
-
-
-   
 
     public void SetState(BasePossessionState nextState)
     {
@@ -128,6 +140,7 @@ public class Player : MonoBehaviour, ICharacter, IDamageable
             saveManager.activeSave.maxHealthValue = 100f;
             saveManager.activeSave.movementSpeedValue = 1f;
             saveManager.activeSave.currentHealthValue = 100f;
+            saveManager.activeSave.permBoonApplied = false;
             GetComponent<PlayerController>().ActionMapMenuChange();
 
             hasDied = true;
@@ -185,4 +198,34 @@ public class Player : MonoBehaviour, ICharacter, IDamageable
         memoryShardInventory.Container.Clear();
         ectoplasmInventory.Container.Clear();
     }
+
+    public void EquipBoon(BoonItem boon)
+    {
+        boon.Equip(this);
+    }
+
+    public void UnequipBoon(BoonItem boon)
+    {
+        boon.Unequip(this);
+    }
+
+    public void ApplyPermBoons()
+    {
+        SaveData save = saveManager.activeSave;
+        float movementSpeedBonus = .05f * save.permBoonMultiple[0];
+        float maxHealthBonus = .05f * save.permBoonMultiple[1];
+        float projectileSizeBonus = .05f * save.permBoonMultiple[2];
+
+        movementSpeed.AddModifier(new StatModifier(movementSpeedBonus, StatModType.PercentMult, this));
+        maxHealth.AddModifier(new StatModifier(maxHealthBonus, StatModType.PercentMult, this));
+        currentHealth.AddModifier(new StatModifier(maxHealthBonus, StatModType.PercentMult, this));
+        projectileSize.AddModifier(new StatModifier(projectileSizeBonus, StatModType.PercentMult, this));
+
+        maxHealthInitialization.Raise(maxHealth);
+        currentHealthInitialization.Raise(currentHealth);
+        movementSpeedChange.Raise(movementSpeed);
+        projectileSizeChange.Raise(projectileSize); 
+    }
+
+    
 }

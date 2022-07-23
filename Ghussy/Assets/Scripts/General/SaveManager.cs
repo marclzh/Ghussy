@@ -172,6 +172,10 @@ public class SaveData
     public float currentTransformationValue = 100f;
     public float projectileSize = 1f;
 
+    // Player Stat Boons
+    public float[] permBoonMultiple = new float[3]; // Movement Speed, Max Health, Projectile Size (Count of how many times permanent stats have been applied [5%])
+    public bool permBoonApplied;
+
     // Player Resources
     public int ectoplasmAmount;
     public int memoryShardAmount;
@@ -191,6 +195,6 @@ public class SaveData
     public float[] playerPos = { 0f, 0f, 0f }; // { x. y, z } used to derive Vector3 Position
 
     // Player Progress Fields
-    public bool playerBaseGuide;
+    public bool playerBaseGuide = true;
     public int savePointSceneIndex;
 }
