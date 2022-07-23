@@ -29,6 +29,7 @@ public abstract class BulletController : MonoBehaviour
                 animator.SetBool("isCollided", true);
             }
         }
+
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -51,5 +52,10 @@ public abstract class BulletController : MonoBehaviour
         }
 
         animator.SetBool("isCollided", true);
+    }
+
+    private void OnBecameInvisible()
+    {
+        Destroy(gameObject);
     }
 }

@@ -19,6 +19,9 @@ public class CutsceneManager : MonoBehaviour
         {
             if (playableDirector.name == "AghostineBaseGuide")
             {
+                // Base Cutscene
+                // 0 - baseguide cutscene
+                // 1 - respawn cutscene
                 if (SaveManager.instance.activeSave.playerBaseGuide == false)
                 {
                     playableDirector.Play();
@@ -26,6 +29,11 @@ public class CutsceneManager : MonoBehaviour
                 else
                 {
                     baseGuideDialogueParent.SetActive(false);
+                    Debug.Log(SaveManager.instance.activeSave.numOfDeaths);
+                    if (SaveManager.instance.activeSave.numOfDeaths > 0)
+                    {
+                        SwapCutscene(1);
+                    }
                 }
             }
         }
@@ -38,7 +46,7 @@ public class CutsceneManager : MonoBehaviour
     {
         playableDirector.Play();
     }
-    public void swapCutscene(int cutsceneNum)
+    public void SwapCutscene(int cutsceneNum)
     {
         playableDirector = cutscenes[cutsceneNum];
         playableDirector.Play();

@@ -271,7 +271,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1e01d0d58a727f40a86fa31d45e37d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyGFX: {fileID: 0}
+  enemyGFX: {fileID: 2942621132489588255}
   target: {fileID: 0}
   nextWaypointDistance: 0.1
   isChasing: 0

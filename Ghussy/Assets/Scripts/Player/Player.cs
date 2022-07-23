@@ -141,6 +141,8 @@ public class Player : MonoBehaviour, ICharacter, IDamageable
             saveManager.activeSave.movementSpeedValue = 1f;
             saveManager.activeSave.currentHealthValue = 100f;
             saveManager.activeSave.permBoonApplied = false;
+            // increasing death count 
+            saveManager.activeSave.numOfDeaths++;
             GetComponent<PlayerController>().ActionMapMenuChange();
 
             hasDied = true;
