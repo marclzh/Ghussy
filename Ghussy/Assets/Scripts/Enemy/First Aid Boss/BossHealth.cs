@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using System.Collections;
 using TMPro;
 
 public class BossHealth : Health
@@ -62,7 +63,7 @@ public class BossHealth : Health
                     bossAnimator.EnemyDeath();
 
                     // Raises onEnemyDeath Event
-                    OnBossDeath.Raise();
+                    StartCoroutine(bossDelayDeathEvent());
 
                     return;
                 }
@@ -84,5 +85,10 @@ public class BossHealth : Health
             Debug.Log("Boss Damaged");
             this.TakeDamage(4999);
         }
+    }
+    IEnumerator bossDelayDeathEvent()
+    {
+        yield return new WaitForSeconds(1f);
+        OnBossDeath.Raise();
     }
 }
