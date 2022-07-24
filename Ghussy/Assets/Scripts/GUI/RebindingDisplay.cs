@@ -167,8 +167,6 @@ public class RebindingDisplay : MonoBehaviour
 
             if (binding.effectivePath == newBinding.effectivePath)
             {
-                
-
                 // Duplicate Binding Found
                 return true;             
             }
@@ -233,7 +231,7 @@ public class RebindingDisplay : MonoBehaviour
     {
         // Reset Fire Bindings
         int FW_bindingIndex = fireWeaponIA.action.GetBindingIndex();
-        fireWeaponIA.action.ApplyBindingOverride("<Mouse>/LeftButton");
+        fireWeaponIA.action.ApplyBindingOverride("<Mouse>/leftButton");
 
         FW_bindingDisplayNameText.text = InputControlPath.ToHumanReadableString(
         fireWeaponIA.action.bindings[FW_bindingIndex].effectivePath,
@@ -242,7 +240,7 @@ public class RebindingDisplay : MonoBehaviour
 
         // Reset Ability Bindings
         int UA_bindingIndex = useAbilityIA.action.GetBindingIndex();
-        useAbilityIA.action.ApplyBindingOverride("<Mouse>/RightButton");
+        useAbilityIA.action.ApplyBindingOverride("<Mouse>/rightButton");
         
         UA_bindingDisplayNameText.text = InputControlPath.ToHumanReadableString(
         useAbilityIA.action.bindings[UA_bindingIndex].effectivePath,
@@ -251,7 +249,7 @@ public class RebindingDisplay : MonoBehaviour
        
         // Reset Interact Bindings
         int I_bindingIndex = interactIA.action.GetBindingIndex();
-        interactIA.action.ApplyBindingOverride("<Keyboard>/E");
+        interactIA.action.ApplyBindingOverride("<Keyboard>/e");
 
         I_bindingDisplayNameText.text = InputControlPath.ToHumanReadableString(
         interactIA.action.bindings[I_bindingIndex].effectivePath,
