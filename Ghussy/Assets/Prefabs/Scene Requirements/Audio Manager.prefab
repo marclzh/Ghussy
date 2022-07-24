@@ -152,6 +152,22 @@ MonoBehaviour:
     loop: 0
     playOnAwake: 0
     source: {fileID: 0}
+  - audioType: 0
+    name: PlayerHit
+    clip: {fileID: 8300000, guid: 4f89798c1a08b584195fd4872cafb301, type: 3}
+    volume: 0.66
+    pitch: 1
+    loop: 0
+    playOnAwake: 0
+    source: {fileID: 0}
+  - audioType: 1
+    name: GameOver1
+    clip: {fileID: 8300000, guid: e67d4837622780e49a1312bb541ce0ea, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 1
+    playOnAwake: 0
+    source: {fileID: 0}
 --- !u!114 &755754731
 MonoBehaviour:
   m_ObjectHideFlags: 0

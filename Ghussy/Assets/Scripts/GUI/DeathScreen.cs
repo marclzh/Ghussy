@@ -35,7 +35,11 @@ public class DeathScreen : MonoBehaviour
         // Audio
         AudioManager.Instance.Stop("Theme");
         AudioManager.Instance.Stop("Boss1");
-        AudioManager.Instance.Play("GameOver");
+
+        System.Random rnd = new System.Random();
+        int chance = rnd.Next(10);
+        if (chance <= 5) { AudioManager.Instance.Play("GameOver1"); } else { AudioManager.Instance.Play("GameOver");  }
+        
     }
 
 

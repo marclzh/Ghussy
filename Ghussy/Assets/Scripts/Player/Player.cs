@@ -179,6 +179,9 @@ public class Player : MonoBehaviour, ICharacter, IDamageable
 
     void OnHit(float damage)
     {
+        // Play Hit Sound
+        AudioManager.Instance.Play("PlayerHit");
+
         playerAnimator.PlayerHit();
         playerHealth.TakeDamage(damage);
     }

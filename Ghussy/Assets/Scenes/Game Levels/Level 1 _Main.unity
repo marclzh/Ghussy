@@ -7095,7 +7095,6 @@ GameObject:
   m_Component:
   - component: {fileID: 469542941}
   - component: {fileID: 469542942}
-  - component: {fileID: 469542943}
   m_Layer: 0
   m_Name: Enemy Manager
   m_TagString: Untagged
@@ -7135,34 +7134,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   numOfEnemiesLeft: 0
   onAllEnemiesDead: {fileID: 11400000, guid: cb65687dacb99624e969bf6c3e6fa466, type: 2}
---- !u!114 &469542943
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 469542940}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 139af5d85cc6dc345b56db1cc72f8b37, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gameEvent: {fileID: 11400000, guid: 7728a522ed50a9443856ee2ddad49339, type: 2}
-  unityEventResponse:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 469542942}
-        m_TargetAssemblyTypeName: EnemyManager, Assembly-CSharp
-        m_MethodName: UpdateEnemyCount
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!1 &497607685
 GameObject:
   m_ObjectHideFlags: 0
