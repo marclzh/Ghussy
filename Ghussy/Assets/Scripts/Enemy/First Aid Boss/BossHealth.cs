@@ -5,7 +5,7 @@ using TMPro;
 public class BossHealth : Health
 {
     // Boss Fields
-    [SerializeField] VoidEvent OnEnemyDeath;
+    [SerializeField] VoidEvent OnBossDeath;
     [SerializeField] EnemyAnimator bossAnimator;
 
     // Boss Health Values
@@ -62,7 +62,7 @@ public class BossHealth : Health
                     bossAnimator.EnemyDeath();
 
                     // Raises onEnemyDeath Event
-                    OnEnemyDeath.Raise();
+                    OnBossDeath.Raise();
 
                     return;
                 }
