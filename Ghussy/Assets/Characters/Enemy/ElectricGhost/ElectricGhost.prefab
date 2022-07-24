@@ -250,9 +250,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3cf723ba36b8ba94cb922c0a4deb3e6d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 120
-  chaseRadius: 1.5
-  attackRadius: 0.2
+  speed: 160
+  chaseRadius: 1.7
+  attackRadius: 0.3
   isInChaseRange: 0
   isInAttackRange: 0
   playerLayer:
@@ -317,7 +317,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83390f7149bfcd34a875ca61ef101d0c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 10
+  damage: 20
   attackPoint: {fileID: 0}
 --- !u!114 &7451909808620067534
 MonoBehaviour:
@@ -332,6 +332,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyGFX: {fileID: 2942621132489588255}
+  healthBar: {fileID: 5203162716000005658}
   target: {fileID: 0}
   nextWaypointDistance: 0.1
   isChasing: 0
@@ -531,6 +532,11 @@ PrefabInstance:
 --- !u!224 &5203162715914544094 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 8354435815205090528, guid: 0e57e7e7d77a0e44fb4d3eeb43d9c082, type: 3}
+  m_PrefabInstance: {fileID: 4307046462404761406}
+  m_PrefabAsset: {fileID: 0}
+--- !u!224 &5203162716000005658 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 8354435814884751652, guid: 0e57e7e7d77a0e44fb4d3eeb43d9c082, type: 3}
   m_PrefabInstance: {fileID: 4307046462404761406}
   m_PrefabAsset: {fileID: 0}
 --- !u!114 &5203162716000005659 stripped

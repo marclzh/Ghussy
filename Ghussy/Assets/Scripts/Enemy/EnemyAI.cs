@@ -7,6 +7,7 @@ public class EnemyAI : MonoBehaviour
 {
     // Enemy graphics reference
     public Transform enemyGFX;
+    public Transform healthBar;
 
     // Target for pathfinding 
     public Transform target;
@@ -73,7 +74,8 @@ public class EnemyAI : MonoBehaviour
         {
             //reachedEndOfPath = true;
             return;
-        } else
+        } 
+        else
         {
             //reachedEndOfPath = false;
         }
@@ -102,10 +104,13 @@ public class EnemyAI : MonoBehaviour
             if (rb.velocity.x <= 0.001f && force.x < 0f)
             {
                 enemyGFX.localScale = new Vector3(-1f, 1f, 1f);
+                healthBar.localScale = new Vector3(-0.5f, 0.5f, 1f);
+
             }
             else if (rb.velocity.x >= -0.001 && force.x > 0f)
             {
                 enemyGFX.localScale = new Vector3(1f, 1f, 1f);
+                healthBar.localScale = new Vector3(0.5f, 0.5f, 1f);
             }
         }
     }

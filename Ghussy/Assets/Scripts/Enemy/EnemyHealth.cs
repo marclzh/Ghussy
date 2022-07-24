@@ -20,7 +20,7 @@ public class EnemyHealth : Health
     private void Start()
     {
         // Initialise Health
-        maxHealth = 100;
+        maxHealth = 250;
         currentHealth = maxHealth;
         isInvincible = false;
 
@@ -32,6 +32,7 @@ public class EnemyHealth : Health
         // Initialise Animator
         enemyAnimator = GetComponent<EnemyAnimator>();
 
+        UpdateHealthUI(currentHealth);
     }
 
     public override void TakeDamage(float damage)

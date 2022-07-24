@@ -8059,26 +8059,6 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7451909808620067533, guid: b5fca7625faa9d5409ec9dbe7357a7b6, type: 3}
-      propertyPath: chaseRadius
-      value: 1.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 7451909808620067533, guid: b5fca7625faa9d5409ec9dbe7357a7b6, type: 3}
-      propertyPath: checkRadius
-      value: 0.8
-      objectReference: {fileID: 0}
-    - target: {fileID: 7451909808620067534, guid: b5fca7625faa9d5409ec9dbe7357a7b6, type: 3}
-      propertyPath: target
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 7451909808620067539, guid: b5fca7625faa9d5409ec9dbe7357a7b6, type: 3}
-      propertyPath: enemyAnimator
-      value: 
-      objectReference: {fileID: 1170829030}
-    - target: {fileID: 7451909808620067539, guid: b5fca7625faa9d5409ec9dbe7357a7b6, type: 3}
-      propertyPath: ectoplasmPrefab
-      value: 
-      objectReference: {fileID: 3702410368621476491, guid: aa0e7ad0a3082f04291c07bdf662bf22, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b5fca7625faa9d5409ec9dbe7357a7b6, type: 3}
 --- !u!4 &1170829024 stripped
@@ -8086,17 +8066,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2942621132489588255, guid: b5fca7625faa9d5409ec9dbe7357a7b6, type: 3}
   m_PrefabInstance: {fileID: 1100069192}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1170829030 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7451909808620067538, guid: b5fca7625faa9d5409ec9dbe7357a7b6, type: 3}
-  m_PrefabInstance: {fileID: 1100069192}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe3c674bda027cf4d86282382ef13c3f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1171825665
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9050,6 +9019,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 472487224, guid: b75c3a1b41293d3479bb77ea575db8dc, type: 3}
+      propertyPath: m_Lens.m_SensorSize.x
+      value: 1.7783375
+      objectReference: {fileID: 0}
     - target: {fileID: 782779774, guid: b75c3a1b41293d3479bb77ea575db8dc, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
