@@ -229,5 +229,19 @@ public class Player : MonoBehaviour, ICharacter, IDamageable
         projectileSizeChange.Raise(projectileSize); 
     }
 
+    public void purchaseBoon(int cost)
+    {
+        if (ectoplasmInventory.Container.Count <= 0) 
+        {
+            Debug.Log("Not Enough");
+            return;  
+        }
+
+        if (cost <= ectoplasmInventory.Container[0].amount)
+        {
+            ectoplasmInventory.Container[0].amount -= cost;
+        }
+    }
+
     
 }

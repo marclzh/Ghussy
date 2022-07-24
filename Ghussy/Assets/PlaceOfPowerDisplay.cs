@@ -11,6 +11,8 @@ public class PlaceOfPowerDisplay : MonoBehaviour
     private float maxHealthLevel;
     private float projectileSizeLevel;
 
+    private int boonCost = 30;
+
     [SerializeField] Image MS1;
     [SerializeField] Image MS2;
     [SerializeField] Image MS3;
@@ -22,6 +24,7 @@ public class PlaceOfPowerDisplay : MonoBehaviour
     [SerializeField] Image PS3;
 
     [SerializeField] Color purchasedColour;
+    [SerializeField] VoidEvent OnEctoplasmDeducted;
 
 
     void Start()
@@ -42,6 +45,7 @@ public class PlaceOfPowerDisplay : MonoBehaviour
             AudioManager.Instance.Play("PurchasePass");
 
             FindObjectOfType<Player>().ApplyPermBoons();
+            DeductEctoplasm();
 
             SaveManager.instance.activeSave.permBoonApplied = true;
             SaveManager.instance.SaveGame();
@@ -64,6 +68,8 @@ public class PlaceOfPowerDisplay : MonoBehaviour
             AudioManager.Instance.Play("PurchasePass");
 
             FindObjectOfType<Player>().ApplyPermBoons();
+
+            DeductEctoplasm();
 
             SaveManager.instance.activeSave.permBoonApplied = true;
             SaveManager.instance.SaveGame();
@@ -88,6 +94,8 @@ public class PlaceOfPowerDisplay : MonoBehaviour
 
             FindObjectOfType<Player>().ApplyPermBoons();
 
+            DeductEctoplasm();
+
             SaveManager.instance.activeSave.permBoonApplied = true;
             SaveManager.instance.SaveGame();
         }
@@ -106,7 +114,7 @@ public class PlaceOfPowerDisplay : MonoBehaviour
         Player player = FindObjectOfType<Player>();
         if (player.ectoplasmInventory.Container.Count > 0)
         {
-            if (player.ectoplasmInventory.Container[0].amount >= 30)
+            if (player.ectoplasmInventory.Container[0].amount >= boonCost)
             {
                 
                 return true;
@@ -138,6 +146,13 @@ public class PlaceOfPowerDisplay : MonoBehaviour
         if (projectileSizeLevel >= 3) { PS3.color = purchasedColour; PS2.color = purchasedColour; PS3.color = purchasedColour; }
 
     }
+
+    public void DeductEctoplasm()
+    {
+        FindObjectOfType<Player>().purchaseBoon(30);
+        OnEctoplasmDeducted.Raise();
+    }
+
 
     private void Update()
     {
