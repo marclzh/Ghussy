@@ -217,12 +217,14 @@ public class PlayerController : MonoBehaviour
     }
     public void ActionMapMenuChange()
     {
+        Debug.Log("changed to menu map");
         playerControls.Player.Disable();
         DisableFiring();
         playerInput.SwitchCurrentActionMap("Menu");
     }
     public void ActionMapPlayerChange()
     {
+        Debug.Log("changed to player map");
         playerControls.Player.Enable();
         EnableFiring();
         playerInput.SwitchCurrentActionMap("Player");
