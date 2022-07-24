@@ -1212,7 +1212,7 @@ GameObject:
   - component: {fileID: 860645814}
   - component: {fileID: 860645812}
   m_Layer: 0
-  m_Name: BossDefeatAndBetrayal
+  m_Name: PostBossDefeat
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

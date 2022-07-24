@@ -1,11 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
-public class PlaceOfPowerInteractable : MonoBehaviour, IInteractable
+public class ShopInteractable : MonoBehaviour, IInteractable
 {
-    [SerializeField] Transform placeOfPower;
+    [SerializeField] Transform shop;
 
     // Interaction Fields
     [SerializeField] private string prompt;
@@ -13,12 +12,10 @@ public class PlaceOfPowerInteractable : MonoBehaviour, IInteractable
     public string InteractionPrompt => prompt;
     public bool Interact(Interactor interactor)
     {
-        placeOfPower.gameObject.SetActive(true);
+        shop.gameObject.SetActive(true);
         FindObjectOfType<PlayerController>().ActionMapMenuChange();
         AudioManager.Instance.Play("PlaceOfPower");
 
         return true;
     }
 }
-
-
