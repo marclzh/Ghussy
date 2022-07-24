@@ -126,26 +126,39 @@ public class Player : MonoBehaviour, ICharacter, IDamageable
     {
         if (!hasDied)
         {
+            // Death Audio
             AudioManager.Instance.Play("Death");
 
-            // Reset Values
+            // Reset Saved Values
+
+            // Reset Memory Shards
             saveManager.activeSave.memoryShardAmount = 0;
-            saveManager.activeSave.savePointSceneIndex = 3; // Player Base
-            saveManager.activeSave.numOfRoomsCompleted = 0;
             memoryShardInventory.Container.Clear();
+            // Reset Saved Scene Index
+            saveManager.activeSave.savePointSceneIndex = 3; // Player Base
+            // Reset number of rooms completed and room indexes
+            saveManager.activeSave.numOfRoomsCompleted = 0;
             saveManager.activeSave.roomCompleted_M = new bool[] { false, false, false };
             saveManager.activeSave.roomCompleted_E = new bool[] { false, false, false };
             saveManager.activeSave.roomCompleted_P = new bool[] { false, false, false };
+
+            // Reset player Stats
             saveManager.activeSave.currentHealthValue = 100f;
             saveManager.activeSave.maxHealthValue = 100f;
             saveManager.activeSave.movementSpeedValue = 1f;
             saveManager.activeSave.currentHealthValue = 100f;
             saveManager.activeSave.permBoonApplied = false;
+
             // increasing death count 
             saveManager.activeSave.numOfDeaths++;
+
+            // Prevents player from moving in death scene
             GetComponent<PlayerController>().ActionMapMenuChange();
 
+            // Set boolean flag to true
             hasDied = true;
+
+            saveManager.SaveGame();
         }
     }
 
