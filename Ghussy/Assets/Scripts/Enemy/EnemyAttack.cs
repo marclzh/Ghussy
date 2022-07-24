@@ -34,19 +34,8 @@ public class EnemyAttack : MonoBehaviour
 
     private void Attack()
     {
-        //isAttacking = true;
-
-        // Trigger attack animation
+        // Trigger attack animation (Hitbox Logic handled by animator)
         enemyAnimation.EnemyAttack();
-
-        // idkkkk why this doesnt work fml
-        /*
-        Collider2D hit = Physics2D.OverlapCircle(attackPoint.position, 0.5f, playerLayer);
-
-        if (hit != null)
-        {
-            hit.GetComponent<PlayerHealth>().TakeDamage(damage);
-        }
-        */
+       
     }
 }
