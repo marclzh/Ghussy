@@ -4815,7 +4815,6 @@ GameObject:
   m_Component:
   - component: {fileID: 792657958}
   - component: {fileID: 792657959}
-  - component: {fileID: 792657960}
   - component: {fileID: 792657961}
   m_Layer: 9
   m_Name: Place Of Power
@@ -4853,7 +4852,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.011590004, y: 0.04636073}
+  m_Offset: {x: -0.006452799, y: 0.04636073}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -4864,21 +4863,8 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.23504734, y: 0.20259476}
+  m_Size: {x: 0.19896173, y: 0.20259476}
   m_EdgeRadius: 0
---- !u!114 &792657960
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 792657957}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe44df17d406a1e4b938bc660c71ab4e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dialogues: {fileID: 30578739}
 --- !u!114 &792657961
 MonoBehaviour:
   m_ObjectHideFlags: 0
