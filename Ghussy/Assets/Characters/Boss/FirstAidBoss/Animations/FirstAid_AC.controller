@@ -252,7 +252,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1cf569b2880e7d240ab0337f669bfe08, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 15
+  speed: 19
   attackRadius: 1.5
   target: {fileID: 0}
   playerLayer:
@@ -697,7 +697,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1cf569b2880e7d240ab0337f669bfe08, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
+  speed: 13
   attackRadius: 0.5
   target: {fileID: 0}
   playerLayer:

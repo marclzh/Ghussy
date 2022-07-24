@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Bone Throw Ability
   m_EditorClassIdentifier: 
   abilityName: Bone Throw Ability
-  abilityImage: {fileID: 1194445206, guid: b8bb46d70df283449b1b4c6deec40131, type: 3}
+  abilityImage: {fileID: -379815536, guid: aad3e4b418045514b9aee9c2609fdd91, type: 3}
   cooldownTime: 15
   abilityTime: 10

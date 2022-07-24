@@ -34,7 +34,7 @@ public class BossHealth : Health
     }
     private void Update()
     {
-        DevKey_DamageBoss();
+        // DevKey_DamageBoss();
     }
 
     public override void TakeDamage(float damage)
