@@ -130,6 +130,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1694835583}
     m_Modifications:
+    - target: {fileID: 853743930, guid: 921f30fcbd25f804e9bef1b9e1c5d8aa, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 944552831, guid: 921f30fcbd25f804e9bef1b9e1c5d8aa, type: 3}
       propertyPath: unityEventResponse.m_PersistentCalls.m_Calls.Array.size
       value: 2
@@ -157,6 +161,14 @@ PrefabInstance:
     - target: {fileID: 944552831, guid: 921f30fcbd25f804e9bef1b9e1c5d8aa, type: 3}
       propertyPath: unityEventResponse.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 1692064847, guid: 921f30fcbd25f804e9bef1b9e1c5d8aa, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1692064847, guid: 921f30fcbd25f804e9bef1b9e1c5d8aa, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 983211341949333004, guid: 921f30fcbd25f804e9bef1b9e1c5d8aa, type: 3}
       propertyPath: m_RootOrder
@@ -701,7 +713,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 431446056906858390, guid: ace025511e40138449bb02eb10ea6b4b, type: 3}
       propertyPath: m_Name
-      value: '(FOR CUTSCENE) Memory Shard '
+      value: '(FOR CUTSCENE DONT OVERRIDE) Memory Shard '
+      objectReference: {fileID: 0}
+    - target: {fileID: 431446056906858390, guid: ace025511e40138449bb02eb10ea6b4b, type: 3}
+      propertyPath: m_Layer
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 431446056906858390, guid: ace025511e40138449bb02eb10ea6b4b, type: 3}
       propertyPath: m_IsActive
@@ -711,7 +727,8 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2082208864130116655, guid: ace025511e40138449bb02eb10ea6b4b, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: ace025511e40138449bb02eb10ea6b4b, type: 3}
 --- !u!4 &352520928 stripped
 Transform:
@@ -823,8 +840,8 @@ MonoBehaviour:
     - Aghostine
     - Aghostine
     sprites:
-    - {fileID: -1611655929, guid: 78ded54b7ad3ca9449b6fc9e5a93a247, type: 3}
-    - {fileID: -1611655929, guid: 78ded54b7ad3ca9449b6fc9e5a93a247, type: 3}
+    - {fileID: 1674446925, guid: 78ded54b7ad3ca9449b6fc9e5a93a247, type: 3}
+    - {fileID: 1674446925, guid: 78ded54b7ad3ca9449b6fc9e5a93a247, type: 3}
     sentences:
     - I'm sorry I have to do this Ghussy...
     - But I need you to keep collecting the pieces for me...
@@ -1265,6 +1282,18 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+        - m_Target: {fileID: 860645810}
+          m_TargetAssemblyTypeName: TimelineManager, Assembly-CSharp
+          m_MethodName: 
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: 
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
     - m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 427972617}
@@ -1305,15 +1334,15 @@ MonoBehaviour:
           m_CallState: 2
     - m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 2125868194}
-          m_TargetAssemblyTypeName: Player, Assembly-CSharp
-          m_MethodName: PlayerDeath
-          m_Mode: 1
+        - m_Target: {fileID: 2125868195}
+          m_TargetAssemblyTypeName: PlayerHealth, Assembly-CSharp
+          m_MethodName: TakeDamage
+          m_Mode: 4
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 0
-            m_FloatArgument: 0
+            m_FloatArgument: 9999
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
@@ -1541,10 +1570,10 @@ MonoBehaviour:
     - Aghostine
     - Ghussy
     sprites:
-    - {fileID: -1611655929, guid: 78ded54b7ad3ca9449b6fc9e5a93a247, type: 3}
+    - {fileID: 1674446925, guid: 78ded54b7ad3ca9449b6fc9e5a93a247, type: 3}
     - {fileID: 1319632407, guid: 2f186d627fc85214e930444abff8e0b2, type: 3}
-    - {fileID: -1611655929, guid: 78ded54b7ad3ca9449b6fc9e5a93a247, type: 3}
-    - {fileID: -1611655929, guid: 78ded54b7ad3ca9449b6fc9e5a93a247, type: 3}
+    - {fileID: 1674446925, guid: 78ded54b7ad3ca9449b6fc9e5a93a247, type: 3}
+    - {fileID: 1674446925, guid: 78ded54b7ad3ca9449b6fc9e5a93a247, type: 3}
     - {fileID: 1319632407, guid: 2f186d627fc85214e930444abff8e0b2, type: 3}
     sentences:
     - The memory pieces...
@@ -1702,6 +1731,8 @@ PlayableDirector:
     value: {fileID: 2125868188}
   - key: {fileID: 7718148393592242029, guid: 0f4154f3ec5d8db44b1b7727cc8b5804, type: 2}
     value: {fileID: 1012653390}
+  - key: {fileID: -7547765337362162435, guid: 0f4154f3ec5d8db44b1b7727cc8b5804, type: 2}
+    value: {fileID: 2125868188}
   m_ExposedReferences:
     m_References: []
 --- !u!114 &1012653390
@@ -17758,15 +17789,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &2125868194 stripped
+--- !u!114 &2125868195 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4650975608494154752, guid: b75c3a1b41293d3479bb77ea575db8dc, type: 3}
+  m_CorrespondingSourceObject: {fileID: 2877176420708713746, guid: b75c3a1b41293d3479bb77ea575db8dc, type: 3}
   m_PrefabInstance: {fileID: 2125868187}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8d860c950d9893347bd3385dbd891296, type: 3}
+  m_Script: {fileID: 11500000, guid: d89ba80da8db7ec4c9ac4c59f3e47981, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &2135169991 stripped
