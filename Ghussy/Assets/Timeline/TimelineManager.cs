@@ -10,6 +10,7 @@ public class TimelineManager : MonoBehaviour
     void Start()
     {
         director = GetComponent<PlayableDirector>();
+    
     }
 
     public void ResumeTimeline()

@@ -198,6 +198,6 @@ public class SaveData
     public int numOfDeaths = 0;
 
     // Player Progress Fields
-    public bool playerBaseGuide = true;
+    public bool playerBaseGuide = false;
     public int savePointSceneIndex;
 }
