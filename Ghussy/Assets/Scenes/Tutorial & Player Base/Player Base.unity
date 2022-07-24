@@ -3140,6 +3140,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 8300000, guid: 6bef0822993924543968c1d3d80ad253, type: 3}
     - target: {fileID: 5562113359001453730, guid: d81794f503bcbff4288af418538aa9fb, type: 3}
+      propertyPath: sounds.Array.data[14].loop
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5562113359001453730, guid: d81794f503bcbff4288af418538aa9fb, type: 3}
       propertyPath: sounds.Array.data[14].name
       value: PurchaseFail
       objectReference: {fileID: 0}

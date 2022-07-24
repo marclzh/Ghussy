@@ -29,6 +29,7 @@ public class RebindingDisplay : MonoBehaviour
 
     private void Start()
     {
+
         string rebinds = PlayerPrefs.GetString(RebindsKey, string.Empty);
 
         if (string.IsNullOrEmpty(rebinds)) { return; }
@@ -65,16 +66,33 @@ public class RebindingDisplay : MonoBehaviour
     public void StartRebinding(string name)
     {
        if (playerController != null) { playerController.playerInput.SwitchCurrentActionMap("Menu");  }
-       
+
 
         if (name == "Fire")
         {
-         FW_startRebindObject.SetActive(false);
-         FW_waitingForInputObject.SetActive(true);
+            FW_startRebindObject.SetActive(false);
+            FW_waitingForInputObject.SetActive(true);
 
-         rebindingOperation = fireWeaponIA.action.PerformInteractiveRebinding()
-                           .OnMatchWaitForAnother(0.1f)
-                           .OnComplete(operation => RebindComplete(name))
+            rebindingOperation = fireWeaponIA.action.PerformInteractiveRebinding()
+                              .OnMatchWaitForAnother(0.1f)
+                              .OnComplete(operation => 
+                              {
+                                  if (CheckDuplicates(fireWeaponIA.action))
+                                  {
+                                      // Audio Queue
+                                      AudioManager.Instance.Play("Fail");
+
+                                      fireWeaponIA.action.RemoveBindingOverride(0);
+                                      CleanUp();
+                                      StartRebinding(name);
+                                      return;
+                                  }
+                                  else
+                                  {
+                                      RebindComplete(name);
+                                  }
+                              
+                              })
                            .Start(); 
         }
         else if (name == "Ability")
@@ -84,7 +102,24 @@ public class RebindingDisplay : MonoBehaviour
 
             rebindingOperation = useAbilityIA.action.PerformInteractiveRebinding()
                    .OnMatchWaitForAnother(0.1f)
-                   .OnComplete(operation => RebindComplete(name))
+                   .OnComplete(operation =>
+                   {
+                       if (CheckDuplicates(useAbilityIA.action))
+                       {
+                           // Audio Queue
+                           AudioManager.Instance.Play("Fail");
+
+                           useAbilityIA.action.RemoveBindingOverride(0);
+                           CleanUp();
+                           StartRebinding(name);
+                           return;
+                       }
+                       else
+                       {
+                           RebindComplete(name);
+                       }
+
+                   })
                    .Start();
         }
         else if (name == "Interact")
@@ -94,12 +129,52 @@ public class RebindingDisplay : MonoBehaviour
 
             rebindingOperation = interactIA.action.PerformInteractiveRebinding()
                    .OnMatchWaitForAnother(0.1f)
-                   .OnComplete(operation => RebindComplete(name))
+                  .OnComplete(operation =>
+                  {
+                      if (CheckDuplicates(interactIA.action))
+                      {
+                          // Audio Queue
+                          AudioManager.Instance.Play("Fail");
+
+                          interactIA.action.RemoveBindingOverride(0);
+                          CleanUp();
+                          StartRebinding(name);
+                          return;
+                      }
+                      else
+                      {
+                          RebindComplete(name);
+                      }
+
+                  })
                    .Start();
         }
 
     }
 
+    private bool CheckDuplicates(InputAction action)
+    {
+        int bindingIndex = action.GetBindingIndex();
+        InputBinding newBinding = action.bindings[bindingIndex];
+        foreach (InputBinding binding in action.actionMap.bindings)
+        {
+            Debug.Log("Binding : " + binding.effectivePath + " newBinding: " + newBinding.effectivePath);
+
+            if (binding.action == newBinding.action)
+            {
+                continue;
+            }
+
+            if (binding.effectivePath == newBinding.effectivePath)
+            {
+                
+
+                // Duplicate Binding Found
+                return true;             
+            }
+        }
+        return false;
+    }
  
     private void RebindComplete(string name)
     {
