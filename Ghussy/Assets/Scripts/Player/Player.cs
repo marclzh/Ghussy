@@ -88,7 +88,7 @@ public class Player : MonoBehaviour, ICharacter, IDamageable
 
         }
 
-        // saveManager.activeSave.playerBaseGuide = true; // REMOVE THIS
+         saveManager.activeSave.playerBaseGuide = true; // REMOVE THIS
 
         maxHealthInitialization.Raise(maxHealth);
         currentHealthInitialization.Raise(currentHealth);
@@ -154,6 +154,10 @@ public class Player : MonoBehaviour, ICharacter, IDamageable
 
             // Set boolean flag to true
             hasDied = true;
+
+            saveManager.activeSave.shopBossHealthDeductionPurchased = false;
+            saveManager.activeSave.shopBossSkeletonPurchased = false;
+            saveManager.activeSave.shopEnemyNumberDeductionPurchased = false;
 
             saveManager.SaveGame();
         }
