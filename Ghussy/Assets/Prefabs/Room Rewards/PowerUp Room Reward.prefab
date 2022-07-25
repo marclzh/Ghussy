@@ -76,7 +76,7 @@ SpriteRenderer:
   m_SortingLayerID: -1833894411
   m_SortingLayer: 7
   m_SortingOrder: 0
-  m_Sprite: {fileID: 1576598264, guid: e9f9f8070d5746847afdef77f1d2de46, type: 3}
+  m_Sprite: {fileID: 1544065970, guid: 801cda7649de11841bee1dbd7f7bed3f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -135,5 +135,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2fbac2b5d6971246b87f1f7dba56b89, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  onRoomRewardInteracted: {fileID: 11400000, guid: a31f4cbf36ead5e4993090f7640a93c8, type: 2}
-  prompt: 
+  onRoomRewardInteracted: {fileID: 11400000, guid: 234c95da744387d459ea4471cd000945, type: 2}
+  prompt: Collect

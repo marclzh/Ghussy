@@ -4757,21 +4757,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 431446056906858386, guid: 700222ccaa70139428cd777fbe63fb59, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 1544065970, guid: 801cda7649de11841bee1dbd7f7bed3f, type: 3}
     - target: {fileID: 431446056906858390, guid: 700222ccaa70139428cd777fbe63fb59, type: 3}
       propertyPath: m_Name
       value: PowerUp Room Reward
-      objectReference: {fileID: 0}
-    - target: {fileID: 431446056906858390, guid: 700222ccaa70139428cd777fbe63fb59, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7822433159464393956, guid: 700222ccaa70139428cd777fbe63fb59, type: 3}
-      propertyPath: prompt
-      value: Collect
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 700222ccaa70139428cd777fbe63fb59, type: 3}
@@ -9700,10 +9688,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Room Reward UI
       objectReference: {fileID: 0}
-    - target: {fileID: 7292308518446429000, guid: f9fe6f74d3e9d854f9e5f709ff51471c, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 7292308518446429001, guid: f9fe6f74d3e9d854f9e5f709ff51471c, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -9792,10 +9776,6 @@ PrefabInstance:
       propertyPath: controller
       value: 
       objectReference: {fileID: 1494182256}
-    - target: {fileID: 7292308519660533234, guid: f9fe6f74d3e9d854f9e5f709ff51471c, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f9fe6f74d3e9d854f9e5f709ff51471c, type: 3}
 --- !u!224 &2107797398 stripped
@@ -9863,6 +9843,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   numOfEnemiesLeft: 0
   onAllEnemiesDead: {fileID: 11400000, guid: cb65687dacb99624e969bf6c3e6fa466, type: 2}
+  enemyNumberDeductionPurchased: 0
 --- !u!4 &2122088686
 Transform:
   m_ObjectHideFlags: 0
