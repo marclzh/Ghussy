@@ -14,6 +14,10 @@ public class ShopDisplay : MonoBehaviour
     [SerializeField] Button minusBossHealthButton;
     [SerializeField] Button minusEnemyButton;
     [SerializeField] TextMeshProUGUI costText;
+    [SerializeField] VoidEvent OnEctoplasmDeducted;
+    [SerializeField] Image Purchased1;
+    [SerializeField] Image Purchased2;
+    [SerializeField] Image Purchased3;
     private int itemValue;
     private string selectedItem;
 
@@ -35,8 +39,10 @@ public class ShopDisplay : MonoBehaviour
         bossSkeletonValue = 15;
         minusBossHealthValue = 10;
         minusEnemyValue = 5;
+
+        UpdateShopUI();
     }
-    // Swaps the necessary components on buttonclick
+    // Swaps the necessary components on buttonClick
     public void ChangeActiveItem(string itemName)
     {
         if (itemName == "BossSkeleton")
@@ -74,18 +80,21 @@ public class ShopDisplay : MonoBehaviour
 
     public bool CanPurchase()
     {
+        
         Player player = FindObjectOfType<Player>();
         if (player.ectoplasmInventory.Container.Count > 0)
         {
             if (player.ectoplasmInventory.Container[0].amount >= itemValue)
             {
-                return true;
-            }
-            else
-            {
-                return false;
+                if (selectedItem == "BossSkeleton") { return !(SaveManager.instance.activeSave.shopBossSkeletonPurchased); }
+                if (selectedItem == "MinusBossHealth") { return !(SaveManager.instance.activeSave.shopBossHealthDeductionPurchased); }
+                if (selectedItem == "MinusEnemy") { return !(SaveManager.instance.activeSave.shopEnemyNumberDeductionPurchased); }
             }
         }
+
+        // Audio Cue
+        AudioManager.Instance.Play("PurchaseFail");
+
         return false;
     }
 
@@ -93,8 +102,34 @@ public class ShopDisplay : MonoBehaviour
     {
         if (CanPurchase())
         {
- 
+            // Audio Cue
+            AudioManager.Instance.Play("PurchasePass");
+
+            // Deducts Ectoplasm from Player
+            DeductEctoplasm();
+
+            // Update Save Manager
+            if (selectedItem == "BossSkeleton") { SaveManager.instance.activeSave.shopBossSkeletonPurchased = true; }
+            if (selectedItem == "MinusBossHealth") { SaveManager.instance.activeSave.shopBossHealthDeductionPurchased = true; }
+            if (selectedItem == "MinusEnemy") { SaveManager.instance.activeSave.shopEnemyNumberDeductionPurchased = true; }
+            SaveManager.instance.SaveGame();
+
+            // Update UI
+            UpdateShopUI();
         }
+    }
+
+    public void DeductEctoplasm()
+    {
+        FindObjectOfType<Player>().purchaseBoon(itemValue);
+        OnEctoplasmDeducted.Raise();
+    }
+
+    public void UpdateShopUI()
+    {
+        if (SaveManager.instance.activeSave.shopBossSkeletonPurchased == true) { Purchased1.gameObject.SetActive(true); }
+        if (SaveManager.instance.activeSave.shopBossHealthDeductionPurchased == true) { Purchased2.gameObject.SetActive(true); }
+        if (SaveManager.instance.activeSave.shopEnemyNumberDeductionPurchased == true) { Purchased3.gameObject.SetActive(true); }
     }
 
     public void CloseDisplay()

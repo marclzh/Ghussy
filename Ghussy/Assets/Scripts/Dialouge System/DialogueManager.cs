@@ -62,6 +62,9 @@ public class DialogueManager : MonoBehaviour
 
 	public void DisplayNextSentence()
 	{
+		// Audio
+		AudioManager.Instance.Play("Click");
+
 		if (sentences.Count == 0)
 		{
 			EndDialogue();

@@ -17,6 +17,9 @@ public void SetQuality(int qualityIndex)
 
     public void CloseOptions()
     {
+        // Audio
+        AudioManager.Instance.Play("Click");
+
         gameObject.SetActive(false);
         // Switch back player input map
         if (playerController != null) { playerController.playerInput.SwitchCurrentActionMap("Player"); }

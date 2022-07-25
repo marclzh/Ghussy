@@ -229,6 +229,9 @@ public class RebindingDisplay : MonoBehaviour
 
     public void ResetBindings()
     {
+        // Audio
+        AudioManager.Instance.Play("Click");
+
         // Reset Fire Bindings
         int FW_bindingIndex = fireWeaponIA.action.GetBindingIndex();
         fireWeaponIA.action.ApplyBindingOverride("<Mouse>/leftButton");
