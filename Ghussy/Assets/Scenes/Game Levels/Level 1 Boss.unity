@@ -11723,7 +11723,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6295115303492470470, guid: 27f5e66c98f482a4da2a7da7f12e2704, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6295115303492470472, guid: 27f5e66c98f482a4da2a7da7f12e2704, type: 3}
       propertyPath: m_RootOrder
@@ -11980,18 +11980,6 @@ PrefabInstance:
     - target: {fileID: 913271604164061016, guid: 0f79d9587d7612e4481bb06a9eec56ff, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 913271604164061017, guid: 0f79d9587d7612e4481bb06a9eec56ff, type: 3}
-      propertyPath: activeSave.playerPos.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 913271604164061017, guid: 0f79d9587d7612e4481bb06a9eec56ff, type: 3}
-      propertyPath: activeSave.shopBossSkeletonPurchased
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 913271604164061017, guid: 0f79d9587d7612e4481bb06a9eec56ff, type: 3}
-      propertyPath: activeSave.shopBossHealthDeductionPurchased
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 913271604164061018, guid: 0f79d9587d7612e4481bb06a9eec56ff, type: 3}
       propertyPath: m_Name
