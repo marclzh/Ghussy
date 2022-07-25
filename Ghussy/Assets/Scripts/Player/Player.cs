@@ -117,7 +117,6 @@ public class Player : MonoBehaviour, ICharacter, IDamageable
             currentState = nextState;
             //currentWeapon = nextState.GetWeapon();
             currentAbility = nextState.GetAbility();
-            Debug.Log(currentState);
         }
     }
 
