@@ -88,7 +88,7 @@ public class Player : MonoBehaviour, ICharacter, IDamageable
 
         }
 
-        // saveManager.activeSave.playerBaseGuide = true; // REMOVE THIS
+         saveManager.activeSave.playerBaseGuide = true; // REMOVE THIS
 
         maxHealthInitialization.Raise(maxHealth);
         currentHealthInitialization.Raise(currentHealth);
@@ -115,9 +115,7 @@ public class Player : MonoBehaviour, ICharacter, IDamageable
         if (nextState != null && !currentState.Same(nextState))
         {
             currentState = nextState;
-            //currentWeapon = nextState.GetWeapon();
             currentAbility = nextState.GetAbility();
-            Debug.Log(currentState);
         }
     }
 
@@ -158,6 +156,10 @@ public class Player : MonoBehaviour, ICharacter, IDamageable
 
             // Set boolean flag to true
             hasDied = true;
+
+            saveManager.activeSave.shopBossHealthDeductionPurchased = false;
+            saveManager.activeSave.shopBossSkeletonPurchased = false;
+            saveManager.activeSave.shopEnemyNumberDeductionPurchased = false;
 
             saveManager.SaveGame();
         }
@@ -211,13 +213,6 @@ public class Player : MonoBehaviour, ICharacter, IDamageable
         playerHealth.TakeDamage(damageAmount);
     }
 
-    // Helper Function TO BE REMOVED
-    public void ClearInventory()
-    {
-        memoryShardInventory.Container.Clear();
-        ectoplasmInventory.Container.Clear();
-    }
-
     public void EquipBoon(BoonItem boon)
     {
         boon.Equip(this);
@@ -261,5 +256,12 @@ public class Player : MonoBehaviour, ICharacter, IDamageable
         }
     }
 
-    
+    // For Cutscene Use
+    public void KillTransformation()
+    {
+        if (currentState != defaultState)
+        {
+            TakeDamage(9999);
+        }
+    }
 }

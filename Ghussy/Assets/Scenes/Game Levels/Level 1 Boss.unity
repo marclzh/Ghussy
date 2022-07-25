@@ -1371,6 +1371,18 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 1
           m_CallState: 2
+        - m_Target: {fileID: 2125868197}
+          m_TargetAssemblyTypeName: Player, Assembly-CSharp
+          m_MethodName: KillTransformation
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
     - m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 427972617}
@@ -11969,18 +11981,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 913271604164061017, guid: 0f79d9587d7612e4481bb06a9eec56ff, type: 3}
-      propertyPath: activeSave.playerPos.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 913271604164061017, guid: 0f79d9587d7612e4481bb06a9eec56ff, type: 3}
-      propertyPath: activeSave.shopBossSkeletonPurchased
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 913271604164061017, guid: 0f79d9587d7612e4481bb06a9eec56ff, type: 3}
-      propertyPath: activeSave.shopBossHealthDeductionPurchased
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 913271604164061018, guid: 0f79d9587d7612e4481bb06a9eec56ff, type: 3}
       propertyPath: m_Name
       value: Save Manager
@@ -17979,6 +17979,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d89ba80da8db7ec4c9ac4c59f3e47981, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2125868197 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4650975608494154752, guid: b75c3a1b41293d3479bb77ea575db8dc, type: 3}
+  m_PrefabInstance: {fileID: 2125868187}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d860c950d9893347bd3385dbd891296, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &2135169991 stripped
