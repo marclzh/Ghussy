@@ -7,6 +7,8 @@ public class DeathScreen : MonoBehaviour
 {
     private int playerBaseSceneIndex = 3;
     private int mainMenuSceneIndex = 0;
+    private int tutorialSceneIndex = 2;
+    private int abilityTutorialSceneIndex = 4;
     [SerializeField] float delay = 2;
     
 
@@ -47,8 +49,22 @@ public class DeathScreen : MonoBehaviour
     {
         AudioManager.Instance.Play("Click");
 
-        // Load Player Base
-        SceneManager.LoadSceneAsync(playerBaseSceneIndex);
+        // dies in tutorial
+        if (SceneManager.GetActiveScene().buildIndex == 2)
+        {
+            SceneManager.LoadSceneAsync(tutorialSceneIndex);
+        } 
+        // dies in ability tutorial
+        else if (SceneManager.GetActiveScene().buildIndex == 4)
+        {
+            SceneManager.LoadSceneAsync(abilityTutorialSceneIndex);
+        }
+        else 
+        {
+            // Load Player Base
+            SceneManager.LoadSceneAsync(playerBaseSceneIndex);
+        }
+        
 
         
     }
