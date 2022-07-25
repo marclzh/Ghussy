@@ -133,8 +133,10 @@ public class Player : MonoBehaviour, ICharacter, IDamageable
             // Reset Memory Shards
             saveManager.activeSave.memoryShardAmount = 0;
             memoryShardInventory.Container.Clear();
+
             // Reset Saved Scene Index
             saveManager.activeSave.savePointSceneIndex = 3; // Player Base
+
             // Reset number of rooms completed and room indexes
             saveManager.activeSave.numOfRoomsCompleted = 0;
             saveManager.activeSave.roomCompleted_M = new bool[] { false, false, false };
@@ -255,6 +257,7 @@ public class Player : MonoBehaviour, ICharacter, IDamageable
         if (cost <= ectoplasmInventory.Container[0].amount)
         {
             ectoplasmInventory.Container[0].amount -= cost;
+            saveManager.activeSave.ectoplasmAmount -= cost;
         }
     }
 
