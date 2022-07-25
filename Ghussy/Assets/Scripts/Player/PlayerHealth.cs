@@ -35,10 +35,12 @@ public class PlayerHealth : Health
 
     private void Update()
     {
+        /*
         if (Input.GetKeyDown(KeyCode.P))
         {
             TakeDamage(99);
         }
+        */
     }
 
     public override void TakeDamage(float damage)

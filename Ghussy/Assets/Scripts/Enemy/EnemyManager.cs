@@ -27,7 +27,7 @@ public class EnemyManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       DevKey_KillAllEnemies();
+       // DevKey_KillAllEnemies();
     }
 
     private void DevKey_KillAllEnemies()

@@ -134,7 +134,6 @@ public class ShopDisplay : MonoBehaviour
 
     public void CloseDisplay()
     {
-        Debug.Log("Display Closed");
         FindObjectOfType<PlayerController>().ActionMapPlayerChange();
         canvas.gameObject.SetActive(false);
     }

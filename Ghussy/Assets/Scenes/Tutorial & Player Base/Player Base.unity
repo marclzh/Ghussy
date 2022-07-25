@@ -3629,6 +3629,60 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 253585525}
   m_CullTransparentMesh: 1
+--- !u!1 &288680941
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 288680942}
+  - component: {fileID: 288680943}
+  m_Layer: 0
+  m_Name: AghostineFlavorText3
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &288680942
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 288680941}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 44.35736, y: -15.345404, z: 67.02984}
+  m_LocalScale: {x: 16.645893, y: 13.692046, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 788874003}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &288680943
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 288680941}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ed78b091d66d2f41853cc93941cbc72, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue:
+    names:
+    - Aghostine
+    - Aghostine
+    sprites:
+    - {fileID: 470971526, guid: 6b466d6afc790044ba8dd4b70f722f7e, type: 3}
+    - {fileID: 470971526, guid: 6b466d6afc790044ba8dd4b70f722f7e, type: 3}
+    sentences:
+    - Why do all the other ghosts look like me?
+    - That's not very nice, we're all different on the inside...
 --- !u!1 &296754398
 GameObject:
   m_ObjectHideFlags: 0
@@ -3899,6 +3953,60 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 298376285}
   m_CullTransparentMesh: 1
+--- !u!1 &306312702
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 306312703}
+  - component: {fileID: 306312704}
+  m_Layer: 0
+  m_Name: AghostineFlavorText4
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &306312703
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 306312702}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 44.35736, y: -15.345404, z: 67.02984}
+  m_LocalScale: {x: 16.645893, y: 13.692046, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 788874003}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &306312704
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 306312702}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ed78b091d66d2f41853cc93941cbc72, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue:
+    names:
+    - Aghostine
+    - Aghostine
+    sprites:
+    - {fileID: 470971526, guid: 6b466d6afc790044ba8dd4b70f722f7e, type: 3}
+    - {fileID: 470971526, guid: 6b466d6afc790044ba8dd4b70f722f7e, type: 3}
+    sentences:
+    - Having trouble? I heard a quote from someone awhile ago that might help.
+    - '"Get good"... Wonder what that means...?'
 --- !u!1 &323182450
 GameObject:
   m_ObjectHideFlags: 0
@@ -5272,7 +5380,7 @@ Transform:
   m_GameObject: {fileID: 580612283}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 44.35736, y: -15.345404, z: 67.02984}
-  m_LocalScale: {x: 16.645893, y: 13.692044, z: 1}
+  m_LocalScale: {x: 16.645893, y: 13.692046, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 80485862}
@@ -6135,6 +6243,58 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 777587341}
   m_CullTransparentMesh: 1
+--- !u!1 &788874002
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 788874003}
+  - component: {fileID: 788874004}
+  m_Layer: 9
+  m_Name: AghostineShopDialogue
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &788874003
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 788874002}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 846638760}
+  - {fileID: 1079804576}
+  - {fileID: 288680942}
+  - {fileID: 306312703}
+  m_Father: {fileID: 1113708214}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &788874004
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 788874002}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 139af5d85cc6dc345b56db1cc72f8b37, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameEvent: {fileID: 11400000, guid: cb65687dacb99624e969bf6c3e6fa466, type: 2}
+  unityEventResponse:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &789968178
 GameObject:
   m_ObjectHideFlags: 0
@@ -6633,6 +6793,89 @@ MonoBehaviour:
     - {fileID: 1319632407, guid: 2f186d627fc85214e930444abff8e0b2, type: 3}
     sentences:
     - Hmm, looks like this isn't available yet...
+--- !u!1 &846638759
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 846638760}
+  - component: {fileID: 846638761}
+  - component: {fileID: 846638762}
+  m_Layer: 0
+  m_Name: AghostineFlavorText1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &846638760
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 846638759}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 44.35736, y: -15.345404, z: 67.02984}
+  m_LocalScale: {x: 16.645893, y: 13.692046, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 788874003}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &846638761
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 846638759}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ed78b091d66d2f41853cc93941cbc72, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue:
+    names:
+    - Aghostine
+    - Aghostine
+    sprites:
+    - {fileID: 470971526, guid: 6b466d6afc790044ba8dd4b70f722f7e, type: 3}
+    - {fileID: 470971526, guid: 6b466d6afc790044ba8dd4b70f722f7e, type: 3}
+    sentences:
+    - You ok?
+    - You look like you've seen a ghost :)
+--- !u!114 &846638762
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 846638759}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 139af5d85cc6dc345b56db1cc72f8b37, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameEvent: {fileID: 11400000, guid: 3832ef117dc68f84f8c88d837cdd08b3, type: 2}
+  unityEventResponse:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1113708216}
+        m_TargetAssemblyTypeName: NPC, Assembly-CSharp
+        m_MethodName: SwitchTrigger
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &899424500
 GameObject:
   m_ObjectHideFlags: 0
@@ -22876,6 +23119,60 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0f79d9587d7612e4481bb06a9eec56ff, type: 3}
+--- !u!1 &1079804575
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1079804576}
+  - component: {fileID: 1079804577}
+  m_Layer: 0
+  m_Name: AghostineFlavorText2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1079804576
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1079804575}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 44.35736, y: -15.345404, z: 67.02984}
+  m_LocalScale: {x: 16.645893, y: 13.692046, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 788874003}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1079804577
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1079804575}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ed78b091d66d2f41853cc93941cbc72, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue:
+    names:
+    - Aghostine
+    - Aghostine
+    sprites:
+    - {fileID: 470971526, guid: 6b466d6afc790044ba8dd4b70f722f7e, type: 3}
+    - {fileID: 470971526, guid: 6b466d6afc790044ba8dd4b70f722f7e, type: 3}
+    sentences:
+    - Where do you think ghosts go after they die?
+    - Looks like you keep coming back here...
 --- !u!1 &1096660488
 GameObject:
   m_ObjectHideFlags: 0
@@ -23099,6 +23396,7 @@ GameObject:
   - component: {fileID: 1113708214}
   - component: {fileID: 1113708217}
   - component: {fileID: 1113708216}
+  - component: {fileID: 1113708219}
   - component: {fileID: 1113708215}
   - component: {fileID: 1113708218}
   m_Layer: 9
@@ -23116,11 +23414,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1113708213}
   m_LocalRotation: {x: 0.008726557, y: 0, z: 0, w: 0.9999619}
-  m_LocalPosition: {x: -3.592, y: 1.026, z: 1.219}
+  m_LocalPosition: {x: -4.306, y: 0.11, z: 1.203}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 80485862}
+  - {fileID: 788874003}
   m_Father: {fileID: 1605280265}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 1, y: 0, z: 0}
@@ -23162,7 +23461,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 470c5824d07f64c498ebd4c3da330b0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogues: {fileID: 80485862}
+  dialogues: {fileID: 788874003}
 --- !u!212 &1113708217
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -23235,6 +23534,21 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1113708219
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1113708213}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a0e4eb67a66c0444ae755792eda56d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogueTrigger: {fileID: 846638761}
+  prompt: Talk
+  OnDialogueStart: {fileID: 11400000, guid: 4a23f241a029af54987a891795d0912c, type: 2}
 --- !u!1 &1122221305
 GameObject:
   m_ObjectHideFlags: 0
@@ -23271,7 +23585,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.10576286, y: 0.25100002}
   m_AnchorMax: {x: 0.3001186, y: 0.5}
-  m_AnchoredPosition: {x: -5.406189, y: 19.601997}
+  m_AnchoredPosition: {x: -5.406212, y: 19.601997}
   m_SizeDelta: {x: -30.569, y: 57.131}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1122221307
@@ -27829,6 +28143,8 @@ PlayableDirector:
     value: {fileID: 1874269463}
   - key: {fileID: 6568330799716299647, guid: 63778f8a10e74b54ea02052201d5e237, type: 2}
     value: {fileID: 1399132195}
+  - key: {fileID: 6915632547267851731, guid: 63778f8a10e74b54ea02052201d5e237, type: 2}
+    value: {fileID: 1399132195}
   m_ExposedReferences:
     m_References: []
 --- !u!114 &1399132192
@@ -27905,6 +28221,7 @@ MonoBehaviour:
     - {fileID: 11400000, guid: 0011f873f5ed8e445906d07f52ffd36d, type: 2}
     - {fileID: 11400000, guid: ccf551d2df5a5254ba31b1668ecfba70, type: 2}
     - {fileID: 11400000, guid: f5138a82441ce1c49b846330cd582ed6, type: 2}
+    - {fileID: 11400000, guid: cf45c86e2b464164d99ba7464a94bb95, type: 2}
     m_Events:
     - m_PersistentCalls:
         m_Calls:
@@ -27932,18 +28249,6 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
-        - m_Target: {fileID: 1874269464}
-          m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
-          m_MethodName: DisableFiring
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
         - m_Target: {fileID: 968333862}
           m_TargetAssemblyTypeName: CutsceneManager, Assembly-CSharp
           m_MethodName: RaiseDialogueStart
@@ -27958,6 +28263,18 @@ MonoBehaviour:
           m_CallState: 2
         - m_Target: {fileID: 505863582}
           m_TargetAssemblyTypeName: UnityEngine.Renderer, UnityEngine
+          m_MethodName: set_enabled
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 1874269481}
+          m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
           m_MethodName: set_enabled
           m_Mode: 6
           m_Arguments:
@@ -28099,6 +28416,20 @@ MonoBehaviour:
         - m_Target: {fileID: 968333862}
           m_TargetAssemblyTypeName: CutsceneManager, Assembly-CSharp
           m_MethodName: SetPlayerBaseSaveTrigger
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1874269464}
+          m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+          m_MethodName: DisableFiring
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -29532,7 +29863,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.13836181, y: 0.25100002}
   m_AnchorMax: {x: 0.26467773, y: 0.79647577}
-  m_AnchoredPosition: {x: -4.406128, y: -2.3980026}
+  m_AnchoredPosition: {x: -4.406151, y: -2.3980026}
   m_SizeDelta: {x: 15.431, y: 13.1310005}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1789724663
@@ -29973,6 +30304,14 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -850
       objectReference: {fileID: 0}
+    - target: {fileID: 472487225, guid: b75c3a1b41293d3479bb77ea575db8dc, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 472487225, guid: b75c3a1b41293d3479bb77ea575db8dc, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 782779774, guid: b75c3a1b41293d3479bb77ea575db8dc, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -30129,6 +30468,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bbc1f6ce5d20c2c48979e0ba24f83053, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1874269481 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4370677501888905464, guid: b75c3a1b41293d3479bb77ea575db8dc, type: 3}
+  m_PrefabInstance: {fileID: 1874269462}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 71c1df51c3313414ab1e03f2d270ec8c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1952639651

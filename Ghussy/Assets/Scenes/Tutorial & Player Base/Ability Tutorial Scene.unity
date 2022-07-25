@@ -38075,6 +38075,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   numOfEnemiesLeft: 0
   onAllEnemiesDead: {fileID: 11400000, guid: cb65687dacb99624e969bf6c3e6fa466, type: 2}
+  enemyNumberDeductionPurchased: 0
 --- !u!4 &773006675
 Transform:
   m_ObjectHideFlags: 0
@@ -39924,7 +39925,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1334934182}
         m_TargetAssemblyTypeName: CutsceneManager, Assembly-CSharp
-        m_MethodName: swapCutscene
+        m_MethodName: SwapCutscene
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -40400,7 +40401,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1334934182}
         m_TargetAssemblyTypeName: CutsceneManager, Assembly-CSharp
-        m_MethodName: swapCutscene
+        m_MethodName: SwapCutscene
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
