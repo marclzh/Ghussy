@@ -146,6 +146,7 @@ public class Player : MonoBehaviour, ICharacter, IDamageable
             saveManager.activeSave.maxHealthValue = 100f;
             saveManager.activeSave.movementSpeedValue = 1f;
             saveManager.activeSave.currentHealthValue = 100f;
+            saveManager.activeSave.projectileSize = 1f;
             saveManager.activeSave.permBoonApplied = false;
 
             // increasing death count 
