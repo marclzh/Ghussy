@@ -32,7 +32,6 @@ public class NPC : MonoBehaviour, INPC
 
     public void SwitchTrigger()
     {
-        Debug.Log("Dialogue Trigger switched");
         npcInteractable.SetTrigger(dialoguesArr[dialogueCounter].GetComponent<DialogueTrigger>());
         dialogueCounter++;
         if (dialogueCounter >= dialogueCount)

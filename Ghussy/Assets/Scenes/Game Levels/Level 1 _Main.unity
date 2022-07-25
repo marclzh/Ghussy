@@ -7135,6 +7135,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   numOfEnemiesLeft: 0
   onAllEnemiesDead: {fileID: 11400000, guid: cb65687dacb99624e969bf6c3e6fa466, type: 2}
+  enemyNumberDeductionPurchased: 0
 --- !u!114 &469542943
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25792,6 +25793,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 913271604164061017, guid: 0f79d9587d7612e4481bb06a9eec56ff, type: 3}
+      propertyPath: activeSave.shopEnemyNumberDeductionPurchased
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 913271604164061018, guid: 0f79d9587d7612e4481bb06a9eec56ff, type: 3}
       propertyPath: m_Name
       value: Save Manager
@@ -25805,14 +25810,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 170627422, guid: b75c3a1b41293d3479bb77ea575db8dc, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -27.46
-      objectReference: {fileID: 0}
-    - target: {fileID: 170627422, guid: b75c3a1b41293d3479bb77ea575db8dc, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -849
-      objectReference: {fileID: 0}
     - target: {fileID: 782779774, guid: b75c3a1b41293d3479bb77ea575db8dc, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0

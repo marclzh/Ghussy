@@ -20,6 +20,9 @@ public class BossHealth : Health
 
     private void Start()
     {
+        // Checks if item has been purchased
+        if (SaveManager.instance.activeSave.shopBossHealthDeductionPurchased) { bossMaxHealth = 4000f; }
+
         // Initialise Health
         maxHealth = bossMaxHealth;
         currentHealth = maxHealth;
@@ -27,6 +30,7 @@ public class BossHealth : Health
         // UI Unitialisation
         baseHealthSlider.maxValue = maxHealth;
         baseHealthBar.color = gradient.Evaluate(1f);
+        UpdateHealthUI(maxHealth);
 
         // Initialise Animator
         bossAnimator = GetComponent<BossAnimator>();
@@ -34,7 +38,7 @@ public class BossHealth : Health
     }
     private void Update()
     {
-         DevKey_DamageBoss();
+         // DevKey_DamageBoss();
     }
 
     public override void TakeDamage(float damage)

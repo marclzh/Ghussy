@@ -149,26 +149,10 @@ public class PlaceOfPowerDisplay : MonoBehaviour
 
     public void DeductEctoplasm()
     {
-        FindObjectOfType<Player>().purchaseBoon(30);
+        FindObjectOfType<Player>().purchaseBoon(boonCost);
         OnEctoplasmDeducted.Raise();
     }
-
-
-    private void Update()
-    {
-        Player player = FindObjectOfType<Player>();
-        if (Input.GetKeyDown(KeyCode.O))
-        {
-            if (player.ectoplasmInventory.Container.Count > 0)
-            {
-                player.ectoplasmInventory.Container[0].amount += 1000;
-            }
-            else
-            {
-                
-            }
-        }
-    }
+      
 
     public void CloseDisplay()
     {

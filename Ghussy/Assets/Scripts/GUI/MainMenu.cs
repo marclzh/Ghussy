@@ -31,6 +31,9 @@ public class MainMenu : MonoBehaviour
 
     public void NewGame()
     {
+        // Audio
+        AudioManager.Instance.Play("Click");
+
         // Delete Saves Data
         if (SaveManager.instance.hasLoaded) { SaveManager.instance.DeleteSaveData(); }
         // Audio Manager reset
@@ -43,7 +46,9 @@ public class MainMenu : MonoBehaviour
 
     public void LoadGame()
     {
-      
+        // Audio
+        AudioManager.Instance.Play("Click");
+
         // Audio Manager reset
         AudioManager.Instance.Stop("Main Menu Theme");
         // Scene Transiiton
@@ -55,6 +60,9 @@ public class MainMenu : MonoBehaviour
 
     public void QuitGame()
     {
+        // Audio
+        AudioManager.Instance.Play("Click");
+
         Application.Quit();
     }
 }

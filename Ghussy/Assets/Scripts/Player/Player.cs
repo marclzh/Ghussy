@@ -88,6 +88,8 @@ public class Player : MonoBehaviour, ICharacter, IDamageable
 
         }
 
+        // saveManager.activeSave.playerBaseGuide = true; // REMOVE THIS
+
         maxHealthInitialization.Raise(maxHealth);
         currentHealthInitialization.Raise(currentHealth);
 

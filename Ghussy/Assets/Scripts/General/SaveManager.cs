@@ -176,6 +176,11 @@ public class SaveData
     public float[] permBoonMultiple = new float[3]; // Movement Speed, Max Health, Projectile Size (Count of how many times permanent stats have been applied [5%])
     public bool permBoonApplied;
 
+    // Player Shop Boons
+    public bool shopBossSkeletonPurchased;
+    public bool shopBossHealthDeductionPurchased;
+    public bool shopEnemyNumberDeductionPurchased;
+
     // Player Resources
     public int ectoplasmAmount;
     public int memoryShardAmount;

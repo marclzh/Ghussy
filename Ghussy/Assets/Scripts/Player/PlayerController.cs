@@ -221,6 +221,7 @@ public class PlayerController : MonoBehaviour
         DisableFiring();
         playerInput.SwitchCurrentActionMap("Menu");
     }
+    // Player Map change allows for player to shoot
     public void ActionMapPlayerChange()
     {
         playerControls.Player.Enable();

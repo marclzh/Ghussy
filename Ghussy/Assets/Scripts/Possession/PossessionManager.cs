@@ -4,19 +4,11 @@ using UnityEngine;
 
 public class PossessionManager : MonoBehaviour
 {
-    private BasePossessionState currentState;
-    [SerializeField] private PlayerAnimator playerAnimator;
-    [SerializeField] private PossessionEvent possessionEvent;
+    private Transform possessionObject;
 
-    public void Transform(BasePossessionState nextState)
+    private void Start()
     {
-       // if (nextState != currentState)
-        //{
-            //playerAnimator.PlayerTransform(nextState);
-            //possessionEvent.Raise(nextState);
-            
-        //}
-
-        Debug.Log("transformation works!!");
+        possessionObject = transform.GetChild(0);
+        if (SaveManager.instance.activeSave.shopBossSkeletonPurchased) { possessionObject.gameObject.SetActive(true); }
     }
 }

@@ -6,16 +6,28 @@ public class EnemyManager : MonoBehaviour
 {
     [SerializeField] private int numOfEnemiesLeft;
     [SerializeField] private VoidEvent onAllEnemiesDead;
+    [SerializeField] private bool enemyNumberDeductionPurchased;
 
     void Start()
     {
+        // Check if item has been purchased
+        enemyNumberDeductionPurchased = SaveManager.instance.activeSave.shopEnemyNumberDeductionPurchased;
+        if (enemyNumberDeductionPurchased) { Destroy(transform.GetChild(0).gameObject); } // Destroys first child 
+        StartCoroutine(DelayChildCount());
+    }
+
+
+    // Destroyed Game Objects are only updated at the end of the given frame
+    IEnumerator DelayChildCount()
+    {
+        yield return new WaitForEndOfFrame();
         numOfEnemiesLeft = transform.childCount;
     }
 
     // Update is called once per frame
     void Update()
     {
-       DevKey_KillAllEnemies();
+       // DevKey_KillAllEnemies();
     }
 
     private void DevKey_KillAllEnemies()

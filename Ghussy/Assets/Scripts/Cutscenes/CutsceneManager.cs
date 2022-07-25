@@ -29,7 +29,6 @@ public class CutsceneManager : MonoBehaviour
                 else
                 {
                     baseGuideDialogueParent.SetActive(false);
-                    Debug.Log(SaveManager.instance.activeSave.numOfDeaths);
                     if (SaveManager.instance.activeSave.numOfDeaths > 0)
                     {
                         SwapCutscene(1);
