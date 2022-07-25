@@ -115,7 +115,6 @@ public class Player : MonoBehaviour, ICharacter, IDamageable
         if (nextState != null && !currentState.Same(nextState))
         {
             currentState = nextState;
-            //currentWeapon = nextState.GetWeapon();
             currentAbility = nextState.GetAbility();
         }
     }
@@ -208,13 +207,6 @@ public class Player : MonoBehaviour, ICharacter, IDamageable
         playerHealth.TakeDamage(damageAmount);
     }
 
-    // Helper Function TO BE REMOVED
-    public void ClearInventory()
-    {
-        memoryShardInventory.Container.Clear();
-        ectoplasmInventory.Container.Clear();
-    }
-
     public void EquipBoon(BoonItem boon)
     {
         boon.Equip(this);
@@ -257,5 +249,12 @@ public class Player : MonoBehaviour, ICharacter, IDamageable
         }
     }
 
-    
+    // For Cutscene Use
+    public void KillTransformation()
+    {
+        if (currentState != defaultState)
+        {
+            TakeDamage(9999);
+        }
+    }
 }
