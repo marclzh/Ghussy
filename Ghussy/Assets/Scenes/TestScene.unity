@@ -637,26 +637,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Audio Manager
       objectReference: {fileID: 0}
-    - target: {fileID: 5562113359001453730, guid: d81794f503bcbff4288af418538aa9fb, type: 3}
-      propertyPath: sounds.Array.size
-      value: 13
-      objectReference: {fileID: 0}
-    - target: {fileID: 5562113359001453730, guid: d81794f503bcbff4288af418538aa9fb, type: 3}
-      propertyPath: sounds.Array.data[12].clip
-      value: 
-      objectReference: {fileID: 8300000, guid: c47f0f0a4ec52e24c902f9e6534c6519, type: 3}
-    - target: {fileID: 5562113359001453730, guid: d81794f503bcbff4288af418538aa9fb, type: 3}
-      propertyPath: sounds.Array.data[12].name
-      value: Death
-      objectReference: {fileID: 0}
-    - target: {fileID: 5562113359001453730, guid: d81794f503bcbff4288af418538aa9fb, type: 3}
-      propertyPath: sounds.Array.data[12].pitch
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5562113359001453730, guid: d81794f503bcbff4288af418538aa9fb, type: 3}
-      propertyPath: sounds.Array.data[12].volume
-      value: 0.604
-      objectReference: {fileID: 0}
     - target: {fileID: 5562113359001453731, guid: d81794f503bcbff4288af418538aa9fb, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -5970,6 +5950,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   numOfEnemiesLeft: 0
   onAllEnemiesDead: {fileID: 11400000, guid: cb65687dacb99624e969bf6c3e6fa466, type: 2}
+  enemyNumberDeductionPurchased: 0
 --- !u!4 &1049850599
 Transform:
   m_ObjectHideFlags: 0

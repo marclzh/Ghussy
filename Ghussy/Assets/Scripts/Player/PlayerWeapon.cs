@@ -140,6 +140,7 @@ public class PlayerWeapon : MonoBehaviour
                     Vector2 shootingDirection = mousePos - playerPos2D;
                     rb.velocity += weapon.GetComponent<Weapon>().bulletPrefab.GetComponent<BulletController>().speed * Time.deltaTime * shootingDirection.normalized;
                 }
+                FindObjectOfType<AudioManager>().Play("WeaponFire1");
             }
 
             // Handle weapon shooting animation

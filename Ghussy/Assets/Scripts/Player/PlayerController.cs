@@ -17,7 +17,7 @@ public class PlayerController : MonoBehaviour
     private InputAction fireWeaponIA;
     private InputAction useAbilityIA;
     private InputAction interactIA;
-    
+
     // Movement Fields
     public float moveSpeed = 1f; // Movement speed of character
     public float collisionOffset = 0.025f; // Distance of collision detection
@@ -83,23 +83,23 @@ public class PlayerController : MonoBehaviour
     // This method also handles animator logic for the player
     private void Fire()
     {
-       if (isFiring && canFire)
-       {
-          weapon.HandleShooting(true);
-          playerAnimator.IsPlayerAttacking(true);
-        }       
+        if (isFiring && canFire)
+        {
+            weapon.HandleShooting(true);
+            playerAnimator.IsPlayerAttacking(true);
+        }
         else
         {
-          weapon.HandleShooting(false);
-          playerAnimator.IsPlayerAttacking(false);
-         }        
+            weapon.HandleShooting(false);
+            playerAnimator.IsPlayerAttacking(false);
+        }
     }
-    
+
     // Specific Namespace for New Input System - Do not change method name
     // Uses Hold and Release Interaction for button value type
     private void OnFire(InputValue value)
     {
-        isFiring = value.isPressed; 
+        isFiring = value.isPressed;
     }
 
 
@@ -130,7 +130,7 @@ public class PlayerController : MonoBehaviour
                 }
 
                 playerAnimator.IsPlayerMoving(true);
-                
+
             }
             else
             {
@@ -138,33 +138,35 @@ public class PlayerController : MonoBehaviour
                 //animator.SetBool("isMoving", false);
             }
 
+            // when player is firing, if facing left, and weapon is right of player, flip player.
+            if (isFiring)
+            {
+                ClampSprite();
+            }
+
             // setting the direction of the sprite to the movement direction
             if (movementInput.x < 0)
             {
                 spriteRenderer.flipX = true;
-
-                // when player is firing, if facing left, and weapon is right of player, flip player.
-                if (isFiring)
-                {
-                    if (weapon.GetComponent<PlayerWeapon>().weapon.transform.position.x > transform.position.x)
-                    {
-                        spriteRenderer.flipX = false;
-                    }
-                }
+                ClampSprite();
             }
             else if (movementInput.x > 0)
             {
                 spriteRenderer.flipX = false;
-
-                // same as above, just opposite
-                if (isFiring)
-                {
-                    if (weapon.GetComponent<PlayerWeapon>().weapon.transform.position.x < transform.position.x)
-                    {
-                        spriteRenderer.flipX = true;
-                    }
-                }
+                ClampSprite();
             }
+        }
+    }
+
+    private void ClampSprite()
+    {
+        if (weapon.GetComponent<PlayerWeapon>().weapon.transform.position.x > transform.position.x)
+        {
+            spriteRenderer.flipX = false;
+        }
+        else if (weapon.GetComponent<PlayerWeapon>().weapon.transform.position.x < transform.position.x)
+        {
+            spriteRenderer.flipX = true;
         }
     }
 
