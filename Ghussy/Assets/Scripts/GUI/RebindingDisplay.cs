@@ -65,7 +65,7 @@ public class RebindingDisplay : MonoBehaviour
 
     public void StartRebinding(string name)
     {
-       if (playerController != null) { playerController.playerInput.SwitchCurrentActionMap("Menu");  }
+       if (playerController != null) { playerController.playerInput.SwitchCurrentActionMap("Menu"); }
 
 
         if (name == "Fire")
@@ -77,11 +77,12 @@ public class RebindingDisplay : MonoBehaviour
                               .OnMatchWaitForAnother(0.1f)
                               .OnComplete(operation => 
                               {
-                                  if (CheckDuplicates(fireWeaponIA.action))
+                                  if (CheckDuplicates(fireWeaponIA.action) || ExcludeBinding(fireWeaponIA.action, "<Keyboard>/escape"))
                                   {
                                       // Audio Queue
                                       AudioManager.Instance.Play("Fail");
 
+                                      // Ask for another binding
                                       fireWeaponIA.action.RemoveBindingOverride(0);
                                       CleanUp();
                                       StartRebinding(name);
@@ -104,11 +105,12 @@ public class RebindingDisplay : MonoBehaviour
                    .OnMatchWaitForAnother(0.1f)
                    .OnComplete(operation =>
                    {
-                       if (CheckDuplicates(useAbilityIA.action))
+                       if (CheckDuplicates(useAbilityIA.action) || ExcludeBinding(useAbilityIA.action, "<Keyboard>/escape"))
                        {
                            // Audio Queue
                            AudioManager.Instance.Play("Fail");
 
+                           // Ask for another binding
                            useAbilityIA.action.RemoveBindingOverride(0);
                            CleanUp();
                            StartRebinding(name);
@@ -131,11 +133,12 @@ public class RebindingDisplay : MonoBehaviour
                    .OnMatchWaitForAnother(0.1f)
                   .OnComplete(operation =>
                   {
-                      if (CheckDuplicates(interactIA.action))
+                      if (CheckDuplicates(interactIA.action) || ExcludeBinding(interactIA.action, "<Keyboard>/escape"))
                       {
                           // Audio Queue
                           AudioManager.Instance.Play("Fail");
 
+                          // Ask for another binding
                           interactIA.action.RemoveBindingOverride(0);
                           CleanUp();
                           StartRebinding(name);
@@ -152,13 +155,23 @@ public class RebindingDisplay : MonoBehaviour
 
     }
 
+    private bool ExcludeBinding(InputAction action, string effectivePath)
+    {
+        int bindingIndex = action.GetBindingIndex();
+        InputBinding newBinding = action.bindings[bindingIndex];
+        if (newBinding.effectivePath == effectivePath)
+        {
+            return true;
+        } 
+        return false;   
+    }
+
     private bool CheckDuplicates(InputAction action)
     {
         int bindingIndex = action.GetBindingIndex();
         InputBinding newBinding = action.bindings[bindingIndex];
         foreach (InputBinding binding in action.actionMap.bindings)
         {
-            Debug.Log("Binding : " + binding.effectivePath + " newBinding: " + newBinding.effectivePath);
 
             if (binding.action == newBinding.action)
             {
