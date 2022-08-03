@@ -14,7 +14,7 @@ PlayerSettings:
   accelerometerFrequency: 60
   companyName: 5124 Orbital
   productName: Ghussy
-  defaultCursor: {fileID: 0}
+  defaultCursor: {fileID: 2800000, guid: 34d72f7cd0dc1c3439cc6f3c99f77f24, type: 3}
   cursorHotspot: {x: 0, y: 0}
   m_SplashScreenBackgroundColor: {r: 0.13725491, g: 0.12156863, b: 0.1254902, a: 1}
   m_ShowUnitySplashScreen: 1
