@@ -74,3 +74,6 @@ TagManager:
   - name: Interactables
     uniqueID: 2461072885
     locked: 0
+  - name: ToolTips
+    uniqueID: 2272073669
+    locked: 0

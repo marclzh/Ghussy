@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -12,10 +13,13 @@ public class EnemyHealth : Health
     [SerializeField] VoidEvent OnEnemyDeath;
 
     [SerializeField] EnemyAnimator enemyAnimator;
+    [SerializeField] private Transform damageTextPrefab;
 
     public Slider baseHealthSlider;
     public Gradient gradient;
     public Image baseHealthBar;
+
+
 
     private void Start()
     {
@@ -44,8 +48,15 @@ public class EnemyHealth : Health
                 Debug.Assert(damage >= 0, "Damage cannot be negative!");
                 currentHealth -= damage;
                 UpdateHealthUI(currentHealth);
+                
                 // Flinch Animation
                 enemyAnimator.EnemyHit();
+
+                // Spawn Damage Text
+                if (damageTextPrefab != null)
+                {
+                    DisplayDamageNumbers(damage);
+                }
 
 
                 if (currentHealth <= 0 && hasDied == false)
@@ -54,9 +65,7 @@ public class EnemyHealth : Health
                     isInvincible = true;
                     // Mark Enemy as dead and destroy Enemy
                     hasDied = true;
-                    // Enemy Death Animation
-                    enemyAnimator.EnemyDeath();
-                    //Destroy(gameObject);
+                   
 
                     // Raises onEnemyDeath Event
                     OnEnemyDeath.Raise();
@@ -67,10 +76,21 @@ public class EnemyHealth : Health
                     Instantiate(ectoplasmPrefab, transform.position + new Vector3(0, Random.Range(0, .32f)), Quaternion.identity);
                     Instantiate(memoryShardPrefab, transform.position + new Vector3(0, Random.Range(0, .5f)), Quaternion.identity);
 
+                    // Enemy Death Animation
+                    enemyAnimator.EnemyDeath();
+                    Destroy(gameObject, .20f); // Fix this magic number
+
                     return;
                 }
             }
         }  
+    }
+
+    private void DisplayDamageNumbers(float damage)
+    {
+        var text = Instantiate(damageTextPrefab, transform.position, Quaternion.identity, transform);
+        text.GetComponent<TextMeshPro>().text = "- " + damage.ToString();
+
     }
 
     public void UpdateHealthUI(float health)
