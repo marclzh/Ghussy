@@ -12,19 +12,17 @@ public class AudioOptionsManager : MonoBehaviour
     [SerializeField] private Slider musicSlider;
     [SerializeField] private Slider soundEffectSlider;
 
+    private string bgmKey = "MusicVolume";
+    private string sfxKey = "SoundEffectsVolume";
+
     public void Start()
     {
-        if (SaveManager.instance.hasLoaded)
-        {
-            SaveData currentSaveData = SaveManager.instance.activeSave;
-            OnMusicSliderValueChange(currentSaveData.musicVolume);
-            OnSoundEffectsSliderValueChange(currentSaveData.soundEffectsVolume);
-        } 
-        else
-        {
-            OnMusicSliderValueChange(.5f);
-            OnSoundEffectsSliderValueChange(.5f);    
-        }
+       
+        float bgmVolume = PlayerPrefs.GetFloat(bgmKey, 0.5f);
+        float sfxVolume = PlayerPrefs.GetFloat(sfxKey, 0.5f);
+
+        OnMusicSliderValueChange(bgmVolume);
+        OnSoundEffectsSliderValueChange(sfxVolume); 
     }
 
     public void OnMusicSliderValueChange(float value)
@@ -36,8 +34,7 @@ public class AudioOptionsManager : MonoBehaviour
         musicSlider.value = value;
 
         // Saves new value
-        SaveData currentSaveData = SaveManager.instance.activeSave;
-        currentSaveData.musicVolume = musicVolume;
+        PlayerPrefs.SetFloat(bgmKey, musicVolume);
 
         AudioManager.Instance.UpdateMixerVolume();
     }
@@ -51,8 +48,7 @@ public class AudioOptionsManager : MonoBehaviour
         soundEffectSlider.value = value;
 
         // Saves new value
-        SaveData currentSaveData = SaveManager.instance.activeSave;
-        currentSaveData.soundEffectsVolume = soundEffectsVolume;
+        PlayerPrefs.SetFloat(sfxKey, soundEffectsVolume);
 
 
         AudioManager.Instance.UpdateMixerVolume();

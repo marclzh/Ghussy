@@ -15,6 +15,9 @@ public class AudioManager : MonoBehaviour
     public static AudioManager Instance;
     public static bool hasInitialised;
 
+    private string bgmKey = "MusicVolume";
+    private string sfxKey = "SoundEffectsVolume";
+
     private void Awake()
     {
         //Singleton method
@@ -91,9 +94,8 @@ public class AudioManager : MonoBehaviour
     public void UpdateMixerVolume()
     {
         // Load saved volume values
-        SaveData currentSaveData = SaveManager.instance.activeSave;
-        float musicVolume = currentSaveData.musicVolume;
-        float soundEffectsVolume = currentSaveData.soundEffectsVolume;
+        float musicVolume = PlayerPrefs.GetFloat(bgmKey, 0.5f);
+        float soundEffectsVolume = PlayerPrefs.GetFloat(sfxKey, 0.5f);
 
         musicMixerGroup.audioMixer.SetFloat("Music Volume", Mathf.Log10(musicVolume) * 20);
         soundEffectsMixerGroup.audioMixer.SetFloat("Sound Effects Volume", Mathf.Log10(soundEffectsVolume) * 20);
