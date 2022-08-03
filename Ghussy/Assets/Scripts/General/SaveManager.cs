@@ -133,8 +133,8 @@ public class SaveManager : MonoBehaviour
 
     public void Update()
     {
-       //DevKey_Save();
-       //DevKeu_DeleteSave();
+       DevKey_Save();
+       DevKey_DeleteSave();
        
     }
 
