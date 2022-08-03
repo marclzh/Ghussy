@@ -176,6 +176,14 @@ MonoBehaviour:
     loop: 0
     playOnAwake: 0
     source: {fileID: 0}
+  - audioType: 0
+    name: WispAttack
+    clip: {fileID: 8300000, guid: 8ee74a3909fc8d5488990015ea7b1af0, type: 3}
+    volume: 0.56
+    pitch: 0.864
+    loop: 0
+    playOnAwake: 0
+    source: {fileID: 0}
 --- !u!114 &755754731
 MonoBehaviour:
   m_ObjectHideFlags: 0

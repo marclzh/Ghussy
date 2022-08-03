@@ -63,6 +63,9 @@ public class EnemyMovement : MonoBehaviour
         if (isInAttackRange)
         {
             rb.velocity = Vector2.zero;
+
+            // Trigger attack animation (Hitbox Logic handled by animator)
+            enemyAnimator.EnemyAttack();
         }
     }
 }

@@ -24,7 +24,7 @@ public class EnemyHealth : Health
     private void Start()
     {
         // Initialise Health
-        maxHealth = 250;
+        maxHealth = 150;
         currentHealth = maxHealth;
         isInvincible = false;
 
@@ -51,6 +51,7 @@ public class EnemyHealth : Health
                 
                 // Flinch Animation
                 enemyAnimator.EnemyHit();
+                enemyAnimator.EnemyStopAttack();
 
                 // Spawn Damage Text
                 if (damageTextPrefab != null)
