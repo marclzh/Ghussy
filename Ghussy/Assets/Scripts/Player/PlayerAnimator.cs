@@ -46,7 +46,7 @@ public class PlayerAnimator : MonoBehaviour
 
     public void PlayerTransform()
     {
-        animator.SetBool(currState, true);
+        animator.SetTrigger(currState);
     }
 
     public void IsPlayerDead(bool b)
