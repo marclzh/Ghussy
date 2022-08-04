@@ -50,9 +50,9 @@ public class WispBullet : MonoBehaviour
             Destroy(transform.gameObject, 0.2f);
         }
         
-        if (collision.gameObject.TryGetComponent<PlayerHealth>(out PlayerHealth playerComponent))
+        if (collision.gameObject.transform.parent.TryGetComponent<PlayerHealth>(out PlayerHealth playerComponent))
         {
-            FindObjectOfType<AudioManager>().Play("Hit");
+            
             playerComponent.TakeDamage(damage);
 
             animator.SetBool("isCollided", true);

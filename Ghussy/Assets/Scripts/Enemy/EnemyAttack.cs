@@ -3,39 +3,40 @@ using UnityEngine;
 public class EnemyAttack : MonoBehaviour
 {
     // Damage of the enemy attack
-    public float damage;
+    [SerializeField] private float damage;
     // Animator Reference
     private EnemyAnimator enemyAnimation;
     // Boolean to check if player is in attacking range
     private bool inAttackRange;
-    // Layer of the player
-    private LayerMask playerLayer;
-    //private bool isAttacking;
-
-    public Transform attackPoint;
+    // Reference to electric ghost main body
+    private Transform eGhost;
 
     void Start()
     {
-        enemyAnimation = GetComponent<EnemyAnimator>();
+        eGhost = transform.parent.parent.transform;
+        enemyAnimation = eGhost.GetComponent<EnemyAnimator>();
     }
 
     void Update()
     {
-        inAttackRange = GetComponent<EnemyMovement>().isInAttackRange;
+        inAttackRange = eGhost.GetComponent<EnemyMovement>().isInAttackRange;
     }
 
     private void FixedUpdate()
     {
         if (inAttackRange)
         {
-            Attack();
+            // Trigger attack animation (Hitbox Logic handled by animator)
+            enemyAnimation.EnemyAttack();
         }
     }
 
-    private void Attack()
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        // Trigger attack animation (Hitbox Logic handled by animator)
-        enemyAnimation.EnemyAttack();
-       
+        if (collision.gameObject.transform.parent.TryGetComponent<PlayerHealth>(out PlayerHealth playerComponent))
+        {
+            playerComponent.TakeDamage(damage);
+        }
     }
+
 }

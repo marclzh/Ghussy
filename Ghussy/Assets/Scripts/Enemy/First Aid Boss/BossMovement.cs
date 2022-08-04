@@ -45,6 +45,7 @@ public class BossMovement : StateMachineBehaviour
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         isInAttackRange = Physics2D.OverlapCircle(rb.position, attackRadius, playerLayer);
+
         RepeatPathUpdate(0.5f);
 
         if (isInAttackRange)

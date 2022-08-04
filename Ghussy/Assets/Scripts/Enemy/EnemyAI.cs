@@ -25,7 +25,7 @@ public class EnemyAI : MonoBehaviour
 
     private void OnEnable()
     {
-        target = GameObject.FindGameObjectWithTag("Player").transform;
+        target = GameObject.FindGameObjectWithTag("GhussyTarget").transform;
     }
 
     void Start()

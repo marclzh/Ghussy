@@ -203,10 +203,6 @@ public class Player : MonoBehaviour, ICharacter, IDamageable
             OnHit(25);
         }
 
-        if (collision.gameObject.CompareTag("BossMelee"))
-        {
-            OnHit(150);
-        }
     }
 
     public void TakeDamage(float damageAmount)
