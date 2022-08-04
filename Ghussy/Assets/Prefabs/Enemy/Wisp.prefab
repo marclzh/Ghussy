@@ -248,7 +248,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   firePoint: {fileID: 6294118586040569652}
   projectilePrefab: {fileID: 7580896625467634040, guid: 1db06ab27f9704c43b6912846060b8db, type: 3}
-  fireRateDelay: 1.5
+  fireRateDelay: 0.5
   lastFireTime: 0
   playerTarget: {fileID: 0}
   isAttacking: 0
