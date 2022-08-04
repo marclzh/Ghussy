@@ -79,7 +79,7 @@ public class EnemyHealth : Health
 
                     // Enemy Death Animation
                     enemyAnimator.EnemyDeath();
-                    Destroy(gameObject, .20f); // Fix this magic number
+                    Destroy(gameObject, .5f); // Fix this magic number
 
                     return;
                 }

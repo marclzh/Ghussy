@@ -33,6 +33,8 @@ public class WispBullet : MonoBehaviour
             }
         }
 
+        transform.localPosition = new Vector3 (transform.localPosition.x, transform.localPosition.y, 0f);
+
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -40,6 +42,12 @@ public class WispBullet : MonoBehaviour
         if (collision.gameObject.tag == "Projectile")
         {
             return;
+        }
+
+        if (collision.CompareTag("CollisionObjects"))
+        {
+            animator.SetBool("isCollided", true);
+            Destroy(transform.gameObject, 0.2f);
         }
         
         if (collision.gameObject.TryGetComponent<PlayerHealth>(out PlayerHealth playerComponent))

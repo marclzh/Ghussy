@@ -27,8 +27,10 @@ public class RangedEnemyAttack : MonoBehaviour
 
         if (Time.time > (lastFireTime + fireRateDelay) || lastFireTime <= 0)
         {
-            Transform projectile = Instantiate(projectilePrefab, firePoint.position, firePoint.rotation);
-            projectile.GetComponent<Rigidbody2D>().velocity += projectile.GetComponent<WispBullet>().speed * Time.deltaTime * shootingDirection.normalized;
+            Transform projectile = Instantiate(projectilePrefab, firePoint.position, firePoint.rotation, transform);
+            //projectile.GetComponent<Rigidbody2D>().velocity += projectile.GetComponent<WispBullet>().speed * Time.deltaTime * shootingDirection.normalized;
+            projectile.GetComponent<Rigidbody2D>().AddForce(projectile.GetComponent<WispBullet>().speed * Time.deltaTime * shootingDirection.normalized
+                , ForceMode2D.Impulse);
             lastFireTime = Time.time;
 
             // Audio Cue
