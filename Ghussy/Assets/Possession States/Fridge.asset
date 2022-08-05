@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Fridge
   m_EditorClassIdentifier: 
   weapon: {fileID: 0}
-  ability: {fileID: 0}
+  ability: {fileID: 11400000, guid: 90c1f6c18e51cda46aeb8993371bcfda, type: 2}
   possessionStateName: FridgeTransformation
   description: 'Fridge Possession Model
 

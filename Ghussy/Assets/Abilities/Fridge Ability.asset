@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b2aecf351ce07b4494cbb12d9e7a478, type: 3}
   m_Name: Fridge Ability
   m_EditorClassIdentifier: 
-  abilityName: 
-  abilityImage: {fileID: 0}
-  cooldownTime: 0
-  abilityTime: 0
+  abilityName: Ice Beam Ability
+  abilityImage: {fileID: 21300000, guid: bc93d0f412f1a624792ff6c5b6a91c3d, type: 3}
+  cooldownTime: 15
+  abilityTime: 10
