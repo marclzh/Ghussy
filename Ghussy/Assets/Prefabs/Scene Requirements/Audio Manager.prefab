@@ -115,7 +115,7 @@ MonoBehaviour:
   - audioType: 1
     name: Boss1
     clip: {fileID: 8300000, guid: 9dfdbe53b7622db40b0b4a0ce2c66894, type: 3}
-    volume: 0.694
+    volume: 1
     pitch: 1
     loop: 1
     playOnAwake: 0
@@ -131,7 +131,7 @@ MonoBehaviour:
   - audioType: 1
     name: GameOver
     clip: {fileID: 8300000, guid: 055f613edfa2a5346a7de8eb98b397aa, type: 3}
-    volume: 0.552
+    volume: 0.54
     pitch: 1
     loop: 1
     playOnAwake: 0
@@ -181,6 +181,22 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 8ee74a3909fc8d5488990015ea7b1af0, type: 3}
     volume: 0.56
     pitch: 0.864
+    loop: 0
+    playOnAwake: 0
+    source: {fileID: 0}
+  - audioType: 0
+    name: BossAttack
+    clip: {fileID: 8300000, guid: 309cb824fa6cb744ba1e0f26b68a55f5, type: 3}
+    volume: 0.56
+    pitch: 0.879
+    loop: 0
+    playOnAwake: 0
+    source: {fileID: 0}
+  - audioType: 0
+    name: BossEnrage
+    clip: {fileID: 8300000, guid: 26fa28cc96564e840b8435262c2f1b06, type: 3}
+    volume: 0.56
+    pitch: 0.879
     loop: 0
     playOnAwake: 0
     source: {fileID: 0}

@@ -49,6 +49,9 @@ public class PlayerHealth : Health
         {
             base.TakeDamage(damage);
 
+            // audio 
+            FindObjectOfType<AudioManager>().Play("Hit");
+
             // Raise Event to Update UI
             onHealthChange.Raise(currentHealth);
 

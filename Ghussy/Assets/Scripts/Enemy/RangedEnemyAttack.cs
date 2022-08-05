@@ -16,7 +16,7 @@ public class RangedEnemyAttack : MonoBehaviour
 
     private void Awake()
     {
-        playerTarget = GameObject.FindGameObjectWithTag("Player").transform;
+        playerTarget = GameObject.FindGameObjectWithTag("GhussyTarget").transform;
         
     }
 

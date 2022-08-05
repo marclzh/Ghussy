@@ -6,7 +6,7 @@ public class Player : MonoBehaviour, ICharacter, IDamageable
 {
 
     [SerializeField] public InventoryObject ectoplasmInventory;
-    [SerializeField] private InventoryObject memoryShardInventory;
+    [SerializeField] public InventoryObject memoryShardInventory;
     [SerializeField] private PlayerHealth playerHealth;
     [SerializeField] private PlayerAnimator playerAnimator;
     public static bool IsPlayerTransformed = false;
@@ -128,10 +128,6 @@ public class Player : MonoBehaviour, ICharacter, IDamageable
 
             // Reset Saved Values
 
-            // Reset Memory Shards
-            saveManager.activeSave.memoryShardAmount = 0;
-            memoryShardInventory.Container.Clear();
-
             // Reset Saved Scene Index
             saveManager.activeSave.savePointSceneIndex = 3; // Player Base
 
@@ -203,10 +199,6 @@ public class Player : MonoBehaviour, ICharacter, IDamageable
             OnHit(25);
         }
 
-        if (collision.gameObject.CompareTag("BossMelee"))
-        {
-            OnHit(150);
-        }
     }
 
     public void TakeDamage(float damageAmount)
@@ -242,18 +234,38 @@ public class Player : MonoBehaviour, ICharacter, IDamageable
         projectileSizeChange.Raise(projectileSize); 
     }
 
-    public void purchaseBoon(int cost)
+    public void purchaseBoon(int cost, ResourceType type)
     {
-        if (ectoplasmInventory.Container.Count <= 0) 
+        if (type == ResourceType.Ectoplasm)
         {
-            Debug.Log("Not Enough");
-            return;  
+            if (ectoplasmInventory.Container.Count <= 0)
+            {
+                Debug.Log("Not Enough");
+                return;
+            }
+
+            if (cost <= ectoplasmInventory.Container[0].amount)
+            {
+                ectoplasmInventory.Container[0].amount -= cost;
+                saveManager.activeSave.ectoplasmAmount -= cost;
+            }
+        
         }
 
-        if (cost <= ectoplasmInventory.Container[0].amount)
+        if (type == ResourceType.MemoryShard)
         {
-            ectoplasmInventory.Container[0].amount -= cost;
-            saveManager.activeSave.ectoplasmAmount -= cost;
+            if (memoryShardInventory.Container.Count <= 0)
+            {
+                Debug.Log("Not Enough");
+                return;
+            }
+
+            if (cost <= memoryShardInventory.Container[0].amount)
+            {
+                memoryShardInventory.Container[0].amount -= cost;
+                saveManager.activeSave.memoryShardAmount -= cost;
+            }
+
         }
     }
 

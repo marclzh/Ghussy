@@ -33,10 +33,10 @@ RectTransform:
   m_Father: {fileID: 853743931}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 239, y: -12.8}
-  m_SizeDelta: {x: 200, y: 50}
+  m_AnchorMin: {x: 0.7331934, y: 0.367}
+  m_AnchorMax: {x: 0.9352466, y: 0.86575496}
+  m_AnchoredPosition: {x: 0.05029297, y: 0.0000038146973}
+  m_SizeDelta: {x: -0.1006, y: 0.000045776}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &421134044
 CanvasRenderer:
@@ -93,8 +93,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 10
-  m_fontSizeBase: 10
+  m_fontSize: 8
+  m_fontSizeBase: 8
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -129,7 +129,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 88.579895, w: 31.123611}
+  m_margin: {x: 0, y: 0, z: -0.22235107, w: 0.0738678}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -171,10 +171,10 @@ RectTransform:
   m_Father: {fileID: 6935531644985227594}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0.44456252, y: 0.08933208}
-  m_AnchoredPosition: {x: 242.4, y: 356.2}
-  m_SizeDelta: {x: 257.7957, y: -4.5363}
+  m_AnchorMin: {x: 0.13383287, y: 0.86500007}
+  m_AnchorMax: {x: 0.9688329, y: 0.99751896}
+  m_AnchoredPosition: {x: 9.900024, y: 4.200012}
+  m_SizeDelta: {x: -19.204346, y: -22.536285}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &853743932
 MonoBehaviour:
@@ -260,9 +260,9 @@ RectTransform:
   m_Father: {fileID: 853743931}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 19, y: 16.1}
+  m_AnchorMin: {x: 0, y: 0.5}
+  m_AnchorMax: {x: 0, y: 0.5}
+  m_AnchoredPosition: {x: 19, y: 1.1000004}
   m_SizeDelta: {x: 31, y: 33}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1430841157
@@ -413,7 +413,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -708,6 +708,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   OnBossDeath: {fileID: 11400000, guid: f80926ae7c5ed42458cc84d92da79973, type: 2}
+  OnBossEnrage: {fileID: 11400000, guid: fcc184bf1ce531f43bc757db20d87852, type: 2}
   bossAnimator: {fileID: 4689690301096911144}
   bossMaxHealth: 5000
   baseHealthSlider: {fileID: 853743932}
@@ -868,7 +869,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
@@ -906,6 +907,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1547177809769224827}
   - component: {fileID: 9119175216910004187}
+  - component: {fileID: 4235279609808922274}
   m_Layer: 7
   m_Name: HitBox
   m_TagString: BossMelee
@@ -954,3 +956,16 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.12694931, y: 0.3008728}
   m_EdgeRadius: 0
+--- !u!114 &4235279609808922274
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8937713516089118188}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fcc5321a145af5e4fb7023fea427ab74, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 75

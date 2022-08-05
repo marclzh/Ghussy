@@ -5,6 +5,9 @@ using UnityEngine;
 public class Boss : Enemy
 {
     private BossHealth bossHealth;
+
+
+
     public void Start()
     {
         bossHealth = GetComponent<BossHealth>();

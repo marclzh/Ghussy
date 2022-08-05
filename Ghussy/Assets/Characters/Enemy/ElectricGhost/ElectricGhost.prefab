@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5915161687821227644}
   - component: {fileID: 3304687031074167640}
+  - component: {fileID: 7850950514021697091}
   m_Layer: 7
   m_Name: Enemy Attack Hit Box
   m_TagString: Enemy
@@ -24,13 +25,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 798875094647211342}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 2942621132489588255}
-  m_RootOrder: 1
+  m_Father: {fileID: 2215306371306873390}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &3304687031074167640
 BoxCollider2D:
@@ -42,7 +43,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0.16121548, y: 0.06008935}
@@ -58,6 +59,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.11478031, y: 0.16461039}
   m_EdgeRadius: 0
+--- !u!114 &7850950514021697091
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 798875094647211342}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83390f7149bfcd34a875ca61ef101d0c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 10
 --- !u!1 &1124729801913180346
 GameObject:
   m_ObjectHideFlags: 0
@@ -73,7 +87,6 @@ GameObject:
   - component: {fileID: 7451909808620067538}
   - component: {fileID: 7451909808620067533}
   - component: {fileID: 7451909808620067539}
-  - component: {fileID: 7451909808620067537}
   - component: {fileID: 7451909808620067534}
   - component: {fileID: 7451909808620067535}
   - component: {fileID: 726906293539910161}
@@ -97,7 +110,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5203162715914544094}
-  - {fileID: 5915161687821227644}
   - {fileID: 2215306371306873390}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -233,20 +245,6 @@ MonoBehaviour:
     m_NumColorKeys: 3
     m_NumAlphaKeys: 2
   baseHealthBar: {fileID: 5203162716104609811}
---- !u!114 &7451909808620067537
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1124729801913180346}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 83390f7149bfcd34a875ca61ef101d0c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damage: 20
-  attackPoint: {fileID: 5915161687821227644}
 --- !u!114 &7451909808620067534
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -349,9 +347,10 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 5915161687821227644}
   m_Father: {fileID: 2942621132489588255}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1054448126102230056
 SpriteRenderer:
