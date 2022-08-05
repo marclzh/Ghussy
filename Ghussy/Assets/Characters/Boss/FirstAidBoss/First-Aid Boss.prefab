@@ -708,6 +708,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   OnBossDeath: {fileID: 11400000, guid: f80926ae7c5ed42458cc84d92da79973, type: 2}
+  OnBossEnrage: {fileID: 11400000, guid: fcc184bf1ce531f43bc757db20d87852, type: 2}
   bossAnimator: {fileID: 4689690301096911144}
   bossMaxHealth: 5000
   baseHealthSlider: {fileID: 853743932}
@@ -967,4 +968,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fcc5321a145af5e4fb7023fea427ab74, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 150
+  damage: 75

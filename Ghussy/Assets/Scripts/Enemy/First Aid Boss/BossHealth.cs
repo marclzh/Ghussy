@@ -7,6 +7,7 @@ public class BossHealth : Health
 {
     // Boss Fields
     [SerializeField] VoidEvent OnBossDeath;
+    [SerializeField] VoidEvent OnBossEnrage;
     [SerializeField] EnemyAnimator bossAnimator;
 
     // Boss Health Values
@@ -38,7 +39,7 @@ public class BossHealth : Health
     }
     private void Update()
     {
-         // DevKey_DamageBoss();
+         DevKey_DamageBoss();
     }
 
     public override void TakeDamage(float damage)
@@ -57,6 +58,9 @@ public class BossHealth : Health
                 if (currentHealth <= 2000)
                 {
                     bossAnimator.BossEnraged();
+                    OnBossEnrage.Raise();
+
+                    AudioManager.Instance.Play("BossEnrage");
                 }
 
 
@@ -87,7 +91,7 @@ public class BossHealth : Health
         if (Input.GetKeyDown(KeyCode.O))
         {
             Debug.Log("Boss Damaged");
-            this.TakeDamage(4999);
+            this.TakeDamage(4500);
         }
     }
     IEnumerator bossDelayDeathEvent()
