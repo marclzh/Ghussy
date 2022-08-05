@@ -10,12 +10,18 @@ public class SummonEnemy : MonoBehaviour
     public void StartDelay()
     {
         StartCoroutine(DelaySpawn());
+
+        
     }
 
     IEnumerator DelaySpawn()
     {
         yield return new WaitForSeconds(delay);
 
+        // Audio Queue
+        AudioManager.Instance.Play("MinionSummon");
+
+        // Set Enemies Active
         transform.GetChild(0).gameObject.SetActive(true);
     }
     

@@ -49,13 +49,17 @@ public class WispBullet : MonoBehaviour
             animator.SetBool("isCollided", true);
             Destroy(transform.gameObject, 0.2f);
         }
-        
-        if (collision.gameObject.transform.parent.TryGetComponent<PlayerHealth>(out PlayerHealth playerComponent))
-        {
-            
-            playerComponent.TakeDamage(damage);
 
-            animator.SetBool("isCollided", true);
+        if (collision.CompareTag("GhussyTarget"))
+        {
+
+            if (collision.gameObject.transform.parent.TryGetComponent<PlayerHealth>(out PlayerHealth playerComponent))
+            {
+
+                playerComponent.TakeDamage(damage);
+
+                animator.SetBool("isCollided", true);
+            }
         }
 
         

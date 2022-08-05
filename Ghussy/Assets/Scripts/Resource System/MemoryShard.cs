@@ -9,9 +9,9 @@ public class MemoryShard : MonoBehaviour
 
     public void Start()
     {
-        if (source == MemoryShardSource.Enemy) { amount = Random.Range(1, 10); }
-        if (source == MemoryShardSource.Boss) { amount = Random.Range(75, 150); }
-        if (source == MemoryShardSource.Reward) { amount = 100; }
+        if (source == MemoryShardSource.Enemy) { amount = Random.Range(1, 5); }
+        if (source == MemoryShardSource.Boss) { amount = Random.Range(50, 100); }
+        if (source == MemoryShardSource.Reward) { amount = 50; }
     }
 }
 

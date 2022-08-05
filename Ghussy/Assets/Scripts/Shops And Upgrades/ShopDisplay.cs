@@ -14,7 +14,7 @@ public class ShopDisplay : MonoBehaviour
     [SerializeField] Button minusBossHealthButton;
     [SerializeField] Button minusEnemyButton;
     [SerializeField] TextMeshProUGUI costText;
-    [SerializeField] VoidEvent OnEctoplasmDeducted;
+    [SerializeField] VoidEvent OnMemoryShardDeducted;
     [SerializeField] Image Purchased1;
     [SerializeField] Image Purchased2;
     [SerializeField] Image Purchased3;
@@ -36,9 +36,9 @@ public class ShopDisplay : MonoBehaviour
 
     private void Start()
     {
-        bossSkeletonValue = 15;
-        minusBossHealthValue = 10;
-        minusEnemyValue = 5;
+        bossSkeletonValue = 150;
+        minusBossHealthValue = 200;
+        minusEnemyValue = 250;
 
         UpdateShopUI();
     }
@@ -82,9 +82,9 @@ public class ShopDisplay : MonoBehaviour
     {
         
         Player player = FindObjectOfType<Player>();
-        if (player.ectoplasmInventory.Container.Count > 0)
+        if (player.memoryShardInventory.Container.Count > 0)
         {
-            if (player.ectoplasmInventory.Container[0].amount >= itemValue)
+            if (player.memoryShardInventory.Container[0].amount >= itemValue)
             {
                 if (selectedItem == "BossSkeleton") { return !(SaveManager.instance.activeSave.shopBossSkeletonPurchased); }
                 if (selectedItem == "MinusBossHealth") { return !(SaveManager.instance.activeSave.shopBossHealthDeductionPurchased); }
@@ -105,8 +105,8 @@ public class ShopDisplay : MonoBehaviour
             // Audio Cue
             AudioManager.Instance.Play("PurchasePass");
 
-            // Deducts Ectoplasm from Player
-            DeductEctoplasm();
+            // Deducts MemoryShard from Player
+            DeductMemoryShard();
 
             // Update Save Manager
             if (selectedItem == "BossSkeleton") { SaveManager.instance.activeSave.shopBossSkeletonPurchased = true; }
@@ -119,10 +119,10 @@ public class ShopDisplay : MonoBehaviour
         }
     }
 
-    public void DeductEctoplasm()
+    public void DeductMemoryShard()
     {
-        FindObjectOfType<Player>().purchaseBoon(itemValue);
-        OnEctoplasmDeducted.Raise();
+        FindObjectOfType<Player>().purchaseBoon(itemValue, ResourceType.MemoryShard);
+        OnMemoryShardDeducted.Raise();
     }
 
     public void UpdateShopUI()

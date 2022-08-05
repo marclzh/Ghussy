@@ -33,10 +33,15 @@ public class EnemyAttack : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.transform.parent.TryGetComponent<PlayerHealth>(out PlayerHealth playerComponent))
+        if (collision.CompareTag("GhussyTarget"))
         {
-            playerComponent.TakeDamage(damage);
+            if (collision.gameObject.transform.parent.TryGetComponent<PlayerHealth>(out PlayerHealth playerComponent))
+            {
+                playerComponent.TakeDamage(damage);
+            }
         }
+
+        
     }
 
 }

@@ -149,7 +149,7 @@ public class PlaceOfPowerDisplay : MonoBehaviour
 
     public void DeductEctoplasm()
     {
-        FindObjectOfType<Player>().purchaseBoon(boonCost);
+        FindObjectOfType<Player>().purchaseBoon(boonCost, ResourceType.Ectoplasm);
         OnEctoplasmDeducted.Raise();
     }
       
