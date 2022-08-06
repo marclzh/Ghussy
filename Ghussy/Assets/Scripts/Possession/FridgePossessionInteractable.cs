@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SkeletonPossessionInteractable : MonoBehaviour, IInteractable
+public class FridgePossessionInteractable : MonoBehaviour, IInteractable
 {
     [SerializeField] BasePossessionState possessionState;
     [SerializeField] PossessionEvent possessionEvent;

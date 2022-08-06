@@ -1,0 +1,13 @@
+fileFormatVersion: 2
+guid: 472d05462c5097044b5a42e2c4b010fc
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - possessionState: {instanceID: 0}
+  - possessionEvent: {fileID: 11400000, guid: bcb4eacdb83894c49a2df9faffdfb2d0, type: 2}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

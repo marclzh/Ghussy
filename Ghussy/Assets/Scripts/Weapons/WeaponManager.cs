@@ -41,20 +41,16 @@ public class WeaponManager : MonoBehaviour
             currentState = nextState;
             if (currentState.ToString() == "Default")
             {
-                weaponArr[currWeaponIndex].SetActive(false); // deactivates current weapon
-                currWeaponIndex = 0; // sets the weapon to the state's weapon
-                weaponArr[currWeaponIndex].SetActive(true); // activates the current weapon
-                currWeapon = weaponArr[currWeaponIndex]; // changes the weapon to the current weapon
-                GetComponent<PlayerWeapon>().updateWeapon(currWeapon);
+                SetActiveWeapon(0);
             }
              else if (currentState.ToString() == "SkeletonTransformation")
             {
-                weaponArr[currWeaponIndex].SetActive(false); // deactivates current weapon
-                currWeaponIndex = 1; // sets the weapon to the state's weapon
-                weaponArr[currWeaponIndex].SetActive(true); // activates the current weapon
-                currWeapon = weaponArr[currWeaponIndex]; // changes the weapon to the current weapon
-                GetComponent<PlayerWeapon>().updateWeapon(currWeapon);
+                SetActiveWeapon(1);
             } 
+            else if (currentState.ToString() == "FridgeTransformation")
+            {
+                SetActiveWeapon(2);
+            }
             else
             {
                 return;
@@ -62,7 +58,17 @@ public class WeaponManager : MonoBehaviour
         }
     }
 
-
-
-
+    private void SetActiveWeapon(int i)
+    {
+        weaponArr[currWeaponIndex].SetActive(false); // deactivates current weapon
+        currWeaponIndex = i; // sets the weapon to the state's weapon
+        weaponArr[currWeaponIndex].SetActive(true); // activates the current weapon
+        currWeapon = weaponArr[currWeaponIndex]; // changes the weapon to the current weapon
+        GetComponent<PlayerWeapon>().updateWeapon(currWeapon);
+    }
 }
+
+
+
+
+
