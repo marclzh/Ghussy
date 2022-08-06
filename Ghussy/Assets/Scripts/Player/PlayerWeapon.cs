@@ -124,7 +124,8 @@ public class PlayerWeapon : MonoBehaviour
                 weapon.GetComponent<BoneWeapon>().BoneShotgun(shootingDirection);                
             } 
             else if (GetComponent<WeaponManager>().currentState.ToString() == "FridgeTransformation")
-            {               
+            {
+                weapon.GetComponent<IceWeapon>().lineRenderer.enabled = true;
                 weapon.GetComponent<IceWeapon>().ShootLaser();
             }
 
@@ -136,6 +137,11 @@ public class PlayerWeapon : MonoBehaviour
         }
         else
         {
+            if (GetComponent<WeaponManager>().currentState.ToString() == "FridgeTransformation")
+            {
+                weapon.GetComponent<IceWeapon>().lineRenderer.enabled = false;
+            }
+            
             weaponAnimator.SetBool("isFiring", false);
         }
     }
