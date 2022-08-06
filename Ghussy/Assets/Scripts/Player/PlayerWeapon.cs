@@ -56,12 +56,14 @@ public class PlayerWeapon : MonoBehaviour
         weaponRB = weapon.GetComponent<Rigidbody2D>();
         weaponSR = weapon.GetComponent<SpriteRenderer>();
         weaponAnimator = weapon.GetComponent<Animator>();
-        offSetDistance = weapon.transform.position.x - playerReference.position.x;
+        offSetDistance = Vector2.Distance(weapon.transform.position, playerReference.position);
     }
 
     private void Update()
     {
         CheckCurrentMousePos(); // Retrieves current mouse position
+        Debug.Log(offSetDistance);
+
     }
 
     void CheckCurrentMousePos()
@@ -161,7 +163,7 @@ public class PlayerWeapon : MonoBehaviour
         weaponRB = weapon.GetComponent<Rigidbody2D>();
         weaponSR = weapon.GetComponent<SpriteRenderer>();
         weaponAnimator = weapon.GetComponent<Animator>();
-        offSetDistance = weapon.transform.position.x - playerReference.position.x;
+        offSetDistance = Vector2.Distance(weapon.transform.position, playerReference.position);
     }
 
     private bool withinFireRate()
