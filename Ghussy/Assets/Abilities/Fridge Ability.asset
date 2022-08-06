@@ -15,4 +15,4 @@ MonoBehaviour:
   abilityName: Ice Beam Ability
   abilityImage: {fileID: 21300000, guid: bc93d0f412f1a624792ff6c5b6a91c3d, type: 3}
   cooldownTime: 15
-  abilityTime: 10
+  abilityTime: 999999

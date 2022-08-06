@@ -15,10 +15,6 @@ public class PlayerWeapon : MonoBehaviour
     bool isAbilityActive = false;
     float projectileSize;
 
-    // Ability References
-    [SerializeField] private int numProjectiles;
-    [SerializeField] private float projectileSpread;
-
     // Player Input Actions 
     private PlayerInputActions controls;
     private InputAction fire;
@@ -56,7 +52,7 @@ public class PlayerWeapon : MonoBehaviour
         weaponRB = weapon.GetComponent<Rigidbody2D>();
         weaponSR = weapon.GetComponent<SpriteRenderer>();
         weaponAnimator = weapon.GetComponent<Animator>();
-        offSetDistance = weapon.transform.position.x - playerReference.position.x;
+        offSetDistance = Vector2.Distance(weapon.transform.position, playerReference.position);
     }
 
     private void Update()
@@ -111,6 +107,8 @@ public class PlayerWeapon : MonoBehaviour
 
             if (!isTransformed && !isAbilityActive)
             {
+                // Reset the fireRate to the base value (for laser)
+                weapon.GetComponent<Weapon>().fireRate = weapon.GetComponent<Weapon>().GetBaseFireRate();
                 // Audio
                 FindObjectOfType<AudioManager>().Play("WeaponFire1");
 
@@ -122,25 +120,13 @@ public class PlayerWeapon : MonoBehaviour
             }
             else if (GetComponent<WeaponManager>().currentState.ToString() == "SkeletonTransformation")
             {
-                projectileSpread = 35;
-                numProjectiles = 3;
-
-                float facingRotation = Mathf.Atan2(weapon.GetComponent<Weapon>().firePoint.transform.position.x,
-                    weapon.GetComponent<Weapon>().firePoint.transform.position.y) * Mathf.Rad2Deg;
-                //weapon.GetComponent<Weapon>().firePoint.rotation;
-                float startRotation = facingRotation + projectileSpread / 2f;
-                float angleIncrease = projectileSpread / ((float)numProjectiles - 1f);
-
-                for (int i = 0; i < numProjectiles; i++)
-                {
-                    float tempRot = startRotation + angleIncrease * i;
-                    GameObject projectile = Instantiate(weapon.GetComponent<Weapon>().bulletPrefab,
-                   weapon.GetComponent<Weapon>().firePoint.position, Quaternion.Euler(0f, 0f, tempRot));
-                    Rigidbody2D rb = projectile.GetComponent<Rigidbody2D>();
-                    Vector2 shootingDirection = mousePos - playerPos2D;
-                    rb.velocity += weapon.GetComponent<Weapon>().bulletPrefab.GetComponent<BulletController>().speed * Time.deltaTime * shootingDirection.normalized;
-                }
-                FindObjectOfType<AudioManager>().Play("WeaponFire1");
+                Vector2 shootingDirection = mousePos - playerPos2D;
+                weapon.GetComponent<BoneWeapon>().BoneShotgun(shootingDirection);                
+            } 
+            else if (GetComponent<WeaponManager>().currentState.ToString() == "FridgeTransformation")
+            {
+                weapon.GetComponent<IceWeapon>().lineRenderer.enabled = true;
+                weapon.GetComponent<IceWeapon>().ShootLaser();
             }
 
             // Handle weapon shooting animation
@@ -151,6 +137,11 @@ public class PlayerWeapon : MonoBehaviour
         }
         else
         {
+            if (GetComponent<WeaponManager>().currentState.ToString() == "FridgeTransformation")
+            {
+                weapon.GetComponent<IceWeapon>().lineRenderer.enabled = false;
+            }
+            
             weaponAnimator.SetBool("isFiring", false);
         }
     }
@@ -161,7 +152,7 @@ public class PlayerWeapon : MonoBehaviour
         weaponRB = weapon.GetComponent<Rigidbody2D>();
         weaponSR = weapon.GetComponent<SpriteRenderer>();
         weaponAnimator = weapon.GetComponent<Animator>();
-        offSetDistance = weapon.transform.position.x - playerReference.position.x;
+        offSetDistance = Vector2.Distance(weapon.transform.position, playerReference.position);
     }
 
     private bool withinFireRate()
