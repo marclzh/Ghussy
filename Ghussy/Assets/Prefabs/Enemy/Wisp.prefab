@@ -121,7 +121,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 160
-  chaseRadius: 1.7
+  chaseRadius: 1.75
   attackRadius: 1
   isInChaseRange: 0
   isInAttackRange: 0
@@ -262,7 +262,7 @@ MonoBehaviour:
     useOutsideNormalAngle: 0
     layerMask:
       serializedVersion: 2
-      m_Bits: 0
+      m_Bits: 8
     minDepth: 0
     maxDepth: 0
     minNormalAngle: 0
@@ -278,7 +278,7 @@ GameObject:
   - component: {fileID: 6294118586040569652}
   m_Layer: 0
   m_Name: 'Wisp Firepoint '
-  m_TagString: Enemy
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
