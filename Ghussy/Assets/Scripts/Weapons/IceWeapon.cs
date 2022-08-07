@@ -1,15 +1,27 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class IceWeapon : Weapon
 {
     private readonly float laserFireRate = 0.005f;
-    private readonly float laserDamage = 2f;
+    private readonly float laserDamage = 4f;
     public Ability ability;
     [SerializeField] private float defDistanceRay = 10;
     public LineRenderer lineRenderer;
+    public GameObject startVFX;
+    public GameObject endVFX;
 
+    private List<ParticleSystem> particles;
 
     // Laser logic goes here :)
+
+    private void Start()
+    {
+        particles = new List<ParticleSystem>(); 
+        FillLists();
+    }
+
     public void ShootLaser()
     {
         fireRate = laserFireRate;
@@ -45,7 +57,44 @@ public class IceWeapon : Weapon
     void Draw2DRay(Vector2 startPos, Vector2 endPos)
     {
         lineRenderer.SetPosition(0, startPos);
+        startVFX.transform.position = startPos;
         lineRenderer.SetPosition(1, endPos);
+        endVFX.transform.position = endPos;
+    }
+
+    void FillLists()
+    {
+        for (int i = 0; i < startVFX.transform.childCount; i++)
+        {
+            var ps = startVFX.transform.GetChild(i).GetComponent<ParticleSystem>();
+            if (ps != null)
+                particles.Add(ps);
+        }
+
+        for (int i = 0; i < endVFX.transform.childCount; i++)
+        {
+            var ps = endVFX.transform.GetChild(i).GetComponent<ParticleSystem>();
+            if (ps != null)
+                particles.Add(ps);
+        }
+    }
+
+    public void EnableLaser()
+    {
+        lineRenderer.enabled = true;
+        for (int i = 0; i < particles.Count; i++)
+        {
+            particles[i].Play();
+        }
+    }
+
+    public void DisableLaser() 
+    {
+        lineRenderer.enabled = false;
+        for (int i = 0; i < particles.Count; i++)
+        {
+            particles[i].Stop();
+        }
     }
 
 }
