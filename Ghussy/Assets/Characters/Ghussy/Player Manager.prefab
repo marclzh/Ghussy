@@ -1146,7 +1146,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7777778, y: 1}
+    m_SensorSize: {x: 1.7788067, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -6712,7 +6712,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactionPoint: {fileID: 4370677501302855332}
-  interactionPointRadius: 0.25
+  interactionPointRadius: 0.18
   interactableMask:
     serializedVersion: 2
     m_Bits: 512
@@ -13206,6 +13206,14 @@ PrefabInstance:
       propertyPath: lineRenderer
       value: 
       objectReference: {fileID: 994737778}
+    - target: {fileID: 7770804302581658675, guid: 90d44473a1bbaab468d22affff79986e, type: 3}
+      propertyPath: m_SortingLayer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7770804302581658675, guid: 90d44473a1bbaab468d22affff79986e, type: 3}
+      propertyPath: m_SortingLayerID
+      value: -397371343
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 90d44473a1bbaab468d22affff79986e, type: 3}
 --- !u!1 &1868714121 stripped
@@ -13233,7 +13241,7 @@ LineRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 6e0bae036cdbd42bfb17a675c07df5f9, type: 2}
+  - {fileID: 2100000, guid: 9c2b58d821c4be9418a03343f8aa81e0, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -13259,13 +13267,13 @@ LineRenderer:
   - {x: 0, y: 0, z: 0}
   m_Parameters:
     serializedVersion: 3
-    widthMultiplier: 1
+    widthMultiplier: 0.1
     widthCurve:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
-        time: 0
-        value: 0.047872543
+        time: 0.014389038
+        value: 0.51595116
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -13293,7 +13301,7 @@ LineRenderer:
       ctime5: 0
       ctime6: 0
       ctime7: 0
-      atime0: 0
+      atime0: 18311
       atime1: 65535
       atime2: 0
       atime3: 0
@@ -13305,7 +13313,7 @@ LineRenderer:
       m_NumColorKeys: 2
       m_NumAlphaKeys: 2
     numCornerVertices: 0
-    numCapVertices: 0
+    numCapVertices: 9
     alignment: 0
     textureMode: 0
     shadowBias: 0.5

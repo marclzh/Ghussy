@@ -9,10 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5b2aecf351ce07b4494cbb12d9e7a478, type: 3}
-  m_Name: Fridge Ability
+  m_Script: {fileID: 11500000, guid: b7d573be3cac9fe478ccd71c147df748, type: 3}
+  m_Name: Bone Throw Ability
   m_EditorClassIdentifier: 
-  abilityName: Ice Beam Ability
-  abilityImage: {fileID: 21300000, guid: bc93d0f412f1a624792ff6c5b6a91c3d, type: 3}
+  abilityName: Bone Throw Ability
+  abilityImage: {fileID: -379815536, guid: aad3e4b418045514b9aee9c2609fdd91, type: 3}
   cooldownTime: 15
-  abilityTime: 999999
+  abilityTime: 8
