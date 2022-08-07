@@ -750,6 +750,7 @@ GameObject:
   - component: {fileID: 303544567}
   - component: {fileID: 303544569}
   - component: {fileID: 303544568}
+  - component: {fileID: 303544570}
   m_Layer: 9
   m_Name: NextPlayerBase
   m_TagString: Untagged
@@ -815,6 +816,18 @@ MonoBehaviour:
   nextRoomType: 0
   nextLevelType: 3
   prompt: To The Graveyard
+--- !u!114 &303544570
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 303544566}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 039d42b3c6f0499438367ed1e7e2031b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &329835865
 GameObject:
   m_ObjectHideFlags: 0

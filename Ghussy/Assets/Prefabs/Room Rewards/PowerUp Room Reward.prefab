@@ -12,14 +12,14 @@ GameObject:
   - component: {fileID: 431446056906858386}
   - component: {fileID: 431446056906858387}
   - component: {fileID: 431446056906858413}
-  - component: {fileID: 5544840584048550840}
+  - component: {fileID: 9068910963134191212}
   m_Layer: 9
   m_Name: PowerUp Room Reward
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &431446056906858385
 Transform:
   m_ObjectHideFlags: 0
@@ -76,7 +76,7 @@ SpriteRenderer:
   m_SortingLayerID: -1833894411
   m_SortingLayer: 7
   m_SortingOrder: 0
-  m_Sprite: {fileID: 1576598264, guid: e9f9f8070d5746847afdef77f1d2de46, type: 3}
+  m_Sprite: {fileID: 1544065970, guid: 801cda7649de11841bee1dbd7f7bed3f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -123,7 +123,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &5544840584048550840
+--- !u!114 &9068910963134191212
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -132,9 +132,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 431446056906858390}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ea06b2f8a73aa91459f5c8170c5c4fdd, type: 3}
+  m_Script: {fileID: 11500000, guid: f2fbac2b5d6971246b87f1f7dba56b89, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  onRoomRewardInteracted: {fileID: 11400000, guid: a31f4cbf36ead5e4993090f7640a93c8, type: 2}
+  onRoomRewardInteracted: {fileID: 11400000, guid: 234c95da744387d459ea4471cd000945, type: 2}
   prompt: Collect
-  ectoplasmPrefab: {fileID: 3702410368621476491, guid: aa0e7ad0a3082f04291c07bdf662bf22, type: 3}
