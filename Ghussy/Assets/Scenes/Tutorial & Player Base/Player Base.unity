@@ -6915,7 +6915,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Buying this causes a Skeleton Model to appear in the room where a strong
+  m_text: Buying this causes a Possession Object to appear in the room where a powerful
     enemy resides...
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: db6973881c1a5f44b9d61d84a22d7b63, type: 2}
@@ -24590,13 +24590,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 139af5d85cc6dc345b56db1cc72f8b37, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameEvent: {fileID: 11400000, guid: 78b73a03989baef4894bb3cfd5d2e0d7, type: 2}
+  gameEvent: {fileID: 11400000, guid: 002f5b3b572d17d43a9ddb6f69486a1c, type: 2}
   unityEventResponse:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: EctoplasmUI, Assembly-CSharp
-        m_MethodName: DisplayCurrentEctoplasmAmount
+      - m_Target: {fileID: 1339719466}
+        m_TargetAssemblyTypeName: MemoryShardUI, Assembly-CSharp
+        m_MethodName: DisplayCurrentAmount
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -31629,8 +31629,8 @@ MonoBehaviour:
     sentences:
     - This is the Shop, where you can buy stuff from me :)
     - I'm not selling much now, but check in with me after you find some more clues!
-    - You can trade with me using ectoplasm, which you should also have gotten just
-      now!
+    - You can trade with me using Memory Shards, which you should also have gotten
+      just now!
     - Now let me show you where you might be able to find some clues!
 --- !u!1001 &2112981826
 PrefabInstance:
