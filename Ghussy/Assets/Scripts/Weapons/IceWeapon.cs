@@ -1,23 +1,40 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class IceWeapon : Weapon
 {
-    private readonly float laserFireRate = 0.00001f;
+    private readonly float laserFireRate = 0.005f;
+    private readonly float laserDamage = 2f;
     public Ability ability;
-    [SerializeField] private float defDistanceRay = 25;
+    [SerializeField] private float defDistanceRay = 10;
     public LineRenderer lineRenderer;
+
 
     // Laser logic goes here :)
     public void ShootLaser()
     {
         fireRate = laserFireRate;
+        FindObjectOfType<AudioManager>().Play("WeaponFire1");
         if (Physics2D.Raycast(transform.position, transform.right))
         {
             RaycastHit2D hit = Physics2D.Raycast(firePoint.position, transform.right);
-            Debug.Log(hit.collider.gameObject.name);
-            Draw2DRay(firePoint.position, hit.point);
+            if (hit.collider != null)
+            {
+                if (hit.collider.gameObject.tag == "Enemy")
+                {
+                    hit.collider.gameObject.GetComponent<EnemyHealth>().TakeDamage(laserDamage);
+                }
+
+                if (hit.collider.gameObject.tag == "Boss")
+                {
+                    hit.collider.gameObject.GetComponent<BossHealth>().TakeDamage(laserDamage);
+                }
+
+                Draw2DRay(firePoint.position, hit.point);
+            }
+            else
+            {
+                Draw2DRay(firePoint.position, firePoint.transform.right * defDistanceRay);
+            }
         }
         else
         {
