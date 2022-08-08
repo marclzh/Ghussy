@@ -29,6 +29,6 @@ public class BoneWeapon : Weapon
             Rigidbody2D rb = projectile.GetComponent<Rigidbody2D>();
             rb.velocity += bulletPrefab.GetComponent<BulletController>().speed * Time.deltaTime * shootingDirection.normalized;
         }
-        FindObjectOfType<AudioManager>().Play("WeaponFire1");
+        FindObjectOfType<AudioManager>().Play("BoneWeapon");
     }
 }

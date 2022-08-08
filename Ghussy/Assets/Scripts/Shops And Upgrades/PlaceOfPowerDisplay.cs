@@ -73,8 +73,6 @@ public class PlaceOfPowerDisplay : MonoBehaviour
 
             SaveManager.instance.activeSave.permBoonApplied = true;
             SaveManager.instance.SaveGame();
-
-
         } 
         else
         {
