@@ -18,6 +18,7 @@ public class ShopDisplay : MonoBehaviour
     [SerializeField] Image Purchased1;
     [SerializeField] Image Purchased2;
     [SerializeField] Image Purchased3;
+    [SerializeField] private PauseMenu pauseMenu;
     private int itemValue;
     private string selectedItem;
 
@@ -39,6 +40,8 @@ public class ShopDisplay : MonoBehaviour
         bossSkeletonValue = 150;
         minusBossHealthValue = 200;
         minusEnemyValue = 250;
+
+        pauseMenu.DisablePausing();
 
         UpdateShopUI();
     }
@@ -136,5 +139,6 @@ public class ShopDisplay : MonoBehaviour
     {
         FindObjectOfType<PlayerController>().ActionMapPlayerChange();
         canvas.gameObject.SetActive(false);
+        pauseMenu.EnablePausing();
     }
 }
