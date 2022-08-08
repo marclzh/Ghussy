@@ -8678,9 +8678,9 @@ MonoBehaviour:
     - Ghussy
     - Aghostine
     sprites:
-    - {fileID: -927902647, guid: c1c11af3963d03c499f72166863e22e6, type: 3}
+    - {fileID: 470971526, guid: 6b466d6afc790044ba8dd4b70f722f7e, type: 3}
     - {fileID: 1319632407, guid: 2f186d627fc85214e930444abff8e0b2, type: 3}
-    - {fileID: -927902647, guid: c1c11af3963d03c499f72166863e22e6, type: 3}
+    - {fileID: 470971526, guid: 6b466d6afc790044ba8dd4b70f722f7e, type: 3}
     sentences:
     - test
     - test
