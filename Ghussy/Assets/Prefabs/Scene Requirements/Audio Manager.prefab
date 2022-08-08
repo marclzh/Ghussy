@@ -201,26 +201,34 @@ MonoBehaviour:
     playOnAwake: 0
     source: {fileID: 0}
   - audioType: 0
-    name: BoneWeapon
-    clip: {fileID: 8300000, guid: 6d0bdca3c9d500c44a6b3c4bd66d2255, type: 3}
-    volume: 0.422
-    pitch: 0.879
+    name: MinionSummon
+    clip: {fileID: 8300000, guid: 56dbf512cfbd0e94eba840a9ab8bc8f3, type: 3}
+    volume: 1
+    pitch: 0.831
     loop: 0
     playOnAwake: 0
     source: {fileID: 0}
   - audioType: 0
     name: IceWeapon
     clip: {fileID: 8300000, guid: c11b70361569da14ca2f8d1e0374f523, type: 3}
-    volume: 0.295
-    pitch: 0.879
+    volume: 0.414
+    pitch: 0.831
+    loop: 0
+    playOnAwake: 0
+    source: {fileID: 0}
+  - audioType: 0
+    name: BoneWeapon
+    clip: {fileID: 8300000, guid: 6d0bdca3c9d500c44a6b3c4bd66d2255, type: 3}
+    volume: 0.414
+    pitch: 0.831
     loop: 0
     playOnAwake: 0
     source: {fileID: 0}
   - audioType: 0
     name: Laser
     clip: {fileID: 8300000, guid: ecae68a4420d3034b81a50762c39a8e4, type: 3}
-    volume: 0.677
-    pitch: 0.879
+    volume: 0.326
+    pitch: 0.831
     loop: 1
     playOnAwake: 0
     source: {fileID: 0}

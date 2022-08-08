@@ -2646,6 +2646,7 @@ MonoBehaviour:
   Purchased1: {fileID: 2127000196}
   Purchased2: {fileID: 1999855643}
   Purchased3: {fileID: 188044854}
+  pauseMenu: {fileID: 1655110306}
 --- !u!114 &119202208
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6281,6 +6282,7 @@ MonoBehaviour:
   PS3: {fileID: 1147259628}
   purchasedColour: {r: 0.35088107, g: 0.88680226, b: 0.8962264, a: 1}
   OnEctoplasmDeducted: {fileID: 11400000, guid: 78b73a03989baef4894bb3cfd5d2e0d7, type: 2}
+  pauseMenu: {fileID: 1655110306}
 --- !u!1 &742431836
 GameObject:
   m_ObjectHideFlags: 0
@@ -23307,6 +23309,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 913271604164061017, guid: 0f79d9587d7612e4481bb06a9eec56ff, type: 3}
+      propertyPath: activeSave.playerBaseGuide
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 913271604164061018, guid: 0f79d9587d7612e4481bb06a9eec56ff, type: 3}
       propertyPath: m_Name
       value: Save Manager
@@ -23779,7 +23785,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.10576286, y: 0.25100002}
   m_AnchorMax: {x: 0.3001186, y: 0.5}
-  m_AnchoredPosition: {x: -5.4062195, y: 19.601997}
+  m_AnchoredPosition: {x: -5.4062424, y: 19.601997}
   m_SizeDelta: {x: -30.569, y: 57.131}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1122221307
@@ -29969,6 +29975,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1652932662}
   m_CullTransparentMesh: 1
+--- !u!114 &1655110306 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4370677500283804839, guid: b75c3a1b41293d3479bb77ea575db8dc, type: 3}
+  m_PrefabInstance: {fileID: 1874269462}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7092c600c22d224d886c81c26cf7e46, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1670118269
 GameObject:
   m_ObjectHideFlags: 0
@@ -30328,7 +30345,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.13836181, y: 0.25100002}
   m_AnchorMax: {x: 0.26467773, y: 0.79647577}
-  m_AnchoredPosition: {x: -4.4061584, y: -2.3980026}
+  m_AnchoredPosition: {x: -4.4061813, y: -2.3980026}
   m_SizeDelta: {x: 15.431, y: 13.1310005}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1789724663

@@ -26,13 +26,14 @@ public class PlaceOfPowerDisplay : MonoBehaviour
     [SerializeField] Color purchasedColour;
     [SerializeField] VoidEvent OnEctoplasmDeducted;
 
-
+    [SerializeField] private PauseMenu pauseMenu;
     void Start()
     {
         movementSpeedLevel = SaveManager.instance.activeSave.permBoonMultiple[0];
         maxHealthLevel = SaveManager.instance.activeSave.permBoonMultiple[1];
         projectileSizeLevel = SaveManager.instance.activeSave.permBoonMultiple[2];
         UpdateUI();
+        pauseMenu.DisablePausing();
     }
 
     public void PurchaseMS()
@@ -156,5 +157,6 @@ public class PlaceOfPowerDisplay : MonoBehaviour
     {
         FindObjectOfType<PlayerController>().ActionMapPlayerChange();
         canvas.gameObject.SetActive(false);
+        pauseMenu.EnablePausing();
     }
 }
