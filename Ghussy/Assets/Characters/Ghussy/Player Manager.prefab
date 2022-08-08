@@ -22303,7 +22303,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -631, y: -295}
+  m_AnchoredPosition: {x: -629, y: -211}
   m_SizeDelta: {x: 369.69, y: 348.38}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1540978868
@@ -30545,7 +30545,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4370677501601535635}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.008, y: -0.113, z: 0}
+  m_LocalPosition: {x: -0.006, y: 0.044, z: 0}
   m_LocalScale: {x: 0.16, y: 0.16, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -32454,11 +32454,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7770804300807882629, guid: 90d44473a1bbaab468d22affff79986e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.215
+      value: 0.088
       objectReference: {fileID: 0}
     - target: {fileID: 7770804300807882629, guid: 90d44473a1bbaab468d22affff79986e, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.002
+      value: -0.01
       objectReference: {fileID: 0}
     - target: {fileID: 7770804302581658637, guid: 90d44473a1bbaab468d22affff79986e, type: 3}
       propertyPath: m_Name
@@ -32466,7 +32466,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7770804302581658637, guid: 90d44473a1bbaab468d22affff79986e, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7770804302581658672, guid: 90d44473a1bbaab468d22affff79986e, type: 3}
       propertyPath: m_RootOrder
@@ -32598,8 +32598,8 @@ LineRenderer:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
-        time: 0.014389038
-        value: 0.51595116
+        time: 0.00630188
+        value: 0.55192596
         inSlope: 0
         outSlope: 0
         tangentMode: 0
