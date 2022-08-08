@@ -14,6 +14,9 @@ public class IceWeapon : Weapon
 
     private List<ParticleSystem> particles;
 
+    // Audio
+    private bool audioPlaying;
+
     // Laser logic goes here :)
 
     private void Start()
@@ -81,7 +84,13 @@ public class IceWeapon : Weapon
 
     public void EnableLaser()
     {
+        // Audio
+        if (!audioPlaying) { AudioManager.Instance.Play("Laser"); audioPlaying = true; }
+
+        // Line Renderer
         lineRenderer.enabled = true;
+        
+        // Particles
         for (int i = 0; i < particles.Count; i++)
         {
             particles[i].Play();
@@ -90,11 +99,19 @@ public class IceWeapon : Weapon
 
     public void DisableLaser() 
     {
+        // Audio
+        AudioManager.Instance.Stop("Laser");
+        audioPlaying = false;
+
+        // Line Renderer
         lineRenderer.enabled = false;
+       
+        // Particles
         for (int i = 0; i < particles.Count; i++)
         {
             particles[i].Stop();
         }
     }
+
 
 }

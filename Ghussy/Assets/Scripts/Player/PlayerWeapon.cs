@@ -107,10 +107,12 @@ public class PlayerWeapon : MonoBehaviour
 
             if (!isTransformed && !isAbilityActive)
             {
+                // Handle Audio
+                WeaponAudioCue();
+
                 // Reset the fireRate to the base value (for laser)
                 weapon.GetComponent<Weapon>().fireRate = weapon.GetComponent<Weapon>().GetBaseFireRate();
-                // Audio
-                FindObjectOfType<AudioManager>().Play("WeaponFire1");
+                
 
                 GameObject projectile = Instantiate(weapon.GetComponent<Weapon>().bulletPrefab,
                     weapon.GetComponent<Weapon>().firePoint.position, weapon.GetComponent<Weapon>().firePoint.rotation);
@@ -125,8 +127,10 @@ public class PlayerWeapon : MonoBehaviour
             } 
             else if (GetComponent<WeaponManager>().currentState.ToString() == "FridgeTransformation")
             {
+                
                 weapon.GetComponent<IceWeapon>().EnableLaser();
                 weapon.GetComponent<IceWeapon>().ShootLaser();
+                
             }
 
             // Handle weapon shooting animation
@@ -140,9 +144,30 @@ public class PlayerWeapon : MonoBehaviour
             if (GetComponent<WeaponManager>().currentState.ToString() == "FridgeTransformation")
             {
                 weapon.GetComponent<IceWeapon>().DisableLaser();
+                
             }
             
             weaponAnimator.SetBool("isFiring", false);
+        }
+    }
+
+    private void WeaponAudioCue()
+    {
+        
+        if (GetComponent<WeaponManager>().currentState.ToString() == "SkeletonTransformation")
+        {
+            // Bone Weapon
+            AudioManager.Instance.Play("BoneWeapon");
+        }
+        else if (GetComponent<WeaponManager>().currentState.ToString() == "FridgeTransformation")
+        {
+            // Ice Weapon
+            AudioManager.Instance.Play("IceWeapon");
+        }
+        else
+        {
+            // Default
+            AudioManager.Instance.Play("WeaponFire1");
         }
     }
 

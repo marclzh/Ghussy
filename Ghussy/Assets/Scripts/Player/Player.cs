@@ -218,16 +218,25 @@ public class Player : MonoBehaviour, ICharacter, IDamageable
 
     public void ApplyPermBoons()
     {
+        // Retrieve save data
         SaveData save = saveManager.activeSave;
         float movementSpeedBonus = .05f * save.permBoonMultiple[0];
         float maxHealthBonus = .05f * save.permBoonMultiple[1];
         float projectileSizeBonus = .05f * save.permBoonMultiple[2];
 
+        // Default Values
+        movementSpeed = new CharacterStat(1f);
+        maxHealth = new CharacterStat(100f);
+        currentHealth = new CharacterStat(100f);
+        projectileSize = new CharacterStat(1f);
+
+        // Add Modifiers
         movementSpeed.AddModifier(new StatModifier(movementSpeedBonus, StatModType.PercentMult, this));
         maxHealth.AddModifier(new StatModifier(maxHealthBonus, StatModType.PercentMult, this));
         currentHealth.AddModifier(new StatModifier(maxHealthBonus, StatModType.PercentMult, this));
         projectileSize.AddModifier(new StatModifier(projectileSizeBonus, StatModType.PercentMult, this));
 
+        // Update UI
         maxHealthInitialization.Raise(maxHealth);
         currentHealthInitialization.Raise(currentHealth);
         movementSpeedChange.Raise(movementSpeed);
