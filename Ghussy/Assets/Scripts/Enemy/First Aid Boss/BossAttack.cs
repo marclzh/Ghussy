@@ -12,22 +12,19 @@ public class BossAttack : MonoBehaviour
         boss = transform.parent.transform;
     }
 
-    void Update()
-    {
-
-    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("GhussyTarget"))
         {
             if (collision.gameObject.transform.parent.TryGetComponent<PlayerHealth>(out PlayerHealth playerComponent))
             {
+                // Play Audio
                 AudioManager.Instance.Play("BossAttack");
+
+                // Deal Damage
                 playerComponent.TakeDamage(damage);
             }
         }
-
-        
     }
 
 }

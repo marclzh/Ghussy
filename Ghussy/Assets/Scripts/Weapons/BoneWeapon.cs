@@ -17,7 +17,7 @@ public class BoneWeapon : Weapon
 
         float facingRotation = Mathf.Atan2(firePoint.transform.position.x,
            firePoint.transform.position.y) * Mathf.Rad2Deg;
-        //weapon.GetComponent<Weapon>().firePoint.rotation;
+        
         float startRotation = facingRotation + projectileSpread / 2f;
         float angleIncrease = projectileSpread / ((float)numProjectiles - 1f);
 

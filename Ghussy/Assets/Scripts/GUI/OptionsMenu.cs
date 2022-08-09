@@ -4,24 +4,22 @@ using UnityEngine;
 
 public class OptionsMenu : MonoBehaviour
 {
-    [SerializeField] PlayerController playerController; 
+    [SerializeField] private PlayerController playerController; 
 
 public void SetQuality(int qualityIndex)
     {
         QualitySettings.SetQualityLevel(qualityIndex);
     }
-    
-    public void SetFullscreen(bool isFullscreen) { 
-        Screen.fullScreen = isFullscreen;
-    } 
 
     public void CloseOptions()
     {
         // Audio
         AudioManager.Instance.Play("Click");
 
+        // Closes Options menu
         gameObject.SetActive(false);
+
         // Switch back player input map
-        if (playerController != null) { playerController.playerInput.SwitchCurrentActionMap("Player"); }
+        if (playerController != null) { playerController.ActionMapPlayerChange(); }
     }
 }

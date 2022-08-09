@@ -8,21 +8,20 @@ using System.Text;
 
 public class SaveManager : MonoBehaviour
 {
+    // Save File 
     public SaveData activeSave;
-
     public static SaveManager instance;
 
+    // Flag to determine if new game
     public bool hasLoaded;
 
+    // Used for XOR Encryption
     private static readonly string EncryptionCodeWord = "Ghussy";
 
     public void Awake()
     {
         instance = this;
-
-
         LoadGame();
-
     }
 
     public void SaveGame()
@@ -74,6 +73,9 @@ public class SaveManager : MonoBehaviour
         }
     }
 
+    /*
+     * Class handling the encryption, serialization logic
+     */
     private class EncryptionUtils
     {
         public static string SerializeXML<T>(System.Object inputData)
@@ -157,6 +159,9 @@ public class SaveManager : MonoBehaviour
     }
 }
 
+/*
+ * Active Save Class
+ */
 [System.Serializable]
 public class SaveData
 {
