@@ -25616,7 +25616,6 @@ GameObject:
   - component: {fileID: 1596553124}
   - component: {fileID: 2877176420708713967}
   - component: {fileID: 4370677501888905464}
-  - component: {fileID: 3324856644792946669}
   - component: {fileID: 4370677501888905420}
   - component: {fileID: 1596553125}
   - component: {fileID: 3276588992431914395}
@@ -26032,22 +26031,6 @@ MonoBehaviour:
     m_Bits: 512
   interactionPromptUI: {fileID: 2095497567482615326}
   numFound: 0
---- !u!114 &3324856644792946669
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3258236631920043841}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9e50299e7d64d294fa966c0dc1bb1e4b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  onEctoplasmAmountUpdate: {fileID: 11400000, guid: 78b73a03989baef4894bb3cfd5d2e0d7, type: 2}
-  onMemoryShardAmountUpdate: {fileID: 11400000, guid: 002f5b3b572d17d43a9ddb6f69486a1c, type: 2}
-  ectoplasmInventory: {fileID: 11400000, guid: b22942662ad953542bd34f1dc7fab4cc, type: 2}
-  memoryShardInventory: {fileID: 11400000, guid: 7bdc15b624fc8a94f84dd1395e396778, type: 2}
 --- !u!114 &4370677501888905420
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -30530,6 +30513,7 @@ GameObject:
   - component: {fileID: 4370677501601535634}
   - component: {fileID: 434197825}
   - component: {fileID: 434197824}
+  - component: {fileID: 205087717}
   m_Layer: 6
   m_Name: Ghussy Hit Box
   m_TagString: GhussyTarget
@@ -30545,7 +30529,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4370677501601535635}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.006, y: 0.044, z: 0}
+  m_LocalPosition: {x: -0.009, y: 0.044, z: 0}
   m_LocalScale: {x: 0.16, y: 0.16, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -30586,7 +30570,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.015402138, y: 0.78043044}
+  m_Offset: {x: 0.015402138, y: 0.010918468}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -30597,8 +30581,24 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.3080453, y: 1.9447701}
+  m_Size: {x: 1.3080453, y: 1.4486797}
   m_EdgeRadius: 0
+--- !u!114 &205087717
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4370677501601535635}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e50299e7d64d294fa966c0dc1bb1e4b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onEctoplasmAmountUpdate: {fileID: 11400000, guid: 78b73a03989baef4894bb3cfd5d2e0d7, type: 2}
+  onMemoryShardAmountUpdate: {fileID: 11400000, guid: 002f5b3b572d17d43a9ddb6f69486a1c, type: 2}
+  ectoplasmInventory: {fileID: 11400000, guid: b22942662ad953542bd34f1dc7fab4cc, type: 2}
+  memoryShardInventory: {fileID: 11400000, guid: 7bdc15b624fc8a94f84dd1395e396778, type: 2}
 --- !u!1 &4370677501619988645
 GameObject:
   m_ObjectHideFlags: 0
@@ -32466,7 +32466,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7770804302581658637, guid: 90d44473a1bbaab468d22affff79986e, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7770804302581658672, guid: 90d44473a1bbaab468d22affff79986e, type: 3}
       propertyPath: m_RootOrder
@@ -32535,6 +32535,10 @@ PrefabInstance:
     - target: {fileID: 7770804302581658675, guid: 90d44473a1bbaab468d22affff79986e, type: 3}
       propertyPath: m_SortingLayer
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7770804302581658675, guid: 90d44473a1bbaab468d22affff79986e, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7770804302581658675, guid: 90d44473a1bbaab468d22affff79986e, type: 3}
       propertyPath: m_SortingLayerID
