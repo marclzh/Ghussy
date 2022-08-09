@@ -1,28 +1,36 @@
 using UnityEngine;
 using System.Collections.Generic;
 
+/**
+ * Class to control the ranged enemy attack.
+ */
 public class RangedEnemyAttack : MonoBehaviour
 {
+    // Reference to the firepoint of the ranged enemy.
     [SerializeField] private Transform firePoint;
+    // Reference to the prefab of the projectile.
     [SerializeField] private Transform projectilePrefab;
+    // Variables controlling the attack of the ranged enemy.
     [SerializeField] private float fireRateDelay = .1f;
     [SerializeField] private float lastFireTime = 0f;
+    // Reference to the player target.
     [SerializeField] private Transform playerTarget;
+    // Boolean to check if the enemy is attacking.
     [SerializeField] private bool isAttacking;
-
-    [SerializeField] private float collisionOffset = .01f; // Distance of collision detection
-    [SerializeField] private ContactFilter2D collisionFilter; // determines where a collision can occur (layers)
-    private List<RaycastHit2D> castCollisions = new List<RaycastHit2D>(); // List of collisions found during raycast 
+    // Distance of collision detection.
+    [SerializeField] private float collisionOffset = .01f;
+    // Determines where a collision can occur (layers).
+    [SerializeField] private ContactFilter2D collisionFilter;
+    // List of collisions found during raycast.
+    private List<RaycastHit2D> castCollisions = new List<RaycastHit2D>(); 
 
     private void Awake()
     {
-        playerTarget = GameObject.FindGameObjectWithTag("GhussyTarget").transform;
-        
+        playerTarget = GameObject.FindGameObjectWithTag("GhussyTarget").transform;       
     }
 
     public void Update()
-    {
-       
+    {       
         // Rotate Fire Point to face Player
         Vector2 shootingDirection = playerTarget.position - firePoint.position;
         float angle = Mathf.Atan2(shootingDirection.y, shootingDirection.x) * Mathf.Rad2Deg;
@@ -38,6 +46,7 @@ public class RangedEnemyAttack : MonoBehaviour
         
     }
 
+    // Method to control the attack of the ranged enemy.
     public void RangeAttack()
     {
         Vector2 shootingDirection = playerTarget.position - firePoint.position;
@@ -55,7 +64,7 @@ public class RangedEnemyAttack : MonoBehaviour
         }
     }
 
-    
+    // Method for the firing of the ranged enemy.  
     private bool TryShoot(Vector2 direction)
     {
         if (direction != Vector2.zero) // null check
@@ -78,11 +87,8 @@ public class RangedEnemyAttack : MonoBehaviour
             {
                 return false;
             }
-        }
-        
+        }      
         // Can't shoot if there's no direction to move in
-        return false;
-        
+        return false;    
     }
-    
 }

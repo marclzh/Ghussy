@@ -1,7 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
+/**
+ * This class is used for the Float Event Listener.
+ */
 public class FloatListener : BaseGameEventListener<float, FloatEvent, UnityFloatEvent>
 {
 

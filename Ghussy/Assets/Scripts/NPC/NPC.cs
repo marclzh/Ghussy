@@ -1,11 +1,17 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+/**
+ * This class controls the logic of the NPCs.
+ */
 public class NPC : MonoBehaviour, INPC
 {
     private NPCInteractable npcInteractable;
+    // Reference to the dialogues of the NPC.
     [SerializeField] private Transform dialogues;
+    // Array to hold the dialogues of the NPC.
     private GameObject[] dialoguesArr;
+    // Counters for the dialogues.
     private int dialogueCount;
     private int dialogueCounter;
     private int initDialogueCounter;
@@ -30,6 +36,7 @@ public class NPC : MonoBehaviour, INPC
         currScene = SceneManager.GetActiveScene();
     }
 
+    // Method to swithc the trigger of the dialogues once played.
     public void SwitchTrigger()
     {
         npcInteractable.SetTrigger(dialoguesArr[dialogueCounter].GetComponent<DialogueTrigger>());
@@ -40,6 +47,7 @@ public class NPC : MonoBehaviour, INPC
         }
     }
 
+    // Setting the dialogue counters.
     public void SetDialogueCounter(int count)
     {
         initDialogueCounter = count;

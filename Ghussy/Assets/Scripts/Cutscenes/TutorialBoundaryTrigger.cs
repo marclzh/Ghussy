@@ -1,7 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
+/**
+ * Class to control a trigger in the tutorial.
+ */
 public class TutorialBoundaryTrigger : MonoBehaviour
 {
     private void OnTriggerEnter2D(Collider2D collision)

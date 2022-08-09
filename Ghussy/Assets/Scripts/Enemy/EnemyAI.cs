@@ -1,9 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using Pathfinding;
 
- 
+/**
+ * Class to control the pathfinding of the enemy. (A* Pathfinding)
+ */
 public class EnemyAI : MonoBehaviour
 {
     // Enemy graphics reference
@@ -17,9 +17,9 @@ public class EnemyAI : MonoBehaviour
     public float nextWaypointDistance = 0.1f;
     public bool isChasing = false;
     
+    // Enemy Pathfinding References
     Path path;
     int currentWaypoint = 0;
-
     Seeker seeker;
     Rigidbody2D rb;
 
@@ -36,6 +36,7 @@ public class EnemyAI : MonoBehaviour
         InvokeRepeating("UpdatePath", 0f, 0.5f);
     }
 
+    // Updates the path of the enemy pathing.
     void UpdatePath()
     {
         if (seeker.IsDone())
@@ -44,6 +45,7 @@ public class EnemyAI : MonoBehaviour
         }
     }
 
+    // Confirms the path completion of the enemy.
     void OnPathComplete(Path p)
     {
         // set the path to p only if no errors while calculating the path.

@@ -3,6 +3,9 @@ using UnityEngine.UI;
 using TMPro;
 using Kryz.CharacterStats;
 
+/**
+ * This class controls the Health UI of the player character.
+ */
 public class PlayerHealthUI : MonoBehaviour
 {
 
@@ -25,14 +28,16 @@ public class PlayerHealthUI : MonoBehaviour
     private bool isTransformed = false;
     // Reference to the player animator
     PlayerAnimator animator;
-
+    // Reference to the HealthBar slider.
     public Slider baseHealthSlider;
+    // Reference to the gradient of the health bar.
     public Gradient gradient;
+    // Reference to the overall health bar of the player.
     public Image baseHealthBar;
 
     private void Awake()
     {
-
+        // Initialising variables
         transformationColor = new Color(0.1f, 0.95f, 0.95f);
         transformationHealthBar.color = transformationColor;
         animator = GetComponent<PlayerAnimator>();
@@ -46,7 +51,7 @@ public class PlayerHealthUI : MonoBehaviour
         transformationHealthObject.SetActive(false);
     }
 
-
+    // Method used by event system to update the health of the player.
     public void UpdateHealthUI(float health)
     {
         if (!isTransformed)
@@ -66,6 +71,7 @@ public class PlayerHealthUI : MonoBehaviour
         }
     }
 
+    // Method to change MaxHealth when powerup is obtained.
     public void UpdateMaxHealthUI(CharacterStat newMaxHealth)
     {
         baseHealthSlider.maxValue = newMaxHealth.Value;
@@ -73,17 +79,20 @@ public class PlayerHealthUI : MonoBehaviour
         healthValue.text = $"{ ((int)baseHealthSlider.value).ToString()}/{ ((int)baseHealthSlider.maxValue).ToString()}";
     }
 
+    // Method to update the current health of the player.
     public void UpdateCurrentHealthUI(CharacterStat newCurrentHealth)
     {
         baseHealthSlider.value = newCurrentHealth.Value;
         healthValue.text = $"{ ((int)baseHealthSlider.value).ToString()}/{ ((int)baseHealthSlider.maxValue).ToString()}";
     }
 
+    // Method to play the death animation of the player.
     public void Die()
     {
         animator.IsPlayerDead(true);
     }
 
+    // Method to update the UI upon the death of the transformation.
     public void TransformationDeath()
     {
         animator.IsTransformationDead();
@@ -94,6 +103,7 @@ public class PlayerHealthUI : MonoBehaviour
         isTransformed = false;
     }
 
+    // Method to update the health of the transformation.
     public void TransformationUpdateHealth(BasePossessionState nextState)
     {
         if (nextState != null)

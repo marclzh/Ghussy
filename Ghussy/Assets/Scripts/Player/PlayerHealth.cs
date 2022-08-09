@@ -1,10 +1,12 @@
 using UnityEngine;
-using UnityEngine.UI;
-using TMPro;
 using Kryz.CharacterStats;
 
+/**
+ * This class controls the logic of the Player's Health
+ */
 public class PlayerHealth : Health
 {
+    // Events to be raised to update the relevant information.
     [SerializeField] private VoidEvent onTransformationDeath;
     [SerializeField] private FloatEvent onHealthChange;
     [SerializeField] private VoidEvent onPlayerDeath;
@@ -33,16 +35,7 @@ public class PlayerHealth : Health
         onHealthChange.Raise(currentHealth);
     }
 
-    private void Update()
-    {
-        /*
-        if (Input.GetKeyDown(KeyCode.P))
-        {
-            TakeDamage(99);
-        }
-        */
-    }
-
+    // Overidden TakeDamage Function to control the logic of taking damage for the player.
     public override void TakeDamage(float damage)
     {
         if (!isInvincible)
@@ -51,7 +44,7 @@ public class PlayerHealth : Health
             {
                 base.TakeDamage(damage);
 
-                // audio 
+                // Audio to be played on Hit
                 FindObjectOfType<AudioManager>().Play("Hit");
 
                 // Raise Event to Update UI
@@ -77,9 +70,9 @@ public class PlayerHealth : Health
                 }
             }
         }
-
     }
 
+    // Healing Method to heal the player.
     public void Heal(float healAmount)
     {
         if (!isTransformed)
@@ -108,6 +101,7 @@ public class PlayerHealth : Health
 
     }
 
+    // Overidden Death method from the parent Health class.
     public override void Die()
     {
         if (!hasDied)
@@ -117,8 +111,8 @@ public class PlayerHealth : Health
         }
         
     }
-
-
+    
+    // Method to update the Health of the transformation.
     public void TransformationUpdateHealth(BasePossessionState nextState)
     {
         if (nextState != null)
@@ -127,6 +121,7 @@ public class PlayerHealth : Health
         }
     }
 
+    // Method to be called when the player collects a MaxHealth upgrade.
     public void MaxHealthPowerUp(CharacterStat newMaxHealth)
     {
         maxHealth = newMaxHealth.Value;
@@ -137,6 +132,7 @@ public class PlayerHealth : Health
 
     }
 
+    // Method to change the current health of the player.
     public void CurrentHealthChange(CharacterStat health)
     {
         currentHealth = health.Value;

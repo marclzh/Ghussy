@@ -1,7 +1,6 @@
-using UnityEngine;
-using UnityEngine.UI;
-
-
+/**
+ * This class controls the testNPC dialogue.
+ */
 public class TestNPC : NPC
 {
     public void Start()
