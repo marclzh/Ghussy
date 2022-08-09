@@ -57,7 +57,7 @@ public class RebindingDisplay : MonoBehaviour
         I_bindingDisplayNameText.text = InputControlPath.ToHumanReadableString(
                 interactIA.action.bindings[I_bindingIndex].effectivePath,
                 InputControlPath.HumanReadableStringOptions.OmitDevice);
-       
+
     }
 
     // Save Bindings
@@ -72,7 +72,7 @@ public class RebindingDisplay : MonoBehaviour
     // Dynamic Binding Operation
     public void StartRebinding(string name)
     {
-       if (playerController != null) { playerController.ActionMapMenuChange(); }
+        if (playerController != null) { playerController.ActionMapMenuChange(); }
 
         if (name == "Fire")
         {
@@ -81,7 +81,7 @@ public class RebindingDisplay : MonoBehaviour
 
             rebindingOperation = fireWeaponIA.action.PerformInteractiveRebinding()
                               .OnMatchWaitForAnother(0.1f)
-                              .OnComplete(operation => 
+                              .OnComplete(operation =>
                               {
                                   if (CheckDuplicates(fireWeaponIA.action) || ExcludeBinding(fireWeaponIA.action, "<Keyboard>/escape"))
                                   {
@@ -98,9 +98,9 @@ public class RebindingDisplay : MonoBehaviour
                                   {
                                       RebindComplete(name);
                                   }
-                              
+
                               })
-                           .Start(); 
+                           .Start();
         }
         else if (name == "Ability")
         {
@@ -161,6 +161,7 @@ public class RebindingDisplay : MonoBehaviour
 
     }
 
+    // Prevent binding to a given path
     private bool ExcludeBinding(InputAction action, string effectivePath)
     {
         int bindingIndex = action.GetBindingIndex();
@@ -168,10 +169,11 @@ public class RebindingDisplay : MonoBehaviour
         if (newBinding.effectivePath == effectivePath)
         {
             return true;
-        } 
-        return false;   
+        }
+        return false;
     }
 
+    // Checks for duplicate bindings with rest of bindings
     private bool CheckDuplicates(InputAction action)
     {
         int bindingIndex = action.GetBindingIndex();
@@ -187,12 +189,13 @@ public class RebindingDisplay : MonoBehaviour
             if (binding.effectivePath == newBinding.effectivePath)
             {
                 // Duplicate Binding Found
-                return true;             
+                return true;
             }
         }
         return false;
     }
- 
+
+    // Assign bindings and update text
     private void RebindComplete(string name)
     {
         if (name == "Fire")
@@ -206,7 +209,7 @@ public class RebindingDisplay : MonoBehaviour
 
             FW_startRebindObject.SetActive(true);
             FW_waitingForInputObject.SetActive(false);
-        } 
+        }
         else if (name == "Ability")
         {
             // Update Display for Ability Binding
@@ -232,20 +235,19 @@ public class RebindingDisplay : MonoBehaviour
             I_waitingForInputObject.SetActive(false);
         }
 
-       
-
         // Handles Memory 
-        CleanUp(); 
+        CleanUp();
         Save();
-
     }
 
+    // Clean up memory
     private void CleanUp()
     {
         rebindingOperation?.Dispose();
         rebindingOperation = null;
     }
 
+    // Reset Button
     public void ResetBindings()
     {
         // Audio
@@ -263,12 +265,12 @@ public class RebindingDisplay : MonoBehaviour
         // Reset Ability Bindings
         int UA_bindingIndex = useAbilityIA.action.GetBindingIndex();
         useAbilityIA.action.ApplyBindingOverride("<Mouse>/rightButton");
-        
+
         UA_bindingDisplayNameText.text = InputControlPath.ToHumanReadableString(
         useAbilityIA.action.bindings[UA_bindingIndex].effectivePath,
             InputControlPath.HumanReadableStringOptions.OmitDevice);
 
-       
+
         // Reset Interact Bindings
         int I_bindingIndex = interactIA.action.GetBindingIndex();
         interactIA.action.ApplyBindingOverride("<Keyboard>/e");
@@ -277,6 +279,7 @@ public class RebindingDisplay : MonoBehaviour
         interactIA.action.bindings[I_bindingIndex].effectivePath,
              InputControlPath.HumanReadableStringOptions.OmitDevice);
 
+        // Handles Memory
         Save();
         CleanUp();
 
