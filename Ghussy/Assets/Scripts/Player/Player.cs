@@ -4,22 +4,26 @@ using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour, ICharacter, IDamageable
 {
-
+    // Player Inventories 
     [SerializeField] public InventoryObject ectoplasmInventory;
     [SerializeField] public InventoryObject memoryShardInventory;
+
+    // Player Component References
     [SerializeField] private PlayerHealth playerHealth;
     [SerializeField] private PlayerAnimator playerAnimator;
+
+    // Exposed boolean fields
     public static bool IsPlayerTransformed = false;
     public bool hasDied;
 
+    // Possession and Weapon references
     public BasePossessionState currentState;
     public BasePossessionState defaultState;
     [SerializeField] PlayerWeapon currentWeapon;
-    [SerializeField] Ability currentAbility;
     [SerializeField] WeaponManager weaponManager;
-    [SerializeField] SaveManager saveManager;
-  
+    [SerializeField] Ability currentAbility;
 
+    // Character Stats
     [SerializeField] public CharacterStat movementSpeed;
     [SerializeField] public CharacterStat maxHealth;
     [SerializeField] public CharacterStat maxTransformationHealth;
@@ -32,20 +36,19 @@ public class Player : MonoBehaviour, ICharacter, IDamageable
     [SerializeField] public CharacterStatEvent movementSpeedChange;
     [SerializeField] public CharacterStatEvent projectileSizeChange;
 
-
-
+    // Character name reference
     public string Name => "Ghussy";
 
+    // Damageable health reference
     public Health health => playerHealth;
 
     public void Start()
     {
-        // TODO Move Save Data intialisation logic to Game Manager 
-        saveManager = SaveManager.instance;
-        SaveData currentSaveData = saveManager.activeSave;
+        SaveData currentSaveData = SaveManager.instance.activeSave;
 
         if (SaveManager.instance.hasLoaded)
         {
+            // Initialise Character Stats
             movementSpeed = new CharacterStat(currentSaveData.movementSpeedValue);
             maxHealth = new CharacterStat(currentSaveData.maxHealthValue);
             maxTransformationHealth = new CharacterStat(currentSaveData.maxTransformationValue);
@@ -55,8 +58,6 @@ public class Player : MonoBehaviour, ICharacter, IDamageable
 
             // Handle Perm Buffs 
             if (!currentSaveData.permBoonApplied) { ApplyPermBoons(); currentSaveData.permBoonApplied = true; }
-
-           
 
             // Resources
             if (ectoplasmInventory.Container.Count > 0) { ectoplasmInventory.Container[0].amount = currentSaveData.ectoplasmAmount; }
@@ -85,17 +86,17 @@ public class Player : MonoBehaviour, ICharacter, IDamageable
             ectoplasmInventory.Container.Clear();
             memoryShardInventory.Container.Clear();
 
-
         }
 
-       
-
+        // Raises Event to initialise UI
         maxHealthInitialization.Raise(maxHealth);
         currentHealthInitialization.Raise(currentHealth);
 
-        // Set Starting position
+        // Set Starting Position
         float[] savedPosition = currentSaveData.playerPos;
         transform.position = savedPosition.Length == 0 ? new Vector3(0f, 0f, 0f) : new Vector3(savedPosition[0], savedPosition[1], savedPosition[2]);
+        
+        // Initialise boolean to false
         hasDied = false;
     }
 
@@ -103,13 +104,14 @@ public class Player : MonoBehaviour, ICharacter, IDamageable
     public void ManualSave()
     {
         // Save Position and scene
-        saveManager.activeSave.playerPos = new float[3] {transform.position.x, transform.position.y, transform.position.z};
-        saveManager.activeSave.savePointSceneIndex = SceneManager.GetActiveScene().buildIndex;
+        SaveManager.instance.activeSave.playerPos = new float[3] {transform.position.x, transform.position.y, transform.position.z};
+        SaveManager.instance.activeSave.savePointSceneIndex = SceneManager.GetActiveScene().buildIndex;
 
         // Saves Game  
-        saveManager.SaveGame();
+        SaveManager.instance.SaveGame();
     }
 
+    // Updates the player's current possession state and corresponding ability
     public void SetState(BasePossessionState nextState)
     {
         if (nextState != null && !currentState.Same(nextState))
@@ -119,6 +121,7 @@ public class Player : MonoBehaviour, ICharacter, IDamageable
         }
     }
 
+    // Reset values when player has died
     public void PlayerDeath()
     {
         if (!hasDied)
@@ -127,6 +130,7 @@ public class Player : MonoBehaviour, ICharacter, IDamageable
             AudioManager.Instance.Play("Death");
 
             // Reset Saved Values
+            SaveManager saveManager = SaveManager.instance;
 
             // Reset Saved Scene Index
             saveManager.activeSave.savePointSceneIndex = 3; // Player Base
@@ -154,14 +158,17 @@ public class Player : MonoBehaviour, ICharacter, IDamageable
             // Set boolean flag to true
             hasDied = true;
 
+            // Set shop items to unpurchased
             saveManager.activeSave.shopBossHealthDeductionPurchased = false;
             saveManager.activeSave.shopBossSkeletonPurchased = false;
             saveManager.activeSave.shopEnemyNumberDeductionPurchased = false;
 
+            // Saves game
             saveManager.SaveGame();
         }
     }
 
+    // Reset player fields when exiting possession
     public void TransformationDeathUpdateState()
     {
         SetState(defaultState);
@@ -169,57 +176,45 @@ public class Player : MonoBehaviour, ICharacter, IDamageable
     }
 
 
-    // Resets values
+    // Deletes save data when game is quit
     private void OnApplicationQuit()
     {
-        if (saveManager.hasLoaded) { saveManager.DeleteSaveData(); }
+        if (SaveManager.instance.hasLoaded) { SaveManager.instance.DeleteSaveData(); }
 
-    }
-
-
-    void OnHit(float damage)
-    {
-        // Play Hit Sound
-        AudioManager.Instance.Play("PlayerHit");
-
-        playerAnimator.PlayerHit();
-        playerHealth.TakeDamage(damage);
     }
 
     // Checks Player Contact Enemy
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        // Deals Different Damage according to enemy types
         if (collision.gameObject.CompareTag("Enemy"))
         {
-            OnHit(10);
+            TakeDamage(10);
         }
 
         if (collision.gameObject.CompareTag("Boss"))
         {
-            OnHit(25);
+            TakeDamage(25);
         }
 
     }
 
     public void TakeDamage(float damageAmount)
     {
+        // Play Hit Sound
+        AudioManager.Instance.Play("PlayerHit");
+
+        // Animator
+        playerAnimator.PlayerHit();
+
+        // Health logic
         playerHealth.TakeDamage(damageAmount);
-    }
-
-    public void EquipBoon(BoonItem boon)
-    {
-        boon.Equip(this);
-    }
-
-    public void UnequipBoon(BoonItem boon)
-    {
-        boon.Unequip(this);
     }
 
     public void ApplyPermBoons()
     {
         // Retrieve save data
-        SaveData save = saveManager.activeSave;
+        SaveData save = SaveManager.instance.activeSave;
         float movementSpeedBonus = .05f * save.permBoonMultiple[0];
         float maxHealthBonus = .05f * save.permBoonMultiple[1];
         float projectileSizeBonus = .05f * save.permBoonMultiple[2];
@@ -243,6 +238,7 @@ public class Player : MonoBehaviour, ICharacter, IDamageable
         projectileSizeChange.Raise(projectileSize); 
     }
 
+    // For purchases made in Shop or Place of Power
     public void purchaseBoon(int cost, ResourceType type)
     {
         if (type == ResourceType.Ectoplasm)
@@ -256,7 +252,7 @@ public class Player : MonoBehaviour, ICharacter, IDamageable
             if (cost <= ectoplasmInventory.Container[0].amount)
             {
                 ectoplasmInventory.Container[0].amount -= cost;
-                saveManager.activeSave.ectoplasmAmount -= cost;
+                SaveManager.instance.activeSave.ectoplasmAmount -= cost;
             }
         
         }
@@ -272,7 +268,7 @@ public class Player : MonoBehaviour, ICharacter, IDamageable
             if (cost <= memoryShardInventory.Container[0].amount)
             {
                 memoryShardInventory.Container[0].amount -= cost;
-                saveManager.activeSave.memoryShardAmount -= cost;
+                SaveManager.instance.activeSave.memoryShardAmount -= cost;
             }
 
         }

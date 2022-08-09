@@ -6,53 +6,55 @@ using TMPro;
 
 public class ShopDisplay : MonoBehaviour
 {
-    [SerializeField] Transform canvas;
-    [SerializeField] Image bossSkeleton;
-    [SerializeField] Image minusBossHealth;
-    [SerializeField] Image minusEnemy;
-    [SerializeField] Button bossSkeletonButton;
-    [SerializeField] Button minusBossHealthButton;
-    [SerializeField] Button minusEnemyButton;
-    [SerializeField] TextMeshProUGUI costText;
-    [SerializeField] VoidEvent OnMemoryShardDeducted;
-    [SerializeField] Image Purchased1;
-    [SerializeField] Image Purchased2;
-    [SerializeField] Image Purchased3;
+    // UI References
+    [SerializeField] private Transform canvas;
+    [SerializeField] private Image bossSkeleton;
+    [SerializeField] private Image minusBossHealth;
+    [SerializeField] private Image minusEnemy;
+    [SerializeField] private Button bossSkeletonButton;
+    [SerializeField] private Button minusBossHealthButton;
+    [SerializeField] private Button minusEnemyButton;
+    [SerializeField] private TextMeshProUGUI costText;
+    [SerializeField] private Image Purchased1;
+    [SerializeField] private Image Purchased2;
+    [SerializeField] private Image Purchased3;
+
+    // Helper fields
     [SerializeField] private PauseMenu pauseMenu;
+    [SerializeField] private VoidEvent OnMemoryShardDeducted;
+
+    // Current item values
     private int itemValue;
     private string selectedItem;
 
-    /* ******************
-     * * Item Cost List *
-     * ******************
-     * BossSkeleton - 15
-     * MinusBossHealth - 10
-     * MinusEnemy - 5
-     */
-
     // Storing Info of the items
-    int bossSkeletonValue;
-    int minusBossHealthValue;
-    int minusEnemyValue;
+    private int bossSkeletonValue = 150;
+    private int minusBossHealthValue = 200;
+    private int minusEnemyValue = 250;
 
     private void Start()
     {
-        bossSkeletonValue = 150;
-        minusBossHealthValue = 200;
-        minusEnemyValue = 250;
+        // Prevent player from moving when shop is open
+        FindObjectOfType<PlayerController>().ActionMapMenuChange();
 
+        // Prevent player from pausing when shop is active
         pauseMenu.DisablePausing();
 
+        // Update UI
         UpdateShopUI();
     }
+
+
     // Swaps the necessary components on buttonClick
     public void ChangeActiveItem(string itemName)
     {
         if (itemName == "BossSkeleton")
         {
             costText.text = bossSkeletonValue.ToString();
+
             // changes the internal value for CanBuy Method
             itemValue = bossSkeletonValue;
+
             // changes internal selected item
             selectedItem = itemName;
             bossSkeleton.gameObject.SetActive(true);
@@ -63,7 +65,11 @@ public class ShopDisplay : MonoBehaviour
         if (itemName == "MinusBossHealth")
         {
             costText.text = minusBossHealthValue.ToString();
+
+            // changes the internal value for CanBuy Method
             itemValue = minusBossHealthValue;
+
+            // changes internal selected item
             selectedItem = itemName;
             bossSkeleton.gameObject.SetActive(false);
             minusBossHealth.gameObject.SetActive(true);
@@ -73,7 +79,11 @@ public class ShopDisplay : MonoBehaviour
         if (itemName == "MinusEnemy")
         {
             costText.text = minusEnemyValue.ToString();
+
+            // changes the internal value for CanBuy Method
             itemValue = minusEnemyValue;
+
+            // changes internal selected item
             selectedItem = itemName;
             bossSkeleton.gameObject.SetActive(false);
             minusBossHealth.gameObject.SetActive(false);
@@ -81,14 +91,18 @@ public class ShopDisplay : MonoBehaviour
         }
     }
 
+    // Checks if the player has enough currency to purchase this item and has not purchased this item already
     public bool CanPurchase()
     {
-        
+        // Retrieve player reference
         Player player = FindObjectOfType<Player>();
+
         if (player.memoryShardInventory.Container.Count > 0)
         {
+            // Check player currency amount
             if (player.memoryShardInventory.Container[0].amount >= itemValue)
             {
+                // Check if player has already purchased this item
                 if (selectedItem == "BossSkeleton") { return !(SaveManager.instance.activeSave.shopBossSkeletonPurchased); }
                 if (selectedItem == "MinusBossHealth") { return !(SaveManager.instance.activeSave.shopBossHealthDeductionPurchased); }
                 if (selectedItem == "MinusEnemy") { return !(SaveManager.instance.activeSave.shopEnemyNumberDeductionPurchased); }
@@ -101,6 +115,7 @@ public class ShopDisplay : MonoBehaviour
         return false;
     }
 
+    // Purchase currently selected item
     public void Purchase()
     {
         if (CanPurchase())
@@ -122,12 +137,16 @@ public class ShopDisplay : MonoBehaviour
         }
     }
 
+    // Deducts corresponding currency when a purchase is made
     public void DeductMemoryShard()
     {
         FindObjectOfType<Player>().purchaseBoon(itemValue, ResourceType.MemoryShard);
+
+        // Raise event to update player HUD UI
         OnMemoryShardDeducted.Raise();
     }
 
+    // Update UI
     public void UpdateShopUI()
     {
         if (SaveManager.instance.activeSave.shopBossSkeletonPurchased == true) { Purchased1.gameObject.SetActive(true); }
@@ -135,10 +154,16 @@ public class ShopDisplay : MonoBehaviour
         if (SaveManager.instance.activeSave.shopEnemyNumberDeductionPurchased == true) { Purchased3.gameObject.SetActive(true); }
     }
 
+    // Closes shop display
     public void CloseDisplay()
     {
+        // Allow player to move
         FindObjectOfType<PlayerController>().ActionMapPlayerChange();
+        
+        // Closes display
         canvas.gameObject.SetActive(false);
+        
+        // Allow player to pause
         pauseMenu.EnablePausing();
     }
 }
