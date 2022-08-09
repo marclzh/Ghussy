@@ -25614,7 +25614,6 @@ GameObject:
   - component: {fileID: 2877176420708713965}
   - component: {fileID: 2877176420708713746}
   - component: {fileID: 1596553124}
-  - component: {fileID: 3861324488409687331}
   - component: {fileID: 4370677501888905464}
   - component: {fileID: 4370677501888905420}
   - component: {fileID: 1596553125}
@@ -25626,6 +25625,7 @@ GameObject:
   - component: {fileID: 86434897672170586}
   - component: {fileID: 1596553128}
   - component: {fileID: 1596553131}
+  - component: {fileID: 2480776879977467633}
   m_Layer: 6
   m_Name: Ghussy
   m_TagString: Player
@@ -25997,20 +25997,6 @@ MonoBehaviour:
     m_NumColorKeys: 3
     m_NumAlphaKeys: 2
   baseHealthBar: {fileID: 4370677501975926035}
---- !u!114 &3861324488409687331
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3258236631920043841}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4c5e9f6f11c442640a2b98ef49a4c1ea, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  defaultState: {fileID: 11400000, guid: 8d212c62150aa6640ba0595f5d887ad5, type: 2}
-  playerWeapon: {fileID: 4370677500325081883}
 --- !u!114 &4370677501888905464
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26082,8 +26068,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 3861324488409687331}
-        m_TargetAssemblyTypeName: PlayerAbility, Assembly-CSharp
+      - m_Target: {fileID: 2480776879977467633}
+        m_TargetAssemblyTypeName: PlayerAbilities, Assembly-CSharp
         m_MethodName: GetAbilityInfo
         m_Mode: 0
         m_Arguments:
@@ -26418,6 +26404,20 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &2480776879977467633
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3258236631920043841}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44a9a8f39f4add6468e5202dc3b53571, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defaultState: {fileID: 11400000, guid: 8d212c62150aa6640ba0595f5d887ad5, type: 2}
+  playerWeapon: {fileID: 4370677500325081883}
 --- !u!1 &3651560653147381178
 GameObject:
   m_ObjectHideFlags: 0
@@ -31156,8 +31156,8 @@ MonoBehaviour:
   unityEventResponse:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 3861324488409687331}
-        m_TargetAssemblyTypeName: PlayerAbility, Assembly-CSharp
+      - m_Target: {fileID: 2480776879977467633}
+        m_TargetAssemblyTypeName: PlayerAbilities, Assembly-CSharp
         m_MethodName: GetAbilityInfo
         m_Mode: 0
         m_Arguments:
