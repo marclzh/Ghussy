@@ -45,35 +45,37 @@ public class PlayerHealth : Health
 
     public override void TakeDamage(float damage)
     {
-        if (!isTransformed)
+        if (!isInvincible)
         {
-            base.TakeDamage(damage);
-
-            // audio 
-            FindObjectOfType<AudioManager>().Play("Hit");
-
-            // Raise Event to Update UI
-            onHealthChange.Raise(currentHealth);
-
-            // Saves Changes to Current Health
-            SaveManager.instance.activeSave.currentHealthValue = currentHealth;
-        }
-        else
-        {
-            currentTransformationHealth -= damage;
-
-            // Raise Event to Update UI
-            onHealthChange.Raise(currentTransformationHealth);
-
-            // Saves Changes to Current Transformation Health
-            SaveManager.instance.activeSave.currentTransformationValue = currentTransformationHealth;
-
-            if (currentTransformationHealth <= 0)
+            if (!isTransformed)
             {
-                isTransformed = false;
-                onTransformationDeath.Raise();
-            }
+                base.TakeDamage(damage);
 
+                // audio 
+                FindObjectOfType<AudioManager>().Play("Hit");
+
+                // Raise Event to Update UI
+                onHealthChange.Raise(currentHealth);
+
+                // Saves Changes to Current Health
+                SaveManager.instance.activeSave.currentHealthValue = currentHealth;
+            }
+            else
+            {
+                currentTransformationHealth -= damage;
+
+                // Raise Event to Update UI
+                onHealthChange.Raise(currentTransformationHealth);
+
+                // Saves Changes to Current Transformation Health
+                SaveManager.instance.activeSave.currentTransformationValue = currentTransformationHealth;
+
+                if (currentTransformationHealth <= 0)
+                {
+                    isTransformed = false;
+                    onTransformationDeath.Raise();
+                }
+            }
         }
 
     }
