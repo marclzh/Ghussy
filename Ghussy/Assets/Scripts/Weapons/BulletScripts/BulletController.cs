@@ -1,9 +1,15 @@
 using UnityEngine;
 
+/**
+ * This class contains the logic for bullets instantiated.
+ */
 public abstract class BulletController : MonoBehaviour
 {
+    // Projectile References
     public Rigidbody2D rb;
     private Animator animator;
+
+    // Projectile Variables
     public float damage;
     public float speed;
     public Vector2 initVelocity;
@@ -54,6 +60,7 @@ public abstract class BulletController : MonoBehaviour
         animator.SetBool("isCollided", true);
     }
 
+    // Destroys the projectile upon leaving the main camera
     private void OnBecameInvisible()
     {
         Destroy(gameObject);

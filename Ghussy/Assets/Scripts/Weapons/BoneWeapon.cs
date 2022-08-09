@@ -1,15 +1,15 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
+/**
+ * This class controls the logic of the Bone Weapon.
+ */
 public class BoneWeapon : Weapon
 {
-    public Ability ability;
-
     // Ability References
     private int numProjectiles;
     private float projectileSpread;
 
+    // Logic for the bone weapon's ability.
     public void BoneShotgun(Vector2 shootingDirection)
     {
         projectileSpread = 35;

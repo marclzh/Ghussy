@@ -19697,7 +19697,7 @@ TilemapRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 9df67db7996682e4eaa7c00c28c06f55, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -46846,7 +46846,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Events:
     m_Signals:
-    - {fileID: 11400000, guid: 30fc5171dbf685b4fad31abb6ae9b4ad, type: 2}
+    - {fileID: 11400000, guid: c2877ff3207fd6549a44732f9deed653, type: 2}
     m_Events:
     - m_PersistentCalls:
         m_Calls:
