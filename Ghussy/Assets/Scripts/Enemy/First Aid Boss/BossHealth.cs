@@ -3,11 +3,16 @@ using UnityEngine.UI;
 using System.Collections;
 using TMPro;
 
+/**
+ * This class controls the logic of the boss' health.
+ */
 public class BossHealth : Health
 {
-    // Boss Fields
+    // Events to signify the boss' death and enragement.
     [SerializeField] VoidEvent OnBossDeath;
     [SerializeField] VoidEvent OnBossEnrage;
+
+    // Reference to the boss' animator
     [SerializeField] EnemyAnimator bossAnimator;
 
     // Boss Health Values
@@ -42,6 +47,7 @@ public class BossHealth : Health
          DevKey_DamageBoss();
     }
 
+    // Overriden TakeDamage method for the boss.
     public override void TakeDamage(float damage)
     {
         if (bossAnimator != null)
@@ -79,6 +85,7 @@ public class BossHealth : Health
         }   
     }
 
+    // Method to update the health bar of the boss.
     public void UpdateHealthUI(float health)
     {
         baseHealthSlider.value = health;
@@ -94,6 +101,8 @@ public class BossHealth : Health
             this.TakeDamage(4500);
         }
     }
+
+    // Coroutine to delay the raising of the bossdeath enemy for the death animation to play.
     IEnumerator bossDelayDeathEvent()
     {
         yield return new WaitForSeconds(1f);

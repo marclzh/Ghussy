@@ -1,7 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
+/**
+ * Class for the Basic Projectile.
+ */
 public class BasicBullet : BulletController
 {
 

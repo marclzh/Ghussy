@@ -1,12 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
+/**
+ * This class contains behaviours of the boss enemy specific to itself.
+ */
 public class Boss : Enemy
 {
     private BossHealth bossHealth;
-
-
 
     public void Start()
     {

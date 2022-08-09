@@ -1,16 +1,21 @@
 using UnityEngine;
 
+/**
+ * This class handles the swapping of the weapons between transformations.
+ */
 public class WeaponManager : MonoBehaviour
 {
-    // this script handles the swapping of weapons
-    // order of the weapons under the weapon manager matters
-
-    public BasePossessionState currentState; // current state of the player
-    public GameObject[] weaponArr; // Array of available weapons
-    public GameObject currWeapon; // Reference to current weapon
+    // current state of the player
+    public BasePossessionState currentState;
+    // Array of available weapons
+    public GameObject[] weaponArr;
+    // Reference to current weapon
+    public GameObject currWeapon; 
+    // Reference to the weapon manager's transform.
     private Transform weaponManager;
-
+    // Count of the total number of weapons.
     private int totalWeapons;
+    // Index of the currently active weapon.
     private int currWeaponIndex;
 
     private void Awake()
@@ -58,6 +63,7 @@ public class WeaponManager : MonoBehaviour
         }
     }
 
+    // Setting the active weapon
     private void SetActiveWeapon(int i)
     {
         weaponArr[currWeaponIndex].SetActive(false); // deactivates current weapon
@@ -67,8 +73,3 @@ public class WeaponManager : MonoBehaviour
         GetComponent<PlayerWeapon>().updateWeapon(currWeapon);
     }
 }
-
-
-
-
-

@@ -1,8 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
+/**
+ * Basic Weapon Class
+ */
 public class BasicWeapon : Weapon
 {
-    public Ability ability;
+
 }
