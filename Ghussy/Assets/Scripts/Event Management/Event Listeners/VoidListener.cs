@@ -1,7 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
+/**
+ * This class is used for the Void Event Listener.
+ */
 public class VoidListener : BaseGameEventListener<Void, VoidEvent, UnityVoidEvent>
 {
 

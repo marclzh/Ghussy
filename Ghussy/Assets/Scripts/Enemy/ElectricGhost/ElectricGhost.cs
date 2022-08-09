@@ -1,6 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+/**
+ * Class to control the electric ghost enemy.
+ */
 
 public class ElectricGhost : Enemy
 {
@@ -8,6 +8,4 @@ public class ElectricGhost : Enemy
     {
         enemyHealth = GetComponent<EnemyHealth>();
     }
-
-
 }

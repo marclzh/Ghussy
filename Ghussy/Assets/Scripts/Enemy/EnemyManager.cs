@@ -1,11 +1,16 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
+/**
+ * Class to control the enemy manager.
+ */
 public class EnemyManager : MonoBehaviour
 {
+    // Reference to the number of enemies left.
     [SerializeField] private int numOfEnemiesLeft;
+    // Event to signify all the enemy's death in the scene.
     [SerializeField] private VoidEvent onAllEnemiesDead;
+    // Boolean to check if the shop item has been purchased.
     [SerializeField] private bool enemyNumberDeductionPurchased;
 
     void Start()
@@ -15,7 +20,6 @@ public class EnemyManager : MonoBehaviour
         if (enemyNumberDeductionPurchased) { Destroy(transform.GetChild(0).gameObject); } // Destroys first child 
         StartCoroutine(DelayChildCount());
     }
-
 
     // Destroyed Game Objects are only updated at the end of the given frame
     IEnumerator DelayChildCount()
@@ -62,6 +66,4 @@ public class EnemyManager : MonoBehaviour
             onAllEnemiesDead.Raise();
         }
     }
-
-
 }

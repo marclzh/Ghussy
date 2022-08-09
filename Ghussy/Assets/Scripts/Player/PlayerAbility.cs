@@ -1,24 +1,30 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.InputSystem;
 
+/**
+ * This script controls the logic of the player's ability.
+ */
 public class PlayerAbility : MonoBehaviour
 {
+    // Reference to the default state of the player.
     [SerializeField] private BasePossessionState defaultState;
+    // Reference to the Image of the ability.
     private Image abilityImage;
+    // Reference to the Sprite of the next ability.
     private Sprite nextImage;
-    // Activate ability -> can use ability for "abilityTimer" seconds
-    // -> Once abilityTimer is up, then coolDownTime activates, then 
-    // only once coolDown is false then can reuse ability.
+    // Length of the ability.
     private float abilityTimer;
+    // Cooldown time of the ability.
     private float coolDownTime;
+    // Boolean to check that the ability is active.
     private bool abilityActive = false;
+    // Boolean to check if the ability is on cooldown.
     private bool OnCoolDown = false;
+    // Reference to the current weapon the player is using.
     [SerializeField] private PlayerWeapon playerWeapon;
+    // Boolean to check if the ability key is pressed.
     private bool abilityKeyPressed;
-
 
     void Start()
     {
@@ -27,6 +33,7 @@ public class PlayerAbility : MonoBehaviour
         abilityImage.fillAmount = 1;
     }
 
+    // Method to get the current abillity information from the ability ScriptableObject.
     public void GetAbilityInfo(BasePossessionState currentState)
     {
         if (currentState != null)
@@ -39,6 +46,7 @@ public class PlayerAbility : MonoBehaviour
         }
     }
 
+    // Method to update the UI of the ability.
     private void UpdateUI()
     {
         abilityImage.sprite = nextImage;
@@ -55,6 +63,7 @@ public class PlayerAbility : MonoBehaviour
         abilityKeyPressed = value.isPressed;
     }
 
+    // Method to control the usage of the ability.
     void UseAbility()
     {
         if (abilityKeyPressed && OnCoolDown == false && abilityActive == false &&
