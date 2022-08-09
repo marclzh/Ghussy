@@ -13,7 +13,7 @@ public class ShopInteractable : MonoBehaviour, IInteractable
     public bool Interact(Interactor interactor)
     {
         shop.gameObject.SetActive(true);
-        FindObjectOfType<PlayerController>().ActionMapMenuChange();
+        
         AudioManager.Instance.Play("PlaceOfPower");
 
         return true;
