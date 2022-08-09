@@ -2642,11 +2642,11 @@ MonoBehaviour:
   minusBossHealthButton: {fileID: 432965389}
   minusEnemyButton: {fileID: 225681001}
   costText: {fileID: 298376287}
-  OnMemoryShardDeducted: {fileID: 11400000, guid: 002f5b3b572d17d43a9ddb6f69486a1c, type: 2}
   Purchased1: {fileID: 2127000196}
   Purchased2: {fileID: 1999855643}
   Purchased3: {fileID: 188044854}
   pauseMenu: {fileID: 1655110306}
+  OnMemoryShardDeducted: {fileID: 11400000, guid: 002f5b3b572d17d43a9ddb6f69486a1c, type: 2}
 --- !u!114 &119202208
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -30901,6 +30901,14 @@ PrefabInstance:
     - target: {fileID: 4370677500659516189, guid: b75c3a1b41293d3479bb77ea575db8dc, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4370677501601535634, guid: b75c3a1b41293d3479bb77ea575db8dc, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.011
+      objectReference: {fileID: 0}
+    - target: {fileID: 4370677501601535634, guid: b75c3a1b41293d3479bb77ea575db8dc, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.098
       objectReference: {fileID: 0}
     - target: {fileID: 4370677501975926034, guid: b75c3a1b41293d3479bb77ea575db8dc, type: 3}
       propertyPath: m_AnchorMax.x

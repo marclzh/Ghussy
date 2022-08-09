@@ -2,9 +2,12 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-
+/**
+ * Class handling dynamic rebinding logic as part of settings options
+ */
 public class RebindingDisplay : MonoBehaviour
 {
+    // Input Action References
     [SerializeField] private InputActionReference fireWeaponIA;
     [SerializeField] private InputActionReference useAbilityIA;
     [SerializeField] private InputActionReference interactIA;
@@ -29,44 +32,47 @@ public class RebindingDisplay : MonoBehaviour
 
     private void Start()
     {
-
+        // Retrieve Rebinds 
         string rebinds = PlayerPrefs.GetString(RebindsKey, string.Empty);
 
         if (string.IsNullOrEmpty(rebinds)) { return; }
 
-            playerController.playerInput.actions.LoadBindingOverridesFromJson(rebinds);
+        // Load Bindings
+        playerController.playerInput.actions.LoadBindingOverridesFromJson(rebinds);
 
-            // Initialise Display for Fire Binding
-            int FW_bindingIndex = fireWeaponIA.action.GetBindingIndex();
-            FW_bindingDisplayNameText.text = InputControlPath.ToHumanReadableString(
-            fireWeaponIA.action.bindings[FW_bindingIndex].effectivePath,
-             InputControlPath.HumanReadableStringOptions.OmitDevice);
+        // Initialise Display for Fire Binding
+        int FW_bindingIndex = fireWeaponIA.action.GetBindingIndex();
+        FW_bindingDisplayNameText.text = InputControlPath.ToHumanReadableString(
+                fireWeaponIA.action.bindings[FW_bindingIndex].effectivePath,
+                InputControlPath.HumanReadableStringOptions.OmitDevice);
 
-            // Initialise Display for Ability Binding
-            int UA_bindingIndex = useAbilityIA.action.GetBindingIndex();
-            UA_bindingDisplayNameText.text = InputControlPath.ToHumanReadableString(
-            useAbilityIA.action.bindings[UA_bindingIndex].effectivePath,
-             InputControlPath.HumanReadableStringOptions.OmitDevice);
+        // Initialise Display for Ability Binding
+        int UA_bindingIndex = useAbilityIA.action.GetBindingIndex();
+        UA_bindingDisplayNameText.text = InputControlPath.ToHumanReadableString(
+                useAbilityIA.action.bindings[UA_bindingIndex].effectivePath,
+                InputControlPath.HumanReadableStringOptions.OmitDevice);
 
-            // Initialise Display for Interact Binding
-            int I_bindingIndex = interactIA.action.GetBindingIndex();
-            I_bindingDisplayNameText.text = InputControlPath.ToHumanReadableString(
-            interactIA.action.bindings[I_bindingIndex].effectivePath,
-             InputControlPath.HumanReadableStringOptions.OmitDevice);
+        // Initialise Display for Interact Binding
+        int I_bindingIndex = interactIA.action.GetBindingIndex();
+        I_bindingDisplayNameText.text = InputControlPath.ToHumanReadableString(
+                interactIA.action.bindings[I_bindingIndex].effectivePath,
+                InputControlPath.HumanReadableStringOptions.OmitDevice);
        
     }
 
+    // Save Bindings
     public void Save()
     {
+        // Update and Save Bindings
         string rebinds = playerController.playerInput.actions.SaveBindingOverridesAsJson();
 
         PlayerPrefs.SetString(RebindsKey, rebinds);
     }
 
+    // Dynamic Binding Operation
     public void StartRebinding(string name)
     {
-       if (playerController != null) { playerController.playerInput.SwitchCurrentActionMap("Menu"); }
-
+       if (playerController != null) { playerController.ActionMapMenuChange(); }
 
         if (name == "Fire")
         {

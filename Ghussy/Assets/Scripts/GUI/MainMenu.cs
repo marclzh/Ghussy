@@ -4,9 +4,12 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
+/**
+ * Class handling main menu scene logic
+ */
 public class MainMenu : MonoBehaviour
 {
-    
+    // UI and helper fields
     [SerializeField] private int openingSceneIndex;
     [SerializeField] private Animator transition;
     [SerializeField] private Button newGameButton;
@@ -15,49 +18,42 @@ public class MainMenu : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        // Displays load button only if save file exists
         bool saveDataExists = SaveManager.instance.hasLoaded;
+
         if (saveDataExists)
         {
             loadGameButton.gameObject.SetActive(true);
         }
-        
     }
 
-    public void StartButton()
-    {
-        // Game Loading logic will be called by animator to allow animation to complete
-       
-    }
-
+    // New Game Button
     public void NewGame()
     {
         // Audio
         AudioManager.Instance.Play("Click");
+        AudioManager.Instance.Stop("Main Menu Theme");  // Stops main theme 
 
         // Delete Saves Data
         if (SaveManager.instance.hasLoaded) { SaveManager.instance.DeleteSaveData(); }
-        // Audio Manager reset
-        AudioManager.Instance.Stop("Main Menu Theme");
-        // Scene Transiiton
-        //transition.SetTrigger("Start");
+
         // Loads Opening Scene
         SceneManager.LoadScene(openingSceneIndex);
     }
 
+    // Load Game Button
     public void LoadGame()
     {
         // Audio
         AudioManager.Instance.Play("Click");
-
-        // Audio Manager reset
         AudioManager.Instance.Stop("Main Menu Theme");
-        // Scene Transiiton
-        //transition.SetTrigger("Start");
+     
         // Loads Last Scene
         int savePointIndex = SaveManager.instance.activeSave.savePointSceneIndex;
         SceneManager.LoadScene(savePointIndex);     
     }
 
+    // Quit Game Button
     public void QuitGame()
     {
         // Audio

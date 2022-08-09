@@ -5,11 +5,14 @@ using UnityEngine;
 
 public class RoomManager : MonoBehaviour
 {
+    // Singleton
     private static RoomManager instance;
-    [SerializeField] int numOfLevelsCompleted;
-    [SerializeField] int maxLevels = 5; // Max Levels in a row that player can go through before boss stage
-    private const int NumOfEachRoomType = 3;
-    private const int NumOfRoomTypes = 3;
+
+    // 
+    [SerializeField] private int numOfLevelsCompleted;
+    [SerializeField] private int maxLevels = 5; // Max Levels in a row that player can go through before boss stage
+    private const int NUMOFEACHROOMTYPE = 3;
+    private const int NUMOFROOMTYPES = 3;
 
     // Save Management
     SaveManager saveManager;
@@ -32,6 +35,8 @@ public class RoomManager : MonoBehaviour
     private void Start()
     {
         instance = this;
+
+        // Retrieve completed rooms from save manager
         saveManager = SaveManager.instance;
         SaveData save = saveManager.activeSave;
  
@@ -79,11 +84,13 @@ public class RoomManager : MonoBehaviour
         return rooms;
     }
 
+    // Check if a room type is available
     private bool IsRoomTypeAvailable(RoomType roomType)
     {
         return GetAvailableRooms(roomType).Count > 0;
     }
 
+    // Retrieve list of all rooms of a given room type
     private List<int> GetAvailableRooms(RoomType roomType)
     {
         List<int> rooms = new List<int>();
@@ -92,7 +99,7 @@ public class RoomManager : MonoBehaviour
         {
             case RoomType.MemoryShard:
 
-                for (int i = 0; i < NumOfEachRoomType; i++)
+                for (int i = 0; i < NUMOFEACHROOMTYPE; i++)
                 {
                     if (roomCompleted[0][i] == false)
                     {
@@ -104,7 +111,7 @@ public class RoomManager : MonoBehaviour
 
             case RoomType.Ectoplasm:
 
-                for (int i = 0; i < NumOfEachRoomType; i++)
+                for (int i = 0; i < NUMOFEACHROOMTYPE; i++)
                 {
                     if (roomCompleted[1][i] == false)
                     {
@@ -116,7 +123,7 @@ public class RoomManager : MonoBehaviour
 
             case RoomType.PowerUp:
 
-                for (int i = 0; i < NumOfEachRoomType; i++)
+                for (int i = 0; i < NUMOFEACHROOMTYPE; i++)
                 {
                     if (roomCompleted[2][i] == false)
                     {
@@ -136,9 +143,10 @@ public class RoomManager : MonoBehaviour
         return rooms;
     }
 
+    // Get scene indexes of a room 
     private int GetSceneIndex(RoomType roomType, int roomIndex)
     {
-        if (roomIndex < 0 || roomIndex >= NumOfEachRoomType)
+        if (roomIndex < 0 || roomIndex >= NUMOFEACHROOMTYPE)
         {
             Debug.LogWarning("Invalid Room Index");
             return -1;
@@ -180,9 +188,6 @@ public class RoomManager : MonoBehaviour
             int[] roomSceneIndexes = new int[rooms.Length];
             roomSceneIndexes[0] = GetSceneIndex(rooms[0], firstRoomIndex);
             roomSceneIndexes[1] = GetSceneIndex(rooms[1], secondRoomIndex);
-
-            // Debug.Log("First Room : " + roomSceneIndexes[0]);
-            // Debug.Log("Second Room : " + roomSceneIndexes[1]);
 
             // Update exposed values
             nextRoomPositionIndex_First = firstRoomIndex;

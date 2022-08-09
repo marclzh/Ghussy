@@ -2,16 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// Summons Enemies after a set delay, used in boss room
 public class SummonEnemy : MonoBehaviour
 {
+    // Delay Time
     [SerializeField] private float delay;
 
-    // Start is called before the first frame update
     public void StartDelay()
     {
         StartCoroutine(DelaySpawn());
-
-        
     }
 
     IEnumerator DelaySpawn()

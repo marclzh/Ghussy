@@ -3,19 +3,21 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+/**
+ * Interactable class that handles the logic of transitioning the player to the next scene
+ */
 public class NextLevelInteractable : MonoBehaviour, IInteractable
 {
-    [SerializeField] int nextSceneIndex;
-    [SerializeField] int nextRoomPositionIndex;
+    // Scene Management
+    [SerializeField] private int nextSceneIndex;
+    [SerializeField] private int nextRoomPositionIndex;
     [SerializeField] public RoomType nextRoomType;
-    [SerializeField] NextLevelType nextLevelType; 
+    [SerializeField] public NextLevelType nextLevelType; 
 
-    // Save Management
-    SaveManager saveManager;
-
-    // Interaction Fields
+    // IInteractable Fields
     [SerializeField] private string prompt;
 
+    // Returns prompt dialogue
     public string InteractionPrompt => prompt;
 
     private void Awake()
@@ -41,18 +43,19 @@ public class NextLevelInteractable : MonoBehaviour, IInteractable
                 break;
             
             default:
-                nextRoomPositionIndex = -1;
+                nextRoomPositionIndex = -1; 
                 nextLevelType = NextLevelType.Others;
                 break;
                 
         }
-        saveManager = FindObjectOfType<SaveManager>();
     }
 
     public bool Interact(Interactor interactor)
     {
-        SaveData save = saveManager.activeSave;
+        // Retrieve Save
+        SaveData save = SaveManager.instance.activeSave;
 
+        // If next level is within the main game
         if (nextLevelType == NextLevelType.FirstRoom || nextLevelType == NextLevelType.SecondRoom)
         {
             // Flag Room as Selected
@@ -66,17 +69,21 @@ public class NextLevelInteractable : MonoBehaviour, IInteractable
 
         // Reset Stored Player Position
         save.playerPos = new float[] { 0f, 0f, 0f };
+
+        // Update saved scene and saves game
         save.savePointSceneIndex = nextSceneIndex;
-        saveManager.SaveGame();
+        SaveManager.instance.SaveGame();
 
         // Loads next Scene
         SceneManager.LoadSceneAsync(nextSceneIndex);
 
         return true;
     }
-
 }
 
+/**
+ * Enum of the next level types
+ */
 public enum NextLevelType
 {
     FirstRoom,
