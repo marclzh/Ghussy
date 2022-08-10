@@ -8,7 +8,8 @@ public class IceWeapon : Weapon
 {
     // Laser Variables
     private readonly float laserFireRate = 0.005f;
-    private readonly float laserDamage = 4f;
+    private readonly float laserDamageEnemy = 4f;
+    private readonly float laserDamageBoss = 1f;
     [SerializeField] private float defDistanceRay = 10;
     public LineRenderer lineRenderer;
     public GameObject startVFX;
@@ -37,12 +38,12 @@ public class IceWeapon : Weapon
             {
                 if (hit.collider.gameObject.tag == "Enemy")
                 {
-                    hit.collider.gameObject.GetComponent<EnemyHealth>().TakeDamage(laserDamage);
+                    hit.collider.gameObject.GetComponent<EnemyHealth>().TakeDamage(laserDamageEnemy);
                 }
 
                 if (hit.collider.gameObject.tag == "Boss")
                 {
-                    hit.collider.gameObject.GetComponent<BossHealth>().TakeDamage(laserDamage);
+                    hit.collider.gameObject.GetComponent<BossHealth>().TakeDamage(laserDamageBoss);
                 }
 
                 Draw2DRay(firePoint.position, hit.point);

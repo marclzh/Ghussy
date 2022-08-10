@@ -135,7 +135,6 @@ public class PlayerController : MonoBehaviour
             else
             {
                 playerAnimator.IsPlayerMoving(false);
-                //animator.SetBool("isMoving", false);
             }
 
             // when player is firing, if facing left, and weapon is right of player, flip player.
