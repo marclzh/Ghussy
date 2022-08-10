@@ -57,6 +57,9 @@ public class PlayerHealth : Health
             }
             else
             {
+                // Audio to be played on Hit
+                FindObjectOfType<AudioManager>().Play("Hit");
+
                 currentTransformationHealth -= damage;
 
                 // Raise Event to Update UI
