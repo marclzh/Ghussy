@@ -27,8 +27,7 @@ public class PlayerHealth : Health
         // Initialising the values of the variables
         maxHealth = GetComponent<Player>().maxHealth.Value;
         maxTransformationHealth = GetComponent<Player>().maxTransformationHealth.Value;
-        currentTransformationHealth = GetComponent<Player>().currentTransformationHealth.Value;
-        currentTransformationHealth = 100f;
+        currentTransformationHealth = 100f; //  Default value
         currentHealth = GetComponent<Player>().currentHealth.Value;
 
         // Raises Event to update UI
@@ -50,11 +49,17 @@ public class PlayerHealth : Health
                 // Raise Event to Update UI
                 onHealthChange.Raise(currentHealth);
 
+                // Decrement health value
+                GetComponent<Player>().currentHealth.AddModifier(new StatModifier(-damage, StatModType.Flat, this));
+
                 // Saves Changes to Current Health
                 SaveManager.instance.activeSave.currentHealthValue = currentHealth;
             }
             else
             {
+                // Audio to be played on Hit
+                FindObjectOfType<AudioManager>().Play("Hit");
+
                 currentTransformationHealth -= damage;
 
                 // Raise Event to Update UI

@@ -274,6 +274,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 88d6f20591661bd418ccba278a693dc2, type: 3}
+--- !u!114 &340644670 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7292308518446429002, guid: f9fe6f74d3e9d854f9e5f709ff51471c, type: 3}
+  m_PrefabInstance: {fileID: 7292308518513313632}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b37e5acaef44444287765605c18a6aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &372658727
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -26732,6 +26743,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 472487225, guid: b75c3a1b41293d3479bb77ea575db8dc, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.008
+      objectReference: {fileID: 0}
+    - target: {fileID: 472487225, guid: b75c3a1b41293d3479bb77ea575db8dc, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.002
+      objectReference: {fileID: 0}
     - target: {fileID: 782779774, guid: b75c3a1b41293d3479bb77ea575db8dc, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -26764,6 +26783,14 @@ PrefabInstance:
       propertyPath: m_UIInputModule
       value: 
       objectReference: {fileID: 1356653159}
+    - target: {fileID: 1676702164711257456, guid: b75c3a1b41293d3479bb77ea575db8dc, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.008
+      objectReference: {fileID: 0}
+    - target: {fileID: 1676702164711257456, guid: b75c3a1b41293d3479bb77ea575db8dc, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.002
+      objectReference: {fileID: 0}
     - target: {fileID: 1986712840679330280, guid: b75c3a1b41293d3479bb77ea575db8dc, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -27164,7 +27191,64 @@ PrefabInstance:
       propertyPath: controller
       value: 
       objectReference: {fileID: 1596553109}
-    m_RemovedComponents: []
+    - target: {fileID: 7292308519829970769, guid: f9fe6f74d3e9d854f9e5f709ff51471c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7292308519829970769, guid: f9fe6f74d3e9d854f9e5f709ff51471c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7292308519829970769, guid: f9fe6f74d3e9d854f9e5f709ff51471c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7292308519829970769, guid: f9fe6f74d3e9d854f9e5f709ff51471c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 340644670}
+    - target: {fileID: 7292308519829970769, guid: f9fe6f74d3e9d854f9e5f709ff51471c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7292308519829970769, guid: f9fe6f74d3e9d854f9e5f709ff51471c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Target
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7292308519829970769, guid: f9fe6f74d3e9d854f9e5f709ff51471c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: CloseDisplay
+      objectReference: {fileID: 0}
+    - target: {fileID: 7292308519829970769, guid: f9fe6f74d3e9d854f9e5f709ff51471c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: MaxHealthPercentagePowerUp
+      objectReference: {fileID: 0}
+    - target: {fileID: 7292308519829970769, guid: f9fe6f74d3e9d854f9e5f709ff51471c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
+      value: MaxHealthPercentagePowerUp
+      objectReference: {fileID: 0}
+    - target: {fileID: 7292308519829970769, guid: f9fe6f74d3e9d854f9e5f709ff51471c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: RoomRewardUI, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 7292308519829970769, guid: f9fe6f74d3e9d854f9e5f709ff51471c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: PowerUp, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 7292308519829970769, guid: f9fe6f74d3e9d854f9e5f709ff51471c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_FloatArgument
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7292308519829970769, guid: f9fe6f74d3e9d854f9e5f709ff51471c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_FloatArgument
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7292308519829970772, guid: f9fe6f74d3e9d854f9e5f709ff51471c, type: 3}
+      propertyPath: onStatChange1
+      value: 
+      objectReference: {fileID: 11400000, guid: addb57a2c333a62428d2a5ef2a8016d5, type: 2}
+    m_RemovedComponents:
+    - {fileID: 1708541252, guid: f9fe6f74d3e9d854f9e5f709ff51471c, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: f9fe6f74d3e9d854f9e5f709ff51471c, type: 3}
 --- !u!1001 &7372602462266709622
 PrefabInstance:
@@ -27179,11 +27263,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7372602462782921351, guid: af8cb527fcbdc554e86fde1e088c14ca, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 0.008
       objectReference: {fileID: 0}
     - target: {fileID: 7372602462782921351, guid: af8cb527fcbdc554e86fde1e088c14ca, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.002
       objectReference: {fileID: 0}
     - target: {fileID: 7372602462782921351, guid: af8cb527fcbdc554e86fde1e088c14ca, type: 3}
       propertyPath: m_LocalPosition.z
