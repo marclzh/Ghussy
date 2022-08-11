@@ -34,9 +34,6 @@ public class ShopDisplay : MonoBehaviour
 
     private void Start()
     {
-        // Prevent player from moving when shop is open
-        FindObjectOfType<PlayerController>().ActionMapMenuChange();
-
         // Prevent player from pausing when shop is active
         pauseMenu.DisablePausing();
 
