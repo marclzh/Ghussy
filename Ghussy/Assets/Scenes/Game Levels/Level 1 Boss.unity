@@ -928,8 +928,8 @@ MonoBehaviour:
     - Aghostine
     - Aghostine
     sprites:
-    - {fileID: 1674446925, guid: 78ded54b7ad3ca9449b6fc9e5a93a247, type: 3}
-    - {fileID: 1674446925, guid: 78ded54b7ad3ca9449b6fc9e5a93a247, type: 3}
+    - {fileID: 21300000, guid: 1d656487cd8091242a384b7ff0b8488f, type: 3}
+    - {fileID: 21300000, guid: 1d656487cd8091242a384b7ff0b8488f, type: 3}
     sentences:
     - I'm sorry I have to do this Ghussy...
     - But I need you to keep collecting the pieces for me...
@@ -1685,10 +1685,10 @@ MonoBehaviour:
     - Aghostine
     - Ghussy
     sprites:
-    - {fileID: 1674446925, guid: 78ded54b7ad3ca9449b6fc9e5a93a247, type: 3}
+    - {fileID: 21300000, guid: 1d656487cd8091242a384b7ff0b8488f, type: 3}
     - {fileID: 1319632407, guid: 2f186d627fc85214e930444abff8e0b2, type: 3}
-    - {fileID: 1674446925, guid: 78ded54b7ad3ca9449b6fc9e5a93a247, type: 3}
-    - {fileID: 1674446925, guid: 78ded54b7ad3ca9449b6fc9e5a93a247, type: 3}
+    - {fileID: 21300000, guid: 1d656487cd8091242a384b7ff0b8488f, type: 3}
+    - {fileID: 21300000, guid: 1d656487cd8091242a384b7ff0b8488f, type: 3}
     - {fileID: 1319632407, guid: 2f186d627fc85214e930444abff8e0b2, type: 3}
     sentences:
     - The memory pieces...

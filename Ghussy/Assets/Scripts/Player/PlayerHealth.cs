@@ -100,8 +100,6 @@ public class PlayerHealth : Health
 
             // Saves Changes to Current Transformation Health
             SaveManager.instance.activeSave.currentTransformationValue = currentTransformationHealth;
-
-
         }
 
     }
@@ -146,5 +144,4 @@ public class PlayerHealth : Health
         SaveData currentSaveData = SaveManager.instance.activeSave;
         currentSaveData.currentHealthValue = health.Value;
     }
-
 }
