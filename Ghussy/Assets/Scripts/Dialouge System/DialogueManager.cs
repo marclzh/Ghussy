@@ -39,7 +39,11 @@ public class DialogueManager : MonoBehaviour
 	// Method to start the dialogue when called.
 	public void StartDialogue(Dialogue dialogue)
 	{
-		FindObjectOfType<Player>().GetComponent<PlayerAnimator>().PlayerIdle();
+		if (FindObjectOfType<Player>() != null)
+		{
+			FindObjectOfType<Player>().GetComponent<PlayerAnimator>().PlayerIdle();
+		}
+
 		if (pauseMenu != null)
 		{
 			pauseMenu.DisablePausing();

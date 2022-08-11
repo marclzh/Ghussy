@@ -173,6 +173,10 @@ public class PlayerWeapon : MonoBehaviour
 
     public void updateWeapon(GameObject weapon)
     {
+        if (this.weapon.GetComponent<IceWeapon>() != null)
+        {
+            this.weapon.GetComponent<IceWeapon>().DisableLaser();
+        }
         this.weapon = weapon;
         weaponRB = weapon.GetComponent<Rigidbody2D>();
         weaponSR = weapon.GetComponent<SpriteRenderer>();
