@@ -46,6 +46,22 @@ public class PlayerAnimator : MonoBehaviour
         }
     }
 
+    public void PlayerIdle()
+    {
+        if (currState == "Default")
+        {
+            animator.Play("ghussy_idle");
+        }
+        else if (currState == "SkeletonTransformation")
+        {
+            animator.Play("skelly_idle");
+        }
+        else if (currState == "FridgeTransformation")
+        {
+            animator.Play("fridge_idle");
+        }
+    }
+
     // Sets the boolean to play the transforming animation of the player.
     public void PlayerTransform()
     {
