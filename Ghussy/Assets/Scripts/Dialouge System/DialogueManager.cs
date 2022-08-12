@@ -45,8 +45,9 @@ public class DialogueManager : MonoBehaviour
 		}
 
 		if (pauseMenu != null)
-		{
+		{			
 			pauseMenu.DisablePausing();
+			Debug.Log("menu disabled");
 		}
 		// Plays dialogue box animation.
 		animator.SetBool("IsOpen", true);
