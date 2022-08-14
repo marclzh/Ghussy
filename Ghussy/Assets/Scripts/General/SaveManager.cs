@@ -132,31 +132,6 @@ public class SaveManager : MonoBehaviour
             return resultString;
         }
     }
-
-    public void Update()
-    {
-       DevKey_Save();
-       DevKey_DeleteSave();
-       
-    }
-
-    private void DevKey_Save()
-    {
-        if (Input.GetKeyDown(KeyCode.K))
-        {
-            Debug.Log("Game Saved");
-            SaveGame();
-        }
-    }
-
-    private void DevKey_DeleteSave()
-    {
-        if (Input.GetKeyDown(KeyCode.J))
-        {
-            Debug.Log("Save Deleted");
-            DeleteSaveData();
-        }
-    }
 }
 
 /*

@@ -42,10 +42,6 @@ public class BossHealth : Health
         bossAnimator = GetComponent<BossAnimator>();
         isInvincible = true;
     }
-    private void Update()
-    {
-         DevKey_DamageBoss();
-    }
 
     // Overriden TakeDamage method for the boss.
     public override void TakeDamage(float damage)
@@ -91,15 +87,6 @@ public class BossHealth : Health
         baseHealthSlider.value = health;
         baseHealthBar.color = gradient.Evaluate(baseHealthSlider.normalizedValue);
         healthValue.text = $"{baseHealthSlider.value.ToString()}/{baseHealthSlider.maxValue.ToString()}";
-    }
-
-    private void DevKey_DamageBoss()
-    {
-        if (Input.GetKeyDown(KeyCode.O))
-        {
-            Debug.Log("Boss Damaged");
-            this.TakeDamage(4500);
-        }
     }
 
     // Coroutine to delay the raising of the bossdeath enemy for the death animation to play.
